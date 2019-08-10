@@ -25,12 +25,13 @@ None.
 
 ## Example Playbook
 
+```
 - name: conf_light
   hosts: localhost
   become: yes
   roles:
     - vbotka.config_light
-
+```
 
 ## License
 
