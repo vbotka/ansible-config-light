@@ -1,0 +1,5 @@
+---
+# defaults file for config_light
+
+cl_backup: false
+cl_confs: {}

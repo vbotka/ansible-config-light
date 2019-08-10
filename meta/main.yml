@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  role_name: config_light
+  author: Vladimir Botka
+  description: Configure files and trigger handlers.
+  company: https://botka.link
+  github_branch: master
+  license: BSD
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+  min_ansible_version: 2.7
+  galaxy_tags:
+    - configuration
+    - linux
+    - ubuntu
+dependencies: []
+...

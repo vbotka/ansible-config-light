@@ -1,0 +1,7 @@
+---
+# handlers file for config_light
+
+- name: ssh reload
+  service:
+    name: ssh
+    state: reloaded

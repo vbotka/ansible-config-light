@@ -1,0 +1,48 @@
+---
+# tasks file for config_light
+
+- name: Create time-stamp
+  when: cl_backup
+  set_fact:
+    cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S'|strftime }}"
+
+- name: Create backup files
+  when: cl_backup
+  copy:
+    remote_src: true
+    src: "{{ item.value.path }}"
+    dest: "{{ item.value.path }}_{{ cl_timestamp }}.bak"
+  loop: "{{ cl_confs|dict2items }}"
+
+- name: Configure lines in files
+  lineinfile:
+    path: "{{ item.0.path }}"
+    regexp: "{{ item.1.regexp }}"
+    line: "{{ item.1.line }}"
+  loop: "{{ cl_confs|subelements('lines') }}"
+  notify: "{{ item.0.handler|default(omit) }}"
+  register: cl_results_lines
+
+- name: Configure blocks in files
+  blockinfile:
+    path: "{{ item.0.path }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.1.marker }}"
+    block: "{{ item.1.block }}"
+  loop: "{{ cl_confs|subelements('blocks') }}"
+  notify: "{{ item.0.handler|default(omit) }}"
+  register: cl_results_blocks
+
+- name: Remove backup files that did not change
+  when: cl_backup
+  file:
+    state: absent
+    path: "{{ item }}_{{ cl_timestamp }}.bak"
+  loop: "{{ cl_results_lines.results|default([])|
+            json_query('[?changed==`false`].invocation.module_args.path')|
+            union(
+            cl_results_blocks.results|default([])|
+            json_query('[?changed==`false`].invocation.module_args.path'))
+            }}"
+
+# EOF
+...
