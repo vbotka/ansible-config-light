@@ -37,11 +37,14 @@
   file:
     state: absent
     path: "{{ item }}_{{ cl_timestamp }}.bak"
-  loop: "{{ cl_results_lines.results|default([])|
-            json_query('[?changed==`false`].invocation.module_args.path')|
-            union(
+  loop: "{{ cl_confs|
+            json_query('*.path')|
+            difference(
+            cl_results_lines.results|default([])|
+            json_query('[?changed==`true`].invocation.module_args.path'))|
+            difference(
             cl_results_blocks.results|default([])|
-            json_query('[?changed==`false`].invocation.module_args.path'))
+            json_query('[?changed==`true`].invocation.module_args.path'))
             }}"
 
 # EOF
