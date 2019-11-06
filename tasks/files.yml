@@ -1,0 +1,25 @@
+---
+- name: "files: Create backup"
+  import_tasks: files-create-backup.yml
+  when: cl_backup|bool
+
+- name: "files: Template"
+  import_tasks: files-template.yml
+
+- name: "file: Lineinfile"
+  import_tasks: files-lineinfile.yml
+
+- name: "file: Blockinfile"
+  import_tasks: files-blockinfile.yml
+
+- name: "files: INI file"
+  import_tasks: files-inifile.yml
+
+- name: "file: Delete backup"
+  import_tasks: files-delete-backup.yml
+  when:
+    - cl_backup|bool
+    - not ansible_check_mode
+
+# EOF
+...

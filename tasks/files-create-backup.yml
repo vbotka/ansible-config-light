@@ -1,0 +1,17 @@
+---
+- name: "file-create-backup: Create time-stamp"
+  set_fact:
+    cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S'|strftime }}"
+
+- name: "file-create-backup: Create backup files"
+  copy:
+    remote_src: true
+    src: "{{ item.path }}"
+    dest: "{{ item.path }}_{{ cl_timestamp }}.bak"
+  loop: "{{ cl_files.values() }}"
+  loop_control:
+    label: "{{ item.path }}"
+  changed_when: false
+
+# EOF
+...

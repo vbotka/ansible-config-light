@@ -1,0 +1,21 @@
+---
+
+- name: "vars-packages: Assemble packages to {{ cl_packagesd }}"
+  assemble:
+    src: "{{ cl_packagesd_dir }}"
+    dest: "{{ cl_packagesd }}"
+  delegate_to: localhost
+
+- name: "vars-packages: Add packages from {{ cl_packagesd }} to cl_packages"
+  set_fact:
+    cl_packages: "{{ cl_packages + [item|from_yaml] }}"
+  loop: "{{ lookup('file', cl_packagesd).splitlines() }}"
+
+- name: "vars-packages: Debug"
+  debug:
+    var: item
+  loop: "{{ cl_packages }}"
+  when: cl_debug|bool
+
+# EOF
+...

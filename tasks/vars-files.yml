@@ -1,0 +1,23 @@
+---
+
+- name: "vars: Assemble files to {{ cl_filesd }}"
+  assemble:
+    src: "{{ cl_filesd_dir }}"
+    dest: "{{ cl_filesd }}"
+  delegate_to: localhost
+
+- name: "vars: Include files from {{ cl_filesd }} to cl_filesd_items"
+  include_vars:
+    file: "{{ cl_filesd }}"
+    name: cl_filesd_items
+
+- name: "vars: combine cl_files with cl_filesd_items"
+  set_fact:
+    cl_files: "{{ cl_files|combine(cl_filesd_items) }}"
+
+- debug:
+    var: cl_files
+  when: cl_debug|bool
+
+# EOF
+...

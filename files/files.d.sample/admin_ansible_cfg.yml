@@ -1,0 +1,9 @@
+---
+admin_ansible_cfg:
+  path: '/scratch/home/admin/.ansible.cfg'
+  create: true
+  owner: 'admin'
+  group: 'admin'
+  mode: 'u=rw,g=r,o='
+  ini:
+    - {section: 'default', option: 'inventory', value: '/home/admin/.ansible/hosts'}

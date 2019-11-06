@@ -1,0 +1,31 @@
+---
+# TODO: Complete parameters
+- name: "files-template: Template"
+  template:
+    dest: "{{ item.path }}"
+    src: "{{ item.template }}"
+    owner: "{{ item.owner|default(omit) }}"
+    group: "{{ item.group|default(omit) }}"
+    mode: "{{ item.mode|default(omit) }}"
+    force: "{{ item.force|default(omit) }}"
+    validate: "{{ item.validate|default(omit) }}"
+  loop: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
+  loop_control:
+    label: "{{ item.path }}"
+  notify: "{{ item.handlers|default(omit) }}"
+  register: cl_results_template
+
+- name: "files-template: Debug"
+  block:
+    - name: Debug cl_results_template
+      debug:
+        var: cl_results_template
+    - name: Debug changed template path
+      debug:
+        msg: "{{ cl_results_template|default([])|
+                 json_query('[?changed==`true`].invocation.module_args.path')
+                 }}"
+  when: cl_debug|bool
+
+# EOF
+...

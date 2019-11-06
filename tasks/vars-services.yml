@@ -1,0 +1,21 @@
+---
+
+- name: "vars-services: Assemble services to {{ cl_servicesd }}"
+  assemble:
+    src: "{{ cl_servicesd_dir }}"
+    dest: "{{ cl_servicesd }}"
+  delegate_to: localhost
+
+- name: "vars-services: Add services from {{ cl_servicesd }} to cl_services"
+  set_fact:
+    cl_services: "{{ cl_services + [item|from_yaml] }}"
+  loop: "{{ lookup('file', cl_servicesd).splitlines() }}"
+
+- name: "vars-services: Debug"
+  debug:
+    var: item
+  loop: "{{ cl_services }}"
+  when: cl_debug|bool
+
+# EOF
+...

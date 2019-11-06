@@ -1,0 +1,49 @@
+---
+
+# FreeBSD -----------------------------------------------------------------
+- name: "services: FreeBSD"
+  block:
+
+    - name: "services: Enable service in rc.conf FreeBSD"
+      lineinfile:
+        dest: "/etc/rc.conf"
+        regexp: "^\\s*{{ item.name }}_enable\\s*="
+        line: "{{ item.name }}_enable=\"YES\""
+        backup: "{{ cl_backup }}"
+      loop: "{{ cl_services }}"
+      loop_control:
+        label: "{{ item.name }}"
+      when: item.enabled|default(true)
+
+    - name: "services: Disable service in rc.conf FreeBSD"
+      lineinfile:
+        dest: "/etc/rc.conf"
+        regexp: "^\\s*{{ item.name }}_enable\\s*="
+        line: "{{ item.name }}_enable=\"NO\""
+        backup: "{{ cl_backup }}"
+      loop: "{{ cl_services }}"
+      loop_control:
+        label: "{{ item.name }}"
+      when: not item.enabled|default(true)
+
+  when: ansible_os_family == "FreeBSD"
+
+# All ---------------------------------------------------------------------
+- name: "services: Manage services"
+  block:
+
+    - name: "services: Manage services"
+      service:
+        name: "{{ item.name }}"
+        state: "{{ item.state|default('started') }}"
+        enabled: "{{ item.enabled|default(true) }}"
+      loop: "{{ cl_services }}"
+      loop_control:
+        label: "{{ item.name }}"
+
+  when: ansible_os_family == "RedHat" or
+        ansible_os_family == "Debian" or
+        ansible_os_family == "FreeBSD"
+
+# EOF
+...

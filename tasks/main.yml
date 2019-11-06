@@ -1,51 +1,21 @@
 ---
-# tasks file for config_light
+# tasks for config_light
 
-- name: Create time-stamp
-  when: cl_backup
-  set_fact:
-    cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S'|strftime }}"
+- import_tasks: vars.yml
+  tags: [cl_vars, always]
 
-- name: Create backup files
-  when: cl_backup
-  copy:
-    remote_src: true
-    src: "{{ item.value.path }}"
-    dest: "{{ item.value.path }}_{{ cl_timestamp }}.bak"
-  loop: "{{ cl_confs|dict2items }}"
+- import_tasks: debug.yml
+  when: cl_debug|bool
+  tags: [cl_debug, always]
 
-- name: Configure lines in files
-  lineinfile:
-    path: "{{ item.0.path }}"
-    regexp: "{{ item.1.regexp }}"
-    line: "{{ item.1.line }}"
-  loop: "{{ cl_confs|subelements('lines') }}"
-  notify: "{{ item.0.handler|default(omit) }}"
-  register: cl_results_lines
+- import_tasks: packages.yml
+  tags: cl_packages
 
-- name: Configure blocks in files
-  blockinfile:
-    path: "{{ item.0.path }}"
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.1.marker }}"
-    block: "{{ item.1.block }}"
-  loop: "{{ cl_confs|subelements('blocks') }}"
-  notify: "{{ item.0.handler|default(omit) }}"
-  register: cl_results_blocks
+- import_tasks: files.yml
+  tags: cl_files
 
-- name: Remove backup files that did not change
-  when: cl_backup
-  file:
-    state: absent
-    path: "{{ item }}_{{ cl_timestamp }}.bak"
-  loop: "{{ cl_confs|
-            json_query('*.path')|
-            difference(
-            cl_results_lines.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|
-            difference(
-            cl_results_blocks.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))
-            }}"
+- import_tasks: services.yml
+  tags: cl_services
 
 # EOF
 ...

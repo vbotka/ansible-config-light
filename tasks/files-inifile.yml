@@ -1,0 +1,32 @@
+---
+# TODO: Complete parameters
+- name: "files-inifile: INI files"
+  ini_file:
+    path: "{{ item.0.path }}"
+    section: "{{ item.1.section }}"
+    option: "{{ item.1.option }}"
+    value: "{{ item.1.value }}"
+    owner: "{{ item.0.owner|default(omit) }}"
+    group: "{{ item.0.group|default(omit) }}"
+    mode: "{{ item.0.mode|default(omit) }}"
+    create: "{{ item.0.create|default(omit) }}"
+  loop: "{{ cl_files.values()|subelements('ini', skip_missing=true) }}"
+  loop_control:
+    label: "{{ item.0.path }}"
+  notify: "{{ item.0.handlers|default(omit) }}"
+  register: cl_results_ini
+
+- name: "files-inifile: Debug"
+  block:
+    - name: Debug cl_results_ini
+      debug:
+        var: cl_results_ini
+    - name: Debug changed ini paths
+      debug:
+        msg: "{{ cl_results_ini.results|default([])|
+                 json_query('[?changed==`true`].invocation.module_args.path')
+                 }}"
+  when: cl_debug|bool
+
+# EOF
+...
