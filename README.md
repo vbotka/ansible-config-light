@@ -14,8 +14,12 @@ None.
 
 ## Role Variables
 
-* Read the defaults and examples in vars.
-* Create handlers if configured
+* See the [defaults](https://github.com/vbotka/ansible-config-light/blob/master/defaults/main.yml), examples in [vars](https://github.com/vbotka/ansible-config-light/blob/master/vars/main.yml) and [samples](https://github.com/vbotka/ansible-config-light/tree/master/files).
+* Put configuration into the variables *cl_files, cl_packages, cl_services* and/or into the files in the directories *cl_filesd_dir, cl_packagesd_dir, cl_servicesd_dir*. Both methods can be used in the same time.
+* Create [templates](https://github.com/vbotka/ansible-config-light/tree/master/templates) if configured in *cl_files*.
+* Create [handlers](https://github.com/vbotka/ansible-config-light/blob/master/handlers/main.yml) if configured in *cl_files*.
+* See [Example. Common variables](https://github.com/vbotka/ansible-config-light#example-common-variables).
+* See [Example. SSMTP](https://github.com/vbotka/ansible-config-light#example-ssmtp).
 
 
 ## Dependencies
@@ -23,7 +27,7 @@ None.
 None.
 
 
-## Example Playbook
+## Example. Playbook
 
 ```
 - name: conf_light
@@ -32,6 +36,34 @@ None.
   roles:
     - vbotka.config_light
 ```
+### Syntax check.
+
+Run the syntax check.
+```
+$ ansible-playbook conf_light.yml --syntax-check
+```
+
+### Assembly of variables.
+
+Run the task *vars.yml* first to collect and assemble the variables.
+```
+$ ansible-playbook conf_light.yml -t cl_vars
+```
+Review the assembled variables in *cl_dira*.
+
+### Dry-run the playbook.
+
+```
+$ ansible-playbook conf_light.yml --check
+```
+
+### Run the playbook.
+
+Run the playbook twice and make sure the result is idempotent.
+```
+$ ansible-playbook conf_light.yml
+```
+
 
 ## Example. Common variables
 
