@@ -3,14 +3,28 @@
   set_fact:
     cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S'|strftime }}"
 
-- name: "file-create-backup: Create backup files"
-  copy:
-    remote_src: true
-    src: "{{ item.path }}"
-    dest: "{{ item.path }}_{{ cl_timestamp }}.bak"
+- name: "file-create-backup: Stat {{ item.path }}"
+  stat:
+    path: "{{ item.path }}"
   loop: "{{ cl_files.values() }}"
   loop_control:
     label: "{{ item.path }}"
+  register: result
+
+- name: "file-create-backup: Debug result"
+  debug:
+    var: result
+  when: cl_debug|bool
+
+- name: "file-create-backup: Create backup files"
+  copy:
+    remote_src: true
+    src: "{{ item.item.path }}"
+    dest: "{{ item.item.path }}_{{ cl_timestamp }}.bak"
+  loop: "{{ result.results }}"
+  loop_control:
+    label: "{{ item.item.path }}"
+  when: item.stat.exists
   changed_when: false
 
 # EOF
