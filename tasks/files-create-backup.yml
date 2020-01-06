@@ -21,6 +21,7 @@
     remote_src: true
     src: "{{ item.item.path }}"
     dest: "{{ item.item.path }}_{{ cl_timestamp }}.bak"
+    mode: "preserve"
   loop: "{{ result.results }}"
   loop_control:
     label: "{{ item.item.path }}"

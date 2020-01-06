@@ -2,9 +2,20 @@
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-config-light.svg?branch=master)](https://travis-ci.org/vbotka/ansible-config-light)
 
-[Ansible role.](https://galaxy.ansible.com/vbotka/config_light/)
+[Ansible role.](https://galaxy.ansible.com/vbotka/config_light/) Install packages, configure files, services, and handlers.
 
-Install packages, configure files and trigger handlers.
+Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues).
+
+
+## Supported platforms
+
+This role has been developed and tested with
+* [Ubuntu Supported Releases](http://releases.ubuntu.com/)
+* [FreeBSD Supported Production Releases](https://www.freebsd.org/releases/)
+
+This differs from platforms in Ansible Galaxy which does not offer all
+released versions and would report an error. For example:
+`IMPORTER101: Invalid platform: "FreeBSD-11.3", skipping.`
 
 
 ## Requirements

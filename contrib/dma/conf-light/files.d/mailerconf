@@ -1,0 +1,7 @@
+mailerconf:
+  path: '/etc/mail/mailer.conf'
+  force: true
+  owner: 'root'
+  group: 'wheel'
+  mode: '644'
+  template: 'mailer.conf.j2'

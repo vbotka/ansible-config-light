@@ -2,16 +2,15 @@
 galaxy_info:
   role_name: config_light
   author: Vladimir Botka
-  description: Install packages, configure files and services, trigger handlers.
+  description: Install packages, configure files, services, and handlers.
   company: https://botka.link
   github_branch: master
   license: BSD
-  min_ansible_version: 2.8
+  min_ansible_version: 2.9
   platforms:
     - name: FreeBSD
       versions:
         - 11.2
-        - 11.3
         - 12.0
     - name: Ubuntu
       versions:

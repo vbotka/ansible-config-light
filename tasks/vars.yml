@@ -3,33 +3,26 @@
 - name: "vars: Debug"
   vars:
     msg: |
+      cl_handlersd_dir [{{ cl_handlersd_dir }}]
       cl_packagesd_dir [{{ cl_packagesd_dir }}]
       cl_servicesd_dir [{{ cl_servicesd_dir }}]
       cl_filesd_dir [{{ cl_filesd_dir }}]
       cl_dira [{{ cl_dira }}]
+      cl_handlersd [{{ cl_handlersd }}]
       cl_packagesd [{{ cl_packagesd }}]
       cl_servicesd [{{ cl_servicesd }}]
       cl_filesd [{{ cl_filesd }}]
   debug:
     msg: "{{ msg.split('\n') }}"
 
-- name: "vars: Create directory {{ cl_dira }}"
-  file:
-    state: "directory"
-    path: "{{ cl_dira }}"
-  delegate_to: localhost
-
 - name: "vars: Packages"
-  include_tasks: vars-packages.yml
-  when: "cl_packagesd_dir is exists"
+  import_tasks: vars-packages.yml
 
 - name: "vars: Services"
-  include_tasks: vars-services.yml
-  when: cl_servicesd_dir is exists
+  import_tasks: vars-services.yml
 
 - name: "vars: Files"
-  include_tasks: vars-files.yml
-  when: cl_filesd_dir is exists
+  import_tasks: vars-files.yml
 
 # EOF
 ...

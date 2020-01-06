@@ -1,6 +1,16 @@
 ---
 # tasks for config_light
 
+- import_tasks: sanity.yml
+  when: cl_sanity|bool
+  tags: [cl_sanity, always]
+
+- import_tasks: setup.yml
+  when: cl_setup|bool
+  delegate_to: localhost
+  run_once: true
+  tags: [cl_setup, always]
+
 - import_tasks: vars.yml
   tags: [cl_vars, always]
 

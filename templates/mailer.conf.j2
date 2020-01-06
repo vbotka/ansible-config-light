@@ -1,5 +1,6 @@
 # {{ ansible_managed }}
-{% for item in cl_ssmtp_mailerconf %}
+# https://www.freebsd.org/cgi/man.cgi?mailer.conf
+{% for item in cl_mailerconf %}
 {{ item }}
 {% endfor %}
 # EOF

@@ -10,6 +10,7 @@
     group: "{{ item.0.group|default(omit) }}"
     mode: "{{ item.0.mode|default(omit) }}"
     create: "{{ item.0.create|default(omit) }}"
+    # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|subelements('ini', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }}"

@@ -1,0 +1,32 @@
+---
+
+- name: "setup: Create directory {{ cl_dira }}"
+  file:
+    state: "directory"
+    path: "{{ cl_dira }}"
+    owner: "{{ cl_dira_owner|default(omit) }}"
+    group: "{{ cl_dira_group|default(omit) }}"
+    mode: "{{ cl_dira_dmode }}"
+
+- name: "setup: Assemble handlers"
+  import_tasks: vars-handlers.yml
+
+- name: "setup: Create handlers"
+  template:
+    dest: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
+    src: "{{ item.value.template }}"
+    validate: "{{ cl_handlers_validate|default(omit) }}"
+    backup: "{{ cl_backup }}"
+  loop: "{{ cl_handlers|dict2items }}"
+
+- name: "setup: Include handlers"
+  lineinfile:
+    path: "{{ role_path }}/handlers/main.yml"
+    line: "- import_tasks: handlers-auto-{{ item.key }}.yml"
+    validate: "{{ cl_handlers_validate|default(omit) }}"
+    backup: "{{ cl_backup }}"
+    create: true
+  loop: "{{ cl_handlers|dict2items }}"
+
+# EOF
+...

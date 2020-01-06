@@ -5,18 +5,18 @@
   block:
     - name: "packages: Install packages FreeBSD"
       pkgng:
-        name: "{{ item.name }}"
-        state: "{{ item.state|default(omit) }}"
-        annotation: "{{ item.annotation|default(omit) }}"
+        name: "{{ item.value.name }}"
+        state: "{{ item.value.state|default(omit) }}"
+        annotation: "{{ item.value.annotation|default(omit) }}"
         autoremove: "{{ freebsd_pkgng_autoremove|default(omit) }}"
         cached: "{{ freebsd_pkgng_cached|default(omit) }}"
         chroot: "{{ freebsd_pkgng_chroot|default(omit) }}"
         jail: "{{ freebsd_pkgng_jail|default(omit) }}"
         pkgsite: "{{ freebsd_pkgng_pkgsite|default(omit) }}"
         rootdir: "{{ freebsd_pkgng_rootdir|default(omit) }}"
-      loop: "{{ cl_packages }}"
+      loop: "{{ cl_packages|dict2items }}"
       loop_control:
-        label: "{{ item.name }}"
+        label: "{{ item.key }}"
       register: result
       until: result is succeeded
       retries: "{{ install_retries }}"
@@ -33,12 +33,12 @@
   block:
     - name: "packages: Install ports FreeBSD"
       portinstall:
-        name: "{{ item.name }}"
-        state: "{{ item.state|default(omit) }}"
-        use_packages: "{{ item.use_packages|default(freebsd_use_packages) }}"
-      loop: "{{ cl_packages }}"
+        name: "{{ item.value.name }}"
+        state: "{{ item.value.state|default(omit) }}"
+        use_packages: "{{ item.value.use_packages|default(freebsd_use_packages) }}"
+      loop: "{{ cl_packages|dict2items }}"
       loop_control:
-        label: "{{ item.name }}"
+        label: "{{ item.key }}"
       register: result
       until: result is succeeded
       retries: "{{ install_retries }}"
@@ -56,12 +56,12 @@
   block:
     - name: "packages: Install packages Linux"
       package:
-        name: "{{ item.name }}"
-        state: "{{ item.state|default('present') }}"
-        use: "{{ item.use|default('auto') }}"
-      loop: "{{ cl_packages }}"
+        name: "{{ item.value.name }}"
+        state: "{{ item.value.state|default('present') }}"
+        use: "{{ item.value.use|default('auto') }}"
+      loop: "{{ cl_packages|dict2items }}"
       loop_control:
-        label: "{{ item.name }}"
+        label: "{{ item.key }}"
       register: result
       until: result is succeeded
       retries: "{{ install_retries }}"

@@ -9,6 +9,7 @@
     mode: "{{ item.mode|default(omit) }}"
     force: "{{ item.force|default(omit) }}"
     validate: "{{ item.validate|default(omit) }}"
+    # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
   loop_control:
     label: "{{ item.path }}"

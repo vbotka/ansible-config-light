@@ -1,21 +1,27 @@
 ---
 
-- name: "vars: Assemble files to {{ cl_filesd }}"
+- name: "vars-files: Assemble files to {{ cl_filesd }}"
   assemble:
+    regexp: "{{ cl_assemble_regexp }}"
     src: "{{ cl_filesd_dir }}"
     dest: "{{ cl_filesd }}"
+    owner: "{{ cl_dira_owner|default(omit) }}"
+    group: "{{ cl_dira_group|default(omit) }}"
+    mode: "{{ cl_dira_fmode }}"
+    validate: "{{ cl_assemble_validate|default(omit) }}"
   delegate_to: localhost
 
-- name: "vars: Include files from {{ cl_filesd }} to cl_filesd_items"
+- name: "vars-files: Include files from {{ cl_filesd }} to cl_filesd_items"
   include_vars:
     file: "{{ cl_filesd }}"
     name: cl_filesd_items
 
-- name: "vars: combine cl_files with cl_filesd_items"
+- name: "vars-files: Combine cl_files with cl_filesd_items"
   set_fact:
-    cl_files: "{{ cl_files|combine(cl_filesd_items) }}"
+    cl_files: "{{ cl_files|combine(cl_filesd_items|default({})) }}"
 
-- debug:
+- name: "vars-files: Debug"
+  debug:
     var: cl_files
   when: cl_debug|bool
 

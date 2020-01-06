@@ -9,10 +9,12 @@
       ansible_distribution_release [{{ ansible_distribution_release }}]
 
       cl_backup [{{ cl_backup }}]
+      cl_handlers
+      {{ cl_handlers|to_nice_yaml }}
       cl_packages
-      {{ cl_packages|to_yaml }}
+      {{ cl_packages|to_nice_yaml }}
       cl_services
-      {{ cl_services|to_yaml }}
+      {{ cl_services|to_nice_yaml }}
       cl_files
       {{ cl_files|to_nice_yaml }}
 
