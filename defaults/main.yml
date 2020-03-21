@@ -22,8 +22,8 @@ cl_filesd_dir: "{{ cl_dird }}/files.d"
 # Assemble inventory_hostname data into these files
 # cl_dira_owner: root        # no default
 # cl_dira_group: adm         # no default
-cl_dira_dmode: "775"         # default very permissive, restrict if necessary
-cl_dira_fmode: "664"         # default very permissive, restrict if necessary
+cl_dira_dmode: "0775"         # default very permissive, restrict if necessary
+cl_dira_fmode: "0664"         # default very permissive, restrict if necessary
 cl_dira: "{{ cl_dird }}/assemble"
 cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated with ~
 # cl_assemble_validate: 'ansible-lint -x 205 %s'  # no default
@@ -40,8 +40,8 @@ install_retries: 10
 install_delay: 5
 
 # FreeBSD
-freebsd_install_method: "packages"
-# freebsd_install_method: "ports"
+freebsd_install_method: packages
+# freebsd_install_method: ports
 freebsd_use_packages: true
 
 # EOF

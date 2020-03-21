@@ -51,35 +51,35 @@ None.
 
 Run the syntax check.
 ```
-$ ansible-playbook conf_light.yml --syntax-check
+shell> ansible-playbook conf_light.yml --syntax-check
 ```
 
 ### Assembly of variables.
 
 Run the task *vars.yml* first to collect and assemble the variables.
 ```
-$ ansible-playbook conf_light.yml -t cl_vars
+shell> ansible-playbook conf_light.yml -t cl_vars
 ```
 Review the assembled variables in *cl_dira*.
 
 ### Dry-run the playbook.
 
 ```
-$ ansible-playbook conf_light.yml --check
+shell> ansible-playbook conf_light.yml --check
 ```
 
 ### Run the playbook.
 
 Run the playbook twice and make sure the result is idempotent.
 ```
-$ ansible-playbook conf_light.yml
+shell> ansible-playbook conf_light.yml
 ```
 
 
 ## Example. Common variables
 
 ```
-$ cat config-light-common.yml
+shell> cat config-light-common.yml
 ---
 
 cl_debug: true
@@ -120,7 +120,7 @@ freebsd_use_packages: true
 ### Variables
 
 ```
-$ cat config-light-ssmtp.yml
+shell> cat config-light-ssmtp.yml
 ---
 
 # sSMTP - Simple SMTP
@@ -156,7 +156,7 @@ cl_ssmtp_revaliases:
 ### Conf.d
 
 ```
-$ cat conf-light/files.d/ssmtp-conf
+shell> cat conf-light/files.d/ssmtp-conf
 ssmtp_conf:
   path: '/etc/ssmtp/ssmtp.conf'
   force: true
@@ -165,7 +165,7 @@ ssmtp_conf:
   mode: 'u=rw,g=r'
   template: 'ssmtp.conf.j2'
 
-$ cat conf-light/files.d/revaliases
+shell> cat conf-light/files.d/revaliases
 revaliases:
   path: '/etc/ssmtp/revaliases'
   force: true
@@ -174,7 +174,7 @@ revaliases:
   mode: 'u=rw,g=r'
   template: 'revaliases.j2'
 
-$ cat conf-light/packages.d/ssmtp.json
+shell> cat conf-light/packages.d/ssmtp.json
 {'name': 'ssmtp'}
 ```
 
