@@ -1,6 +1,0 @@
-.. _ln:
-
-CopyrightLegal notice
-*********************
-
-All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only.
