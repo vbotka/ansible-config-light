@@ -1,10 +1,13 @@
 # config_light
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-config-light.svg?branch=master)](https://travis-ci.org/vbotka/ansible-config-light)
+[![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-config-light.readthedocs.io/en/latest/)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/config_light/) Install packages, configure files, services, and handlers.
 
-Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues).
+[Documentation at ansible-config-light.readthedocs.io](https://ansible-config-light.readthedocs.io)
+
+Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues).
 
 
 ## Supported platforms
