@@ -1,0 +1,183 @@
+---
+mytasks:
+  - file: main.yml
+    link: main_yml
+    synopsis: |
+      Tasks of the playbook.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: vars.yml
+    link: vars_yml
+    synopsis: |
+      Combine dictionaries of packages, services and files.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: vars-files.yml
+    link: vars_files_yml
+    synopsis: |
+      Combine dictionaries of files.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: vars-packages.yml
+    link: vars_packages_yml
+    synopsis: |
+      Combine dictionaries of packages.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: vars-services.yml
+    link: vars_services_yml
+    synopsis: |
+      Combine dictionaries of services.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: sanity.yml
+    link: sanity_yml
+    synopsis: |
+      Test sanity.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: setup.yml
+    link: setup_yml
+    synopsis: |
+      Setup. Create dirs. Create handlers.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: vars-handlers.yml
+    link: vars_handlers_yml
+    synopsis: |
+      Combine dictionaries of handlers.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: debug.yml
+    link: debug_yml
+    synopsis: |
+      Display variables.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: packages.yml
+    link: packages_yml
+    synopsis: |
+      Install packages.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files.yml
+    link: files_yml
+    synopsis: |
+      Create or modify files.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files-create-backup.yml
+    link: files_create_backup_yml
+    synopsis: |
+      Create backup files.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files-delete-backup.yml
+    link: files_delete_backup_yml
+    synopsis: |
+      Delete backup files if the files haven’t been modified.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files-template.yml
+    link: files_template_yml
+    synopsis: |
+      Create or modify files by Ansible module ``template``.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files-lineinfile.yml
+    link: files_lineinfile_yml
+    synopsis: |
+      Create or modify files by Ansible module ``lineinfile``.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files-blockinfile.yml
+    link: files_blockinfile_yml
+    synopsis: |
+      Create or modify files by Ansible module ``blockinfile``.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: files-inifile.yml
+    link: files_inifile_yml
+    synopsis: |
+      Create or modify files by Ansible module ``ini_infile``.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: services.yml
+    link: services_yml
+    synopsis: |
+      Configure services.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+...

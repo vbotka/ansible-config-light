@@ -1,7 +1,5 @@
 ---
 
-# - name: "sanity: Setup"
-
 - name: "sanity: Directories to assemble data from must exist"
   block:
     - name: "sanity: Directories to assemble data from must exist"
@@ -23,14 +21,14 @@
       cl_servicesd_dir is not exists or
       cl_filesd_dir is not exists
 
-- name: "sanity: Check not possible without assembled data"
+- name: "sanity: Check mode not possible without assembled data"
   block:
-    - name: "sanity: Check not possible without assembled data"
+    - name: "sanity: Check mode not possible without assembled data"
       debug:
         msg: "{{ msg.split('\n')[:-1] }}"
       vars:
         msg: |
-          Check not possible without assembled data. End of host.
+          Check mode not possible without assembled data. End of host.
           Hint: Assemble the variables first.
           Run: ansible-playbook playbook.yml -t cl_vars
     - name: "sanity: End of host"

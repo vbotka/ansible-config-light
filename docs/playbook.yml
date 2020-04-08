@@ -1,0 +1,19 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+
+    - include_vars: annotation.yml
+    - template:
+        src: annotation.rst.j2
+        dest: source/annotation.rst
+
+    - include_vars: examples.yml
+    - template:
+        src: examples.rst.j2
+        dest: source/examples.rst
+
+# EOF
+...

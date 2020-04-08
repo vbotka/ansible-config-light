@@ -3,7 +3,7 @@ rcconf:
   create: true
   owner: 'root'
   group: 'wheel'
-  mode: '644'
+  mode: '0644'
   lines:
     - regexp: '^sendmail_enable(.*)$'
       line: 'sendmail_enable="{{ cl_rcconf_sendmail_enable }}"'

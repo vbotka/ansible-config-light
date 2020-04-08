@@ -1,4 +1,5 @@
 ---
+
 - name: "debug: Config Light"
   vars:
     msg: |

@@ -1,4 +1,5 @@
 ---
+
 - name: "file-create-backup: Create time-stamp"
   set_fact:
     cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S'|strftime }}"

@@ -3,5 +3,5 @@ mailerconf:
   force: true
   owner: 'root'
   group: 'wheel'
-  mode: '644'
+  mode: '0644'
   template: 'mailer.conf.j2'

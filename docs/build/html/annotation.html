@@ -1,0 +1,1673 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Annotated source code &mdash; ansible-role-config-light 1.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+        <link rel="copyright" title="Copyright" href="copyright.html"/>
+    <link rel="top" title="ansible-role-config-light 1.3.0 documentation" href="index.html"/>
+        <link rel="next" title="Examples" href="examples.html"/>
+        <link rel="prev" title="User’s guide" href="guide.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ansible-role-config-light
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User’s guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Annotated source code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tasks">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-yml">main.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vars-yml">vars.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vars-files-yml">vars-files.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vars-packages-yml">vars-packages.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vars-services-yml">vars-services.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sanity-yml">sanity.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-yml">setup.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vars-handlers-yml">vars-handlers.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-yml">debug.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packages-yml">packages.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-yml">files.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-create-backup-yml">files-create-backup.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-delete-backup-yml">files-delete-backup.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-template-yml">files-template.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-lineinfile-yml">files-lineinfile.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-blockinfile-yml">files-blockinfile.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-inifile-yml">files-inifile.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#services-yml">services.yml</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legalnotice.html">Legal Notice</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ansible-role-config-light</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Annotated source code</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/annotation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="annotated-source-code">
+<span id="as"></span><h1><a class="toc-backref" href="#id19">Annotated source code</a><a class="headerlink" href="#annotated-source-code" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#annotated-source-code" id="id19">Annotated source code</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tasks" id="id20">Tasks</a></p>
+<ul>
+<li><p><a class="reference internal" href="#main-yml" id="id21">main.yml</a></p></li>
+<li><p><a class="reference internal" href="#vars-yml" id="id22">vars.yml</a></p></li>
+<li><p><a class="reference internal" href="#vars-files-yml" id="id23">vars-files.yml</a></p></li>
+<li><p><a class="reference internal" href="#vars-packages-yml" id="id24">vars-packages.yml</a></p></li>
+<li><p><a class="reference internal" href="#vars-services-yml" id="id25">vars-services.yml</a></p></li>
+<li><p><a class="reference internal" href="#sanity-yml" id="id26">sanity.yml</a></p></li>
+<li><p><a class="reference internal" href="#setup-yml" id="id27">setup.yml</a></p></li>
+<li><p><a class="reference internal" href="#vars-handlers-yml" id="id28">vars-handlers.yml</a></p></li>
+<li><p><a class="reference internal" href="#debug-yml" id="id29">debug.yml</a></p></li>
+<li><p><a class="reference internal" href="#packages-yml" id="id30">packages.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-yml" id="id31">files.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-create-backup-yml" id="id32">files-create-backup.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-delete-backup-yml" id="id33">files-delete-backup.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-template-yml" id="id34">files-template.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-lineinfile-yml" id="id35">files-lineinfile.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-blockinfile-yml" id="id36">files-blockinfile.yml</a></p></li>
+<li><p><a class="reference internal" href="#files-inifile-yml" id="id37">files-inifile.yml</a></p></li>
+<li><p><a class="reference internal" href="#services-yml" id="id38">services.yml</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="tasks">
+<span id="as-tree"></span><h2><a class="toc-backref" href="#id20">Tasks</a><a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-yml">
+<span id="as-main-yml"></span><h3><a class="toc-backref" href="#id21">main.yml</a><a class="headerlink" href="#main-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Tasks of the playbook.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml">main.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll"><span class="c1"># tasks for config_light</span>
+</span>
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vars.yml</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">cl_vars</span><span class="p p-Indicator">,</span> <span class="nv">always</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sanity.yml</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_sanity|bool</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">cl_sanity</span><span class="p p-Indicator">,</span> <span class="nv">always</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">setup.yml</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_setup|bool</span>
+  <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+  <span class="nt">run_once</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">cl_setup</span><span class="p p-Indicator">,</span> <span class="nv">always</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">debug.yml</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">cl_debug</span><span class="p p-Indicator">,</span> <span class="nv">always</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">packages.yml</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_packages</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files.yml</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_files</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">services.yml</span>
+  <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_services</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="vars-yml">
+<span id="as-vars-yml"></span><h3><a class="toc-backref" href="#id22">vars.yml</a><a class="headerlink" href="#vars-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Combine dictionaries of packages, services and files.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars.yml">vars.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">msg</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">cl_handlersd_dir [{{ cl_handlersd_dir }}]</span>
+      <span class="no">cl_packagesd_dir [{{ cl_packagesd_dir }}]</span>
+      <span class="no">cl_servicesd_dir [{{ cl_servicesd_dir }}]</span>
+      <span class="no">cl_filesd_dir [{{ cl_filesd_dir }}]</span>
+      <span class="no">cl_dira [{{ cl_dira }}]</span>
+      <span class="no">cl_handlersd [{{ cl_handlersd }}]</span>
+      <span class="no">cl_packagesd [{{ cl_packagesd }}]</span>
+      <span class="no">cl_servicesd [{{ cl_servicesd }}]</span>
+      <span class="no">cl_filesd [{{ cl_filesd }}]</span>
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">msg.split(&#39;\n&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars:</span><span class="nv"> </span><span class="s">Packages&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vars-packages.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars:</span><span class="nv"> </span><span class="s">Services&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vars-services.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars:</span><span class="nv"> </span><span class="s">Files&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vars-files.yml</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="vars-files-yml">
+<span id="as-vars-files-yml"></span><h3><a class="toc-backref" href="#id23">vars-files.yml</a><a class="headerlink" href="#vars-files-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Combine dictionaries of files.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-files.yml">vars-files.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-files:</span><span class="nv"> </span><span class="s">Assemble</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_filesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">assemble</span><span class="p">:</span>
+    <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_regexp</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_filesd_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_filesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_fmode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-files:</span><span class="nv"> </span><span class="s">Include</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_filesd</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">cl_filesd_items&quot;</span>
+  <span class="nt">include_vars</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_filesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_filesd_items</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-files:</span><span class="nv"> </span><span class="s">Combine</span><span class="nv"> </span><span class="s">cl_files</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">cl_filesd_items&quot;</span>
+  <span class="nt">set_fact</span><span class="p">:</span>
+    <span class="nt">cl_files</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files|combine(cl_filesd_items|default({}))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-files:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_files</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="vars-packages-yml">
+<span id="as-vars-packages-yml"></span><h3><a class="toc-backref" href="#id24">vars-packages.yml</a><a class="headerlink" href="#vars-packages-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Combine dictionaries of packages.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-packages.yml">vars-packages.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-packages:</span><span class="nv"> </span><span class="s">Assemble</span><span class="nv"> </span><span class="s">packages</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_packagesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">assemble</span><span class="p">:</span>
+    <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_regexp</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packagesd_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packagesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_fmode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-packages:</span><span class="nv"> </span><span class="s">Include</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_packagesd</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">cl_packagesd_items&quot;</span>
+  <span class="nt">include_vars</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packagesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_packagesd_items</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-packages:</span><span class="nv"> </span><span class="s">Combine</span><span class="nv"> </span><span class="s">cl_packages</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">cl_packagesd_items&quot;</span>
+  <span class="nt">set_fact</span><span class="p">:</span>
+    <span class="nt">cl_packages</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packages|combine(cl_packagesd_items|default({}))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-packages:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_packages</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="vars-services-yml">
+<span id="as-vars-services-yml"></span><h3><a class="toc-backref" href="#id25">vars-services.yml</a><a class="headerlink" href="#vars-services-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Combine dictionaries of services.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-services.yml">vars-services.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-services:</span><span class="nv"> </span><span class="s">Assemble</span><span class="nv"> </span><span class="s">services</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_servicesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">assemble</span><span class="p">:</span>
+    <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_regexp</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_servicesd_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_servicesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_fmode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-services:</span><span class="nv"> </span><span class="s">Include</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_servicesd</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">cl_cervicesd_items&quot;</span>
+  <span class="nt">include_vars</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_servicesd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_servicesd_items</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-services:</span><span class="nv"> </span><span class="s">Combine</span><span class="nv"> </span><span class="s">cl_services</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">cl_servicesd_items&quot;</span>
+  <span class="nt">set_fact</span><span class="p">:</span>
+    <span class="nt">cl_services</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_services|combine(cl_servicesd_items|default({}))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-services:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_services</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="sanity-yml">
+<span id="as-sanity-yml"></span><h3><a class="toc-backref" href="#id26">sanity.yml</a><a class="headerlink" href="#sanity-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Test sanity.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/sanity.yml">sanity.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;sanity:</span><span class="nv"> </span><span class="s">Directories</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">assemble</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">exist&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;sanity:</span><span class="nv"> </span><span class="s">Directories</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">assemble</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">exist&quot;</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">msg.split(&#39;\n&#39;)[:-1]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">vars</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">Directories to assemble data from do not exist. End of host.</span>
+          <span class="no">Hint: Double check existence of the directories</span>
+          <span class="no">{{ cl_handlersd_dir }}</span>
+          <span class="no">{{ cl_packagesd_dir }}</span>
+          <span class="no">{{ cl_servicesd_dir }}</span>
+          <span class="no">{{ cl_filesd_dir }}</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;sanity:</span><span class="nv"> </span><span class="s">End</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">host&quot;</span>
+      <span class="nt">meta</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">end_host</span>
+  <span class="nt">when</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cl_handlersd_dir is not exists or</span>
+      <span class="l l-Scalar l-Scalar-Plain">cl_packagesd_dir is not exists or</span>
+      <span class="l l-Scalar l-Scalar-Plain">cl_servicesd_dir is not exists or</span>
+      <span class="l l-Scalar l-Scalar-Plain">cl_filesd_dir is not exists</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;sanity:</span><span class="nv"> </span><span class="s">Check</span><span class="nv"> </span><span class="s">mode</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">possible</span><span class="nv"> </span><span class="s">without</span><span class="nv"> </span><span class="s">assembled</span><span class="nv"> </span><span class="s">data&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;sanity:</span><span class="nv"> </span><span class="s">Check</span><span class="nv"> </span><span class="s">mode</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">possible</span><span class="nv"> </span><span class="s">without</span><span class="nv"> </span><span class="s">assembled</span><span class="nv"> </span><span class="s">data&quot;</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">msg.split(&#39;\n&#39;)[:-1]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">vars</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">Check mode not possible without assembled data. End of host.</span>
+          <span class="no">Hint: Assemble the variables first.</span>
+          <span class="no">Run: ansible-playbook playbook.yml -t cl_vars</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;sanity:</span><span class="nv"> </span><span class="s">End</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">host&quot;</span>
+      <span class="nt">meta</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">end_host</span>
+  <span class="nt">when</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ansible_check_mode</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cl_filesd is not exists or</span>
+      <span class="l l-Scalar l-Scalar-Plain">cl_packagesd is not exists or</span>
+      <span class="l l-Scalar l-Scalar-Plain">cl_servicesd is not exists</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="setup-yml">
+<span id="as-setup-yml"></span><h3><a class="toc-backref" href="#id27">setup.yml</a><a class="headerlink" href="#setup-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Setup. Create dirs. Create handlers.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml">setup.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;setup:</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">directory</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_dira</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;directory&quot;</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_dmode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;setup:</span><span class="nv"> </span><span class="s">Assemble</span><span class="nv"> </span><span class="s">handlers&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vars-handlers.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;setup:</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">handlers&quot;</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">role_path</span><span class="nv"> </span><span class="s">}}/handlers/handlers-auto-{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.template</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlers_validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">backup</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_backup</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlers|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;setup:</span><span class="nv"> </span><span class="s">Include</span><span class="nv"> </span><span class="s">handlers&quot;</span>
+  <span class="nt">lineinfile</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">role_path</span><span class="nv"> </span><span class="s">}}/handlers/main.yml&quot;</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;-</span><span class="nv"> </span><span class="s">import_tasks:</span><span class="nv"> </span><span class="s">handlers-auto-{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlers_validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">backup</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_backup</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">create</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlers|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="vars-handlers-yml">
+<span id="as-vars-handlers-yml"></span><h3><a class="toc-backref" href="#id28">vars-handlers.yml</a><a class="headerlink" href="#vars-handlers-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Combine dictionaries of handlers.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml">vars-handlers.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-handlers:</span><span class="nv"> </span><span class="s">Assemble</span><span class="nv"> </span><span class="s">handlers</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_handlersd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">assemble</span><span class="p">:</span>
+    <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_regexp</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlersd_dir</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlersd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_dira_fmode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_assemble_validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-handlers:</span><span class="nv"> </span><span class="s">Include</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">cl_handlersd</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">cl_handlersd_items&quot;</span>
+  <span class="nt">include_vars</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlersd</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_handlersd_items</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-handlers:</span><span class="nv"> </span><span class="s">Combine</span><span class="nv"> </span><span class="s">cl_handlers</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">cl_handlersd_items&quot;</span>
+  <span class="nt">set_fact</span><span class="p">:</span>
+    <span class="nt">cl_handlers</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_handlers|combine(cl_handlersd_items|default({}))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;vars-handlers:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_handlers</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="debug-yml">
+<span id="as-debug-yml"></span><h3><a class="toc-backref" href="#id29">debug.yml</a><a class="headerlink" href="#debug-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Display variables.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/debug.yml">debug.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;debug:</span><span class="nv"> </span><span class="s">Config</span><span class="nv"> </span><span class="s">Light&quot;</span>
+  <span class="nt">vars</span><span class="p">:</span>
+    <span class="nt">msg</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">ansible_os_family [{{ ansible_os_family }}]</span>
+      <span class="no">ansible_distribution [{{ ansible_distribution }}]</span>
+      <span class="no">ansible_distribution_major_version [{{ ansible_distribution_major_version }}]</span>
+      <span class="no">ansible_distribution_version [{{ ansible_distribution_version }}]</span>
+      <span class="no">ansible_distribution_release [{{ ansible_distribution_release }}]</span>
+      <span class="no">ansible_python_version [{{ ansible_python_version }}]</span>
+
+      <span class="no">cl_backup [{{ cl_backup }}]</span>
+      <span class="no">cl_handlers</span>
+      <span class="no">{{ cl_handlers|to_nice_yaml }}</span>
+      <span class="no">cl_packages</span>
+      <span class="no">{{ cl_packages|to_nice_yaml }}</span>
+      <span class="no">cl_services</span>
+      <span class="no">{{ cl_services|to_nice_yaml }}</span>
+      <span class="no">cl_files</span>
+      <span class="no">{{ cl_files|to_nice_yaml }}</span>
+
+      <span class="no">install_retries [{{ install_retries }}]</span>
+      <span class="no">install_delay [{{ install_delay }}]</span>
+
+      <span class="no">freebsd_install_method [{{ freebsd_install_method }}]</span>
+      <span class="no">freebsd_use_packages [{{ freebsd_use_packages }}]</span>
+
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">msg.split(&#39;\n&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="packages-yml">
+<span id="as-packages-yml"></span><h3><a class="toc-backref" href="#id30">packages.yml</a><a class="headerlink" href="#packages-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Install packages.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml">packages.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="c1"># FreeBSD -----------------------------------------------------------------</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Install</span><span class="nv"> </span><span class="s">packages</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Install</span><span class="nv"> </span><span class="s">packages</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+      <span class="nt">pkgng</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.state|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">annotation</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.annotation|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">autoremove</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">freebsd_pkgng_autoremove|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">cached</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">freebsd_pkgng_cached|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">chroot</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">freebsd_pkgng_chroot|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">jail</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">freebsd_pkgng_jail|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">pkgsite</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">freebsd_pkgng_pkgsite|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">rootdir</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">freebsd_pkgng_rootdir|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packages|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop_control</span><span class="p">:</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+      <span class="nt">until</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result is succeeded</span>
+      <span class="nt">retries</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">install_retries</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">delay</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">install_delay</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Debug</span><span class="nv"> </span><span class="s">FreeBSD</span><span class="nv"> </span><span class="s">packages&quot;</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+  <span class="nt">when</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ansible_os_family == &quot;FreeBSD&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">freebsd_install_method|lower == &quot;packages&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Install</span><span class="nv"> </span><span class="s">ports</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Install</span><span class="nv"> </span><span class="s">ports</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+      <span class="nt">portinstall</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.state|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">use_packages</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.use_packages|default(freebsd_use_packages)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packages|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop_control</span><span class="p">:</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+      <span class="nt">until</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result is succeeded</span>
+      <span class="nt">retries</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">install_retries</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">delay</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">install_delay</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Debug</span><span class="nv"> </span><span class="s">FreeBSD</span><span class="nv"> </span><span class="s">ports&quot;</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+  <span class="nt">when</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ansible_os_family == &quot;FreeBSD&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">freebsd_install_method|lower == &quot;ports&quot;</span>
+
+<span class="c1"># Linux -------------------------------------------------------------------</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Install</span><span class="nv"> </span><span class="s">packages</span><span class="nv"> </span><span class="s">Linux&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Install</span><span class="nv"> </span><span class="s">packages</span><span class="nv"> </span><span class="s">Linux&quot;</span>
+      <span class="nt">package</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.state|default(&#39;present&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">use</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.use|default(&#39;auto&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_packages|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop_control</span><span class="p">:</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+      <span class="nt">until</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result is succeeded</span>
+      <span class="nt">retries</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">install_retries</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">delay</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">install_delay</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;packages:</span><span class="nv"> </span><span class="s">Debug</span><span class="nv"> </span><span class="s">Linux&quot;</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_os_family == &quot;RedHat&quot; or</span>
+        <span class="l l-Scalar l-Scalar-Plain">ansible_os_family == &quot;Debian&quot;</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-yml">
+<span id="as-files-yml"></span><h3><a class="toc-backref" href="#id31">files.yml</a><a class="headerlink" href="#files-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Create or modify files.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml">files.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files:</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">backup&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files-create-backup.yml</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_backup|bool</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files:</span><span class="nv"> </span><span class="s">Template&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files-template.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file:</span><span class="nv"> </span><span class="s">Lineinfile&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files-lineinfile.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file:</span><span class="nv"> </span><span class="s">Blockinfile&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files-blockinfile.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files:</span><span class="nv"> </span><span class="s">INI</span><span class="nv"> </span><span class="s">file&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files-inifile.yml</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file:</span><span class="nv"> </span><span class="s">Delete</span><span class="nv"> </span><span class="s">backup&quot;</span>
+  <span class="nt">import_tasks</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">files-delete-backup.yml</span>
+  <span class="nt">when</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cl_backup|bool</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">not ansible_check_mode</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-create-backup-yml">
+<span id="as-files-create-backup-yml"></span><h3><a class="toc-backref" href="#id32">files-create-backup.yml</a><a class="headerlink" href="#files-create-backup-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Create backup files.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml">files-create-backup.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file-create-backup:</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">time-stamp&quot;</span>
+  <span class="nt">set_fact</span><span class="p">:</span>
+    <span class="nt">cl_timestamp</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">&#39;%Y-%m-%d_%H_%M_%S&#39;|strftime</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file-create-backup:</span><span class="nv"> </span><span class="s">Stat</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">stat</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files.values()</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop_control</span><span class="p">:</span>
+    <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file-create-backup:</span><span class="nv"> </span><span class="s">Debug</span><span class="nv"> </span><span class="s">result&quot;</span>
+  <span class="nt">debug</span><span class="p">:</span>
+    <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;file-create-backup:</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">backup</span><span class="nv"> </span><span class="s">files&quot;</span>
+  <span class="nt">copy</span><span class="p">:</span>
+    <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.item.path</span><span class="nv"> </span><span class="s">}}_{{</span><span class="nv"> </span><span class="s">cl_timestamp</span><span class="nv"> </span><span class="s">}}.bak&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;preserve&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">result.results</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop_control</span><span class="p">:</span>
+    <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">item.stat.exists</span>
+  <span class="nt">changed_when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-delete-backup-yml">
+<span id="as-files-delete-backup-yml"></span><h3><a class="toc-backref" href="#id33">files-delete-backup.yml</a><a class="headerlink" href="#files-delete-backup-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Delete backup files if the files haven’t been modified.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml">files-delete-backup.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-delete-backup:</span><span class="nv"> </span><span class="s">Delete</span><span class="nv"> </span><span class="s">backup</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">did</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">change&quot;</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_backup|bool</span>
+  <span class="nt">file</span><span class="p">:</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}_{{</span><span class="nv"> </span><span class="s">cl_timestamp</span><span class="nv"> </span><span class="s">}}.bak&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files.values()|json_query(&#39;[].path&#39;)|</span>
+            <span class="s">difference(</span>
+            <span class="s">cl_results_template.results|default([])|</span>
+            <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;))|</span>
+            <span class="s">difference(</span>
+            <span class="s">cl_results_lines.results|default([])|</span>
+            <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;))|</span>
+            <span class="s">difference(</span>
+            <span class="s">cl_results_blocks.results|default([])|</span>
+            <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;))|</span>
+            <span class="s">difference(</span>
+            <span class="s">cl_results_inifile.results|default([])|</span>
+            <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;))</span>
+            <span class="s">}}&quot;</span>
+  <span class="nt">changed_when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-template-yml">
+<span id="as-files-template-yml"></span><h3><a class="toc-backref" href="#id34">files-template.yml</a><a class="headerlink" href="#files-template-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Create or modify files by Ansible module <code class="docutils literal notranslate"><span class="pre">template</span></code>.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml">files-template.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll"><span class="c1"># TODO: Complete parameters</span>
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-template:</span><span class="nv"> </span><span class="s">Template&quot;</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.template</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.mode|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">force</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.force|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="c1"># backup: &quot;{{ cl_backup }}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files.values()|selectattr(&#39;template&#39;,</span><span class="nv"> </span><span class="s">&#39;defined&#39;)|list</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop_control</span><span class="p">:</span>
+    <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.handlers|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_template</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-template:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug cl_results_template</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_template</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug changed template path</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_results_template|default([])|</span>
+                 <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;)</span>
+                 <span class="s">}}&quot;</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-lineinfile-yml">
+<span id="as-files-lineinfile-yml"></span><h3><a class="toc-backref" href="#id35">files-lineinfile.yml</a><a class="headerlink" href="#files-lineinfile-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Create or modify files by Ansible module <code class="docutils literal notranslate"><span class="pre">lineinfile</span></code>.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-lineinfile.yml">files-lineinfile.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll"><span class="c1"># TODO: Complete parameters</span>
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-lineinfile:</span><span class="nv"> </span><span class="s">Lineinfile&quot;</span>
+  <span class="nt">lineinfile</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.1.regexp</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.1.line</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.mode|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">create</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.create|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="c1"># backup: &quot;{{ cl_backup }}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files.values()|subelements(&#39;lines&#39;,</span><span class="nv"> </span><span class="s">skip_missing=true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop_control</span><span class="p">:</span>
+    <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.handlers|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_lines</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-lineinfile:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug cl_results_lines</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_lines</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug changed lines paths</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_results_lines.results|default([])|</span>
+                 <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;)</span>
+                 <span class="s">}}&quot;</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-blockinfile-yml">
+<span id="as-files-blockinfile-yml"></span><h3><a class="toc-backref" href="#id36">files-blockinfile.yml</a><a class="headerlink" href="#files-blockinfile-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Create or modify files by Ansible module <code class="docutils literal notranslate"><span class="pre">blockinfile</span></code>.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml">files-blockinfile.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll"><span class="c1"># TODO: Complete parameters</span>
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-blockinfile:</span><span class="nv"> </span><span class="s">Blockinfile&quot;</span>
+  <span class="nt">blockinfile</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">marker</span><span class="p">:</span> <span class="s">&quot;#</span><span class="nv"> </span><span class="s">{mark}</span><span class="nv"> </span><span class="s">ANSIBLE</span><span class="nv"> </span><span class="s">MANAGED</span><span class="nv"> </span><span class="s">BLOCK</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item.1.marker</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">block</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.1.block</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.mode|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">create</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.create|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">validate</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.validate|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="c1"># backup: &quot;{{ cl_backup }}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files.values()|subelements(&#39;blocks&#39;,</span><span class="nv"> </span><span class="s">skip_missing=true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop_control</span><span class="p">:</span>
+    <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.handlers|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_blocks</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-blockinfile:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug cl_results_blocks</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_blocks</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug changed blocks paths</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_results_blocks.results|default([])|</span>
+                 <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;)</span>
+                 <span class="s">}}&quot;</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="files-inifile-yml">
+<span id="as-files-inifile-yml"></span><h3><a class="toc-backref" href="#id37">files-inifile.yml</a><a class="headerlink" href="#files-inifile-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Create or modify files by Ansible module <code class="docutils literal notranslate"><span class="pre">ini_infile</span></code>.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-inifile.yml">files-inifile.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll"><span class="c1"># TODO: Complete parameters</span>
+</span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-inifile:</span><span class="nv"> </span><span class="s">INI</span><span class="nv"> </span><span class="s">files&quot;</span>
+  <span class="nt">ini_file</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">section</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.1.section</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">option</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.1.option</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.1.value</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">owner</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.owner|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">group</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.group|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.mode|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="nt">create</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.create|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="c1"># backup: &quot;{{ cl_backup }}&quot;</span>
+  <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_files.values()|subelements(&#39;ini&#39;,</span><span class="nv"> </span><span class="s">skip_missing=true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">loop_control</span><span class="p">:</span>
+    <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">notify</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.0.handlers|default(omit)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_ini</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;files-inifile:</span><span class="nv"> </span><span class="s">Debug&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug cl_results_ini</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_results_ini</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug changed ini paths</span>
+      <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_results_ini.results|default([])|</span>
+                 <span class="s">json_query(&#39;[?changed==`true`].invocation.module_args.path&#39;)</span>
+                 <span class="s">}}&quot;</span>
+  <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cl_debug|bool</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="services-yml">
+<span id="as-services-yml"></span><h3><a class="toc-backref" href="#id38">services.yml</a><a class="headerlink" href="#services-yml" title="Permalink to this headline">¶</a></h3>
+<p>Synopsis: Configure services.</p>
+<p>Description of the task.</p>
+<p>[<a class="reference external" href="https://github.com/vbotka/ansible-config-light/blob/master/tasks/services.yml">services.yml</a>]</p>
+<div class="highlight-Yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nn">---</span>
+</span><span class="hll">
+</span><span class="c1"># FreeBSD -----------------------------------------------------------------</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;services:</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;services:</span><span class="nv"> </span><span class="s">Enable</span><span class="nv"> </span><span class="s">service</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">rc.conf</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+      <span class="nt">lineinfile</span><span class="p">:</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;/etc/rc.conf&quot;</span>
+        <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;^\\s*{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}_enable\\s*=&quot;</span>
+        <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}_enable=\&quot;YES\&quot;&quot;</span>
+        <span class="nt">backup</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_backup</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_services|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop_control</span><span class="p">:</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="s">&quot;item.value.enabled|default(true)|bool&quot;</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;services:</span><span class="nv"> </span><span class="s">Disable</span><span class="nv"> </span><span class="s">service</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">rc.conf</span><span class="nv"> </span><span class="s">FreeBSD&quot;</span>
+      <span class="nt">lineinfile</span><span class="p">:</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;/etc/rc.conf&quot;</span>
+        <span class="nt">regexp</span><span class="p">:</span> <span class="s">&quot;^\\s*{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}_enable\\s*=&quot;</span>
+        <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}_enable=\&quot;NO\&quot;&quot;</span>
+        <span class="nt">backup</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_backup</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_services|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop_control</span><span class="p">:</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="s">&quot;not</span><span class="nv"> </span><span class="s">item.value.enabled|default(true)|bool&quot;</span>
+
+  <span class="nt">when</span><span class="p">:</span> <span class="s">&quot;ansible_os_family</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&#39;FreeBSD&#39;&quot;</span>
+
+<span class="c1"># All ---------------------------------------------------------------------</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;services:</span><span class="nv"> </span><span class="s">Manage</span><span class="nv"> </span><span class="s">services&quot;</span>
+  <span class="nt">block</span><span class="p">:</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;services:</span><span class="nv"> </span><span class="s">Manage</span><span class="nv"> </span><span class="s">services&quot;</span>
+      <span class="nt">service</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.state|default(&#39;started&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.value.enabled|default(true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cl_services|dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">loop_control</span><span class="p">:</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.key</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+  <span class="nt">when</span><span class="p">:</span> <span class="s">&quot;ansible_os_family</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&#39;RedHat&#39;</span><span class="nv"> </span><span class="s">or</span>
+         <span class="s">ansible_os_family</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&#39;Debian&#39;</span><span class="nv"> </span><span class="s">or</span>
+         <span class="s">ansible_os_family</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&#39;FreeBSD&#39;&quot;</span>
+
+<span class="c1"># EOF</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="guide.html" class="btn btn-neutral" title="User’s guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="copyright.html">Copyright</a> 2020, Vladimir Botka.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

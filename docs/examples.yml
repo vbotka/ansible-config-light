@@ -1,0 +1,123 @@
+---
+postfix_content:
+  - {name: Handlers, dict: postfix_handlers}
+  - {name: Packages, dict: postfix_packages}
+  - {name: Services, dict: postfix_services}
+  - {name: Files, dict: postfix_files}
+
+postfix_handlers:
+  - file: contrib/postfix/conf-light/handlers.d/postfix-freebsd
+    link: handlersd_postfix_freebsd
+    synopsis: |
+      Create handlers for Postfix.
+    description: |
+      Use template (2) to create handlers.
+    lines: 2,5,12,19,27,35,40
+    seealso:
+      - "See :ref:`as_setup_yml` how the handlers are created."
+    note: []
+    warning: []
+  - file: contrib/postfix/conf-light/handlers.d/sendmail-freebsd
+    link: handlersd_sendmail_freebsd
+    synopsis: |
+      Create handlers for Sendmail.
+    description: |
+      Use template (2) to create handlers.
+    lines: 2,5,12,19,27,35,41
+    seealso:
+      - "See :ref:`as_setup_yml` how the handlers are created."
+    note: []
+    warning: []
+
+postfix_packages:
+  - file: contrib/postfix/conf-light/packages.d/postfix
+    link: packagesd_postfix
+    synopsis: |
+      Install Postfix.
+    description: |
+      Use package or port (2) to install Postfix.
+    lines: 2
+    seealso:
+      - "See :ref:`as_packages_yml` how the packages or ports are installed."
+    note: []
+    warning: []
+
+postfix_services:
+  - file: contrib/postfix/conf-light/services.d/postfix
+    link: servicesd_postfix
+    synopsis: |
+      Configure Postfix service.
+    description: |
+      Set service (2) state (3). Run the service on boot (4).
+    lines: 2,3,4
+    seealso:
+      - "See :ref:`ug_defaults`."
+      - "See :ref:`as_services_yml` how the services are configured."
+    note: []
+    warning: []
+  - file: contrib/postfix/conf-light/services.d/sendmail
+    link: servicesd_sendmail
+    synopsis: |
+      Configure Sendmail service.
+    description: |
+      Set service (2) state (3). Do not run the service on boot (4).
+    lines: 2,3,4
+    seealso:
+      - "See :ref:`ug_defaults`."
+    note: []
+    warning: []
+
+postfix_files:
+  - file: contrib/postfix/config-light-postfix.yml
+    link: config_light_postfix_yml
+    synopsis: |
+      Custom variables for Postfix.
+    description: >
+      Put the host-specific variables (6) into the
+      ``host_vars``. Optionally other variables might be put into the
+      ``group_vars``.
+    lines: 6
+    seealso: []
+    note: []
+    warning: []
+  - file: contrib/postfix/conf-light/files.d/mailer-conf
+    link: filesd_mailer_conf
+    synopsis: |
+      Create file.
+    description: |
+      Create file (2) from the template (7).
+    lines: 2,7
+    seealso: []
+    note: []
+    warning: []
+  - file: contrib/postfix/conf-light/files.d/periodic-conf
+    link: filesd_periodic_conf
+    synopsis: |
+      Modify file.
+    description: |
+      Modify file (2) with the lines (7).
+    lines: 2,7
+    seealso: []
+    note: []
+    warning: []
+  - file: contrib/postfix/conf-light/files.d/postfix-main-cf
+    link: filesd_main_cf
+    synopsis: |
+      Modify file and notify handlers.
+    description: |
+      Modify file (2) with the lines (9) and notify handlers (7).
+    lines: 2,7,9
+    seealso: []
+    note: []
+    warning: []
+  - file: contrib/postfix/conf-light/files.d/rc-conf
+    link: filesd_rc_conf
+    synopsis: |
+      Modify file.
+    description: |
+      Modify file (2) with the lines (7).
+    lines: 2,7
+    seealso: []
+    note: []
+    warning: []
+...

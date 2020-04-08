@@ -3,7 +3,7 @@ periodic_conf:
   create: true
   owner: 'root'
   group: 'wheel'
-  mode: '644'
+  mode: '0644'
   lines:
     - regexp: '^daily_clean_hoststat_enable(.*)$'
       line: 'daily_clean_hoststat_enable="{{ cl_periodicconf_daily_clean_hoststat_enable }}"'

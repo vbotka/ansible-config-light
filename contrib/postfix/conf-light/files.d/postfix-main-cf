@@ -3,7 +3,7 @@ postfix_main_cf:
   create: true
   owner: 'root'
   group: 'wheel'
-  mode: '644'
+  mode: '0644'
   handlers:
     - 'postfix_freebsd reload postfix'
   lines:

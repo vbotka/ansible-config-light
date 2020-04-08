@@ -1,4 +1,5 @@
 ---
+
 - name: "files-delete-backup: Delete backup files that did not change"
   when: cl_backup|bool
   file:
