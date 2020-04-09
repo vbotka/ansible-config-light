@@ -1,4 +1,5 @@
 README
+======
 
 Update version
 
@@ -13,8 +14,16 @@ Create html documents
 
   shell> make html
 
+Create LaTex and PDF documents
+
+  shell> make latexpdf
+
+Create epub documents
+
+  shell> make epub
+
 See the documents
 
-  shell>browser build/html/index.html
+  shell> browser build/html/index.html
 
 # EOF

@@ -185,19 +185,25 @@ Most of the variables are self-explaining. There are four very
 important variables ``cl_handlers, cl_packages, cl_services, and
 cl_files`` (10-13). These dictionaries which comprise the
 configuration data of handlers, packages, services, and files will be
-explained in details. By default these dictionaries are empty. Best
-practice is to provide the data either in *host_vars* and *group_vars*
-or as a files in the directories ``cl_handlersd_dir, cl_packagesd_dir,
-cl_servicesd_dir, and cl_filesd_dir`` (17-20). Both methods can be
-applied at the same time. The variables will be assembled and combined
-by the tasks ``vars_handlers.yml, vars_packages.yml,
-vars_services.yml, and vars_files.yml``. The assembled dictionaries
-customized for each host in the play will be stored in the
-host-specific files ``cl_packagesd, cl_servicesd, and
-cl_filesd``(31-33). The variable ``cl_handlers`` is not host-specific
-because the handlers will be create at the controller
+explained in details. By default these dictionaries are empty.
+
+Best practice is to provide the data either in *host_vars* and
+*group_vars* or as a files in the directories ``cl_handlersd_dir,
+cl_packagesd_dir, cl_servicesd_dir, and cl_filesd_dir`` (17-20). Both
+methods can be applied at the same time. The variables will be
+assembled and combined by the tasks ``vars_handlers.yml,
+vars_packages.yml, vars_services.yml, and vars_files.yml``. The
+assembled dictionaries customized for each host in the play will be
+stored in the host-specific files ``cl_packagesd, cl_servicesd,
+andcl_filesd`` (31-33). The variable ``cl_handlers`` is not
+host-specific because the handlers will be create at the controller
 (localhost). Assembled dictionary ``cl_handlers`` will be stored in
-the file ``cl_handlersd`` (30).
+the file ``cl_handlersd`` (30). Take a look at the directory
+``cl_dira`` (27) to see assembled data.
+
+By default the base of the directories is ``role_path`` (16). The user
+is expected to put the configuration data to more suitable
+directory, e.g., to ``playbook_dir`` directory.
 
 [`defaults/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/defaults/main.yml>`_]
 
