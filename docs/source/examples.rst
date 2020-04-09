@@ -4,7 +4,7 @@
 Examples
 ########
 .. contents:: Table of Contents
-   :depth: 3
+   :depth: 4
 
 .. _ex_postfix:
 
@@ -35,7 +35,7 @@ Use template (2) to create handlers.
     :emphasize-lines: 2,5,12,19,27,35,40
     :linenos:
 
-.. seealso:: See :ref:`as_setup_yml` how the handlers are created. 
+.. seealso:: See :ref:`as_setup_yml` how the handlers are created.
 .. _ex_handlersd_sendmail_freebsd:
 
 contrib/postfix/conf-light/handlers.d/sendmail-freebsd
@@ -54,7 +54,7 @@ Use template (2) to create handlers.
     :emphasize-lines: 2,5,12,19,27,35,41
     :linenos:
 
-.. seealso:: See :ref:`as_setup_yml` how the handlers are created. 
+.. seealso:: See :ref:`as_setup_yml` how the handlers are created.
 .. _ex_postfix_packages:
 
 Packages
@@ -78,7 +78,7 @@ Use package or port (2) to install Postfix.
     :emphasize-lines: 2
     :linenos:
 
-.. seealso:: See :ref:`as_packages_yml` how the FreeBSD packages or ports are installed. 
+.. seealso:: See :ref:`as_packages_yml` how the FreeBSD packages or ports are installed.
 .. _ex_postfix_services:
 
 Services
@@ -102,7 +102,7 @@ Set service (2) state (3). Run the service on boot (4).
     :emphasize-lines: 2,3,4
     :linenos:
 
-.. seealso:: See :ref:`ug_defaults`. See :ref:`as_services_yml` how the services are configured. 
+.. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`. See :ref:`as_services_yml` how the services are configured.
 .. _ex_servicesd_sendmail:
 
 contrib/postfix/conf-light/services.d/sendmail
@@ -121,7 +121,7 @@ Set service (2) state (3). Do not run the service on boot (4).
     :emphasize-lines: 2,3,4
     :linenos:
 
-.. seealso:: See :ref:`ug_defaults`. 
+.. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`.
 .. _ex_postfix_files:
 
 Files
@@ -248,7 +248,7 @@ Use package (2) to install sSMTP.
     :emphasize-lines: 2
     :linenos:
 
-.. seealso:: See :ref:`as_packages_yml` how the Linux packages are installed. 
+.. seealso:: See :ref:`as_packages_yml` how the Linux packages are installed.
 .. _ex_ssmtp_files:
 
 Files
@@ -290,7 +290,7 @@ Create file (2) from the template (7).
     :emphasize-lines: 2,7
     :linenos:
 
-.. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files_template_yml`. 
+.. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files_template_yml`.
 .. _ex_filesd_ssmtp_conf:
 
 contrib/ssmtp/conf-light/files.d/ssmtp-conf
@@ -309,4 +309,4 @@ Create file (2) from the template (7).
     :emphasize-lines: 2,7
     :linenos:
 
-.. seealso:: See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_. See how files are created from template :ref:`as_files_template_yml`. 
+.. seealso:: See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_. See how files are created from template :ref:`as_files_template_yml`.

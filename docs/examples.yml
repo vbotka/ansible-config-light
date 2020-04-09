@@ -106,7 +106,7 @@ postfix_services:
       Set service (2) state (3). Run the service on boot (4).
     lines: 2,3,4
     seealso:
-      - "See :ref:`ug_defaults`."
+      - "See custom Postfix variables :ref:`ex_config_light_postfix_yml`."
       - "See :ref:`as_services_yml` how the services are configured."
     note: []
     warning: []
@@ -118,7 +118,7 @@ postfix_services:
       Set service (2) state (3). Do not run the service on boot (4).
     lines: 2,3,4
     seealso:
-      - "See :ref:`ug_defaults`."
+      - "See custom Postfix variables :ref:`ex_config_light_postfix_yml`."
     note: []
     warning: []
 

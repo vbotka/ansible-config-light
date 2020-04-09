@@ -48,7 +48,7 @@ Ansible topics:
 * `Roles <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html>`_
 * `Working With Playbooks <https://docs.ansible.com/ansible/latest/user_guide/playbooks.html>`_
 
-Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-config-light/issues>`_.
+Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-config-light/issues>`_. The contributions to the `project <https://github.com/vbotka/ansible-config-light/>`_ are welcome.
 
 .. _ug_installation:
 
@@ -146,8 +146,13 @@ the command:
       play #1 (srv.example.com): srv.example.com	TAGS: []
       TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity, cl_services, cl_setup, cl_vars]
 
-For example see the list of the variables and their values with the
-tag ``cl-debug`` (enable the debug output) ::
+For example display the list of the variables and their values with
+the tag ``cl_debug`` (when the debug is enabled ``cl_debug:
+true``). With this tag specified ``-t cl_debug`` all imported tasks
+before the task *debug.yml* will also run because of the tag ``always``
+(when sanity testing is enabled ``cl_sanity: true`` and setup is
+enabled ``cl_setup: true``). This is the default. See
+:ref:`as_main_yml`. ::
 
     shell> ansible-playbook config-light.yml -t cl_debug
 
@@ -176,9 +181,23 @@ directory ``defaults``.
 Default variables
 -----------------
 
-Most of the variables are self-explaining. The structure of the
-dictionaries with the configuration data for handlers, packages,
-services, and files will be explained in details.
+Most of the variables are self-explaining. There are four very
+important variables ``cl_handlers, cl_packages, cl_services, and
+cl_files`` (10-13). These dictionaries which comprise the
+configuration data of handlers, packages, services, and files will be
+explained in details. By default these dictionaries are empty. Best
+practice is to provide the data either in *host_vars* and *group_vars*
+or as a files in the directories ``cl_handlersd_dir, cl_packagesd_dir,
+cl_servicesd_dir, and cl_filesd_dir`` (17-20). Both methods can be
+applied at the same time. The variables will be assembled and combined
+by the tasks ``vars_handlers.yml, vars_packages.yml,
+vars_services.yml, and vars_files.yml``. The assembled dictionaries
+customized for each host in the play will be stored in the
+host-specific files ``cl_packagesd, cl_servicesd, and
+cl_filesd``(31-33). The variable ``cl_handlers`` is not host-specific
+because the handlers will be create at the controller
+(localhost). Assembled dictionary ``cl_handlers`` will be stored in
+the file ``cl_handlersd`` (30).
 
 [`defaults/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/defaults/main.yml>`_]
 
@@ -186,12 +205,10 @@ services, and files will be explained in details.
     :linenothreshold: 5
 .. literalinclude:: ../../defaults/main.yml
     :language: yaml
-    :emphasize-lines: 2
+    :emphasize-lines: 2, 10-13
     :linenos:
 
-.. warning:: Defaults for the variables *cl_dira_dmode* (25) and
-             *cl_dira_fmode* (26) are very permissive. Restrict the
-             permissions if necessary.
+.. warning:: Defaults of the variables *cl_dira_dmode* (25) and *cl_dira_fmode* (26) are very permissive. These are the permissions to access the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
 
 <TODO: complete description of all default variables>
 
@@ -254,12 +271,12 @@ See Also
 	     
 Notes
 ^^^^^
-.. note:: The template *handlers-auto1.yml.j2* is ready to be used in
-          the directory ``templates``. The user is expected to create
-          new templates when needed. Feel free to change the structure
-          of the data and to create new templates that might fit the
-          purpose better. Feel free to contribute new templates
-          configuration examples to the `project
+.. note:: The template *handlers-auto1.yml.j2* is available in the
+          role's directory ``templates``. The user is expected to
+          create new templates when needed. Feel free to change the
+          structure of the data and to create new templates that might
+          fit the purpose better. Feel free to contribute new
+          templates and configuration examples to the `project
           <https://github.com/vbotka/ansible-config-light/>`_.
 
 
@@ -377,14 +394,20 @@ cl_files - dictionary with files
 Synopsis
 ^^^^^^^^
 
-The variable *cl_files* is a dictionary with the files created and
-modified by this role. It's optional which Ansible module will be
-used. Several options are available:
+The variable *cl_files* is a dictionary of the files that shall be
+created or modified by this role. It's optional which Ansible module
+will be used to create or modify a file and more options can be
+applied to create and modify the same file. For example, it's possible
+to create a file by the Ansible module *template* and modify it
+with the module *lineinfile* later. Several options are available:
 
-* template: If the attribute *template* is defined in the dictionary
-* lineinfile: If the attribute *lines* is defined in the dictionary
-* blockinfile: If the attribute *blocks* is defined in the dictionary
-* ini_file: If the attribute *ini* is defined in the dictionary
+1. template: If the attribute *template* is defined in the dictionary
+2. lineinfile: If the attribute *lines* is defined in the dictionary
+3. blockinfile: If the attribute *blocks* is defined in the dictionary
+4. ini_file: If the attribute *ini* is defined in the dictionary
+
+Multiple options, when used to create or modify a file, will be
+applied in this order.
 
 See Also
 ^^^^^^^^
@@ -396,7 +419,7 @@ See Also
 
    * See `files-create-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_ how the backups are created (when enabled by *cl_backup*).
 
-   * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted if the files haven't been modified.
+   * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted when the files haven't been modified.
 
 Parameters for template
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -594,6 +617,7 @@ Configure services ::
 
     shell> ansible-playbook config-light.yml -t cl_services
 
-The role and tested data are idempotent. When running the playbook
-repeatedly there should be no changes once the application is
-installed.
+The role and the configuration data in the examples are
+idempotent. Once the application is installed there should be no
+changes reported by *ansible-playbook* when running the playbook
+repeatedly.

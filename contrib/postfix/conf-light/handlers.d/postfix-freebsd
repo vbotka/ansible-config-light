@@ -48,6 +48,6 @@ postfix_freebsd:
 #        - 'cmd: /usr/local/sbin/postmap {{ postfix_main_cf_smtp_sasl_password_maps }}'
 
 #    - handler: 'postmap virtual aliases'
-#      mofule: command
+#      module: command
 #      params:
 #        - cmd: /usr/local/sbin/postmap {{ postfix_virtual }}'

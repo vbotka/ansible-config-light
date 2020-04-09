@@ -5,9 +5,9 @@
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/config_light/) Install packages, configure files, services, and handlers.
 
-[Documentation at ansible-config-light.readthedocs.io](https://ansible-config-light.readthedocs.io)
+[Documentation at rtfd.io](https://ansible-config-light.readthedocs.io) [PDF 227k](https://github.com/vbotka/ansible-config-light/blob/master/ansible-role-config-light.pdf)
 
-Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues).
+Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues). Contributions are welcome.
 
 
 ## Supported platforms
