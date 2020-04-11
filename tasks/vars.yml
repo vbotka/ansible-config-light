@@ -5,11 +5,13 @@
     msg: |
       cl_handlersd_dir [{{ cl_handlersd_dir }}]
       cl_packagesd_dir [{{ cl_packagesd_dir }}]
+      cl_statesd_dir [{{ cl_statesd_dir }}]
       cl_servicesd_dir [{{ cl_servicesd_dir }}]
       cl_filesd_dir [{{ cl_filesd_dir }}]
       cl_dira [{{ cl_dira }}]
       cl_handlersd [{{ cl_handlersd }}]
       cl_packagesd [{{ cl_packagesd }}]
+      cl_statesd [{{ cl_statesd }}]
       cl_servicesd [{{ cl_servicesd }}]
       cl_filesd [{{ cl_filesd }}]
   debug:
@@ -17,6 +19,9 @@
 
 - name: "vars: Packages"
   import_tasks: vars-packages.yml
+
+- name: "vars: States"
+  import_tasks: vars-states.yml
 
 - name: "vars: Services"
   import_tasks: vars-services.yml

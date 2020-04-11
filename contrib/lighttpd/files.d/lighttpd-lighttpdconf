@@ -1,0 +1,7 @@
+lighttpd-lighttpdconf:
+  path: '/usr/local/etc/lighttpd/lighttpd.conf'
+  create: true
+  owner: 'root'
+  group: 'wheel'
+  mode: '0644'
+  lines: '{{ cl_lighttpd_lighttpdconf_lines }}'

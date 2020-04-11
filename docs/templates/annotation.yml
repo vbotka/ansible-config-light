@@ -20,16 +20,6 @@ mytasks:
     seealso: []
     note: []
     warning: []
-  - file: vars-files.yml
-    link: vars_files_yml
-    synopsis: |
-      Combine dictionaries of files.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    note: []
-    warning: []
   - file: vars-packages.yml
     link: vars_packages_yml
     synopsis: |
@@ -40,10 +30,30 @@ mytasks:
     seealso: []
     note: []
     warning: []
+  - file: vars-states.yml
+    link: vars_states_yml
+    synopsis: |
+      Combine dictionaries of files' states.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
   - file: vars-services.yml
     link: vars_services_yml
     synopsis: |
       Combine dictionaries of services.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: vars-files.yml
+    link: vars_files_yml
+    synopsis: |
+      Combine dictionaries of files.
     description: |
       Description of the task.
     lines: 1,2
@@ -94,6 +104,16 @@ mytasks:
     link: packages_yml
     synopsis: |
       Install packages.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: states.yml
+    link: states_yml
+    synopsis: |
+      Configure states of files.
     description: |
       Description of the task.
     lines: 1,2

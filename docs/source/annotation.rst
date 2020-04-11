@@ -50,26 +50,6 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
-.. _as_vars_files_yml:
-
-vars-files.yml
---------------
-
-Synopsis: Combine dictionaries of files.
-
-
-Description of the task.
-
-
-[`vars-files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-files.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-files.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
 .. _as_vars_packages_yml:
 
 vars-packages.yml
@@ -90,6 +70,26 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
+.. _as_vars_states_yml:
+
+vars-states.yml
+---------------
+
+Synopsis: Combine dictionaries of files' states.
+
+
+Description of the task.
+
+
+[`vars-states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-states.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
 .. _as_vars_services_yml:
 
 vars-services.yml
@@ -106,6 +106,26 @@ Description of the task.
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars-services.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_vars_files_yml:
+
+vars-files.yml
+--------------
+
+Synopsis: Combine dictionaries of files.
+
+
+Description of the task.
+
+
+[`vars-files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-files.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-files.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:
@@ -206,6 +226,26 @@ Description of the task.
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/packages.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_states_yml:
+
+states.yml
+----------
+
+Synopsis: Configure states of files.
+
+
+Description of the task.
+
+
+[`states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/states.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:

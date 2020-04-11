@@ -2,6 +2,7 @@
 
 cl_sanity: true
 cl_setup: true
+cl_install: true
 cl_debug: true
 cl_backup: true
 
@@ -10,6 +11,7 @@ cl_handlers: {}
 cl_packages: {}
 cl_services: {}
 cl_files: {}
+cl_states: {}
 
 # Assemble data from these directories
 cl_dird: "{{ playbook_dir }}/conf-light"
@@ -17,17 +19,19 @@ cl_handlersd_dir: "{{ cl_dird }}/handlers.d"
 cl_packagesd_dir: "{{ cl_dird }}/packages.d"
 cl_servicesd_dir: "{{ cl_dird }}/services.d"
 cl_filesd_dir: "{{ cl_dird }}/files.d"
+cl_statesd_dir: "{{ cl_dird }}/states.d"
 
 # Assemble inventory_hostname data into these files (idempotent)
 cl_dira_owner: "root"
 cl_dira_group: "adm"
-cl_dira_dmode: "770"
-cl_dira_fmode: "660"
+cl_dira_dmode: "0770"
+cl_dira_fmode: "0660"
 cl_dira: "{{ cl_dird }}/assemble"
 cl_assemble_regexp: '^(.*)[^~]$'
-cl_filesd: "{{ cl_dira }}/filesd.{{ inventory_hostname }}"
 cl_packagesd: "{{ cl_dira }}/packagesd.{{ inventory_hostname }}"
 cl_servicesd: "{{ cl_dira }}/servicesd.{{ inventory_hostname }}"
+cl_filesd: "{{ cl_dira }}/filesd.{{ inventory_hostname }}"
+cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
 
 # OS common
 install_retries: 10

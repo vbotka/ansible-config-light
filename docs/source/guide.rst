@@ -144,7 +144,7 @@ the command:
     playbook: config-light.yml
 
       play #1 (srv.example.com): srv.example.com	TAGS: []
-      TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity, cl_services, cl_setup, cl_vars]
+      TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity, cl_services, cl_setup, cl_states, cl_vars]
 
 For example display the list of the variables and their values with
 the tag ``cl_debug`` (when the debug is enabled ``cl_debug:
@@ -182,28 +182,29 @@ Default variables
 -----------------
 
 Most of the variables are self-explaining. There are four very
-important variables ``cl_handlers, cl_packages, cl_services, and
-cl_files`` (10-13). These dictionaries which comprise the
-configuration data of handlers, packages, services, and files will be
-explained in details. By default these dictionaries are empty.
+important variables ``cl_handlers, cl_packages, cl_states,
+cl_services, and cl_files`` (11-15). These dictionaries which comprise
+the configuration data of handlers, packages, services, and files will
+be explained in details. By default these dictionaries are empty.
 
 Best practice is to provide the data either in *host_vars* and
 *group_vars* or as a files in the directories ``cl_handlersd_dir,
-cl_packagesd_dir, cl_servicesd_dir, and cl_filesd_dir`` (17-20). Both
-methods can be applied at the same time. The variables will be
-assembled and combined by the tasks ``vars_handlers.yml,
-vars_packages.yml, vars_services.yml, and vars_files.yml``. The
-assembled dictionaries customized for each host in the play will be
-stored in the host-specific files ``cl_packagesd, cl_servicesd,
-andcl_filesd`` (31-33). The variable ``cl_handlers`` is not
-host-specific because the handlers will be create at the controller
+cl_packagesd_dir, cl_statesd_dir, cl_servicesd_dir, and
+cl_filesd_dir`` (22-26). Both methods can be applied at the same
+time. The variables will be assembled and combined by the tasks
+``vars_handlers.yml, vars_packages.yml, vars_states.yml,
+vars_services.yml, and vars_files.yml``. The assembled dictionaries
+customized for each host in the play will be stored in the
+host-specific files ``cl_packagesd, cl_statesd, cl_servicesd, and
+cl_filesd`` (35-38). The variable ``cl_handlers`` is not host-specific
+because the handlers will be create at the controller
 (localhost). Assembled dictionary ``cl_handlers`` will be stored in
-the file ``cl_handlersd`` (30). Take a look at the directory
-``cl_dira`` (27) to see assembled data.
+the file ``cl_handlersd`` (34). Take a look at the directory
+``cl_dira`` (33) to see assembled data.
 
-By default the base of the directories is ``role_path`` (16). The user
-is expected to put the configuration data to more suitable
-directory, e.g., to ``playbook_dir`` directory.
+By default the base of the directories is ``role_path`` (21). The user
+is expected to put the configuration data to more suitable directory,
+e.g., to ``playbook_dir`` directory.
 
 [`defaults/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/defaults/main.yml>`_]
 
@@ -211,10 +212,10 @@ directory, e.g., to ``playbook_dir`` directory.
     :linenothreshold: 5
 .. literalinclude:: ../../defaults/main.yml
     :language: yaml
-    :emphasize-lines: 2, 10-13
+    :emphasize-lines: 2, 11-15
     :linenos:
 
-.. warning:: Defaults of the variables *cl_dira_dmode* (25) and *cl_dira_fmode* (26) are very permissive. These are the permissions to access the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
+.. warning:: Defaults of the variables *cl_dira_dmode* (31) and *cl_dira_fmode* (32) are very permissive. These are the permissions to access the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
 
 <TODO: complete description of all default variables>
 
@@ -329,6 +330,61 @@ See Also
    * See `vars-packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-packages.yml>`_ how the variable *cl_packages* is combined with the content of the directory *cl_packagesd_dir*.
 
    * See `packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml>`_ how the packages or BSD ports are installed.
+
+
+.. _ug_states:
+
+cl_states - dictionary of files' states
+---------------------------------------
+.. highlight:: yaml
+.. contents::
+   :local:
+
+Synopsis
+^^^^^^^^
+
+The variable *cl_states* is a dictionary of the files' states.
+
+Parameters
+^^^^^^^^^^
+============================= ==================== ============================
+| *Parameter*                 | *Type*             | *Comments*
+============================= ==================== ============================
+| **state**                   | *string*           | State of the filename
+                              | ``required``       |
+| **path**                    | *string*           | Path to file
+                              | ``required``       |
+| **owner**                   | *string*           | Owner of the file
+                              |                    |
+| **group**                   | *string*           | Group of the file
+                              |                    |
+| **mode**                    | *string*           | Mode of the file
+                              |                    |
+============================= ==================== ============================
+
+<TODO: complete parameters. See tasks/states.yml>
+
+
+Example
+^^^^^^^
+File's states
+
+[`contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd/states.d/lighttpd-server-document-root
+    :language: yaml
+    :emphasize-lines: 2
+    :linenos:
+
+See Also
+^^^^^^^^
+.. seealso::
+
+   * See `vars-states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_ how the variable *cl_states* is combined with the content of the directory *cl_statesd_dir*.
+
+   * See `states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_ how the file's states are set.
 
 
 .. _ug_services:
@@ -595,7 +651,8 @@ what files were created. ::
 
     shell> ansible-playbook config-light.yml -t cl_vars
 
-Test sanity. ::
+Test sanity. Then disable this task ``cl_sanity: false`` to speedup
+the playbook.::
 
     shell> ansible-playbook config-light.yml -t cl_sanity
 
@@ -611,7 +668,8 @@ disable this task ``cl_debug: false`` to speedup the playbook. ::
 
     shell> ansible-playbook config-light.yml -t cl_debug
 
-Install packages. ::
+Install packages. Then disable this task ``cl_install: false`` to
+speedup the playbook. ::
 
     shell> ansible-playbook config-light.yml -t cl_packages
 
@@ -624,6 +682,9 @@ Configure services ::
     shell> ansible-playbook config-light.yml -t cl_services
 
 The role and the configuration data in the examples are
-idempotent. Once the application is installed there should be no
-changes reported by *ansible-playbook* when running the playbook
-repeatedly.
+idempotent. Once the application is installed and configured there
+should be no changes reported by *ansible-playbook* when running the
+playbook repeatedly. Disable setup, sanity, debug, and install to
+speedup the playbook ::
+
+    shell> ansible-playbook config-light.yml

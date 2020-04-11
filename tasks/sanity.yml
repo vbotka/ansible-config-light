@@ -11,6 +11,7 @@
           Hint: Double check existence of the directories
           {{ cl_handlersd_dir }}
           {{ cl_packagesd_dir }}
+          {{ cl_statesd_dir }}
           {{ cl_servicesd_dir }}
           {{ cl_filesd_dir }}
     - name: "sanity: End of host"
@@ -18,6 +19,7 @@
   when:
     - cl_handlersd_dir is not exists or
       cl_packagesd_dir is not exists or
+      cl_statesd_dir is not exists or
       cl_servicesd_dir is not exists or
       cl_filesd_dir is not exists
 
@@ -35,9 +37,10 @@
       meta: end_host
   when:
     - ansible_check_mode
-    - cl_filesd is not exists or
-      cl_packagesd is not exists or
-      cl_servicesd is not exists
+    - cl_packagesd is not exists or
+      cl_statesd is not exists or
+      cl_servicesd is not exists or
+      cl_filesd is not exists
 
 # EOF
 ...

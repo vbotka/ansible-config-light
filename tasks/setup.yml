@@ -1,13 +1,30 @@
 ---
 
+# directories
+- name: "setup: Create directories in {{ cl_dird }}"
+  file:
+    state: directory
+    path: "{{ item }}"
+    owner: "{{ cl_dird_owner|default(omit) }}"
+    group: "{{ cl_dird_group|default(omit) }}"
+    mode: "{{ cl_dird_dmode }}"
+  loop:
+    - "{{ cl_dird }}"
+    - "{{ cl_handlersd_dir }}"
+    - "{{ cl_packagesd_dir }}"
+    - "{{ cl_servicesd_dir }}"
+    - "{{ cl_filesd_dir }}"
+    - "{{ cl_statesd_dir }}"
+
 - name: "setup: Create directory {{ cl_dira }}"
   file:
-    state: "directory"
+    state: directory
     path: "{{ cl_dira }}"
     owner: "{{ cl_dira_owner|default(omit) }}"
     group: "{{ cl_dira_group|default(omit) }}"
     mode: "{{ cl_dira_dmode }}"
 
+# handlers
 - name: "setup: Assemble handlers"
   import_tasks: vars-handlers.yml
 
@@ -18,6 +35,8 @@
     validate: "{{ cl_handlers_validate|default(omit) }}"
     backup: "{{ cl_backup }}"
   loop: "{{ cl_handlers|dict2items }}"
+  loop_control:
+    label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
 - name: "setup: Include handlers"
   lineinfile:
@@ -27,6 +46,8 @@
     backup: "{{ cl_backup }}"
     create: true
   loop: "{{ cl_handlers|dict2items }}"
+  loop_control:
+    label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
 # EOF
 ...

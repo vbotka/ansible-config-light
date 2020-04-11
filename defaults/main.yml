@@ -3,6 +3,7 @@
 
 cl_sanity: true              # Import tasks/sanity.yml
 cl_setup: true               # Import tasks/setup.yml
+cl_install: true             # Install packages or ports
 cl_debug: false              # Print debug output
 cl_backup: false             # Backup files
 
@@ -11,26 +12,32 @@ cl_handlers: {}
 cl_packages: {}
 cl_services: {}
 cl_files: {}
+cl_states: {}
 
 # Assemble data from these directories
+# cl_dird_owner: root        # no default
+# cl_dird_group: adm         # no default
+cl_dird_dmode: "0775"        # default very permissive, restrict if necessary
 cl_dird: "{{ role_path }}/files"
 cl_handlersd_dir: "{{ cl_dird }}/handlers.d"
 cl_packagesd_dir: "{{ cl_dird }}/packages.d"
 cl_servicesd_dir: "{{ cl_dird }}/services.d"
 cl_filesd_dir: "{{ cl_dird }}/files.d"
+cl_statesd_dir: "{{ cl_dird }}/states.d"
 
 # Assemble inventory_hostname data into these files
 # cl_dira_owner: root        # no default
 # cl_dira_group: adm         # no default
-cl_dira_dmode: "0775"         # default very permissive, restrict if necessary
-cl_dira_fmode: "0664"         # default very permissive, restrict if necessary
+cl_dira_dmode: "0775"        # default very permissive, restrict if necessary
+cl_dira_fmode: "0664"        # default very permissive, restrict if necessary
 cl_dira: "{{ cl_dird }}/assemble"
-cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated with ~
-# cl_assemble_validate: 'ansible-lint -x 205 %s'  # no default
-cl_handlersd: "{{ cl_dira }}/handlersd"
+cl_handlersd: "{{ cl_dira }}/handlersd"  # localhost; not inventory_hostname specific
 cl_packagesd: "{{ cl_dira }}/packagesd.{{ inventory_hostname }}"
 cl_servicesd: "{{ cl_dira }}/servicesd.{{ inventory_hostname }}"
 cl_filesd: "{{ cl_dira }}/filesd.{{ inventory_hostname }}"
+cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
+cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated with ~
+# cl_assemble_validate: 'ansible-lint -x 205 %s'  # no default
 
 # Handlers
 cl_handlers_validate: 'ansible-lint %s'

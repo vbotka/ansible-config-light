@@ -8,16 +8,16 @@
   loop: "{{ cl_files.values()|json_query('[].path')|
             difference(
             cl_results_template.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|
+            json_query('[?changed==`true`].invocation.module_args.path'))|unique|
             difference(
             cl_results_lines.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|
+            json_query('[?changed==`true`].invocation.module_args.path'))|unique|
             difference(
             cl_results_blocks.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|
+            json_query('[?changed==`true`].invocation.module_args.path'))|unique|
             difference(
             cl_results_inifile.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))
+            json_query('[?changed==`true`].invocation.module_args.path'))|unique
             }}"
   changed_when: false
 

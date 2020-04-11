@@ -10,7 +10,11 @@
       ansible_distribution_release [{{ ansible_distribution_release }}]
       ansible_python_version [{{ ansible_python_version }}]
 
+      cl_sanity [{{ cl_sanity }}]
+      cl_setup [{{ cl_setup }}]
+      cl_install [{{ cl_install }}]
       cl_backup [{{ cl_backup }}]
+
       cl_handlers
       {{ cl_handlers|to_nice_yaml }}
       cl_packages
@@ -19,6 +23,35 @@
       {{ cl_services|to_nice_yaml }}
       cl_files
       {{ cl_files|to_nice_yaml }}
+      cl_states
+      {{ cl_states|to_nice_yaml }}
+
+      cl_dird [{{ cl_dird }}]
+      cl_dird_owner [{{ cl_dira_owner|default('UNDEFINED') }}]
+      cl_dird_group [{{ cl_dira_group|default('UNDEFINED') }}]
+      cl_dird_dmode [{{ cl_dira_dmode }}]
+
+      cl_handlersd_dir [{{ cl_handlersd_dir }}]
+      cl_packagesd_dir [{{ cl_packagesd_dir }}]
+      cl_servicesd_dir [{{ cl_servicesd_dir }}]
+      cl_filesd_dir [{{ cl_filesd_dir }}]
+      cl_statesd_dir [{{ cl_statesd_dir }}]
+
+      cl_dira [{{ cl_dira }}]
+      cl_dira_owner [{{ cl_dira_owner|default('UNDEFINED') }}]
+      cl_dira_group [{{ cl_dira_group|default('UNDEFINED') }}]
+      cl_dira_dmode [{{ cl_dira_dmode }}]
+      cl_dira_fmode [{{ cl_dira_fmode }}]
+      cl_assemble_regexp [{{ cl_assemble_regexp }}]
+
+      cl_handlersd [{{ cl_handlersd }}]
+      cl_packagesd [{{ cl_packagesd }}]
+      cl_servicesd [{{ cl_servicesd }}]
+      cl_filesd [{{ cl_filesd }}]
+      cl_statesd [{{ cl_statesd }}]
+
+      cl_assemble_validate [{{ cl_assemble_validate|default('UNDEFINED') }}]
+      cl_handlers_validate [{{ cl_handlers_validate|default('UNDEFINED') }}]
 
       install_retries [{{ install_retries }}]
       install_delay [{{ install_delay }}]
