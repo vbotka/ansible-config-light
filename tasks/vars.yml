@@ -1,6 +1,7 @@
 ---
 
 - name: "vars: Debug"
+  when: cl_debug|bool
   vars:
     msg: |
       cl_handlersd_dir [{{ cl_handlersd_dir }}]

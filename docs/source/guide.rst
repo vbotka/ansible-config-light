@@ -673,6 +673,10 @@ speedup the playbook. ::
 
     shell> ansible-playbook config-light.yml -t cl_packages
 
+Set files' states. ::
+
+    shell> ansible-playbook config-light.yml -t cl_states
+
 Create and modify files ::
 
     shell> ansible-playbook config-light.yml -t cl_files
