@@ -373,7 +373,7 @@ File's states
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/lighttpd/states.d/lighttpd-server-document-root
+.. literalinclude:: ../../contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root
     :language: yaml
     :emphasize-lines: 2
     :linenos:

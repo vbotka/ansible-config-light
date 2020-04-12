@@ -5,6 +5,7 @@ Ansible role Config Light
    :maxdepth: 2
    :caption: Table of Contents:
 
+   qsg
    guide
    annotation
    examples

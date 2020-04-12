@@ -1,0 +1,35 @@
+---
+
+# lighttpd
+# https://www.lighttpd.net/
+
+# Services
+cl_service_lighttpd_enable: true
+cl_service_lighttpd_state: 'started'
+
+# /usr/local/etc/lighttpd/lighttpd.conf
+cl_lighttpd_server_port: '80'
+cl_lighttpd_server_useipv6: 'disable'
+cl_lighttpd_server_username: 'www'
+cl_lighttpd_server_groupname: 'www'
+cl_lighttpd_server_document_root: "/usr/local/www/lighttpd"
+cl_lighttpd_lighttpdconf_lines:
+  - regexp: '^\s*server.port\s*=\s*(.*)$'
+    line: 'server.port = "{{ cl_lighttpd_server_port }}"'
+  - regexp: '^\s*server.use-ipv6\s*=\s*(.*)$'
+    line: 'server.use-ipv6 = "{{ cl_lighttpd_server_useipv6 }}"'
+  - regexp: '^\s*server.username\s*=\s*(.*)$'
+    line: 'server.username = "{{ cl_lighttpd_server_username }}"'
+  - regexp: '^\s*server.groupname\s*=\s*(.*)$'
+    line: 'server.groupname = "{{ cl_lighttpd_server_groupname }}"'
+  - regexp: '^\s*server.document-root\s*=\s*(.*)$'
+    line: 'server.document-root = "{{ cl_lighttpd_server_document_root }}"'
+
+# /etc/rc.conf
+cl_lighttpd_rcconf_lighttpd_enable: 'YES'
+cl_lighttpd_rcconf_lines:
+    - regexp: '^lighttpd_enable(.*)$'
+      line: 'lighttpd_enable="{{ cl_lighttpd_rcconf_lighttpd_enable }}"'
+
+# EOF
+...
