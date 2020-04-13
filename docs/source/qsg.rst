@@ -138,6 +138,8 @@ member of the group *adm*.
      group: 'wheel'
      mode: '0644'
      lines: '{{ cl_lighttpd_lighttpdconf_lines }}'
+     handlers:
+       - 'reload lighttpd'
 
 .. code-block:: yaml
    :emphasize-lines: 3
@@ -151,6 +153,8 @@ member of the group *adm*.
      group: 'wheel'
      mode: '0644'
      lines: "{{ cl_lighttpd_rcconf_lines }}"
+     handlers:
+       - 'reload lighttpd'
 
 
 *conf-light/handlers.d*

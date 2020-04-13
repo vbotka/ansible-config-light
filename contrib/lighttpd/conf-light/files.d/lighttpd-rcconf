@@ -5,3 +5,5 @@ lighttpd_rcconf:
   group: 'wheel'
   mode: '0644'
   lines: "{{ cl_lighttpd_rcconf_lines }}"
+  handlers:
+    - 'reload lighttpd'
