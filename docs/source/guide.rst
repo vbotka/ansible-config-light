@@ -79,7 +79,7 @@ Playbook
 Below is simple playbook that applies this role at single host
 srv.example.com (2)
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 1
    :linenos:
 
@@ -135,7 +135,7 @@ The tags provide very useful tool to run selected tasks of the
 role. To see what tags are available list the tags of the role with
 the command:
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 1
    :linenos:
 
@@ -225,7 +225,6 @@ e.g., to ``playbook_dir`` directory.
 
 cl_handlers - dictionary with handlers
 --------------------------------------
-.. highlight:: yaml
 .. contents::
    :local:
 
@@ -292,7 +291,6 @@ Notes
 
 cl_packages - dictionary with packages or BSD ports
 ---------------------------------------------------
-.. highlight:: yaml
 .. contents::
    :local:
 
@@ -349,7 +347,6 @@ See Also
 
 cl_states - dictionary of files' states
 ---------------------------------------
-.. highlight:: yaml
 .. contents::
    :local:
 
@@ -404,7 +401,6 @@ See Also
 
 cl_services - dictionary with services
 --------------------------------------
-.. highlight:: yaml
 .. contents::
    :local:
 
@@ -462,7 +458,6 @@ See Also
 
 cl_files - dictionary with files
 --------------------------------
-.. highlight:: yaml
 .. contents::
    :local:
 

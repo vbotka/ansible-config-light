@@ -37,7 +37,7 @@ member of the group *adm*.
 
 * Create ``host_vars`` with customized variables of the role and with the variables of the application.
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 2-3
    :linenos:
 
@@ -48,7 +48,7 @@ member of the group *adm*.
 
 * Create *host_vars* with customized variables of the role. To speedup the execution let's set the control-flow variables (2-5) to *false* and disable some steps. Enable these steps selectively when needed. The configuration files of the role will be stored in the directory *conf-light* in the current directory of the playbook (10). Set the ownership and permissions of the directories on the cont-roll node so that the user who is running the playbook will be able both read and write the files, and create the directories (7-9) (11-14).
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 2-5,10
    :linenos:
 
@@ -70,7 +70,7 @@ member of the group *adm*.
 
 * Create *host_vars* with the variables of the application. Start the server (2), run the server at boot (3), and configure two files.
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 2,3,5,23
    :linenos:
 
@@ -126,7 +126,7 @@ member of the group *adm*.
 
 *conf-light/files.d*
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 3
    :linenos:
 
@@ -141,7 +141,7 @@ member of the group *adm*.
      handlers:
        - 'reload lighttpd'
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 3
    :linenos:
 
@@ -159,7 +159,7 @@ member of the group *adm*.
 
 *conf-light/handlers.d*
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 6,13,20,28,36
    :linenos:
 
@@ -206,7 +206,7 @@ member of the group *adm*.
 
 *conf-light/packages.d*
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 3
    :linenos:
 
@@ -217,7 +217,7 @@ member of the group *adm*.
 
 *conf-light/services.d*
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 3
    :linenos:
 
@@ -230,7 +230,7 @@ member of the group *adm*.
 
 *conf-light/states.d*
 
-.. code-block:: yaml
+.. code-block:: bash
    :emphasize-lines: 3
    :linenos:
 
