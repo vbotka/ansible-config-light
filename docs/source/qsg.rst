@@ -46,7 +46,7 @@ member of the group *adm*.
    host_vars/srv.example.com/config-light-lighttpd.yml
 
 
-* Create *host_vars* with customized variables of the role. To speedup the execution let's set the control-flow variables (2-5) to *false* and disable some steps. Enable the steps selectively when needed. The configuration files of the role will be stored in the directory *conf-light* in the current directory of the playbook (10). Set the ownership and permissions of the directories on the cont-roll node so that the user who is running the playbook will be able both read and write the files, and create the directories (7-9) (11-14).
+* Create *host_vars* with customized variables of the role. To speedup the execution let's set the control-flow variables (2-5) to *false* and disable some steps. Enable these steps selectively when needed. The configuration files of the role will be stored in the directory *conf-light* in the current directory of the playbook (10). Set the ownership and permissions of the directories on the cont-roll node so that the user who is running the playbook will be able both read and write the files, and create the directories (7-9) (11-14).
 
 .. code-block:: yaml
    :emphasize-lines: 2-5,10
@@ -243,8 +243,9 @@ member of the group *adm*.
 
     shell> ansible-playbook config-light.yml -t cl_vars -e 'cl_setup=true'
 
-Take a look at directory ``conf-light/assemble/`` what files were
-created. Also take a look at the directory
+This command will assemble the configuration data and create handlers
+on the control node. Take a look at directory ``conf-light/assemble/``
+what files were created. Also take a look at the directory
 ``roles/vbotka.config_light/handlers`` what handlers were created.
 
 

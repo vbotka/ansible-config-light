@@ -33,9 +33,9 @@ Used Ansible modules comprise ``package`` to install Linux packages,
 and both ``pkgng`` and ``portinstall`` to install FreeBSD packages or
 ports.
 
-Ansible modules ``template``, ``lineinfile``, ``blockinfile`` and
-``ini_file`` are used to configure files. Module ``service`` is used
-to manage both Linux and FreeBSD services.
+Ansible modules ``file``, ``template``, ``lineinfile``,
+``blockinfile`` and ``ini_file`` are used to configure files. Module
+``service`` is used to manage both Linux and FreeBSD services.
 
 The directory ``contrib`` comprises examples of how to install and
 configure various applications, and how to create the handlers and
@@ -181,26 +181,27 @@ directory ``defaults``.
 Default variables
 -----------------
 
-Most of the variables are self-explaining. There are four very
-important variables ``cl_handlers, cl_packages, cl_states,
-cl_services, and cl_files`` (11-15). These dictionaries which comprise
-the configuration data of handlers, packages, services, and files will
-be explained in details. By default these dictionaries are empty.
+Most of the variables are self-explaining. There are five very
+important variables ``cl_handlers``, ``cl_packages``, ``cl_states``,
+``cl_services``, and ``cl_files`` (11-15). These dictionaries, which
+comprise the configuration data of handlers, packages, services, and
+files, will be explained in details. By default these dictionaries are
+empty.
 
 Best practice is to provide the data either in *host_vars* and
-*group_vars* or as a files in the directories ``cl_handlersd_dir,
-cl_packagesd_dir, cl_statesd_dir, cl_servicesd_dir, and
-cl_filesd_dir`` (22-26). Both methods can be applied at the same
+*group_vars* or as a files in the directories ``cl_handlersd_dir``,
+``cl_packagesd_dir``, ``cl_statesd_dir``, ``cl_servicesd_dir``, and
+``cl_filesd_dir`` (22-26). Both methods can be applied at the same
 time. The variables will be assembled and combined by the tasks
-``vars_handlers.yml, vars_packages.yml, vars_states.yml,
-vars_services.yml, and vars_files.yml``. The assembled dictionaries
-customized for each host in the play will be stored in the
-host-specific files ``cl_packagesd, cl_statesd, cl_servicesd, and
-cl_filesd`` (35-38). The variable ``cl_handlers`` is not host-specific
-because the handlers will be create at the controller
-(localhost). Assembled dictionary ``cl_handlers`` will be stored in
-the file ``cl_handlersd`` (34). Take a look at the directory
-``cl_dira`` (33) to see assembled data.
+``vars_handlers.yml``, ``vars_packages.yml``, ``vars_states.yml``,
+``vars_services.yml``, and ``vars_files.yml``. The assembled
+dictionaries customized for each host in the play will be stored in
+the host-specific files ``cl_packagesd``, ``cl_statesd``,
+``cl_servicesd``, and ``cl_filesd`` (35-38). The variable
+``cl_handlers`` is not host-specific because the handlers will be
+create at the controller (localhost). Assembled dictionary
+``cl_handlers`` will be stored in the file ``cl_handlersd`` (34). Take
+a look at the directory ``cl_dira`` (33) to see assembled data.
 
 By default the base of the directories is ``role_path`` (21). The user
 is expected to put the configuration data to more suitable directory,
@@ -215,7 +216,7 @@ e.g., to ``playbook_dir`` directory.
     :emphasize-lines: 2, 11-15
     :linenos:
 
-.. warning:: Defaults of the variables *cl_dira_dmode* (31) and *cl_dira_fmode* (32) are very permissive. These are the permissions to access the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
+.. warning:: Defaults of the variables *cl_dird_dmode* (20), *cl_dira_dmode* (31) and *cl_dira_fmode* (32) are very permissive. These are the permissions to access the configuration data and the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
 
 <TODO: complete description of all default variables>
 
@@ -312,13 +313,25 @@ Parameters
 
 Example
 ^^^^^^^
-FreeBSD package for postfix
 
-[`contrib/postfix/conf-light/packages.d/postfix <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfixd>`_]
+FreeBSD package for Postfix
+
+[`contrib/postfix/conf-light/packages.d/postfix <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfix>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/packages.d/postfix
+    :language: yaml
+    :emphasize-lines: 2
+    :linenos:
+
+Armbian package for Simple SMTP
+
+[`contrib/ssmtp/conf-light/packages.d/ssmtp <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/packages.d/ssmtp>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/ssmtp/conf-light/packages.d/ssmtp
     :language: yaml
     :emphasize-lines: 2
     :linenos:
@@ -410,13 +423,13 @@ Parameters
                               | ``required``       |
 | **state**                   | *string*           | State of the service
                               |                    | default: started
-| **enabled**                 | *boolean*          | Start of boot
+| **enabled**                 | *boolean*          | Start on boot
                               |                    | default: true
 ============================= ==================== ============================
 
 Example
 ^^^^^^^
-FreeBSD services for postfix
+FreeBSD services for Postfix and Sendmail
 
 [`contrib/postfix/conf-light/service.d/postfix <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/postfixd>`_]
 
@@ -458,18 +471,18 @@ Synopsis
 
 The variable *cl_files* is a dictionary of the files that shall be
 created or modified by this role. It's optional which Ansible module
-will be used to create or modify a file and more options can be
-applied to create and modify the same file. For example, it's possible
-to create a file by the Ansible module *template* and modify it
-with the module *lineinfile* later. Several options are available:
+will be used to create or modify a file. More options can be applied
+at the same file. For example, it is possible to create a file by the
+Ansible module *template* and modify it with the module *lineinfile*
+later. Several options are available:
 
 1. template: If the attribute *template* is defined in the dictionary
 2. lineinfile: If the attribute *lines* is defined in the dictionary
 3. blockinfile: If the attribute *blocks* is defined in the dictionary
 4. ini_file: If the attribute *ini* is defined in the dictionary
 
-Multiple options, when used to create or modify a file, will be
-applied in this order.
+Multiple options, when defined in the dictionary, will be applied in
+this order.
 
 See Also
 ^^^^^^^^
@@ -652,7 +665,7 @@ what files were created. ::
     shell> ansible-playbook config-light.yml -t cl_vars
 
 Test sanity. Then disable this task ``cl_sanity: false`` to speedup
-the playbook.::
+the playbook. ::
 
     shell> ansible-playbook config-light.yml -t cl_sanity
 
