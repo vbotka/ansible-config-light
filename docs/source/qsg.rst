@@ -8,7 +8,7 @@ an example of how to install and configure `Lighttpd
 <https://www.lighttpd.net/>`_ on single FreeBSD host. The procedure is
 generic and can be easily modified to install and configure other
 applications on other systems. See examples in the directory
-*contrib*. The control node of this example is Linux and the user is
+*contrib*. The control node of this example is Linux and the user is a
 member of the group *adm*.
 
 
@@ -68,7 +68,7 @@ member of the group *adm*.
    cl_dira_fmode: "0660"
 
 
-* Create *host_vars* with the variables of the application. Start the server (2), run the server at boot (3), and configure two files.
+* Create *host_vars* files with the variables of the application. Start the server (2), run the server at boot (3), and configure two files.
 
 .. code-block:: bash
    :emphasize-lines: 2,3,5,23
@@ -307,4 +307,3 @@ what files were created. Also take a look at the directory
 * Open the page in a browser ``http://srv.example.com/``. The content should be ::
 
    Lighttpd works!
-

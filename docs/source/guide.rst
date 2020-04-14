@@ -17,7 +17,7 @@ Introduction
 
 The role installs packages, creates and configures files, services,
 and handlers. This provides a simple, but flexible framework to apply
-basic Ansible modules. Substantial part of the control-flow will be
+basic Ansible modules. A substantial part of the control-flow will be
 determined by the structure of the data. Some attributes of the
 dictionaries trigger Ansible modules to modify configuration files,
 configure services and create handlers.
@@ -34,7 +34,7 @@ and both ``pkgng`` and ``portinstall`` to install FreeBSD packages or
 ports.
 
 Ansible modules ``file``, ``template``, ``lineinfile``,
-``blockinfile`` and ``ini_file`` are used to configure files. Module
+``blockinfile``, and ``ini_file`` are used to configure files. Module
 ``service`` is used to manage both Linux and FreeBSD services.
 
 The directory ``contrib`` comprises examples of how to install and
@@ -58,7 +58,7 @@ Installation
 The most convenient way how to install an Ansible role is to use
 Ansible Galaxy CLI ``ansible-galaxy``. The utility comes with the
 standard Ansible package and provides the user with a simple interface
-to the Ansible Galaxy's services. For example take a look at the
+to the Ansible Galaxy's services. For example, take a look at the
 current status of the role ::
 
     shell> ansible-galaxy info vbotka.config_light
@@ -76,7 +76,7 @@ and install it ::
 Playbook
 ========
 
-Below is simple playbook that applies this role at single host
+Below is a simple playbook that calls this role at a single host
 srv.example.com (2)
 
 .. code-block:: bash
@@ -95,7 +95,7 @@ srv.example.com (2)
        - vbotka.config_light
 
 .. note:: ``gather_facts: true`` (3) must be set to gather facts
-          needed to evaluate OS specific options of the role. For
+          needed to evaluate OS-specific options of the role. For
           example to install packages the variable *ansible_os_family*
           is needed to select the appropriate Ansible module.
 
@@ -131,7 +131,7 @@ configuration ::
 Tags
 ====
 
-The tags provide very useful tool to run selected tasks of the
+The tags provide a very useful tool to run selected tasks of the
 role. To see what tags are available list the tags of the role with
 the command:
 
@@ -146,7 +146,7 @@ the command:
       play #1 (srv.example.com): srv.example.com	TAGS: []
       TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity, cl_services, cl_setup, cl_states, cl_vars]
 
-For example display the list of the variables and their values with
+For example, display the list of the variables and their values with
 the tag ``cl_debug`` (when the debug is enabled ``cl_debug:
 true``). With this tag specified ``-t cl_debug`` all imported tasks
 before the task *debug.yml* will also run because of the tag ``always``
@@ -195,16 +195,16 @@ Best practice is to provide the data either in *host_vars* and
 time. The variables will be assembled and combined by the tasks
 ``vars_handlers.yml``, ``vars_packages.yml``, ``vars_states.yml``,
 ``vars_services.yml``, and ``vars_files.yml``. The assembled
-dictionaries customized for each host in the play will be stored in
+dictionaries, customized for each host in the play, will be stored in
 the host-specific files ``cl_packagesd``, ``cl_statesd``,
 ``cl_servicesd``, and ``cl_filesd`` (35-38). The variable
-``cl_handlers`` is not host-specific because the handlers will be
-create at the controller (localhost). Assembled dictionary
+``cl_handlers`` is not host-specific, because the handlers will be
+created at the controller (localhost) only. Assembled dictionary
 ``cl_handlers`` will be stored in the file ``cl_handlersd`` (34). Take
 a look at the directory ``cl_dira`` (33) to see assembled data.
 
-By default the base of the directories is ``role_path`` (21). The user
-is expected to put the configuration data to more suitable directory,
+By default, the base of the directories is ``role_path`` (21). The user
+is expected to put the configuration data to a more suitable directory,
 e.g., to ``playbook_dir`` directory.
 
 [`defaults/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/defaults/main.yml>`_]
@@ -231,10 +231,10 @@ cl_handlers - dictionary with handlers
 Synopsis
 ^^^^^^^^
 
-The variable *cl_handlers* is a dictionary of the handlers. Structure
-of the dictionary depends on the template that is used to create the
-file with the handlers. For example, the structure below can be used
-with the template *handlers-auto1.yml.j2*.
+The variable *cl_handlers* is a dictionary of the handlers. The
+Structure of the dictionary depends on the template that is used to
+create the file with the handlers. For example, the structure below
+can be used with the template *handlers-auto1.yml.j2*.
 
 Parameters
 ^^^^^^^^^^
@@ -297,7 +297,7 @@ cl_packages - dictionary with packages or BSD ports
 Synopsis
 ^^^^^^^^
 
-The variable *cl_packages* is a dictionary of the packages, or BSD
+The variable *cl_packages* is a dictionary of the packages or BSD
 ports to be installed.
 
 Parameters
