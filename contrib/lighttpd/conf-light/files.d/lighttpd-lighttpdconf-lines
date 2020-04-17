@@ -1,0 +1,19 @@
+lighttpd-lighttpdconf:
+  path: '/usr/local/etc/lighttpd/lighttpd.conf'
+  create: true
+  owner: 'root'
+  group: 'wheel'
+  mode: '0644'
+  handlers:
+    - 'reload lighttpd'
+  lines:
+    - regexp: '^\s*server.port\s*=\s*(.*)$'
+      line: 'server.port = "80"'
+    - regexp: '^\s*server.use-ipv6\s*=\s*(.*)$'
+      line: 'server.use-ipv6 = "disable"'
+    - regexp: '^\s*server.username\s*=\s*(.*)$'
+      line: 'server.username = "www"'
+    - regexp: '^\s*server.groupname\s*=\s*(.*)$'
+      line: 'server.groupname = "www"'
+    - regexp: '^\s*server.document-root\s*=\s*(.*)$'
+      line: 'server.document-root = "/usr/local/www/lighttpd"

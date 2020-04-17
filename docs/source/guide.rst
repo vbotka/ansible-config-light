@@ -462,7 +462,7 @@ cl_files - dictionary with files
    :local:
 
 Synopsis
-^^^^^^^^
+""""""""
 
 The variable *cl_files* is a dictionary of the files that shall be
 created or modified by this role. It's optional which Ansible module
@@ -480,7 +480,7 @@ Multiple options, when defined in the dictionary, will be applied in
 this order.
 
 See Also
-^^^^^^^^
+""""""""
 .. seealso::
 
    * See `vars-files.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_ how the variable *cl_files* is combined with the content of the directory *cl_filesd_dir*.
@@ -491,8 +491,11 @@ See Also
 
    * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted when the files haven't been modified.
 
+template
+^^^^^^^^
+
 Parameters for template
-^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""
 ============================= ==================== ============================
 | *Parameter*                 | *Type*             | *Comments*
 ============================= ==================== ============================
@@ -515,7 +518,7 @@ Parameters for template
 ============================= ==================== ============================
 
 Example of template
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 
 File ``/etc/mail/mailer.conf`` for postfix
 
@@ -529,17 +532,20 @@ File ``/etc/mail/mailer.conf`` for postfix
     :linenos:
 
 See Also
-^^^^^^^^
+""""""""
 .. seealso::
 
    * See `files-template.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml>`_ how the files are modified or created by the Ansible module ``template``.
 	     
 Notes
-^^^^^
+"""""
 .. note:: There are couple of templates ready to be used in the directory ``templates``. The user is expected to create new templates when needed. Feel free to contribute new templates to the `project <https://github.com/vbotka/ansible-config-light/>`_.
 
+lineinfile
+^^^^^^^^^^
+
 Parameters for lineinfile
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 =================== ==================== ======================================
 | *Parameter*       | *Type*             | *Comments*
 =================== ==================== ======================================
@@ -566,21 +572,21 @@ Parameters for lineinfile
 =================== ==================== ======================================
 
 Example of lineinfile with lines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""
 
-File ``/usr/local/etc/postfix/main.cf`` for postfix
+File ``/usr/local/etc/lighttpd/lighttpd.conf`` for lighttpd
 
-[`contrib/postfix/conf-light/files.d/postfix-main.cf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/postfix-main.cf>`_]
+[`contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/postfix/conf-light/files.d/postfix-main-cf
+.. literalinclude:: ../../contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines
     :language: yaml
     :emphasize-lines: 9
     :linenos:
 
 Example of lineinfile with dict
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""
 
 File ``/usr/local/etc/lighttpd/lighttpd.conf`` for lighttpd
 
@@ -594,13 +600,16 @@ File ``/usr/local/etc/lighttpd/lighttpd.conf`` for lighttpd
     :linenos:
 
 See Also
-^^^^^^^^
+""""""""
 .. seealso::
 
    * See `files-lineinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-lineinfile.yml>`_ how the files are modified or created by the Ansible module ``lineinfile``.
 
+blockinfile
+^^^^^^^^^^^
+
 Parameters for blockinfile
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""
 ============================= ==================== ============================
 | *Parameter*                 | *Type*             | *Comments*
 ============================= ==================== ============================
@@ -623,18 +632,21 @@ Parameters for blockinfile
 ============================= ==================== ============================
 
 Example of blockinfileinfile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 
 <TODO: No example yet>
 
 See Also
-^^^^^^^^
+""""""""
 .. seealso::
 
    * See `files-blockinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_ how the files are modified or created by the Ansible module ``blockinfile``.
 
+ini_file
+^^^^^^^^
+
 Parameters for ini_file
-^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""
 ============================= ==================== ============================
 | *Parameter*                 | *Type*             | *Comments*
 ============================= ==================== ============================
@@ -655,12 +667,12 @@ Parameters for ini_file
 ============================= ==================== ============================
 
 Example of ini_file
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 
 <TODO: No example yet>
 
 See Also
-^^^^^^^^
+""""""""
 .. seealso::
 
    * See `files-inifile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-inifile.yml>`_ how the files are modified or created by the Ansible module ``ini_file``.

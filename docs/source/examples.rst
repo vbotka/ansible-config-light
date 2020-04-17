@@ -19,8 +19,8 @@ Handlers
 
 .. _ex_handlersd_postfix_freebsd:
 
-contrib/postfix/conf-light/handlers.d/postfix-freebsd
------------------------------------------------------
+postfix-freebsd
+---------------
 
 Synopsis: Create handlers for Postfix.
 
@@ -38,8 +38,8 @@ Use template (2) to create handlers.
 .. seealso:: See :ref:`as_setup_yml` how the handlers are created.
 .. _ex_handlersd_sendmail_freebsd:
 
-contrib/postfix/conf-light/handlers.d/sendmail-freebsd
-------------------------------------------------------
+sendmail-freebsd
+----------------
 
 Synopsis: Create handlers for Sendmail.
 
@@ -62,8 +62,8 @@ Packages
 
 .. _ex_packagesd_postfix:
 
-contrib/postfix/conf-light/packages.d/postfix
----------------------------------------------
+postfix
+-------
 
 Synopsis: Install Postfix.
 
@@ -86,8 +86,8 @@ Services
 
 .. _ex_servicesd_postfix:
 
-contrib/postfix/conf-light/services.d/postfix
----------------------------------------------
+postfix
+-------
 
 Synopsis: Configure Postfix service.
 
@@ -105,8 +105,8 @@ Set service (2) state (3). Run the service on boot (4).
 .. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`. See :ref:`as_services_yml` how the services are configured.
 .. _ex_servicesd_sendmail:
 
-contrib/postfix/conf-light/services.d/sendmail
-----------------------------------------------
+sendmail
+--------
 
 Synopsis: Configure Sendmail service.
 
@@ -129,8 +129,8 @@ Files
 
 .. _ex_config_light_postfix_yml:
 
-contrib/postfix/config-light-postfix.yml
-----------------------------------------
+config-light-postfix.yml
+------------------------
 
 Synopsis: Custom variables for Postfix.
 
@@ -147,8 +147,8 @@ Put the host-specific variables (6) into the ``host_vars``. Optionally other var
 
 .. _ex_filesd_mailer_conf:
 
-contrib/postfix/conf-light/files.d/mailer-conf
-----------------------------------------------
+mailer-conf
+-----------
 
 Synopsis: Create file.
 
@@ -165,8 +165,8 @@ Create file (2) from the template (7).
 
 .. _ex_filesd_periodic_conf:
 
-contrib/postfix/conf-light/files.d/periodic-conf
-------------------------------------------------
+periodic-conf
+-------------
 
 Synopsis: Modify file.
 
@@ -183,8 +183,8 @@ Modify file (2) with the lines (7).
 
 .. _ex_filesd_main_cf:
 
-contrib/postfix/conf-light/files.d/postfix-main-cf
---------------------------------------------------
+postfix-main-cf
+---------------
 
 Synopsis: Modify file and notify handlers.
 
@@ -201,8 +201,8 @@ Modify file (2) with the lines (9) and notify handlers (7).
 
 .. _ex_filesd_rc_conf:
 
-contrib/postfix/conf-light/files.d/rc-conf
-------------------------------------------
+rc-conf
+-------
 
 Synopsis: Modify file.
 
@@ -232,8 +232,8 @@ Packages
 
 .. _ex_packagesd_ssmtp:
 
-contrib/ssmtp/conf-light/packages.d/ssmtp
------------------------------------------
+ssmtp
+-----
 
 Synopsis: Install Simple SMTP.
 
@@ -256,8 +256,8 @@ Files
 
 .. _ex_config_light_ssmtp_yml:
 
-contrib/ssmtp/config-light-ssmtp.yml
-------------------------------------
+config-light-ssmtp.yml
+----------------------
 
 Synopsis: Custom variables for sSMTP.
 
@@ -274,8 +274,8 @@ Put the host-specific variables (7) into the ``host_vars``. Optionally other var
 
 .. _ex_filesd_revaliases:
 
-contrib/ssmtp/conf-light/files.d/revaliases
--------------------------------------------
+revaliases
+----------
 
 Synopsis: Create file.
 
@@ -293,8 +293,8 @@ Create file (2) from the template (7).
 .. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files_template_yml`.
 .. _ex_filesd_ssmtp_conf:
 
-contrib/ssmtp/conf-light/files.d/ssmtp-conf
--------------------------------------------
+ssmtp-conf
+----------
 
 Synopsis: Create file.
 

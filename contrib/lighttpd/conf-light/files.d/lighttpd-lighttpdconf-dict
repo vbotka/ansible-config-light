@@ -8,8 +8,8 @@ lighttpd-lighttpdconf:
     - 'reload lighttpd'
   assignment: ' = '
   dict:
-  - {key: 'server.port', value: '"80"'}
-  - {key: 'server.use-ipv6', value: '"disable"'}
-  - {key: 'server.username', value: '"www"'}
-  - {key: 'server.groupname', value: '"www"'}
-  - {key: 'server.document-root', value: '"/usr/local/www/lighttpd"'}
+    - {key: 'server.port', value: '"80"'}
+    - {key: 'server.use-ipv6', value: '"disable"'}
+    - {key: 'server.username', value: '"www"'}
+    - {key: 'server.groupname', value: '"www"'}
+    - {key: 'server.document-root', value: '"/usr/local/www/lighttpd"'}
