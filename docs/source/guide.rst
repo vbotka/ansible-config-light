@@ -306,7 +306,7 @@ Parameters
 | *Parameter*                 | *Type*             | *Comments*
 ============================= ==================== ============================
 | **name**                    | *string*           | Package or BSD port
-                              | ``required``       | 
+                              | ``required``       |
 ============================= ==================== ============================
 
 Example
@@ -472,7 +472,7 @@ Ansible module *template* and modify it with the module *lineinfile*
 later. Several options are available:
 
 1. template: If the attribute *template* is defined in the dictionary
-2. lineinfile: If the attribute *lines* is defined in the dictionary
+2. lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
 3. blockinfile: If the attribute *blocks* is defined in the dictionary
 4. ini_file: If the attribute *ini* is defined in the dictionary
 
@@ -499,19 +499,19 @@ Parameters for template
 | **path**                    | *string*           | Path to file
                               | ``required``       |
 | **template**                | *string*           | Template filename
-                              | ``required``       | 
+                              | ``required``       |
 | **owner**                   | *string*           | Owner of the file
-                              |                    | 
+                              |                    |
 | **group**                   | *string*           | Group of the file
-                              |                    | 
+                              |                    |
 | **mode**                    | *string*           | Mode of the file
-                              |                    | 
+                              |                    |
 | **force**                   | *boolean*          | Replace when different
                               |                    | default: true
 | **validate**                | *string*           | Command to validate file
-                              |                    | 
+                              |                    |
 | **handlers**                | *list*             | List of handlers
-                              |                    | 
+                              |                    |
 ============================= ==================== ============================
 
 Example of template
@@ -540,29 +540,33 @@ Notes
 
 Parameters for lineinfile
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **path**                    | *string*           | Path to file
-                              | ``required``       |
-| **lines**                   | *list*             | List of regexp and lines
-                              | ``required``       | 
-| **owner**                   | *string*           | Owner of the file
-                              |                    | 
-| **group**                   | *string*           | Group of the file
-                              |                    | 
-| **mode**                    | *string*           | Mode of the file
-                              |                    | 
-| **create**                  | *boolean*          | Create if does not exist
-                              |                    | default: false
-| **validate**                | *string*           | Command to validate file
-                              |                    | 
-| **handlers**                | *list*             | List of handlers
-                              |                    | 
-============================= ==================== ============================
+=================== ==================== ======================================
+| *Parameter*       | *Type*             | *Comments*
+=================== ==================== ======================================
+| **path**          | *string*           | Path to file
+                    | ``required``       |
+| **dict**          | *list*             | List of key value dictionaries
+                    | ``required``       | Either dict or lines is required
+| **lines**         | *list*             | List of regexp and lines
+                    | ``required``       | Either dict or lines is required
+| **assignment**    | *string*           | Assignment of key and value in dict
+                    |                    | default '='
+| **owner**         | *string*           | Owner of the file
+                    |                    |
+| **group**         | *string*           | Group of the file
+                    |                    |
+| **mode**          | *string*           | Mode of the file
+                    |                    |
+| **create**        | *boolean*          | Create if does not exist
+                    |                    | default: false
+| **validate**      | *string*           | Command to validate file
+                    |                    |
+| **handlers**      | *list*             | List of handlers
+                    |                    |
+=================== ==================== ======================================
 
-Example of lineinfile
-^^^^^^^^^^^^^^^^^^^^^
+Example of lineinfile with lines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 File ``/usr/local/etc/postfix/main.cf`` for postfix
 
@@ -573,6 +577,20 @@ File ``/usr/local/etc/postfix/main.cf`` for postfix
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/postfix-main-cf
     :language: yaml
     :emphasize-lines: 9
+    :linenos:
+
+Example of lineinfile with dict
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+File ``/usr/local/etc/lighttpd/lighttpd.conf`` for lighttpd
+
+[`contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict
+    :language: yaml
+    :emphasize-lines: 10
     :linenos:
 
 See Also
@@ -589,19 +607,19 @@ Parameters for blockinfile
 | **path**                    | *string*           | Path to file
                               | ``required``       |
 | **blocks**                  | *list*             | List of blocks and markers
-                              | ``required``       | 
+                              | ``required``       |
 | **owner**                   | *string*           | Owner of the file
-                              |                    | 
+                              |                    |
 | **group**                   | *string*           | Group of the file
-                              |                    | 
+                              |                    |
 | **mode**                    | *string*           | Mode of the file
-                              |                    | 
+                              |                    |
 | **create**                  | *boolean*          | Create if does not exist
                               |                    | default: false
 | **validate**                | *string*           | Command to validate file
-                              |                    | 
+                              |                    |
 | **handlers**                | *list*             | List of handlers
-                              |                    | 
+                              |                    |
 ============================= ==================== ============================
 
 Example of blockinfileinfile
@@ -625,15 +643,15 @@ Parameters for ini_file
 | **ini**                     | *list*             | List of {section,option,
                               | ``required``       | value} dictionaries
 | **owner**                   | *string*           | Owner of the file
-                              |                    | 
+                              |                    |
 | **group**                   | *string*           | Group of the file
-                              |                    | 
+                              |                    |
 | **mode**                    | *string*           | Mode of the file
-                              |                    | 
+                              |                    |
 | **create**                  | *boolean*          | Create if does not exist
                               |                    | default: true
 | **handlers**                | *list*             | List of handlers
-                              |                    | 
+                              |                    |
 ============================= ==================== ============================
 
 Example of ini_file

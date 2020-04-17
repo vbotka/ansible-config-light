@@ -1,0 +1,15 @@
+lighttpd-lighttpdconf:
+  path: '/usr/local/etc/lighttpd/lighttpd.conf'
+  create: true
+  owner: 'root'
+  group: 'wheel'
+  mode: '0644'
+  handlers:
+    - 'reload lighttpd'
+  assignment: ' = '
+  dict:
+  - {key: 'server.port', value: '"80"'}
+  - {key: 'server.use-ipv6', value: '"disable"'}
+  - {key: 'server.username', value: '"www"'}
+  - {key: 'server.groupname', value: '"www"'}
+  - {key: 'server.document-root', value: '"/usr/local/www/lighttpd"'}

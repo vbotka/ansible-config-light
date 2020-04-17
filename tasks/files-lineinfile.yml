@@ -1,6 +1,8 @@
 ---
 # TODO: Complete parameters
-- name: "files-lineinfile: Lineinfile"
+
+# lines
+- name: "files-lineinfile: Lineinfile lines"
   lineinfile:
     path: "{{ item.0.path }}"
     regexp: "{{ item.1.regexp }}"
@@ -10,6 +12,8 @@
     mode: "{{ item.0.mode|default(omit) }}"
     create: "{{ item.0.create|default(omit) }}"
     validate: "{{ item.0.validate|default(omit) }}"
+    backrefs: "{{ item.0.backrefs|default(omit) }}"
+    state: "{{ item.0.state|default(omit) }}"
     # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|subelements('lines', skip_missing=true) }}"
   loop_control:
@@ -17,7 +21,7 @@
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_lines
 
-- name: "files-lineinfile: Debug"
+- name: "files-lineinfile: Debug lines"
   block:
     - name: Debug cl_results_lines
       debug:
@@ -25,6 +29,38 @@
     - name: Debug changed lines paths
       debug:
         msg: "{{ cl_results_lines.results|default([])|
+                 json_query('[?changed==`true`].invocation.module_args.path')
+                 }}"
+  when: cl_debug|bool
+
+# dict
+- name: "files-lineinfile: Lineinfile dict"
+  lineinfile:
+    path: "{{ item.0.path }}"
+    regexp: "^\\s*{{ item.1.key }}\\s*{{ item.0.assignment|default('=')|trim }}\\s*(.*)$"
+    line: "{{ item.1.key }}{{ item.0.assignment|default('=') }}{{ item.1.value }}"
+    owner: "{{ item.0.owner|default(omit) }}"
+    group: "{{ item.0.group|default(omit) }}"
+    mode: "{{ item.0.mode|default(omit) }}"
+    create: "{{ item.0.create|default(omit) }}"
+    validate: "{{ item.0.validate|default(omit) }}"
+    backrefs: "{{ item.0.backrefs|default(omit) }}"
+    state: "{{ item.0.state|default(omit) }}"
+    # backup: "{{ cl_backup }}"
+  loop: "{{ cl_files.values()|subelements('dict', skip_missing=true) }}"
+  loop_control:
+    label: "{{ item.0.path }}"
+  notify: "{{ item.0.handlers|default(omit) }}"
+  register: cl_results_dict
+
+- name: "files-lineinfile: Debug dict"
+  block:
+    - name: Debug cl_results_dict
+      debug:
+        var: cl_results_dict
+    - name: Debug changed dict paths
+      debug:
+        msg: "{{ cl_results_dict.results|default([])|
                  json_query('[?changed==`true`].invocation.module_args.path')
                  }}"
   when: cl_debug|bool

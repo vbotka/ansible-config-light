@@ -71,7 +71,7 @@ member of the group *adm*.
 * Create *host_vars* files with the variables of the application. Start the server (2), run the server at boot (3), and configure two files.
 
 .. code-block:: bash
-   :emphasize-lines: 2,3,5,23
+   :emphasize-lines: 2,3,5,18
    :linenos:
 
    shell> cat host_vars/srv.example.com/config-light-lighttpd.yml
@@ -84,24 +84,17 @@ member of the group *adm*.
    cl_lighttpd_server_username: 'www'
    cl_lighttpd_server_groupname: 'www'
    cl_lighttpd_server_document_root: "/usr/local/www/lighttpd"
-   cl_lighttpd_lighttpdconf_lines:
-     - regexp: '^\s*server.port\s*=\s*(.*)$'
-       line: 'server.port = "{{ cl_lighttpd_server_port }}"'
-     - regexp: '^\s*server.use-ipv6\s*=\s*(.*)$'
-       line: 'server.use-ipv6 = "{{ cl_lighttpd_server_useipv6 }}"'
-     - regexp: '^\s*server.username\s*=\s*(.*)$'
-       line: 'server.username = "{{ cl_lighttpd_server_username }}"'
-     - regexp: '^\s*server.groupname\s*=\s*(.*)$'
-       line: 'server.groupname = "{{ cl_lighttpd_server_groupname }}"'
-     - regexp: '^\s*server.document-root\s*=\s*(.*)$'
-       line: 'server.document-root = "{{ cl_lighttpd_server_document_root }}"'
+   cl_lighttpd_lighttpdconf_dict:
+     - {key: 'server.port', value: '"{{ cl_lighttpd_server_port }}"'}
+     - {key: 'server.use-ipv6', value: '"{{ cl_lighttpd_server_useipv6 }}"'}
+     - {key: 'server.username', value: '"{{ cl_lighttpd_server_username }}"'}
+     - {key: 'server.groupname', value: '"{{ cl_lighttpd_server_groupname }}"'}
+     - {key: 'server.document-root', value: '"{{ cl_lighttpd_server_document_root }}"'}
 
    # /etc/rc.conf
    cl_lighttpd_rcconf_lighttpd_enable: 'YES'
-   cl_lighttpd_rcconf_lines:
-       - regexp: '^lighttpd_enable(.*)$'
-         line: 'lighttpd_enable="{{ cl_lighttpd_rcconf_lighttpd_enable }}"'
-
+   cl_lighttpd_rcconf_dict:
+     - {key: 'lighttpd_enable', value: '"{{ cl_lighttpd_rcconf_lighttpd_enable }}"'}
 
 * Create configuration files in the directory ``conf-light``.
 
@@ -137,7 +130,8 @@ member of the group *adm*.
      owner: 'root'
      group: 'wheel'
      mode: '0644'
-     lines: '{{ cl_lighttpd_lighttpdconf_lines }}'
+     assignment: ' = '
+     dict: '{{ cl_lighttpd_lighttpdconf_dict }}'
      handlers:
        - 'reload lighttpd'
 
@@ -152,7 +146,8 @@ member of the group *adm*.
      owner: 'root'
      group: 'wheel'
      mode: '0644'
-     lines: "{{ cl_lighttpd_rcconf_lines }}"
+     assignment: '='
+     dict: "{{ cl_lighttpd_rcconf_dict }}"
      handlers:
        - 'reload lighttpd'
 
@@ -201,7 +196,7 @@ member of the group *adm*.
        - handler: 'lighttpd check'
          module: command
          params:
-        - 'cmd: /usr/local/sbin/lighttpd -t'
+           - 'cmd: /usr/local/sbin/lighttpd -t'
 
 
 *conf-light/packages.d*
