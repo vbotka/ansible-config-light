@@ -28,8 +28,8 @@ cl_lighttpd_lighttpdconf_lines:
 # /etc/rc.conf
 cl_lighttpd_rcconf_lighttpd_enable: 'YES'
 cl_lighttpd_rcconf_lines:
-    - regexp: '^lighttpd_enable(.*)$'
-      line: 'lighttpd_enable="{{ cl_lighttpd_rcconf_lighttpd_enable }}"'
+  - regexp: '^lighttpd_enable(.*)$'
+    line: 'lighttpd_enable="{{ cl_lighttpd_rcconf_lighttpd_enable }}"'
 
 # EOF
 ...

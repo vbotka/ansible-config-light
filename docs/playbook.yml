@@ -5,13 +5,17 @@
 
   tasks:
 
-    - include_vars: templates/annotation.yml
-    - template:
+    - name: Read data
+      include_vars: templates/annotation.yml
+    - name: Create source
+      template:
         src: templates/annotation.rst.j2
         dest: source/annotation.rst
 
-    - include_vars: templates/examples.yml
-    - template:
+    - name: Read data
+      include_vars: templates/examples.yml
+    - name: Create source
+      template:
         src: templates/examples.rst.j2
         dest: source/examples.rst
 
