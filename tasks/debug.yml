@@ -60,7 +60,7 @@
       freebsd_use_packages [{{ freebsd_use_packages }}]
 
   debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ msg.split('\n')[:-1] }}"
 
 # EOF
 ...

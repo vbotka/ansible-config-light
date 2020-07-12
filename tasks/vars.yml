@@ -1,7 +1,6 @@
 ---
 
 - name: "vars: Debug"
-  when: cl_debug|bool
   vars:
     msg: |
       cl_handlersd_dir [{{ cl_handlersd_dir }}]
@@ -16,7 +15,8 @@
       cl_servicesd [{{ cl_servicesd }}]
       cl_filesd [{{ cl_filesd }}]
   debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ msg.split('\n')[:-1] }}"
+  when: cl_debug|bool
 
 - name: "vars: Packages"
   import_tasks: vars-packages.yml
