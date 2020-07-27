@@ -7,7 +7,7 @@
 - name: "file-create-backup: Stat {{ item.path }}"
   stat:
     path: "{{ item.path }}"
-  loop: "{{ cl_files.values() }}"
+  loop: "{{ cl_files.values()|list }}"
   loop_control:
     label: "{{ item.path }}"
   register: result
@@ -22,7 +22,7 @@
     remote_src: true
     src: "{{ item.item.path }}"
     dest: "{{ item.item.path }}_{{ cl_timestamp }}.bak"
-    mode: "preserve"
+    mode: preserve
   loop: "{{ result.results }}"
   loop_control:
     label: "{{ item.item.path }}"

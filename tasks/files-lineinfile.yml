@@ -1,6 +1,11 @@
 ---
 # TODO: Complete parameters
 
+- name: "files-lineinfile: Debug cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|list }}"
+  when: cl_debug|bool
+
 # lines
 - name: "files-lineinfile: Lineinfile lines"
   lineinfile:
@@ -15,7 +20,7 @@
     backrefs: "{{ item.0.backrefs|default(omit) }}"
     state: "{{ item.0.state|default(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|subelements('lines', skip_missing=true) }}"
+  loop: "{{ cl_files.values()|list|subelements('lines', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }}"
   notify: "{{ item.0.handlers|default(omit) }}"
@@ -47,7 +52,7 @@
     backrefs: "{{ item.0.backrefs|default(omit) }}"
     state: "{{ item.0.state|default(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|subelements('dict', skip_missing=true) }}"
+  loop: "{{ cl_files.values()|list|subelements('dict', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }}"
   notify: "{{ item.0.handlers|default(omit) }}"

@@ -1,11 +1,10 @@
 ---
 
 - name: "files-delete-backup: Delete backup files that did not change"
-  when: cl_backup|bool
   file:
     state: absent
     path: "{{ item }}_{{ cl_timestamp }}.bak"
-  loop: "{{ cl_files.values()|json_query('[].path')|
+  loop: "{{ cl_files.values()|list|json_query('[].path')|
             difference(
             cl_results_template.results|default([])|
             json_query('[?changed==`true`].invocation.module_args.path'))|unique|
@@ -19,6 +18,7 @@
             cl_results_inifile.results|default([])|
             json_query('[?changed==`true`].invocation.module_args.path'))|unique
             }}"
+  when: cl_backup|bool
   changed_when: false
 
 # EOF
