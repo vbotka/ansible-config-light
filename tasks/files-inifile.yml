@@ -1,17 +1,21 @@
 ---
-# TODO: Complete parameters
+
 - name: "files-inifile: INI files"
   ini_file:
     path: "{{ item.0.path }}"
-    section: "{{ item.1.section }}"
-    option: "{{ item.1.option }}"
-    value: "{{ item.1.value }}"
     owner: "{{ item.0.owner|default(omit) }}"
     group: "{{ item.0.group|default(omit) }}"
     mode: "{{ item.0.mode|default(omit) }}"
     create: "{{ item.0.create|default(omit) }}"
-    # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|list|subelements('ini', skip_missing=true) }}"
+    allow_no_value: "{{ item.0.allow_no_value|default(omit) }}"
+    attributes: "{{ item.0.attributes|default(omit) }}"
+    no_extra_spaces: "{{ item.0.no_extra_spaces|default(omit) }}"
+    section: "{{ item.1.section }}"
+    state: "{{ item.1.state|default(omit) }}"
+    option: "{{ item.1.option|default(omit) }}"
+    value: "{{ item.1.value|default(omit) }}"
+    backup: "{{ cl_backup }}"
+  loop: "{{ cl_files.values()|list|subelements('ini', {'skip_missing': True}) }}"
   loop_control:
     label: "{{ item.0.path }}"
   notify: "{{ item.0.handlers|default(omit) }}"
@@ -25,7 +29,7 @@
     - name: Debug changed ini paths
       debug:
         msg: "{{ cl_results_ini.results|default([])|
-                 json_query('[?changed==`true`].invocation.module_args.path')
+                 json_query('[?changed].invocation.module_args.path')
                  }}"
   when: cl_debug|bool
 
