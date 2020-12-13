@@ -1,5 +1,37 @@
 ---
 
+# debug
+- name: "setup: Debug"
+  when: cl_debug|bool
+  vars:
+    msg: |
+      cl_dird [{{ cl_dird }}]
+      cl_dird_owner [{{ cl_dira_owner|default('UNDEFINED') }}]
+      cl_dird_group [{{ cl_dira_group|default('UNDEFINED') }}]
+      cl_dird_dmode [{{ cl_dira_dmode }}]
+      cl_handlersd_dir [{{ cl_handlersd_dir }}]
+      cl_packagesd_dir [{{ cl_packagesd_dir }}]
+      cl_servicesd_dir [{{ cl_servicesd_dir }}]
+      cl_filesd_dir [{{ cl_filesd_dir }}]
+      cl_statesd_dir [{{ cl_statesd_dir }}]
+      cl_dira [{{ cl_dira }}]
+      cl_dira_owner [{{ cl_dira_owner|default('UNDEFINED') }}]
+      cl_dira_group [{{ cl_dira_group|default('UNDEFINED') }}]
+      cl_dira_dmode [{{ cl_dira_dmode }}]
+      cl_dira_fmode [{{ cl_dira_fmode }}]
+      cl_assemble_regexp [{{ cl_assemble_regexp }}]
+      cl_handlersd [{{ cl_handlersd }}]
+      cl_packagesd [{{ cl_packagesd }}]
+      cl_servicesd [{{ cl_servicesd }}]
+      cl_filesd [{{ cl_filesd }}]
+      cl_statesd [{{ cl_statesd }}]
+      cl_handlers_dir_become [{{ cl_handlers_dir_become }}]
+      cl_handlers_dir_owner [{{ cl_handlers_dir_owner|default('UNDEFINED') }}]
+      cl_handlers_dir_group [{{ cl_handlers_dir_group|default('UNDEFINED') }}]
+      cl_handlers_dir_dmode [{{ cl_handlers_dir_dmode|default('UNDEFINED') }}]
+  debug:
+    msg: "{{ msg.split('\n')[:-1] }}"
+
 # directories
 - name: "setup: Create directories in {{ cl_dird }}"
   file:
@@ -25,6 +57,15 @@
     mode: "{{ cl_dira_dmode }}"
 
 # handlers
+- name: "setup: Create dir {{ role_path }}/handlers"
+  become: "{{ cl_handlers_dir_become }}"
+  file:
+    state: directory
+    path: "{{ role_path }}/handlers"
+    owner: "{{ cl_handlers_dir_owner|default(omit) }}"
+    group: "{{ cl_handlers_dir_group|default(omit) }}"
+    mode: "{{ cl_handlers_dir_dmode|default(omit) }}"
+
 - name: "setup: Assemble handlers"
   import_tasks: vars-handlers.yml
 

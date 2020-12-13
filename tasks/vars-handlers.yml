@@ -9,7 +9,6 @@
     group: "{{ cl_dira_group|default(omit) }}"
     mode: "{{ cl_dira_fmode }}"
     validate: "{{ cl_assemble_validate|default(omit) }}"
-  delegate_to: localhost
 
 - name: "vars-handlers: Include files from {{ cl_handlersd }} to cl_handlersd_items"
   include_vars:

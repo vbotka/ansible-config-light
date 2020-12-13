@@ -160,7 +160,7 @@ member of the group *adm*.
 
    shell> cat conf-light/handlers.d/lighttpd-freebsd 
    lighttpd_freebsd:
-     template: handlers-auto1.yml.j2
+     template: handlers-auto2.yml.j2
      params:
    
        - handler: 'enable and start lighttpd'

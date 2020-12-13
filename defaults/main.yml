@@ -39,8 +39,16 @@ cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
 cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated with ~
 # cl_assemble_validate: 'ansible-lint -x 205 %s'  # no default
 
+# Role handlers directory
+# cl_handlers_dir_owner: admin   # no default
+# cl_handlers_dir_group: admin   # no default
+# cl_handlers_dir_dmode: "0775"  # no default
+cl_handlers_dir_become: false
+
 # Handlers
-cl_handlers_validate: 'ansible-lint %s'
+# Exclude rules:
+# 205 Use ".yml" or ".yaml" playbook extension
+cl_handlers_validate: 'ansible-lint -x 205 %s'
 
 # OS common
 install_retries: 10
