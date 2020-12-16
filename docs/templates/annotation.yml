@@ -190,6 +190,26 @@ mytasks:
     seealso: []
     note: []
     warning: []
+  - file: files-markers.yml
+    link: files_markers_yml
+    synopsis: |
+      Create block markers for ``blockinfile``.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
+  - file: fn/mark-block.yml
+    link: mark_block_yml
+    synopsis: |
+      Create block marker for ``blockinfile``.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    note: []
+    warning: []
   - file: services.yml
     link: services_yml
     synopsis: |

@@ -491,6 +491,11 @@ See Also
 
    * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted when the files haven't been modified.
 
+blockinfile markers
+^^^^^^^^^^^^^^^^^^^
+
+<TODO: No description yet>
+
 template
 ^^^^^^^^
 
