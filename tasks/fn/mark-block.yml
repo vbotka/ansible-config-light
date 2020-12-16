@@ -17,9 +17,9 @@
     - name: "mark-block: Create end marker {{ item.1.marker }}"
       replace:
         path: '{{ item.0.path }}'
-        after: '# BEGIN ANSIBLE MANAGED BLOCK {{ item.1.marker }}'
-        regexp: '{{ item.1.regex2 }}'
+        regexp: '({{ item.1.regex1 }}[\s\S]*?){{ item.1.regex2 }}'
         replace: |-
+          \g<1>
           {{ item.1.replace2 }}
           {{ '#' }} END ANSIBLE MANAGED BLOCK {{ item.1.marker }}
   when:
