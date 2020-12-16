@@ -7,16 +7,16 @@
   loop: "{{ cl_files.values()|list|json_query('[].path')|
             difference(
             cl_results_template.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|unique|
+            json_query('[?changed].invocation.module_args.path'))|unique|
             difference(
             cl_results_lines.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|unique|
+            json_query('[?changed].invocation.module_args.path'))|unique|
             difference(
             cl_results_blocks.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|unique|
+            json_query('[?changed].invocation.module_args.path'))|unique|
             difference(
             cl_results_inifile.results|default([])|
-            json_query('[?changed==`true`].invocation.module_args.path'))|unique
+            json_query('[?changed].invocation.module_args.path'))|unique
             }}"
   when: cl_backup|bool
   changed_when: false

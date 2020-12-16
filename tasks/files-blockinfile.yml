@@ -1,14 +1,24 @@
 ---
-# TODO: Complete parameters
+
+- name: "files-blockinfile: Debug blocks in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('blocks', 'defined')|list }}"
+  when: cl_debug|bool
 
 - name: "files-blockinfile: Blockinfile"
   blockinfile:
     path: "{{ item.0.path }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.1.marker }}"
     block: "{{ item.1.block }}"
+    state: "{{ item.1.state|default(omit) }}"
+    insertafter: "{{ item.1.insertafter|default(omit) }}"
+    insertbefore: "{{ item.1.insertbefore|default(omit) }}"
+    marker_begin: "{{ item.1.marker_begin|default(omit) }}"
+    marker_end: "{{ item.1.marker_end|default(omit) }}"
     owner: "{{ item.0.owner|default(omit) }}"
     group: "{{ item.0.group|default(omit) }}"
     mode: "{{ item.0.mode|default(omit) }}"
+    attributes: "{{ item.0.attributes|default(omit) }}"
     create: "{{ item.0.create|default(omit) }}"
     validate: "{{ item.0.validate|default(omit) }}"
     # backup: "{{ cl_backup }}"
@@ -18,15 +28,14 @@
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_blocks
 
-- name: "files-blockinfile: Debug"
-  block:
-    - name: Debug cl_results_blocks
+- block:
+    - name: "files-blockinfile: Debug cl_results_blocks"
       debug:
         var: cl_results_blocks
-    - name: Debug changed blocks paths
+    - name: "files-blockinfile: Debug changed blocks paths"
       debug:
         msg: "{{ cl_results_blocks.results|default([])|
-                 json_query('[?changed==`true`].invocation.module_args.path')
+                 json_query('[?changed].invocation.module_args.path')
                  }}"
   when: cl_debug|bool
 

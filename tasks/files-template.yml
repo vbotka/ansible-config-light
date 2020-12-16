@@ -1,12 +1,27 @@
 ---
-# TODO: Complete parameters
+
+- name: "files-template: Debug template in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
+  when: cl_debug|bool
+
 - name: "files-template: Template"
   template:
     dest: "{{ item.path }}"
     src: "{{ item.template }}"
+    follow: "{{ item.follow|default(omit) }}"
+    block_start_string: "{{ item.block_start_string|default(omit) }}"
+    block_end_string: "{{ item.block_end_string|default(omit) }}"
+    lstrip_blocks: "{{ item.lstrip_blocks|default(omit) }}"
+    newline_sequence: "{{ item.newline_sequence|default(omit) }}"
+    output_encoding: "{{ item.output_encoding|default(omit) }}"
+    trim_blocks: "{{ item.trim_blocks|default(omit) }}"
+    variable_end_string: "{{ item.variable_end_string|default(omit) }}"
+    variable_start_string: "{{ item.variable_start_string|default(omit) }}"
     owner: "{{ item.owner|default(omit) }}"
     group: "{{ item.group|default(omit) }}"
     mode: "{{ item.mode|default(omit) }}"
+    attributes: "{{ item.attributes|default(omit) }}"
     force: "{{ item.force|default(omit) }}"
     validate: "{{ item.validate|default(omit) }}"
     # backup: "{{ cl_backup }}"
@@ -16,15 +31,14 @@
   notify: "{{ item.handlers|default(omit) }}"
   register: cl_results_template
 
-- name: "files-template: Debug"
-  block:
-    - name: Debug cl_results_template
+- block:
+    - name: "files-template: Debug cl_results_template"
       debug:
         var: cl_results_template
-    - name: Debug changed template path
+    - name: "files-template: Debug changed template path"
       debug:
         msg: "{{ cl_results_template|default([])|
-                 json_query('[?changed==`true`].invocation.module_args.path')
+                 json_query('[?changed].invocation.module_args.path')
                  }}"
   when: cl_debug|bool
 

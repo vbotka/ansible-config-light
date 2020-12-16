@@ -1,5 +1,10 @@
 ---
 
+- name: "files-markers: Debug markers in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('markers', 'defined')|list }}"
+  when: cl_debug|bool
+
 - name: "files-markers: Mark block {{ item.1.marker }}"
   include_tasks: fn/mark-block.yml
   loop: "{{ cl_files.values()|list|subelements('markers', skip_missing=true) }}"

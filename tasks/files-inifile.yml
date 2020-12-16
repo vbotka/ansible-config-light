@@ -1,5 +1,10 @@
 ---
 
+- name: "files-inifile: Debug ini in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('ini', 'defined')|list }}"
+  when: cl_debug|bool
+
 - name: "files-inifile: INI files"
   ini_file:
     path: "{{ item.0.path }}"
@@ -21,12 +26,11 @@
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_ini
 
-- name: "files-inifile: Debug"
-  block:
-    - name: Debug cl_results_ini
+- block:
+    - name: "files-inifile: Debug cl_results_ini"
       debug:
         var: cl_results_ini
-    - name: Debug changed ini paths
+    - name: "files-inifile: Debug changed ini paths"
       debug:
         msg: "{{ cl_results_ini.results|default([])|
                  json_query('[?changed].invocation.module_args.path')

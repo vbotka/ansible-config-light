@@ -1,24 +1,28 @@
 ---
-# TODO: Complete parameters
-
-- name: "files-lineinfile: Debug cl_files.values()"
-  debug:
-    msg: "{{ cl_files.values()|list }}"
-  when: cl_debug|bool
 
 # lines
+- name: "files-lineinfile: Debug lines in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('lines', 'defined')|list }}"
+  when: cl_debug|bool
+
 - name: "files-lineinfile: Lineinfile lines"
   lineinfile:
     path: "{{ item.0.path }}"
     regexp: "{{ item.1.regexp }}"
     line: "{{ item.1.line }}"
+    backrefs: "{{ item.1.backrefs|default(omit) }}"
+    state: "{{ item.1.state|default(omit) }}"
+    firstmatch: "{{ item.1.firstmatch|default(omit) }}"
+    insertafter: "{{ item.1.insertafter|default(omit) }}"
+    insertbefore: "{{ item.1.insertbefore|default(omit) }}"
     owner: "{{ item.0.owner|default(omit) }}"
     group: "{{ item.0.group|default(omit) }}"
     mode: "{{ item.0.mode|default(omit) }}"
+    attributes: "{{ item.0.attributes|default(omit) }}"
+    others: "{{ item.0.others|default(omit) }}"
     create: "{{ item.0.create|default(omit) }}"
     validate: "{{ item.0.validate|default(omit) }}"
-    backrefs: "{{ item.0.backrefs|default(omit) }}"
-    state: "{{ item.0.state|default(omit) }}"
     # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|list|subelements('lines', skip_missing=true) }}"
   loop_control:
@@ -26,31 +30,40 @@
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_lines
 
-- name: "files-lineinfile: Debug lines"
-  block:
-    - name: Debug cl_results_lines
+- block:
+    - name: "files-lineinfile: Debug cl_results_lines"
       debug:
         var: cl_results_lines
-    - name: Debug changed lines paths
+    - name: "files-lineinfile: Debug changed lines paths"
       debug:
         msg: "{{ cl_results_lines.results|default([])|
-                 json_query('[?changed==`true`].invocation.module_args.path')
+                 json_query('[?changed].invocation.module_args.path')
                  }}"
   when: cl_debug|bool
 
 # dict
+- name: "files-lineinfile: Debug dict in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('dict', 'defined')|list }}"
+  when: cl_debug|bool
+
 - name: "files-lineinfile: Lineinfile dict"
   lineinfile:
     path: "{{ item.0.path }}"
     regexp: "^\\s*{{ item.1.key }}\\s*{{ item.0.assignment|default('=')|trim }}\\s*(.*)$"
     line: "{{ item.1.key }}{{ item.0.assignment|default('=') }}{{ item.1.value }}"
+    backrefs: "{{ item.1.backrefs|default(omit) }}"
+    state: "{{ item.1.state|default(omit) }}"
+    firstmatch: "{{ item.1.firstmatch|default(omit) }}"
+    insertafter: "{{ item.1.insertafter|default(omit) }}"
+    insertbefore: "{{ item.1.insertbefore|default(omit) }}"
     owner: "{{ item.0.owner|default(omit) }}"
     group: "{{ item.0.group|default(omit) }}"
     mode: "{{ item.0.mode|default(omit) }}"
+    attributes: "{{ item.0.attributes|default(omit) }}"
+    others: "{{ item.0.others|default(omit) }}"
     create: "{{ item.0.create|default(omit) }}"
     validate: "{{ item.0.validate|default(omit) }}"
-    backrefs: "{{ item.0.backrefs|default(omit) }}"
-    state: "{{ item.0.state|default(omit) }}"
     # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|list|subelements('dict', skip_missing=true) }}"
   loop_control:
@@ -58,15 +71,14 @@
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_dict
 
-- name: "files-lineinfile: Debug dict"
-  block:
-    - name: Debug cl_results_dict
+- block:
+    - name: "files-lineinfile: Debug cl_results_dict"
       debug:
         var: cl_results_dict
-    - name: Debug changed dict paths
+    - name: "files-lineinfile: Debug changed dict paths"
       debug:
         msg: "{{ cl_results_dict.results|default([])|
-                 json_query('[?changed==`true`].invocation.module_args.path')
+                 json_query('[?changed].invocation.module_args.path')
                  }}"
   when: cl_debug|bool
 
