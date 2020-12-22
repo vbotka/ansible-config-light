@@ -1,5 +1,10 @@
 ---
 
+- name: "services: Debug"
+  debug:
+    msg: "{{ cl_services }}"
+  when: cl_debug|bool
+
 # FreeBSD -----------------------------------------------------------------
 - name: "services: FreeBSD"
   block:
@@ -26,7 +31,9 @@
         label: "{{ item.key }}"
       when: "not item.value.enabled|default(true)|bool"
 
-  when: "ansible_os_family == 'FreeBSD'"
+  when:
+    - "ansible_os_family == 'FreeBSD'"
+    - cl_services_freebsd_rcconf_auto|default('false')|bool
 
 # All ---------------------------------------------------------------------
 - name: "services: Manage services"
