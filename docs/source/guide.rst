@@ -506,16 +506,14 @@ Parameters for template
 ============================= ==================== ============================
 | **path**                    | *string*           | Path to file
                               | ``required``       |
-| **template**                | *string*           | Template filename
-                              | ``required``       |
+| **template**                | *dictionary*       | Template parameters (TODO)
+                              | ``required``       | (see files-template.yml)
 | **owner**                   | *string*           | Owner of the file
                               |                    |
 | **group**                   | *string*           | Group of the file
                               |                    |
 | **mode**                    | *string*           | Mode of the file
                               |                    |
-| **force**                   | *boolean*          | Replace when different
-                              |                    | default: true
 | **validate**                | *string*           | Command to validate file
                               |                    |
 | **handlers**                | *list*             | List of handlers

@@ -4,4 +4,5 @@ mailerconf:
   owner: 'root'
   group: 'wheel'
   mode: '0644'
-  template: 'mailer.conf.j2'
+  template:
+    path: 'mailer.conf.j2'
