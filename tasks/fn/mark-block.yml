@@ -24,7 +24,7 @@
           {{ '#' }} END ANSIBLE MANAGED BLOCK {{ item.1.marker }}
   when:
     - not ansible_check_mode
-    - checkmarker.rc|default != 0
+    - checkmarker.rc != 0
 
 # EOF
 ...
