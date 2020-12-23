@@ -36,7 +36,7 @@ cl_packagesd: "{{ cl_dira }}/packagesd.{{ inventory_hostname }}"
 cl_servicesd: "{{ cl_dira }}/servicesd.{{ inventory_hostname }}"
 cl_filesd: "{{ cl_dira }}/filesd.{{ inventory_hostname }}"
 cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
-cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated with ~
+cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated by ~
 # cl_assemble_validate: 'ansible-lint -x 205 %s'  # no default
 
 # Role handlers directory
@@ -58,6 +58,7 @@ install_delay: 5
 freebsd_install_method: packages
 # freebsd_install_method: ports
 freebsd_use_packages: true
+cl_services_freebsd_rcconf_auto: false
 
 # EOF
 ...

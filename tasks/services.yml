@@ -33,7 +33,7 @@
 
   when:
     - "ansible_os_family == 'FreeBSD'"
-    - cl_services_freebsd_rcconf_auto|default('false')|bool
+    - cl_services_freebsd_rcconf_auto|bool
 
 # All ---------------------------------------------------------------------
 - name: "services: Manage services"
