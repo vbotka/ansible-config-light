@@ -50,7 +50,7 @@
 - name: "files-lineinfile: Lineinfile dict"
   lineinfile:
     path: "{{ item.0.path }}"
-    regexp: "^\\s*{{ item.1.key }}\\s*{{ item.0.assignment|default('=')|trim }}\\s*(.*)$"
+    regexp: "^\\s*[#;]*\\s*{{ item.1.key }}\\s*{{ item.0.assignment|default('=')|trim }}\\s*(.*)$"
     line: "{{ item.1.key }}{{ item.0.assignment|default('=') }}{{ item.1.value }}"
     backrefs: "{{ item.1.backrefs|default(omit) }}"
     state: "{{ item.1.state|default(omit) }}"
