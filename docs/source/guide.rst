@@ -33,7 +33,7 @@ Used Ansible modules comprise ``package`` to install Linux packages,
 and both ``pkgng`` and ``portinstall`` to install FreeBSD packages or
 ports.
 
-Ansible modules ``file``, ``template``, ``lineinfile``,
+Ansible modules ``file``, ``template``, ``copy``, ``lineinfile``,
 ``blockinfile``, and ``ini_file`` are used to configure files. Module
 ``service`` is used to manage both Linux and FreeBSD services.
 
@@ -471,10 +471,13 @@ at the same file. For example, it is possible to create a file by the
 Ansible module *template* and modify it with the module *lineinfile*
 later. Several options are available:
 
+1. Create blockinfile markers: If the attribute *markers* is defined
+   in the dictionary
 1. template: If the attribute *template* is defined in the dictionary
-2. lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
-3. blockinfile: If the attribute *blocks* is defined in the dictionary
-4. ini_file: If the attribute *ini* is defined in the dictionary
+1. copy: If the attribute *copyfile* is defined in the dictionary
+1. lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
+1. blockinfile: If the attribute *blocks* is defined in the dictionary
+1. ini_file: If the attribute *ini* is defined in the dictionary
 
 Multiple options, when defined in the dictionary, will be applied in
 this order.
@@ -490,6 +493,7 @@ See Also
    * See `files-create-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_ how the backups are created (when enabled by *cl_backup*).
 
    * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted when the files haven't been modified.
+
 
 blockinfile markers
 ^^^^^^^^^^^^^^^^^^^
@@ -543,6 +547,13 @@ See Also
 Notes
 """""
 .. note:: There are couple of templates ready to be used in the directory ``templates``. The user is expected to create new templates when needed. Feel free to contribute new templates to the `project <https://github.com/vbotka/ansible-config-light/>`_.
+
+
+copyfile
+^^^^^^^^
+
+<TODO: No description yet>
+
 
 lineinfile
 ^^^^^^^^^^
@@ -608,6 +619,7 @@ See Also
 
    * See `files-lineinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-lineinfile.yml>`_ how the files are modified or created by the Ansible module ``lineinfile``.
 
+
 blockinfile
 ^^^^^^^^^^^
 
@@ -644,6 +656,7 @@ See Also
 .. seealso::
 
    * See `files-blockinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_ how the files are modified or created by the Ansible module ``blockinfile``.
+
 
 ini_file
 ^^^^^^^^
@@ -682,6 +695,7 @@ See Also
 
 
 .. _ug_bp:
+
 
 Best practice
 =============

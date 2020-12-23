@@ -13,6 +13,10 @@
   import_tasks: files-template.yml
   tags: cl_files_template
 
+- name: "files: Copy"
+  import_tasks: files-copy.yml
+  tags: cl_files_copy
+
 - name: "files: Lineinfile"
   import_tasks: files-lineinfile.yml
   tags: cl_files_lineinfile
