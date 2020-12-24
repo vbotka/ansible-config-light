@@ -9,8 +9,8 @@
 - name: "files-lineinfile: Lineinfile lines"
   lineinfile:
     path: "{{ item.0.path }}"
-    regexp: "{{ item.1.regexp }}"
-    line: "{{ item.1.line }}"
+    regexp: "{{ item.1.regexp|default(omit) }}"
+    line: "{{ item.1.line|default(omit) }}"
     backrefs: "{{ item.1.backrefs|default(omit) }}"
     state: "{{ item.1.state|default(omit) }}"
     firstmatch: "{{ item.1.firstmatch|default(omit) }}"
@@ -26,7 +26,7 @@
     # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|list|subelements('lines', skip_missing=true) }}"
   loop_control:
-    label: "{{ item.0.path }}"
+    label: "{{ item.0.path }} {{ item.1.line|default('') }}"
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_lines
 
@@ -67,7 +67,7 @@
     # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values()|list|subelements('dict', skip_missing=true) }}"
   loop_control:
-    label: "{{ item.0.path }}"
+    label: "{{ item.0.path }} {{ item.1.key }}"
   notify: "{{ item.0.handlers|default(omit) }}"
   register: cl_results_dict
 
