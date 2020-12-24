@@ -1,5 +1,13 @@
 ---
 
+- name: "files: Copy"
+  import_tasks: files-copy.yml
+  tags: cl_files_copy
+
+- name: "files: Template"
+  import_tasks: files-template.yml
+  tags: cl_files_template
+
 - name: "files: Mark blocks"
   import_tasks: files-markers.yml
   tags: cl_files_markers
@@ -8,14 +16,6 @@
   import_tasks: files-create-backup.yml
   when: cl_backup|bool
   tags: cl_files_create_backup
-
-- name: "files: Template"
-  import_tasks: files-template.yml
-  tags: cl_files_template
-
-- name: "files: Copy"
-  import_tasks: files-copy.yml
-  tags: cl_files_copy
 
 - name: "files: Lineinfile"
   import_tasks: files-lineinfile.yml

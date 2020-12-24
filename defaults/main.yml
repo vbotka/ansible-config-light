@@ -6,6 +6,7 @@ cl_setup: true               # Import tasks/setup.yml
 cl_install: true             # Install packages or ports
 cl_debug: false              # Print debug output
 cl_backup: false             # Backup files
+cl_copyfile_delete: false    # Delete then copy samples and defaults
 
 # Combine assembled data with these variables
 cl_handlers: {}
