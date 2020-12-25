@@ -100,7 +100,20 @@ cl_lighttpd_cgiconf_copy:
   path: '/usr/local/etc/lighttpd/conf.d/cgi.conf.sample'
   remote_src: true
   force: false
-cl_lighttpd_cgiconf_blocks: []
+cl_lighttpd_cgiconf_markers:
+  - marker: 'cgi.assign'
+    regex1: 'cgi.assign (.*?),'
+    replace1: 'cgi.assign \g<1>,'
+    regex2: '\)'
+    replace2: ')'
+cl_lighttpd_cgiconf_blocks:
+  - marker: 'cgi.assign'
+    block: |
+      {{ '#' }} cgi.assign = ( ".pl"  => "/usr/bin/perl",
+      {{ '#' }}                ".cgi" => "/usr/bin/perl",
+      {{ '#' }}                ".rb"  => "/usr/bin/ruby",
+      {{ '#' }}                ".erb" => "/usr/bin/eruby",
+      {{ '#' }}                ".py"  => "/usr/local/bin/python" )
 
 # /usr/local/etc/lighttpd/conf.d/fastcgi.conf
 cl_lighttpd_fastcgiconf_copy:
