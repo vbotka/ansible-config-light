@@ -499,6 +499,127 @@ See Also
    * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted when the files haven't been modified.
 
 
+copyfile
+^^^^^^^^
+
+Copy files.
+
+Parameters for copyfile
+"""""""""""""""""""""""
+
++---------------------+-----------------------+-----------------------------+
+| Parameter           | Type                  | Comments                    |
++=====================+=======================+=============================+
+| path                | string ``required``   | Path to file                |
++---------------------+-----------------------+-----------------------------+
+| copyfile            | dict ``required``     | Copyfile parameters         |
+|                     |                       | (see tasks/files-copy.yml)  |
++--+------------------+-----------------------+-----------------------------+
+|  | path             | string ``required``   | Path of the source file     |
+|  +------------------+-----------------------+-----------------------------+
+|  | remote_src       | string                | Source file from remote     |
+|  +------------------+-----------------------+-----------------------------+
+|  | force            | boolean               | If *no*, transfer if dest   |
+|  |                  |                       | does not exist              |
+|  +------------------+-----------------------+-----------------------------+
+|  | ...              | ...                   | <TBD>                       |
++--+------------------+-----------------------+-----------------------------+
+| owner               | string                | Owner of the file           |
++---------------------+-----------------------+-----------------------------+
+| group               | string                | Group of the file           |
++---------------------+-----------------------+-----------------------------+
+| mode                | string                | Mode of the file            |
++---------------------+-----------------------+-----------------------------+
+| attributes          | string                | Attributes of the file      |
++---------------------+-----------------------+-----------------------------+
+| create              | boolean               | Create if does not exist    |
++---------------------+-----------------------+-----------------------------+
+| validate            | string                | Command to validate file    |
++---------------------+-----------------------+-----------------------------+
+| handlers            | list                  | List of handlers            |
++---------------------+-----------------------+-----------------------------+
+
+Example of copyfile
+"""""""""""""""""""
+
+Create the dictionary ``cl_lighttpd_modulesconf_copy`` (69)
+
+[`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/cl-lighttpd.yml
+    :language: yaml
+    :lines: 68-72
+    :lineno-start: 68
+    :emphasize-lines: 2
+    :linenos:
+
+Then, the command ::
+
+  shell> ansible-playbook config-light.yml -t cl_files_copy
+
+will copy sample file ``modules.conf.sample`` to ``modules.conf`` if
+the destination does not exist.
+
+See Also
+""""""""
+.. seealso::
+
+   * See `files-copy.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_
+
+
+template
+^^^^^^^^
+
+Create files from templates.
+
+Parameters for template
+"""""""""""""""""""""""
+============================= ==================== ============================
+| *Parameter*                 | *Type*             | *Comments*
+============================= ==================== ============================
+| **path**                    | *string*           | Path to file
+                              | ``required``       |
+| **template**                | *dictionary*       | Template parameters (TODO)
+                              | ``required``       | (see files-template.yml)
+| **owner**                   | *string*           | Owner of the file
+                              |                    |
+| **group**                   | *string*           | Group of the file
+                              |                    |
+| **mode**                    | *string*           | Mode of the file
+                              |                    |
+| **validate**                | *string*           | Command to validate file
+                              |                    |
+| **handlers**                | *list*             | List of handlers
+                              |                    |
+============================= ==================== ============================
+
+Example of template
+"""""""""""""""""""
+
+File ``/etc/mail/mailer.conf`` for postfix
+
+[`contrib/postfix/conf-light/files.d/mailer-conf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf
+    :language: yaml
+    :emphasize-lines: 7
+    :linenos:
+
+See Also
+""""""""
+.. seealso::
+
+   * See `files-template.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml>`_ how the files are modified or created by the Ansible module ``template``.
+	     
+Notes
+"""""
+.. note:: There are couple of templates ready to be used in the directory ``templates``. The user is expected to create new templates when needed. Feel free to contribute new templates to the `project <https://github.com/vbotka/ansible-config-light/>`_.
+
+
 blockinfile markers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -602,127 +723,6 @@ See Also
 .. seealso::
 
    * See `fn/mark-block.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_ how the markers are created.
-
-
-template
-^^^^^^^^
-
-Create files from templates.
-
-Parameters for template
-"""""""""""""""""""""""
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **path**                    | *string*           | Path to file
-                              | ``required``       |
-| **template**                | *dictionary*       | Template parameters (TODO)
-                              | ``required``       | (see files-template.yml)
-| **owner**                   | *string*           | Owner of the file
-                              |                    |
-| **group**                   | *string*           | Group of the file
-                              |                    |
-| **mode**                    | *string*           | Mode of the file
-                              |                    |
-| **validate**                | *string*           | Command to validate file
-                              |                    |
-| **handlers**                | *list*             | List of handlers
-                              |                    |
-============================= ==================== ============================
-
-Example of template
-"""""""""""""""""""
-
-File ``/etc/mail/mailer.conf`` for postfix
-
-[`contrib/postfix/conf-light/files.d/mailer-conf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf
-    :language: yaml
-    :emphasize-lines: 7
-    :linenos:
-
-See Also
-""""""""
-.. seealso::
-
-   * See `files-template.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml>`_ how the files are modified or created by the Ansible module ``template``.
-	     
-Notes
-"""""
-.. note:: There are couple of templates ready to be used in the directory ``templates``. The user is expected to create new templates when needed. Feel free to contribute new templates to the `project <https://github.com/vbotka/ansible-config-light/>`_.
-
-
-copyfile
-^^^^^^^^
-
-Copy files.
-
-Parameters for copyfile
-"""""""""""""""""""""""
-
-+---------------------+-----------------------+-----------------------------+
-| Parameter           | Type                  | Comments                    |
-+=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
-+---------------------+-----------------------+-----------------------------+
-| copyfile            | dict ``required``     | Copyfile parameters         |
-|                     |                       | (see tasks/files-copy.yml)  |
-+--+------------------+-----------------------+-----------------------------+
-|  | path             | string ``required``   | Path of the source file     |
-|  +------------------+-----------------------+-----------------------------+
-|  | remote_src       | string                | Source file from remote     |
-|  +------------------+-----------------------+-----------------------------+
-|  | force            | boolean               | If *no*, transfer if dest   |
-|  |                  |                       | does not exist              |
-|  +------------------+-----------------------+-----------------------------+
-|  | ...              | ...                   | <TBD>                       |
-+--+------------------+-----------------------+-----------------------------+
-| owner               | string                | Owner of the file           |
-+---------------------+-----------------------+-----------------------------+
-| group               | string                | Group of the file           |
-+---------------------+-----------------------+-----------------------------+
-| mode                | string                | Mode of the file            |
-+---------------------+-----------------------+-----------------------------+
-| attributes          | string                | Attributes of the file      |
-+---------------------+-----------------------+-----------------------------+
-| create              | boolean               | Create if does not exist    |
-+---------------------+-----------------------+-----------------------------+
-| validate            | string                | Command to validate file    |
-+---------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
-+---------------------+-----------------------+-----------------------------+
-
-Example of copyfile
-"""""""""""""""""""
-
-Create the dictionary ``cl_lighttpd_modulesconf_copy`` (69)
-
-[`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../contrib/lighttpd_nagios/cl-lighttpd.yml
-    :language: yaml
-    :lines: 68-72
-    :lineno-start: 68
-    :emphasize-lines: 2
-    :linenos:
-
-Then, the command ::
-
-  shell> ansible-playbook config-light.yml -t cl_files_copy
-
-will copy sample file ``modules.conf.sample`` to ``modules.conf`` if
-the destination does not exist.
-
-See Also
-""""""""
-.. seealso::
-
-   * See `files-copy.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_
 
 
 lineinfile
