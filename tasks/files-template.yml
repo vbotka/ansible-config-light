@@ -5,6 +5,15 @@
     msg: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
   when: cl_debug|bool
 
+- name: "files-template: Delete template in cl_files.values()"
+  file:
+    state: absent
+    path: "{{ item.path }}"
+  loop: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
+  loop_control:
+    label: "{{ item.path }}"
+  when: cl_template_delete|bool
+
 - name: "files-template: Template"
   template:
     dest: "{{ item.path }}"

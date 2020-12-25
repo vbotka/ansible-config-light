@@ -15,6 +15,7 @@
       cl_install [{{ cl_install }}]
       cl_backup [{{ cl_backup }}]
       cl_copyfile_delete [{{ cl_copyfile_delete }}]
+      cl_template_delete [{{ cl_template_delete }}]
 
       cl_handlers
       {{ cl_handlers|to_nice_yaml }}
