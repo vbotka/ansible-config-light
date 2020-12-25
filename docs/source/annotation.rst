@@ -270,46 +270,6 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
-.. _as_files_markers_yml:
-
-files-markers.yml
------------------
-
-Synopsis: Create block markers for ``blockinfile``.
-
-
-Description of the task.
-
-
-[`files-markers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/files-markers.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-.. _as_mark_block_yml:
-
-fn/mark-block.yml
------------------
-
-Synopsis: Create block marker for ``blockinfile``.
-
-
-Description of the task.
-
-
-[`fn/mark-block.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/fn/mark-block.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
 .. _as_files_create_backup_yml:
 
 files-create-backup.yml
@@ -370,26 +330,6 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
-.. _as_files_copy_yml:
-
-files-copy.yml
---------------
-
-Synopsis: Copy files by Ansible module ``copy``.
-
-
-Description of the task.
-
-
-[`files-copy.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/files-copy.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
 .. _as_files_lineinfile_yml:
 
 files-lineinfile.yml
@@ -446,6 +386,46 @@ Description of the task.
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-inifile.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_files_markers_yml:
+
+files-markers.yml
+-----------------
+
+Synopsis: Create block markers for ``blockinfile``.
+
+
+Description of the task.
+
+
+[`files-markers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/files-markers.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_mark_block_yml:
+
+fn/mark-block.yml
+-----------------
+
+Synopsis: Create block marker for ``blockinfile``.
+
+
+Description of the task.
+
+
+[`fn/mark-block.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/fn/mark-block.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:

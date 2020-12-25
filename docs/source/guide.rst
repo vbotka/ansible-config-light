@@ -183,27 +183,27 @@ Default variables
 
 Most of the variables are self-explaining. There are five very
 important variables ``cl_handlers``, ``cl_packages``, ``cl_states``,
-``cl_services``, and ``cl_files`` (11-15). These dictionaries, which
+``cl_services``, and ``cl_files`` (13-17). These dictionaries, which
 comprise the configuration data of handlers, packages, services, and
-files, will be explained in details. By default these dictionaries are
+files, will be explained in details. By default, these dictionaries are
 empty.
 
 Best practice is to provide the data either in *host_vars* and
 *group_vars* or as a files in the directories ``cl_handlersd_dir``,
 ``cl_packagesd_dir``, ``cl_statesd_dir``, ``cl_servicesd_dir``, and
-``cl_filesd_dir`` (22-26). Both methods can be applied at the same
+``cl_filesd_dir`` (24-28). Both methods can be applied at the same
 time. The variables will be assembled and combined by the tasks
 ``vars_handlers.yml``, ``vars_packages.yml``, ``vars_states.yml``,
 ``vars_services.yml``, and ``vars_files.yml``. The assembled
 dictionaries, customized for each host in the play, will be stored in
 the host-specific files ``cl_packagesd``, ``cl_statesd``,
-``cl_servicesd``, and ``cl_filesd`` (35-38). The variable
+``cl_servicesd``, and ``cl_filesd`` (37-40). The variable
 ``cl_handlers`` is not host-specific, because the handlers will be
 created at the controller (localhost) only. Assembled dictionary
-``cl_handlers`` will be stored in the file ``cl_handlersd`` (34). Take
-a look at the directory ``cl_dira`` (33) to see assembled data.
+``cl_handlers`` will be stored in the file ``cl_handlersd`` (36). Take
+a look at the directory ``cl_dira`` (35) to see assembled data.
 
-By default, the base of the directories is ``role_path`` (21). The user
+By default, the base of the directories is ``role_path`` (23). The user
 is expected to put the configuration data to a more suitable directory,
 e.g., to ``playbook_dir`` directory.
 
@@ -213,10 +213,10 @@ e.g., to ``playbook_dir`` directory.
     :linenothreshold: 5
 .. literalinclude:: ../../defaults/main.yml
     :language: yaml
-    :emphasize-lines: 2, 11-15
+    :emphasize-lines: 2, 13-17
     :linenos:
 
-.. warning:: Defaults of the variables *cl_dird_dmode* (20), *cl_dira_dmode* (31) and *cl_dira_fmode* (32) are very permissive. These are the permissions to access the configuration data and the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
+.. warning:: Defaults of the variables *cl_dird_dmode* (22), *cl_dira_dmode* (33) and *cl_dira_fmode* (34) are very permissive. These are the permissions to access the configuration data and the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.
 
 <TODO: complete description of all default variables>
 
@@ -471,13 +471,17 @@ at the same file. For example, it is possible to create a file by the
 Ansible module *template* and modify it with the module *lineinfile*
 later. Several options are available:
 
-1. Create blockinfile markers: If the attribute *markers* is defined
-   in the dictionary
-1. template: If the attribute *template* is defined in the dictionary
-1. copy: If the attribute *copyfile* is defined in the dictionary
-1. lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
-1. blockinfile: If the attribute *blocks* is defined in the dictionary
-1. ini_file: If the attribute *ini* is defined in the dictionary
+* copy: If the attribute *copyfile* is defined in the dictionary
+
+* template: If the attribute *template* is defined in the dictionary
+
+* create blockinfile markers: If the attribute *markers* is defined in the dictionary
+
+* lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
+
+* blockinfile: If the attribute *blocks* is defined in the dictionary
+
+* ini_file: If the attribute *ini* is defined in the dictionary
 
 Multiple options, when defined in the dictionary, will be applied in
 this order.
@@ -498,10 +502,112 @@ See Also
 blockinfile markers
 ^^^^^^^^^^^^^^^^^^^
 
-<TODO: No description yet>
+Create markers for Ansible module blockinfile. Mark existing blocks that you want to configure.
+
+Parameters for blockinfile markers
+""""""""""""""""""""""""""""""""""
+
++---------------------+-----------------------+-----------------------------+
+| Parameter           | Type                  | Comments                    |
++=====================+=======================+=============================+
+| path                | string ``required``   | Path to file                |
++---------------------+-----------------------+-----------------------------+
+| markers             | list ``required``     | List of dictionaries        |
+|                     |                       | (see fn/mark-block.yml)     |
++--+------------------+-----------------------+-----------------------------+
+|  | regex1           | string ``required``   | Regex of block's beginning  |
+|  +------------------+-----------------------+-----------------------------+
+|  | replace1         | string ``required``   | Block's beginning           |
+|  +------------------+-----------------------+-----------------------------+
+|  | regex2           | string ``required``   | Regex of block's ending     |
+|  +------------------+-----------------------+-----------------------------+
+|  | replace2         | string ``required``   | Block's ending              |
++--+------------------+-----------------------+-----------------------------+
+
+Example of blockinfile markers
+""""""""""""""""""""""""""""""
+
+For example, in file ``/usr/local/etc/lighttpd/modules.conf``, create
+blockinfile markers in the following block ::
+
+  ##
+  
+  server.modules = (
+    "mod_access",
+    #  "mod_alias",
+    #  "mod_auth",
+    #  "mod_authn_file",
+    #  "mod_evasive",
+    #  "mod_setenv",
+    #  "mod_usertrack",
+    #  "mod_redirect",
+    #  "mod_rewrite",
+    )
+  
+  ##
+
+Create the description of the file (2) and declare the variable for
+the list of the markers (8)
+
+[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf
+    :language: yaml
+    :emphasize-lines: 2,8
+    :linenos:
+
+Create the list of the dictionaries ``cl_lighttpd_modulesconf_markers`` (73)
+
+[`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/cl-lighttpd.yml
+    :language: yaml
+    :lines: 68-78
+    :lineno-start: 68
+    :emphasize-lines: 6
+    :linenos:
+
+Then, the command ::
+
+  shell> ansible-playbook config-light.yml -t cl_files_copy,cl_files_markers
+
+will copy sample file ``modules.conf.sample`` to ``modules.conf`` and
+will create blockline markers ::
+
+  ##
+
+  # BEGIN ANSIBLE MANAGED BLOCK server.modules
+  server.modules = (
+    "mod_access",
+  #  "mod_alias",
+  #  "mod_auth",
+  #  "mod_authn_file",
+  #  "mod_evasive",
+  #  "mod_setenv",
+  #  "mod_usertrack",
+  #  "mod_redirect",
+  #  "mod_rewrite",
+
+  )
+  # END ANSIBLE MANAGED BLOCK server.modules
+
+  ##
+
+See Also
+""""""""
+.. seealso::
+
+   * See `fn/mark-block.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_ how the markers are created.
+
 
 template
 ^^^^^^^^
+
+Create files from templates.
 
 Parameters for template
 """""""""""""""""""""""
@@ -552,7 +658,71 @@ Notes
 copyfile
 ^^^^^^^^
 
-<TODO: No description yet>
+Copy files.
+
+Parameters for copyfile
+"""""""""""""""""""""""
+
++---------------------+-----------------------+-----------------------------+
+| Parameter           | Type                  | Comments                    |
++=====================+=======================+=============================+
+| path                | string ``required``   | Path to file                |
++---------------------+-----------------------+-----------------------------+
+| copyfile            | dict ``required``     | Copyfile parameters         |
+|                     |                       | (see tasks/files-copy.yml)  |
++--+------------------+-----------------------+-----------------------------+
+|  | path             | string ``required``   | Path of the source file     |
+|  +------------------+-----------------------+-----------------------------+
+|  | remote_src       | string                | Source file from remote     |
+|  +------------------+-----------------------+-----------------------------+
+|  | force            | boolean               | If *no*, transfer if dest   |
+|  |                  |                       | does not exist              |
+|  +------------------+-----------------------+-----------------------------+
+|  | ...              | ...                   | <TBD>                       |
++--+------------------+-----------------------+-----------------------------+
+| owner               | string                | Owner of the file           |
++---------------------+-----------------------+-----------------------------+
+| group               | string                | Group of the file           |
++---------------------+-----------------------+-----------------------------+
+| mode                | string                | Mode of the file            |
++---------------------+-----------------------+-----------------------------+
+| attributes          | string                | Attributes of the file      |
++---------------------+-----------------------+-----------------------------+
+| create              | boolean               | Create if does not exist    |
++---------------------+-----------------------+-----------------------------+
+| validate            | string                | Command to validate file    |
++---------------------+-----------------------+-----------------------------+
+| handlers            | list                  | List of handlers            |
++---------------------+-----------------------+-----------------------------+
+
+Example of copyfile
+"""""""""""""""""""
+
+Create the dictionary ``cl_lighttpd_modulesconf_copy`` (69)
+
+[`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/cl-lighttpd.yml
+    :language: yaml
+    :lines: 68-72
+    :lineno-start: 68
+    :emphasize-lines: 2
+    :linenos:
+
+Then, the command ::
+
+  shell> ansible-playbook config-light.yml -t cl_files_copy
+
+will copy sample file ``modules.conf.sample`` to ``modules.conf`` if
+the destination does not exist.
+
+See Also
+""""""""
+.. seealso::
+
+   * See `files-copy.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_
 
 
 lineinfile
@@ -623,39 +793,78 @@ See Also
 blockinfile
 ^^^^^^^^^^^
 
+Create or configure blocks in files.
+
 Parameters for blockinfile
 """"""""""""""""""""""""""
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **path**                    | *string*           | Path to file
-                              | ``required``       |
-| **blocks**                  | *list*             | List of blocks and markers
-                              | ``required``       |
-| **owner**                   | *string*           | Owner of the file
-                              |                    |
-| **group**                   | *string*           | Group of the file
-                              |                    |
-| **mode**                    | *string*           | Mode of the file
-                              |                    |
-| **create**                  | *boolean*          | Create if does not exist
-                              |                    | default: false
-| **validate**                | *string*           | Command to validate file
-                              |                    |
-| **handlers**                | *list*             | List of handlers
-                              |                    |
-============================= ==================== ============================
++---------------------+-----------------------+-----------------------------+
+| Parameter           | Type                  | Comments                    |
++=====================+=======================+=============================+
+| path                | string ``required``   | Path to file                |
++---------------------+-----------------------+-----------------------------+
+| blocks              | list ``required``     | List of dictionaries        |
+|                     |                       | (see files-blockinfile.yml) |
++--+------------------+-----------------------+-----------------------------+
+|  | marker           | string ``required``   | Label of the marker         |
+|  +------------------+-----------------------+-----------------------------+
+|  | block            | string ``required``   | Text between markers        |
+|  +------------------+-----------------------+-----------------------------+
+|  | ...              | ...                   | <TBD>                       |
++--+------------------+-----------------------+-----------------------------+
+| owner               | string                | Owner of the file           |
++---------------------+-----------------------+-----------------------------+
+| group               | string                | Group of the file           |
++---------------------+-----------------------+-----------------------------+
+| mode                | string                | Mode of the file            |
++---------------------+-----------------------+-----------------------------+
+| create              | boolean               | Create if does not exist    |
++---------------------+-----------------------+-----------------------------+
+| validate            | string                | Command to validate file    |
++---------------------+-----------------------+-----------------------------+
+| handlers            | list                  | List of handlers            |
++---------------------+-----------------------+-----------------------------+
 
 Example of blockinfileinfile
 """"""""""""""""""""""""""""
 
-<TODO: No example yet>
+Create the list of the dictionaries ``cl_lighttpd_modulesconf_blocks`` (89)
+
+[`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/cl-lighttpd.yml
+    :language: yaml
+    :lines: 84-97
+    :lineno-start: 84
+    :emphasize-lines: 1,6
+    :linenos:
+
+Then, the command ::
+
+  shell> ansible-playbook config-light.yml -t cl_files_blockinfile
+
+will create this block in ``modules.conf`` ::
+
+  ##
+
+  # BEGIN ANSIBLE MANAGED BLOCK server.modules
+  server.modules = (
+    "mod_access",
+    "mod_alias",
+    "mod_auth",
+    "mod_setenv",
+  )
+  # END ANSIBLE MANAGED BLOCK server.modules
+
+  ##
+
 
 See Also
 """"""""
 .. seealso::
 
-   * See `files-blockinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_ how the files are modified or created by the Ansible module ``blockinfile``.
+   * See `files-blockinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_ how the files are modified by the Ansible module ``blockinfile``.
 
 
 ini_file
