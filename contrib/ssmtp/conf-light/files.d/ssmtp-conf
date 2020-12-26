@@ -4,4 +4,5 @@ ssmtp_conf:
   owner: 'root'
   group: 'mail'
   mode: 'u=rw,g=r'
-  template: 'ssmtp.conf.j2'
+  template:
+    path: 'ssmtp.conf.j2'

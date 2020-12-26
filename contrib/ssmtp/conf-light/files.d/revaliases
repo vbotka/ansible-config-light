@@ -4,4 +4,5 @@ revaliases:
   owner: 'root'
   group: 'mail'
   mode: 'u=rw,g=r'
-  template: 'revaliases.j2'
+  template:
+    path: 'revaliases.j2'
