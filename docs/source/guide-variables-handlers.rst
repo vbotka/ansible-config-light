@@ -13,24 +13,24 @@ can be used with the template *handlers-auto1.yml.j2*.
 
 Parameters
 ^^^^^^^^^^
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **template**                | *string*           | Template filename
-                              | ``required``       |
-| **handler**                 | *string*           | Name of the handler
-                              | ``required``       |
-| **module**                  | *string*           | Ansible module in handler
-                              | ``required``       |
-| **params**                  | *list*             | Ansible module parameters
-                              | ``required``       |
-| **conditions**              | *list*             | List of conditions
-                              |                    |
-============================= ==================== ============================
+
++---------------------+-----------------------+---------------------------------------+
+| Parameter           | Type                  | Comments                              |
++=====================+=======================+=======================================+
+| template            | string ``required``   | Template filename                     |
++---------------------+-----------------------+---------------------------------------+
+| handler             | string ``required``   | Name of the handler                   |
++---------------------+-----------------------+---------------------------------------+
+| module              | string ``required``   | Ansible module in handler             |
++---------------------+-----------------------+---------------------------------------+
+| params              | list ``required``     | Ansible module parameters             |
++---------------------+-----------------------+---------------------------------------+
+| conditions          | list                  | List of conditions                    |
++---------------------+-----------------------+---------------------------------------+
 
 Example
 ^^^^^^^
-FreeBSD handlers for postfix
+FreeBSD handlers for Postfix
 
 [`contrib/postfix/conf-light/handlers.d/postfix-freebsd <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/postfix-freebsd>`_]
 

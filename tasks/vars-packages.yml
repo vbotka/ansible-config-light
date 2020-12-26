@@ -25,5 +25,7 @@
     var: cl_packages
   when: cl_debug|bool
 
+# TODO: sort|unique list of packages/ports
+
 # EOF
 ...

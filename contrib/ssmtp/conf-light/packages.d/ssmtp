@@ -1,2 +1,3 @@
 ssmtp:
-  name: 'ssmtp'
+  name:
+    - 'ssmtp'
