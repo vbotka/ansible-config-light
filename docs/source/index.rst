@@ -7,8 +7,8 @@ Ansible role Config Light
 
    qsg
    guide
-   annotation
    examples
+   annotation
    copyright
    legalnotice
 
