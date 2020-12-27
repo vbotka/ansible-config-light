@@ -6,26 +6,26 @@ States
 Synopsis
 ^^^^^^^^
 
-The variable *cl_states* is a dictionary of the files' states.
+The dictionary *cl_states* comprises states of the files.
 
 Parameters
 ^^^^^^^^^^
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **state**                   | *string*           | State of the filename
-                              | ``required``       |
-| **path**                    | *string*           | Path to file
-                              | ``required``       |
-| **owner**                   | *string*           | Owner of the file
-                              |                    |
-| **group**                   | *string*           | Group of the file
-                              |                    |
-| **mode**                    | *string*           | Mode of the file
-                              |                    |
-============================= ==================== ============================
 
-<TODO: complete parameters. See tasks/states.yml>
++---------------------+-----------------------+---------------------------------------+
+| Parameter           | Type                  | Comments                              |
++=====================+=======================+=======================================+
+| path                | string ``required``   | Path to file                          |
++---------------------+-----------------------+---------------------------------------+
+| state               | string                | State of the filename                 |
++---------------------+-----------------------+---------------------------------------+
+| owner               | string                | Owner of the file                     |
++---------------------+-----------------------+---------------------------------------+
+| group               | string                | Group of the file                     |
++---------------------+-----------------------+---------------------------------------+
+| mode                | string                | Mode of the file                      |
++---------------------+-----------------------+---------------------------------------+
+| ...                 | ...                   | <TBD: see tasks/states.yml>           |
++---------------------+-----------------------+---------------------------------------+
 
 
 Example

@@ -35,7 +35,18 @@ Parameters for blockinfile
 Example of blockinfileinfile
 """"""""""""""""""""""""""""
 
-Create the list of the dictionaries ``cl_lighttpd_modulesconf_blocks`` (89)
+Create the description of the file (2) and declare the list of the blocks (10)
+
+[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf
+    :language: yaml
+    :emphasize-lines: 2,10
+    :linenos:
+
+Create the list of the blocks ``cl_lighttpd_modulesconf_blocks`` (89)
 
 [`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
 

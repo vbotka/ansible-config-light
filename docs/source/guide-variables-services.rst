@@ -6,21 +6,22 @@ Services
 Synopsis
 ^^^^^^^^
 
-The variable *cl_services* is a dictionary with the services managed
-by this role.
+The dictionary *cl_services* comprises managed services.
 
 Parameters
 ^^^^^^^^^^
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **name**                    | *string*           | Service
-                              | ``required``       |
-| **state**                   | *string*           | State of the service
-                              |                    | default: started
-| **enabled**                 | *boolean*          | Start on boot
-                              |                    | default: true
-============================= ==================== ============================
+
++---------------------+-----------------------+---------------------------------------+
+| Parameter           | Type                  | Comments                              |
++=====================+=======================+=======================================+
+| name                | string ``required``   | Name of the service                   |
++---------------------+-----------------------+---------------------------------------+
+| state               | string                | State of the service                  |
+|                     |                       | default: started                      |
++---------------------+-----------------------+---------------------------------------+
+| enabled             | boolean               | Start on boot                         |
+|                     |                       | default: true                         |
++---------------------+-----------------------+---------------------------------------+
 
 Example
 ^^^^^^^

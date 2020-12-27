@@ -1,7 +1,7 @@
 ---
 # {{ ansible_managed }}
 # Automatically generated file with handlers.
-{% for iitem in item.value.params %}
+{% for iitem in item.value.handlers %}
 
 - name: {{ item.key }} {{ iitem.handler }}
   {{ iitem.module }}:

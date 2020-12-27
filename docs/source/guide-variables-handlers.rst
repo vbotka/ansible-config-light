@@ -6,10 +6,10 @@ Handlers
 Synopsis
 ^^^^^^^^
 
-The variable *cl_handlers* is a dictionary of the handlers. The
-Structure of the dictionary depends on the template that is used to
-create the file with the handlers. For example, the structure below
-can be used with the template *handlers-auto1.yml.j2*.
+The dictionary *cl_handlers* comprises handlers. The structure of the
+dictionary depends on the template that is used to create the files
+with the handlers. For example, the structure below can be used
+together with the template *handlers-auto1.yml.j2*.
 
 Parameters
 ^^^^^^^^^^
@@ -19,14 +19,16 @@ Parameters
 +=====================+=======================+=======================================+
 | template            | string ``required``   | Template filename                     |
 +---------------------+-----------------------+---------------------------------------+
-| handler             | string ``required``   | Name of the handler                   |
-+---------------------+-----------------------+---------------------------------------+
-| module              | string ``required``   | Ansible module in handler             |
-+---------------------+-----------------------+---------------------------------------+
-| params              | list ``required``     | Ansible module parameters             |
-+---------------------+-----------------------+---------------------------------------+
-| conditions          | list                  | List of conditions                    |
-+---------------------+-----------------------+---------------------------------------+
+| handlers            | list ``required``     | List of handlers dictionaries         |
++--+------------------+-----------------------+---------------------------------------+
+|  | handler          | string ``required``   | Name of the handler                   |
+|  +------------------+-----------------------+---------------------------------------+
+|  | module           | string ``required``   | Ansible module in handler             |
+|  +------------------+-----------------------+---------------------------------------+
+|  | params           | list ``required``     | Ansible module parameters             |
+|  +------------------+-----------------------+---------------------------------------+
+|  | conditions       | list                  | List of conditions                    |
++--+------------------+-----------------------+---------------------------------------+
 
 Example
 ^^^^^^^

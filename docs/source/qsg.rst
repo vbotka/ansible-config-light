@@ -161,7 +161,7 @@ member of the group *adm*.
    shell> cat conf-light/handlers.d/lighttpd-freebsd 
    lighttpd_freebsd:
      template: handlers-auto2.yml.j2
-     params:
+     handlers:
    
        - handler: 'enable and start lighttpd'
          module: service
@@ -207,7 +207,8 @@ member of the group *adm*.
 
    shell> cat conf-light/packages.d/lighttpd 
    lighttpd:
-     name: 'www/lighttpd'
+     name:
+       - 'www/lighttpd'
 
 
 *conf-light/services.d*
@@ -261,7 +262,7 @@ what files were created. Also take a look at the directory
 
     shell> ansible-playbook config-light.yml -t cl_packages -e 'cl_install=true'
 
-* Set files' states ::
+* Set states of the files ::
 
     shell> ansible-playbook config-light.yml -t cl_states
 

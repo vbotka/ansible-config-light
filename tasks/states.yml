@@ -1,9 +1,14 @@
 ---
 
+- name: "states: Debug"
+  debug:
+    msg: "{{ cl_states }}"
+  when: cl_debug|bool
+
 - name: "states: Apply states"
   file:
-    state: "{{ item.value.state }}"
     path: "{{ item.value.path }}"
+    state: "{{ item.value.state|default(omit) }}"
     src: "{{ item.value.src|default(omit) }}"
     owner: "{{ item.value.owner|default(omit) }}"
     group: "{{ item.value.group|default(omit) }}"

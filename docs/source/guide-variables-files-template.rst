@@ -5,24 +5,34 @@ Create files from templates.
 
 Parameters for template
 """""""""""""""""""""""
-============================= ==================== ============================
-| *Parameter*                 | *Type*             | *Comments*
-============================= ==================== ============================
-| **path**                    | *string*           | Path to file
-                              | ``required``       |
-| **template**                | *dictionary*       | Template parameters (TODO)
-                              | ``required``       | (see files-template.yml)
-| **owner**                   | *string*           | Owner of the file
-                              |                    |
-| **group**                   | *string*           | Group of the file
-                              |                    |
-| **mode**                    | *string*           | Mode of the file
-                              |                    |
-| **validate**                | *string*           | Command to validate file
-                              |                    |
-| **handlers**                | *list*             | List of handlers
-                              |                    |
-============================= ==================== ============================
+
++---------------------+-----------------------+-----------------------------+
+| Parameter           | Type                  | Comments                    |
++=====================+=======================+=============================+
+| path                | string ``required``   | Path to file                |
++---------------------+-----------------------+-----------------------------+
+| template            | dict ``required``     | Template parameters         |
+|                     |                       | (see files-templates.yml)   |
++--+------------------+-----------------------+-----------------------------+
+|  | path             | string ``required``   | Path of the source file     |
+|  +------------------+-----------------------+-----------------------------+
+|  | force            | boolean               | If *no*, transfer if dest   |
+|  |                  |                       | does not exist              |
+|  +------------------+-----------------------+-----------------------------+
+|  | ...              | ...                   | <TBD>                       |
++--+------------------+-----------------------+-----------------------------+
+| owner               | string                | Owner of the file           |
++---------------------+-----------------------+-----------------------------+
+| group               | string                | Group of the file           |
++---------------------+-----------------------+-----------------------------+
+| mode                | string                | Mode of the file            |
++---------------------+-----------------------+-----------------------------+
+| attributes          | string                | Attributes of the file      |
++---------------------+-----------------------+-----------------------------+
+| validate            | string                | Command to validate file    |
++---------------------+-----------------------+-----------------------------+
+| handlers            | list                  | List of handlers            |
++---------------------+-----------------------+-----------------------------+
 
 Example of template
 """""""""""""""""""

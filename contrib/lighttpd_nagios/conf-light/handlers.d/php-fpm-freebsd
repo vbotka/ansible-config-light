@@ -1,6 +1,6 @@
 php_fpm_freebsd:
   template: handlers-auto2.yml.j2
-  params:
+  handlers:
 
     - handler: 'enable and start php-fpm'
       module: service

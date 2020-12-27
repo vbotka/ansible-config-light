@@ -6,8 +6,7 @@ Packages
 Synopsis
 ^^^^^^^^
 
-The variable *cl_packages* is a dictionary of the packages or BSD
-ports to be installed.
+The dictionary *cl_packages* comprises packages or BSD ports.
 
 Parameters
 ^^^^^^^^^^

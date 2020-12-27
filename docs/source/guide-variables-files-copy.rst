@@ -31,8 +31,6 @@ Parameters for copyfile
 +---------------------+-----------------------+-----------------------------+
 | attributes          | string                | Attributes of the file      |
 +---------------------+-----------------------+-----------------------------+
-| create              | boolean               | Create if does not exist    |
-+---------------------+-----------------------+-----------------------------+
 | validate            | string                | Command to validate file    |
 +---------------------+-----------------------+-----------------------------+
 | handlers            | list                  | List of handlers            |
@@ -40,6 +38,17 @@ Parameters for copyfile
 
 Example of copyfile
 """""""""""""""""""
+
+Create the description of the file (2) and declare the variable for the dictionary (7)
+
+[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf
+    :language: yaml
+    :emphasize-lines: 2,7
+    :linenos:
 
 Create the dictionary ``cl_lighttpd_modulesconf_copy`` (69)
 
