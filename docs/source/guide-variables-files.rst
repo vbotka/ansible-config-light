@@ -31,10 +31,20 @@ See Also
 """"""""
 .. seealso::
 
-   * See `vars-files.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_ how the variable *cl_files* is combined with the content of the directory *cl_filesd_dir*.
+   * See `vars-files.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_ at GitHub how the variable *cl_files* is combined with the content of the directory *cl_filesd_dir*
 
-   * See `files.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_ how the files are created and modified.
+   * See `files.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_ at GitHub how the files are created and modified
 
-   * See `files-create-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_ how the backups are created (when enabled by *cl_backup*).
+   * See `files-create-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_ at GitHub how the backups are created (when enabled by *cl_backup*)
 
-   * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ how the backup files are deleted when the files haven't been modified.
+   * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ at GitHub how the backup files are deleted when the files haven't been modified
+
+     **Anotated source code**
+     
+   * :ref:`as_vars_files_yml`
+
+   * :ref:`as_files_yml`
+
+   * :ref:`as_files_create_backup_yml`
+
+   * :ref:`as_files_delete_backup_yml`

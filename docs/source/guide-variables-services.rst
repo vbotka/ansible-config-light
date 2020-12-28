@@ -25,6 +25,7 @@ Parameters
 
 Example
 ^^^^^^^
+
 FreeBSD services for Postfix and Sendmail
 
 [`contrib/postfix/conf-light/service.d/postfix <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/postfixd>`_]
@@ -49,6 +50,12 @@ See Also
 ^^^^^^^^
 .. seealso::
 
-   * See `vars-services.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-services.yml>`_ how the variable *cl_services* is combined with the content of the directory *cl_servicesd_dir*.
+   * See `vars-services.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-services.yml>`_ at GitHub how the variable *cl_services* is combined with the content of the directory *cl_servicesd_dir*
 
-   * See `services.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/services.yml>`_ how the services are configured.
+   * See `services.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/services.yml>`_ at GitHub how the services are configured
+
+     **Anotated source code**
+
+   * :ref:`as_vars_services_yml`
+
+   * :ref:`as_services_yml`

@@ -23,12 +23,13 @@ Used Ansible modules comprise ``package`` to install Linux packages,
 and both ``pkgng`` and ``portinstall`` to install FreeBSD packages or
 ports.
 
-Ansible modules ``file``, ``template``, ``copy``, ``lineinfile``,
-``blockinfile``, and ``ini_file`` are used to configure files. Module
-``service`` is used to manage both Linux and FreeBSD services.
+Ansible modules ``file``, ``template``, ``copy``, ``replace``,
+``lineinfile``, ``blockinfile``, and ``ini_file`` are used to
+configure files. Module ``service`` is used to manage both Linux and
+FreeBSD services.
 
 The directory ``contrib`` comprises examples of how to install and
-configure various applications, and how to create the handlers and
+configure various applications and how to create the handlers and
 templates.
 
 The user of this role is expected to master at least the following

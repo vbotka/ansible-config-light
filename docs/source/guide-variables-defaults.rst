@@ -35,7 +35,7 @@ e.g., to ``playbook_dir`` directory.
     :linenothreshold: 5
 .. literalinclude:: ../../defaults/main.yml
     :language: yaml
-    :emphasize-lines: 2, 13-17
+    :emphasize-lines: 2, 13-17, 24-28, 36-40
     :linenos:
 
 .. warning:: Defaults of the variables *cl_dird_dmode* (22), *cl_dira_dmode* (33) and *cl_dira_fmode* (34) are very permissive. These are the permissions to access the configuration data and the assembled dictionaries. Restrict the permissions if these dictionaries might comprise classified data.

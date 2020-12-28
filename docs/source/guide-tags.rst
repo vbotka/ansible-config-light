@@ -14,15 +14,18 @@ the command:
     playbook: config-light.yml
 
       play #1 (srv.example.com): srv.example.com	TAGS: []
-      TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity, cl_services, cl_setup, cl_states, cl_vars]
+      TASK TAGS: [always, cl_debug, cl_files, cl_files_blockinfile,
+      cl_files_copy, cl_files_create_backup, cl_files_delete_backup,
+      cl_files_inifile, cl_files_lineinfile, cl_files_markers,
+      cl_files_template, cl_packages, cl_sanity, cl_services,
+      cl_setup, cl_states, cl_vars]
 
 For example, display the list of the variables and their values with
 the tag ``cl_debug`` (when the debug is enabled ``cl_debug:
 true``). With this tag specified ``-t cl_debug`` all imported tasks
 before the task *debug.yml* will also run because of the tag ``always``
 (when sanity testing is enabled ``cl_sanity: true`` and setup is
-enabled ``cl_setup: true``). This is the default. See
-:ref:`as_main_yml`. ::
+enabled ``cl_setup: true``). This is the default. ::
 
     shell> ansible-playbook config-light.yml -t cl_debug
 
@@ -33,3 +36,8 @@ See what packages will be installed ::
 Install packages and exit the play ::
 
     shell> ansible-playbook config-light.yml -t cl_packages
+
+.. seealso::
+
+   * See `main.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_ at GitHub
+   * See :ref:`as_main_yml` annotated source code

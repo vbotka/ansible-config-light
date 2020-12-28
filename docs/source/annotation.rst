@@ -30,6 +30,46 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
+.. _as_setup_yml:
+
+setup.yml
+---------
+
+Synopsis: Setup. Create dirs. Create handlers.
+
+
+Description of the task.
+
+
+[`setup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/setup.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_vars_handlers_yml:
+
+vars-handlers.yml
+-----------------
+
+Synopsis: Combine dictionaries of handlers.
+
+
+Description of the task.
+
+
+[`vars-handlers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-handlers.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
 .. _as_vars_yml:
 
 vars.yml
@@ -150,46 +190,6 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
-.. _as_setup_yml:
-
-setup.yml
----------
-
-Synopsis: Setup. Create dirs. Create handlers.
-
-
-Description of the task.
-
-
-[`setup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/setup.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-.. _as_vars_handlers_yml:
-
-vars-handlers.yml
------------------
-
-Synopsis: Combine dictionaries of handlers.
-
-
-Description of the task.
-
-
-[`vars-handlers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-handlers.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
 .. _as_debug_yml:
 
 debug.yml
@@ -270,42 +270,22 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
-.. _as_files_create_backup_yml:
+.. _as_files_copy_yml:
 
-files-create-backup.yml
+files-copy.yml
 -----------------------
 
-Synopsis: Create backup files.
+Synopsis: Copy files.
 
 
 Description of the task.
 
 
-[`files-create-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_]
+[`files-copy.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../tasks/files-create-backup.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-.. _as_files_delete_backup_yml:
-
-files-delete-backup.yml
------------------------
-
-Synopsis: Delete backup files if the files haven’t been modified.
-
-
-Description of the task.
-
-
-[`files-delete-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/files-delete-backup.yml
+.. literalinclude:: ../../tasks/files-copy.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:
@@ -326,6 +306,66 @@ Description of the task.
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-template.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_files_markers_yml:
+
+files-markers.yml
+-----------------
+
+Synopsis: Create block markers for ``blockinfile``.
+
+
+Description of the task.
+
+
+[`files-markers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/files-markers.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_mark_block_yml:
+
+fn/mark-block.yml
+-----------------
+
+Synopsis: Create block marker for ``blockinfile``.
+
+
+Description of the task.
+
+
+[`fn/mark-block.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/fn/mark-block.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+.. _as_files_create_backup_yml:
+
+files-create-backup.yml
+-----------------------
+
+Synopsis: Create backup files.
+
+
+Description of the task.
+
+
+[`files-create-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/files-create-backup.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:
@@ -390,42 +430,22 @@ Description of the task.
     :emphasize-lines: 1,2
     :linenos:
 
-.. _as_files_markers_yml:
+.. _as_files_delete_backup_yml:
 
-files-markers.yml
------------------
+files-delete-backup.yml
+-----------------------
 
-Synopsis: Create block markers for ``blockinfile``.
-
-
-Description of the task.
-
-
-[`files-markers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/files-markers.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-.. _as_mark_block_yml:
-
-fn/mark-block.yml
------------------
-
-Synopsis: Create block marker for ``blockinfile``.
+Synopsis: Delete backup files if the files haven’t been modified.
 
 
 Description of the task.
 
 
-[`fn/mark-block.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_]
+[`files-delete-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../tasks/fn/mark-block.yml
+.. literalinclude:: ../../tasks/files-delete-backup.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:

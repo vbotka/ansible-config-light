@@ -30,7 +30,8 @@ Parameters
 
 Example
 ^^^^^^^
-File's states
+
+Ownership and permissions of the document root for Lighttpd
 
 [`contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root>`_]
 
@@ -45,6 +46,12 @@ See Also
 ^^^^^^^^
 .. seealso::
 
-   * See `vars-states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_ how the variable *cl_states* is combined with the content of the directory *cl_statesd_dir*.
+   * See `vars-states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_ at GitHub how the variable *cl_states* is combined with the content of the directory *cl_statesd_dir*
 
-   * See `states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_ how the file's states are set.
+   * See `states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_ at GitHub how the file's states are set
+
+     **Anotated source code**
+
+   * :ref:`as_vars_states_yml`
+
+   * :ref:`as_states_yml`

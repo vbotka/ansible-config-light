@@ -46,7 +46,15 @@ member of the group *adm*.
    host_vars/srv.example.com/config-light-lighttpd.yml
 
 
-* Create *host_vars* with customized variables of the role. To speedup the execution let's set the control-flow variables (2-5) to *false* and disable some steps. Enable these steps selectively when needed. The configuration files of the role will be stored in the directory *conf-light* in the current directory of the playbook (10). Set the ownership and permissions of the directories on the cont-roll node so that the user who is running the playbook will be able both read and write the files, and create the directories (7-9) (11-14).
+* Create *host_vars* with customized variables of the role. To speedup
+  the execution let's set the control-flow variables (2-5) to *false*
+  and disable some steps. Enable these steps selectively when
+  needed. The configuration files of the role will be stored in the
+  directory *conf-light* in the current directory of the playbook
+  (10). Set the ownership and permissions of the directories on the
+  control node so that the user who is running the playbook will be
+  able both read and write the files, and create the directories (7-9)
+  (11-14).
 
 .. code-block:: bash
    :emphasize-lines: 2-5,10
@@ -68,7 +76,9 @@ member of the group *adm*.
    cl_dira_fmode: "0660"
 
 
-* Create *host_vars* files with the variables of the application. Start the server (2), run the server at boot (3), and configure two files.
+* Create *host_vars* files with the variables of the
+  application. Start the server (2), run the server at boot (3), and
+  configure two files.
 
 .. code-block:: bash
    :emphasize-lines: 2,3,5,18
@@ -274,7 +284,11 @@ what files were created. Also take a look at the directory
 
     shell> ansible-playbook config-light.yml -t cl_services
 
-* The role and the configuration data in the examples are idempotent. Once the application is installed and configured there should be no changes reported by *ansible-playbook* when running the playbook repeatedly. Disable setup, sanity, debug, and install to speedup the playbook
+* The role and the configuration data in the examples are
+  idempotent. Once the application is installed and configured there
+  should be no changes reported by *ansible-playbook* when running the
+  playbook repeatedly. Disable setup, sanity, debug, and install to
+  speedup the playbook
 
 .. code-block:: bash
    :emphasize-lines: 6

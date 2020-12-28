@@ -13,5 +13,5 @@ and install it ::
 
     shell> ansible-galaxy install vbotka.config_light
 
-.. seealso:: * To install specific versions from various sources see `Installing content <https://galaxy.ansible.com/docs/using/installing.html>`_.
+.. seealso:: * To install specific versions from various sources see `Installing content <https://galaxy.ansible.com/docs/using/installing.html>`_
 	     * Take a look at other roles ``shell> ansible-galaxy search --author=vbotka``

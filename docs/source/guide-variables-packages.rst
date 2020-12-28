@@ -52,6 +52,12 @@ See Also
 ^^^^^^^^
 .. seealso::
 
-   * See `vars-packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-packages.yml>`_ how the variable *cl_packages* is combined with the content of the directory *cl_packagesd_dir*.
+   * See `vars-packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-packages.yml>`_ at GitHub how the variable *cl_packages* is combined with the content of the directory *cl_packagesd_dir*
 
-   * See `packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml>`_ how the packages or BSD ports are installed.
+   * See `packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml>`_ at GitHub how the packages or BSD ports are installed
+
+     **Anotated source code**
+     
+   * :ref:`as_vars_packages_yml`
+
+   * :ref:`as_packages_yml`

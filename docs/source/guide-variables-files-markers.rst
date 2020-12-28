@@ -1,7 +1,8 @@
 blockinfile markers
 ^^^^^^^^^^^^^^^^^^^
 
-Create markers for Ansible module blockinfile. Mark existing blocks that you want to configure.
+Create markers for Ansible module blockinfile. Mark existing blocks
+that you want to configure.
 
 Parameters for blockinfile markers
 """"""""""""""""""""""""""""""""""
@@ -100,4 +101,12 @@ See Also
 """"""""
 .. seealso::
 
-   * See `fn/mark-block.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_ how the markers are created.
+   * See `files-markers.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_ at GitHub how the markers are created
+
+   * See `fn/mark-block.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_ at GitHub how the markers are created
+
+     **Annotated source code**
+
+   * :ref:`as_files_markers_yml`
+
+   * :ref:`as_mark_block_yml`

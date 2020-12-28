@@ -27,4 +27,4 @@ srv.example.com (2)
 .. seealso:: * For details see `Connection Plugins
                <https://docs.ansible.com/ansible/latest/plugins/connection.html>`__ (4-5)
              * and `Understanding Privilege Escalation
-               <https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation>`__ (6-8).
+               <https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation>`__ (6-8)

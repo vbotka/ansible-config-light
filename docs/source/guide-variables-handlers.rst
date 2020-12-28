@@ -47,11 +47,17 @@ See Also
 ^^^^^^^^
 .. seealso::
 
-   * See `vars-handlers.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml>`_ how the variable *cl_handlers* is combined with the content of the directory *cl_handlersd_dir*.
+   * For details see the template `handlers-auto1.yml.j2  <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto1.yml.j2>`_
 
-   * See `setup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_ how the handlers are created.
+   * See `vars-handlers.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml>`_ at GitHub how the variable *cl_handlers* is combined with the content of the directory *cl_handlersd_dir*
 
-   * For details see the template `handlers-auto1.yml.j2  <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto1.yml.j2>`_.
+   * See `setup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_ at GitHub how the handlers are created
+
+     **Anotated source code**
+
+   * :ref:`as_vars_handlers_yml`
+
+   * :ref:`as_setup_yml`
 	     
 Notes
 ^^^^^
