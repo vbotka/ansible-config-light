@@ -18,8 +18,12 @@ This role has been developed and tested with
 
 This may be different from the platforms in Ansible Galaxy which does not offer all
 released versions in time and would report an error. For example:
-`IMPORTER101: Invalid platform: "FreeBSD-11.3", skipping.`
 
+```
+Warnings: 2
+IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
+             Invalid platform: "FreeBSD-11.4", skipping.
+```
 
 ## Requirements
 

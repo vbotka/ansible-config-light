@@ -10,9 +10,8 @@ galaxy_info:
   platforms:
     - name: FreeBSD
       versions:
-        - 11.4
+        - 11.3
         - 12.1
-        - 12.2
     - name: Ubuntu
       versions:
         - bionic
