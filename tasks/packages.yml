@@ -16,6 +16,7 @@
         autoremove: "{{ freebsd_pkgng_autoremove|default(omit) }}"
         cached: "{{ freebsd_pkgng_cached|default(omit) }}"
         chroot: "{{ freebsd_pkgng_chroot|default(omit) }}"
+        ignore_osver: "{{ freebsd_pkgng_ignore_osver|default(omit) }}"
         jail: "{{ freebsd_pkgng_jail|default(omit) }}"
         pkgsite: "{{ freebsd_pkgng_pkgsite|default(omit) }}"
         rootdir: "{{ freebsd_pkgng_rootdir|default(omit) }}"
