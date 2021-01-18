@@ -5,9 +5,9 @@
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/config_light/) Install packages, configure files, services, and handlers.
 
-[Documentation at readthedocs.io](https://ansible-config-light.readthedocs.io)
+[Documentation at readthedocs.io](https://ansible-config-light.readthedocs.io). Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues).
 
-Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-config-light/issues). Contributions are welcome.
+[Contributions are welcome](https://github.com/firstcontributions/first-contributions).
 
 
 ## Supported platforms
@@ -24,6 +24,7 @@ Warnings: 2
 IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
              Invalid platform: "FreeBSD-11.4", skipping.
 ```
+
 
 ## Requirements
 
@@ -54,30 +55,30 @@ None.
   roles:
     - vbotka.config_light
 ```
-### Syntax check.
+### Syntax check
 
-Run the syntax check.
+Run the syntax check
 ```
 shell> ansible-playbook conf_light.yml --syntax-check
 ```
 
-### Assembly of variables.
+### Assembly of variables
 
-Run the task *vars.yml* first to collect and assemble the variables.
+Run the task *vars.yml* first to collect and assemble the variables
 ```
 shell> ansible-playbook conf_light.yml -t cl_vars
 ```
-Review the assembled variables in *cl_dira*.
+Review the assembled variables in *cl_dira*
 
-### Dry-run the playbook.
+### Dry-run the playbook and display what will be changed
 
 ```
-shell> ansible-playbook conf_light.yml --check
+shell> ansible-playbook conf_light.yml --check --diff
 ```
 
-### Run the playbook.
+### Run the playbook
 
-Run the playbook twice and make sure the result is idempotent.
+Run the playbook twice and make sure the result is idempotent
 ```
 shell> ansible-playbook conf_light.yml
 ```
@@ -122,6 +123,7 @@ freebsd_use_packages: true
 ...
 ```
 
+
 ## Example. SSMTP
 
 ### Variables
@@ -160,6 +162,7 @@ cl_ssmtp_revaliases:
 ...
 ```
 
+
 ### Conf.d
 
 ```
@@ -184,6 +187,7 @@ revaliases:
 shell> cat conf-light/packages.d/ssmtp.json
 {'name': 'ssmtp'}
 ```
+
 
 ## License
 
