@@ -1,10 +1,11 @@
 Files
 -----
+
 .. contents::
    :local:
 
 Synopsis
-""""""""
+^^^^^^^^
 
 The variable *cl_files* is a dictionary of the files that shall be
 created or modified by this role. It's optional which Ansible module
@@ -28,7 +29,8 @@ later. Several options are available:
 Multiple options, when defined in the dictionary, will be applied in this order.
 
 See Also
-""""""""
+^^^^^^^^
+
 .. seealso::
 
    * See `vars-files.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_ at GitHub how the variable *cl_files* is combined with the content of the directory *cl_filesd_dir*

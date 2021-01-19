@@ -14,6 +14,7 @@ This `role <https://galaxy.ansible.com/vbotka/config_light/>`_ and the documenta
    guide
    examples
    annotation
+   collection-bsd
    copyright
    legalnotice
 

@@ -17,10 +17,10 @@ member of the group *adm*.
     shell> ansible-galaxy install vbotka.config_light
 
 
-* Create the playbook ``config-light.yml`` for single host srv.example.com (2)
+* Create the playbook ``config-light.yml`` for single host srv.example.com (2) and the role (10)
 
 .. code-block:: bash
-   :emphasize-lines: 2
+   :emphasize-lines: 2,10
    :linenos:
 
    shell> cat config-light.yml
@@ -35,7 +35,7 @@ member of the group *adm*.
        - vbotka.config_light
 
 
-* Create ``host_vars`` with customized variables of the role and with the variables of the application.
+* Create ``host_vars`` with customized variables of the role (2) and with the variables of the application (3).
 
 .. code-block:: bash
    :emphasize-lines: 2-3
@@ -78,7 +78,7 @@ member of the group *adm*.
 
 * Create *host_vars* files with the variables of the
   application. Start the server (2), run the server at boot (3), and
-  configure two files.
+  configure two files (5,18).
 
 .. code-block:: bash
    :emphasize-lines: 2,3,5,18
@@ -212,7 +212,7 @@ member of the group *adm*.
 *conf-light/packages.d*
 
 .. code-block:: bash
-   :emphasize-lines: 3
+   :emphasize-lines: 4
    :linenos:
 
    shell> cat conf-light/packages.d/lighttpd 
