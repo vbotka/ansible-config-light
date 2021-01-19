@@ -8,7 +8,7 @@ This `role <https://galaxy.ansible.com/vbotka/config_light/>`_ and the documenta
 
 .. toctree::
    :maxdepth: 2
-   :caption: Table of Contents:
+   :caption: Table of Contents
 
    qsg
    guide
