@@ -17,6 +17,10 @@
   when: cl_backup|bool
   tags: cl_files_create_backup
 
+- name: "files: Patch"
+  import_tasks: files-patch.yml
+  tags: cl_files_patch
+
 - name: "files: Lineinfile"
   import_tasks: files-lineinfile.yml
   tags: cl_files_lineinfile

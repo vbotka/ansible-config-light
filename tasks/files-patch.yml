@@ -1,0 +1,37 @@
+---
+
+- name: "files-patch: Debug patch in cl_files.values()"
+  debug:
+    msg: "{{ cl_files.values()|selectattr('patch', 'defined')|list }}"
+  when: cl_debug|bool
+
+- name: "files-patch: Patch"
+  patch:
+    dest: "{{ item.path }}"
+    src: "{{ item.patch.path }}"
+    basedir: "{{ item.patch.basedir|default(omit) }}"
+    binary: "{{ item.patch.binary|default(omit) }}"
+    ignore_whitespace: "{{ item.patch.ignore_whitespace|default(omit) }}"
+    remote_src: "{{ item.patch.remote_src|default(omit) }}"
+    state: "{{ item.patch.state|default(omit) }}"
+    strip: "{{ item.patch.strip|default(omit) }}"
+    # backup: "{{ cl_backup }}"
+  loop: "{{ cl_files.values()|selectattr('patch', 'defined')|list }}"
+  loop_control:
+    label: "{{ item.path }}"
+  notify: "{{ item.handlers|default(omit) }}"
+  register: cl_results_patch
+
+- block:
+    - name: "files-patch: Debug cl_results_patch"
+      debug:
+        var: cl_results_patch
+    - name: "files-patch: Debug changed patch patch"
+      debug:
+        msg: "{{ cl_results_patch|default([])|
+                 json_query('[?changed].invocation.module_args.path')
+                 }}"
+  when: cl_debug|bool
+
+# EOF
+...

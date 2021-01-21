@@ -14,6 +14,8 @@
             difference(cl_results_blocks.results|default([])|
                        json_query('[?changed].invocation.module_args.path'))|unique|
             difference(cl_results_inifile.results|default([])|
+                       json_query('[?changed].invocation.module_args.path'))|unique|
+            difference(cl_results_patch.results|default([])|
                        json_query('[?changed].invocation.module_args.path'))|unique
             }}"
   when: cl_backup|bool

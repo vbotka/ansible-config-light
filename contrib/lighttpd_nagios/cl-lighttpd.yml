@@ -94,7 +94,7 @@ cl_lighttpd_modulesconf_blocks:
         "{{ module }}",
       {% endfor %}
       )
-  
+
 # /usr/local/etc/lighttpd/conf.d/cgi.conf
 cl_lighttpd_cgiconf_copy:
   path: '/usr/local/etc/lighttpd/conf.d/cgi.conf.sample'
