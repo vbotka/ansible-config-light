@@ -1,16 +1,7 @@
-.. _as:
+Handlers
+========
 
-Annotated source code
-*********************
-.. contents:: Table of Contents
-   :depth: 3
-
-.. _as_tree:
-
-Tasks
-=====
-
-{% for i in mytasks %}
+{% for i in myhandlers %}
 .. _as_{{ i.link }}:
 
 {{ i.file }}
@@ -20,11 +11,11 @@ Synopsis: {{ i.synopsis }}
 
 {{ i.description }}
 
-[`{{ i.file }} <https://github.com/vbotka/ansible-config-light/blob/master/tasks/{{ i.file }}>`_]
+[`{{ i.path }} <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/{{ i.path }}>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../tasks/{{ i.file }}
+.. literalinclude:: ../../{{ i.path }}
     :language: Yaml
     :emphasize-lines: {{ i.lines }}
     :linenos:

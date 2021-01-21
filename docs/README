@@ -9,6 +9,7 @@ Update version
 Create source/annotation.rst and source/examples.rst
 
   shell> ansible-playbook playbook.yml
+  shell> ansible-playbook playbook-examples.yml
 
 Create html documents
 

@@ -1,0 +1,16 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+
+    - name: Read data
+      include_vars: examples/examples.yml
+    - name: Create source
+      template:
+        src: examples/examples.rst.j2
+        dest: annotation/examples.rst
+
+# EOF
+...

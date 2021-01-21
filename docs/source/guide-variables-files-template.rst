@@ -54,7 +54,7 @@ See Also
 
    * See `files-template.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml>`_ how the files are modified or created by the Ansible module ``template``
 
-   * See :ref:`as_files_template_yml` annotated source code
+   * See :ref:`as_files-template.yml` annotated source code
 	     
 Notes
 """""

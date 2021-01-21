@@ -43,10 +43,10 @@ See Also
 
      **Anotated source code**
      
-   * :ref:`as_vars_files_yml`
+   * :ref:`as_vars-files.yml`
 
-   * :ref:`as_files_yml`
+   * :ref:`as_files.yml`
 
-   * :ref:`as_files_create_backup_yml`
+   * :ref:`as_files-create-backup.yml`
 
-   * :ref:`as_files_delete_backup_yml`
+   * :ref:`as_files-delete-backup.yml`

@@ -55,16 +55,14 @@ See Also
 
      **Anotated source code**
 
-   * :ref:`as_vars_handlers_yml`
+   * :ref:`as_vars-handlers.yml`
 
-   * :ref:`as_setup_yml`
+   * :ref:`as_setup.yml`
 	     
 Notes
 ^^^^^
-.. note:: The template *handlers-auto1.yml.j2* is available in the
-          role's directory ``templates``. The user is expected to
-          create new templates when needed. Feel free to change the
-          structure of the data and to create new templates that might
-          fit the purpose better. Feel free to contribute new
-          templates and configuration examples to the `project
+.. note:: The template *handlers-auto1.yml.j2* is available in the role's directory
+          ``templates``. The user is expected to create new templates when needed. Feel free to
+          change the structure of the data and to create new templates that might fit the purpose
+          better. Feel free to contribute new templates and configuration examples to the `project
           <https://github.com/vbotka/ansible-config-light/>`_.

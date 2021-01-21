@@ -1,11 +1,10 @@
 Playbook
 ========
 
-Below is a simple playbook that calls this role at a single host
-srv.example.com (2)
+Below is a simple playbook that calls this role (10) at a single host srv.example.com (2)
 
 .. code-block:: bash
-   :emphasize-lines: 1
+   :emphasize-lines: 2,10
    :linenos:
 
    shell> cat config-light.yml
@@ -19,10 +18,9 @@ srv.example.com (2)
      roles:
        - vbotka.config_light
 
-.. note:: ``gather_facts: true`` (3) must be set to gather facts
-          needed to evaluate OS-specific options of the role. For
-          example to install packages the variable *ansible_os_family*
-          is needed to select the appropriate Ansible module.
+.. note:: ``gather_facts: true`` (3) must be set to gather facts needed to evaluate OS-specific
+          options of the role. For example to install packages the variable *ansible_os_family* is
+          needed to select the appropriate Ansible module.
 
 .. seealso:: * For details see `Connection Plugins
                <https://docs.ansible.com/ansible/latest/plugins/connection.html>`__ (4-5)

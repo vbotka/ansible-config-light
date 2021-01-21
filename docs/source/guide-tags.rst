@@ -1,9 +1,8 @@
 Tags
 ====
 
-The tags provide a very useful tool to run selected tasks of the
-role. To see what tags are available list the tags of the role with
-the command:
+The tags provide a very useful tool to run selected tasks of the role. To see what tags are
+available list the tags of the role with the command
 
 .. code-block:: bash
    :emphasize-lines: 1
@@ -20,12 +19,10 @@ the command:
       cl_files_template, cl_packages, cl_sanity, cl_services,
       cl_setup, cl_states, cl_vars]
 
-For example, display the list of the variables and their values with
-the tag ``cl_debug`` (when the debug is enabled ``cl_debug:
-true``). With this tag specified ``-t cl_debug`` all imported tasks
-before the task *debug.yml* will also run because of the tag ``always``
-(when sanity testing is enabled ``cl_sanity: true`` and setup is
-enabled ``cl_setup: true``). This is the default. ::
+For example, display the list of the variables and their values with the tag ``cl_debug`` (when the
+debug is enabled ``cl_debug: true``). With this tag specified ``-t cl_debug`` all imported tasks
+before the task *debug.yml* will also run because of the tag ``always`` (when sanity testing is
+enabled ``cl_sanity: true`` and setup is enabled ``cl_setup: true``). This is the default. ::
 
     shell> ansible-playbook config-light.yml -t cl_debug
 
@@ -40,4 +37,4 @@ Install packages and exit the play ::
 .. seealso::
 
    * See `main.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_ at GitHub
-   * See :ref:`as_main_yml` annotated source code
+   * See :ref:`as_main.yml` annotated source code

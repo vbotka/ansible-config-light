@@ -54,7 +54,7 @@ See Also
 
    * See `files-inifile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-inifile.yml>`_ at GitHub how the files are modified or created by the Ansible module ``ini_file``
 
-   * See :ref:`as_files_inifile_yml` annotated source code
+   * See :ref:`as_files-inifile.yml` annotated source code
 
      **Community General Collection**
 

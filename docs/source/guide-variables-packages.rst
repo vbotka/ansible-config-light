@@ -58,6 +58,6 @@ See Also
 
      **Anotated source code**
      
-   * :ref:`as_vars_packages_yml`
+   * :ref:`as_vars-packages.yml`
 
-   * :ref:`as_packages_yml`
+   * :ref:`as_packages.yml`

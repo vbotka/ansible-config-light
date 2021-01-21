@@ -21,7 +21,7 @@ Use package (2) to install sSMTP.
     :emphasize-lines: 2
     :linenos:
 
-.. seealso:: See :ref:`as_packages_yml` how the Linux packages are installed.
+.. seealso:: See :ref:`as_packages.yml` how the Linux packages are installed.
 
 Files
 =====
@@ -58,7 +58,7 @@ Create file (2) from the template (7).
     :emphasize-lines: 2,7
     :linenos:
 
-.. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files_template_yml`.
+.. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files-template.yml`.
 
 contrib/ssmtp/conf-light/files.d/ssmtp-conf
 -------------------------------------------
@@ -76,4 +76,4 @@ Create file (2) from the template (7).
     :emphasize-lines: 2,7
     :linenos:
 
-.. seealso:: See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_. See how files are created from template :ref:`as_files_template_yml`.
+.. seealso:: See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_. See how files are created from template :ref:`as_files-template.yml`.

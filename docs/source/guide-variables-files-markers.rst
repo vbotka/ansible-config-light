@@ -107,6 +107,6 @@ See Also
 
      **Annotated source code**
 
-   * :ref:`as_files_markers_yml`
+   * :ref:`as_files-markers.yml`
 
-   * :ref:`as_mark_block_yml`
+   * :ref:`as_mark-block.yml`

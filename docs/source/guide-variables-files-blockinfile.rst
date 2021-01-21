@@ -85,4 +85,4 @@ See Also
 
    * See `files-blockinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_ at GitHub how the files are modified by the Ansible module ``blockinfile``
 
-   * See :ref:`as_files_blockinfile_yml` annotated source code
+   * See :ref:`as_files-blockinfile.yml` annotated source code

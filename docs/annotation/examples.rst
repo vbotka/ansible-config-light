@@ -1,9 +1,23 @@
+.. _ex:
+
+########
+Examples
+########
+.. contents:: Table of Contents
+   :depth: 4
+
+.. _ex_postfix:
+
 ***************
 FreeBSD Postfix
 ***************
 
+.. _ex_postfix_handlers:
+
 Handlers
 ========
+
+.. _ex_handlersd_postfix_freebsd:
 
 contrib/postfix/conf-light/handlers.d/postfix-freebsd
 -----------------------------------------------------
@@ -21,7 +35,8 @@ Use template (2) to create handlers.
     :emphasize-lines: 2,5,12,19,27,35,40
     :linenos:
 
-.. seealso:: See :ref:`as_setup.yml` how the handlers are created.
+.. seealso:: See :ref:`as_setup_yml` how the handlers are created.
+.. _ex_handlersd_sendmail_freebsd:
 
 contrib/postfix/conf-light/handlers.d/sendmail-freebsd
 ------------------------------------------------------
@@ -39,10 +54,13 @@ Use template (2) to create handlers.
     :emphasize-lines: 2,5,12,19,27,35,41
     :linenos:
 
-.. seealso:: See :ref:`as_setup.yml` how the handlers are created.
+.. seealso:: See :ref:`as_setup_yml` how the handlers are created.
+.. _ex_postfix_packages:
 
 Packages
 ========
+
+.. _ex_packagesd_postfix:
 
 contrib/postfix/conf-light/packages.d/postfix
 ---------------------------------------------
@@ -60,10 +78,13 @@ Use package or port (2) to install Postfix.
     :emphasize-lines: 2
     :linenos:
 
-.. seealso:: See :ref:`as_packages.yml` how the FreeBSD packages or ports are installed.
+.. seealso:: See :ref:`as_packages_yml` how the FreeBSD packages or ports are installed.
+.. _ex_postfix_services:
 
 Services
 ========
+
+.. _ex_servicesd_postfix:
 
 contrib/postfix/conf-light/services.d/postfix
 ---------------------------------------------
@@ -81,7 +102,8 @@ Set service (2) state (3). Run the service on boot (4).
     :emphasize-lines: 2,3,4
     :linenos:
 
-.. seealso:: See custom Postfix variables. See :ref:`as_services.yml` how the services are configured.
+.. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`. See :ref:`as_services_yml` how the services are configured.
+.. _ex_servicesd_sendmail:
 
 contrib/postfix/conf-light/services.d/sendmail
 ----------------------------------------------
@@ -99,10 +121,13 @@ Set service (2) state (3). Do not run the service on boot (4).
     :emphasize-lines: 2,3,4
     :linenos:
 
-.. seealso:: See custom Postfix variables.
+.. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`.
+.. _ex_postfix_files:
 
 Files
 =====
+
+.. _ex_config_light_postfix_yml:
 
 contrib/postfix/config-light-postfix.yml
 ----------------------------------------
@@ -120,6 +145,8 @@ Put the host-specific variables (6) into the ``host_vars``. Optionally other var
     :emphasize-lines: 6
     :linenos:
 
+.. _ex_filesd_mailer_conf:
+
 contrib/postfix/conf-light/files.d/mailer-conf
 ----------------------------------------------
 
@@ -135,6 +162,8 @@ Create file (2) from the template (7).
     :language: Yaml
     :emphasize-lines: 2,7
     :linenos:
+
+.. _ex_filesd_periodic_conf:
 
 contrib/postfix/conf-light/files.d/periodic-conf
 ------------------------------------------------
@@ -152,6 +181,8 @@ Modify file (2) with the lines (7).
     :emphasize-lines: 2,7
     :linenos:
 
+.. _ex_filesd_main_cf:
+
 contrib/postfix/conf-light/files.d/postfix-main-cf
 --------------------------------------------------
 
@@ -168,6 +199,8 @@ Modify file (2) with the lines (9) and notify handlers (7).
     :emphasize-lines: 2,7,9
     :linenos:
 
+.. _ex_filesd_rc_conf:
+
 contrib/postfix/conf-light/files.d/rc-conf
 ------------------------------------------
 
@@ -183,3 +216,97 @@ Modify file (2) with the lines (7).
     :language: Yaml
     :emphasize-lines: 2,7
     :linenos:
+
+
+
+.. _ex_ssmtp:
+
+*******************
+Armbian Simple SMTP
+*******************
+
+.. _ex_ssmtp_packages:
+
+Packages
+========
+
+.. _ex_packagesd_ssmtp:
+
+contrib/ssmtp/conf-light/packages.d/ssmtp
+-----------------------------------------
+
+Synopsis: Install Simple SMTP.
+
+Use package (2) to install sSMTP.
+
+[`contrib/ssmtp/conf-light/packages.d/ssmtp <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/packages.d/ssmtp>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/ssmtp/conf-light/packages.d/ssmtp
+    :language: Yaml
+    :emphasize-lines: 2
+    :linenos:
+
+.. seealso:: See :ref:`as_packages_yml` how the Linux packages are installed.
+.. _ex_ssmtp_files:
+
+Files
+=====
+
+.. _ex_config_light_ssmtp_yml:
+
+contrib/ssmtp/config-light-ssmtp.yml
+------------------------------------
+
+Synopsis: Custom variables for sSMTP.
+
+Put the host-specific variables (7) into the ``host_vars``. Optionally other variables might be put into the ``group_vars``.
+
+[`contrib/ssmtp/config-light-ssmtp.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/config-light-ssmtp.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/ssmtp/config-light-ssmtp.yml
+    :language: Yaml
+    :emphasize-lines: 7
+    :linenos:
+
+.. _ex_filesd_revaliases:
+
+contrib/ssmtp/conf-light/files.d/revaliases
+-------------------------------------------
+
+Synopsis: Create file.
+
+Create file (2) from the template (7).
+
+[`contrib/ssmtp/conf-light/files.d/revaliases <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/files.d/revaliases>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/ssmtp/conf-light/files.d/revaliases
+    :language: Yaml
+    :emphasize-lines: 2,7
+    :linenos:
+
+.. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files_template_yml`.
+.. _ex_filesd_ssmtp_conf:
+
+contrib/ssmtp/conf-light/files.d/ssmtp-conf
+-------------------------------------------
+
+Synopsis: Create file.
+
+Create file (2) from the template (7).
+
+[`contrib/ssmtp/conf-light/files.d/ssmtp-conf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/files.d/ssmtp-conf>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/ssmtp/conf-light/files.d/ssmtp-conf
+    :language: Yaml
+    :emphasize-lines: 2,7
+    :linenos:
+
+.. seealso:: See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_. See how files are created from template :ref:`as_files_template_yml`.

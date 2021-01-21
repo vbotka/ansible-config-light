@@ -52,6 +52,6 @@ See Also
 
      **Anotated source code**
 
-   * :ref:`as_vars_states_yml`
+   * :ref:`as_vars-states.yml`
 
-   * :ref:`as_states_yml`
+   * :ref:`as_states.yml`

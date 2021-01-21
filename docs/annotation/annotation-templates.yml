@@ -1,0 +1,172 @@
+---
+mytemplates:
+
+  - file: 1.0.0-wpa_action.sh.j2
+    link: template_1.0.0-wpa_action.sh.j2
+    path: templates/1.0.0-wpa_action.sh.j2
+    synopsis: |
+      Template 1.0.0-wpa_action.sh.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: 1.1.0-wpa_action.sh.j2
+    link: template_1.1.0-wpa_action.sh.j2
+    path: templates/1.1.0-wpa_action.sh.j2
+    synopsis: |
+      Template 1.1.0-wpa_action.sh.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: dma-auth.conf.j2
+    link: template_dma-auth.conf.j2
+    path: templates/dma-auth.conf.j2
+    synopsis: |
+      Template dma-auth.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: handlers-auto1.yml.j2
+    link: template_handlers-auto1.yml.j2
+    path: templates/handlers-auto1.yml.j2
+    synopsis: |
+      Template handlers-auto1.yml.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: handlers-auto2.yml.j2
+    link: template_handlers-auto2.yml.j2
+    path: templates/handlers-auto2.yml.j2
+    synopsis: |
+      Template handlers-auto2.yml.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: hosts.j2
+    link: template_hosts.j2
+    path: templates/hosts.j2
+    synopsis: |
+      Template hosts.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: loader.conf.j2
+    link: template_loader.conf.j2
+    path: templates/loader.conf.j2
+    synopsis: |
+      Template loader.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: mailer.conf.j2
+    link: template_mailer.conf.j2
+    path: templates/mailer.conf.j2
+    synopsis: |
+      Template mailer.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: ntp.conf-minimal.j2
+    link: template_ntp.conf-minimal.j2
+    path: templates/ntp.conf-minimal.j2
+    synopsis: |
+      Template ntp.conf-minimal.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: revaliases.j2
+    link: template_revaliases.j2
+    path: templates/revaliases.j2
+    synopsis: |
+      Template revaliases.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: ssmtp.conf.j2
+    link: template_ssmtp.conf.j2
+    path: templates/ssmtp.conf.j2
+    synopsis: |
+      Template ssmtp.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: wpa_cli.j2
+    link: template_wpa_cli.j2
+    path: templates/wpa_cli.j2
+    synopsis: |
+      Template wpa_cli.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: wpa_supplicant.conf.j2
+    link: template_wpa_supplicant.conf.j2
+    path: templates/wpa_supplicant.conf.j2
+    synopsis: |
+      Template wpa_supplicant.conf.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+  - file: wpa_supplicant.conf.wlan0.j2
+    link: template_wpa_supplicant.conf.wlan0.j2
+    path: templates/wpa_supplicant.conf.wlan0.j2
+    synopsis: |
+      Template wpa_supplicant.conf.wlan0.
+    description: |
+      Description of the template.
+    lines: 1
+    seealso: []
+    note: []
+    warning: []
+
+...

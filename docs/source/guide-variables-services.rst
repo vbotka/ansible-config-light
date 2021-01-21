@@ -56,6 +56,6 @@ See Also
 
      **Anotated source code**
 
-   * :ref:`as_vars_services_yml`
+   * :ref:`as_vars-services.yml`
 
-   * :ref:`as_services_yml`
+   * :ref:`as_services.yml`

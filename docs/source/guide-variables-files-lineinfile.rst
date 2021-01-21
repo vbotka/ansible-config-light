@@ -101,4 +101,4 @@ See Also
 
    * See `files-lineinfile.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-lineinfile.yml>`_ at GitHub how the files are modified or created by the Ansible module ``lineinfile``
 
-   * See :ref:`as_files_lineinfile_yml` annotated source code
+   * See :ref:`as_files-lineinfile.yml` annotated source code

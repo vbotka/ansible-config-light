@@ -76,4 +76,4 @@ See Also
 
    * See `files-copy.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_ at GitHub
 
-   * See :ref:`as_files_copy_yml` annotated source code
+   * See :ref:`as_files-copy.yml` annotated source code

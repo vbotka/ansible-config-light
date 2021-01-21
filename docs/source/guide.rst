@@ -5,7 +5,6 @@ User's guide
 .. contents:: Table of Contents
    :depth: 3
 
-
 .. _ug_introduction:
 .. include:: guide-introduction.rst
 
@@ -72,4 +71,3 @@ User's guide
 
 .. _ug_bp:
 .. include:: guide-best-practice.rst
-
