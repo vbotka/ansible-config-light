@@ -62,6 +62,8 @@ User's guide
 .. include:: guide-variables-files-template.rst
 .. _ug_variables_files-markers:
 .. include:: guide-variables-files-markers.rst
+.. _ug_variables_files-patch:
+.. include:: guide-variables-files-patch.rst
 .. _ug_variables_files-lineinfile:
 .. include:: guide-variables-files-lineinfile.rst
 .. _ug_variables_files-blockinfile:

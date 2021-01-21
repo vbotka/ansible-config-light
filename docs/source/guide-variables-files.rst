@@ -14,17 +14,19 @@ at the same file. For example, it is possible to create a file by the
 Ansible module *template* and modify it with the module *lineinfile*
 later. Several options are available:
 
-1) copy: If the attribute *copyfile* is defined in the dictionary
+#. copy: If the attribute *copyfile* is defined in the dictionary
 
-2) template: If the attribute *template* is defined in the dictionary
+#. template: If the attribute *template* is defined in the dictionary
 
-3) create blockinfile markers: If the attribute *markers* is defined in the dictionary
+#. create blockinfile markers: If the attribute *markers* is defined in the dictionary
 
-4) lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
+#. patch: If the attribute *patch* is defined in the dictionary
 
-5) blockinfile: If the attribute *blocks* is defined in the dictionary
+#. lineinfile: If the attribute *dict* or *lines* is defined in the dictionary
 
-6) ini_file: If the attribute *ini* is defined in the dictionary
+#. blockinfile: If the attribute *blocks* is defined in the dictionary
+
+#. ini_file: If the attribute *ini* is defined in the dictionary
 
 Multiple options, when defined in the dictionary, will be applied in this order.
 

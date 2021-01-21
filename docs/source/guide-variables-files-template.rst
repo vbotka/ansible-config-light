@@ -45,7 +45,7 @@ File ``/etc/mail/mailer.conf`` for postfix
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf
     :language: yaml
-    :emphasize-lines: 7
+    :emphasize-lines: 2,4
     :linenos:
 
 See Also

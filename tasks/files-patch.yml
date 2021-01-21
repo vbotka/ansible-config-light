@@ -8,7 +8,7 @@
 - name: "files-patch: Patch"
   patch:
     dest: "{{ item.path }}"
-    src: "{{ item.patch.path }}"
+    src: "{{ item.patch.src }}"
     basedir: "{{ item.patch.basedir|default(omit) }}"
     binary: "{{ item.patch.binary|default(omit) }}"
     ignore_whitespace: "{{ item.patch.ignore_whitespace|default(omit) }}"
