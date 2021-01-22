@@ -12,9 +12,10 @@ packages or ports, and management of files and services. Most options are availa
 for the Ansible modules that serve the options. Review hints in the :ref:`ex`.
 
 .. seealso::
-
    * See `vars.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_ at GitHub
-
    * See :ref:`as_vars.yml` annotated source code
-
    * `Ansible variable precedence: Where should I put a variable? <https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable>`_
+
+.. note:: The names of the dictionaries in the configuration files ``cl_dird/*.d/*`` are not used by
+          the role and can be any arbitrary string that is a valid name of an Ansible variable. The
+          name must be unique in the particular option (directory files.d, packages.d, ...).
