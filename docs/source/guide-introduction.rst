@@ -16,15 +16,16 @@ is tested with supported releases of FreeBSD and Ubuntu. It can be expected that
 distributions, that support the Ansible modules mentioned below, should work with minimal
 changes. Red Hat and Debian *ansible_os_family* should work out of the box.
 
-Used Ansible modules comprise ``package`` to install Linux packages, and both ``pkgng`` and
-``portinstall`` to install FreeBSD packages or ports.
+Ansible module ``package`` is used to install Linux packages. In FreeBSD, modules ``pkgng`` and
+``portinstall`` are used to install FreeBSD packages and ports respectively.
 
 Ansible modules ``file``, ``template``, ``copy``, ``replace``, ``patch``, ``lineinfile``,
 ``blockinfile``, and ``ini_file`` are used to configure files. Module ``service`` is used to manage
 both Linux and FreeBSD services.
 
-The directory ``contrib`` comprises examples of how to install and configure various applications
-and how to create the handlers and templates.
+The directory `contrib <https://github.com/vbotka/ansible-config-light/blob/master/contrib/>`_
+comprises examples on how to install and configure various applications and how to create the
+handlers and templates. Some of them are commented :ref:`ex`.
 
 The user of this role is expected to master at least the following Ansible topics
 

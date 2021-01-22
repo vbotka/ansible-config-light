@@ -15,4 +15,7 @@ configuration ::
           callback plugin. Set this plugin, for example, in the
           environment ``shell> export ANSIBLE_STDOUT_CALLBACK=yaml``.
 
-.. seealso:: * `Playbook Debugger <https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html>`_
+.. seealso::
+   * `Playbook Debugger <https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html>`_
+   * `Debugging modules <https://docs.ansible.com/ansible/latest/dev_guide/debugging.html#debugging-modules>`_
+   * `Python Debugging With Pdb <https://realpython.com/python-debugging-pdb/>`_

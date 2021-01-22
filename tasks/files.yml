@@ -3,9 +3,6 @@
 - name: "files: Manage files"
   include_tasks:
     file: "files-{{ fitem }}.yml"
-    apply:
-      tags:
-        - "cl_files_{{ fitem }}"
   loop: "{{ cl_files_order }}"
   loop_control:
     loop_var: fitem

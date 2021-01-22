@@ -14,16 +14,13 @@ available list the tags of the role with the command
     playbook: config-light.yml
 
       play #1 (srv.example.com): srv.example.com	TAGS: []
-      TASK TAGS: [always, cl_debug, cl_files, cl_files_blockinfile,
-      cl_files_copy, cl_files_create_backup, cl_files_delete_backup,
-      cl_files_inifile, cl_files_lineinfile, cl_files_markers,
-      cl_files_template, cl_packages, cl_sanity, cl_services,
-      cl_setup, cl_states, cl_vars]
+      TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity,
+      cl_services, cl_setup, cl_states, cl_vars]
 
-For example, display the list of the variables and their values with the tag ``cl_debug`` (when the
+For example, display the list of the variables and their values with the tag ``cl_debug`` (when
 debug is enabled ``cl_debug: true``). With this tag specified ``-t cl_debug`` all imported tasks
-before the task *debug.yml* will also run because of the tag ``always`` (when sanity testing is
-enabled ``cl_sanity: true`` and setup is enabled ``cl_setup: true``). This is the default. ::
+before the task *debug.yml* will also run because of the tag ``always`` when sanity testing is
+enabled ``cl_sanity: true`` (default) and setup is enabled ``cl_setup: true`` (default). ::
 
     shell> ansible-playbook config-light.yml -t cl_debug
 
@@ -37,5 +34,6 @@ Install packages and exit the play ::
 
 .. seealso::
 
-   * See `main.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_ at GitHub
+   * See :ref:`ug_bp` on how to use tags efficiently
    * See :ref:`as_main.yml` annotated source code
+   * See `main.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_ at GitHub
