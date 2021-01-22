@@ -1,5 +1,6 @@
+****
 Tags
-====
+****
 
 The tags provide a very useful tool to run selected tasks of the role. To see what tags are
 available list the tags of the role with the command

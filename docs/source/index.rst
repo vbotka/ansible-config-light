@@ -1,5 +1,6 @@
+#########################
 Ansible role Config Light
-=========================
+#########################
 
 This `role <https://galaxy.ansible.com/vbotka/config_light/>`_ and the documentation is work in progess. Feel free to `share your feedback and report issues
 <https://github.com/vbotka/ansible-config-light/issues>`_.

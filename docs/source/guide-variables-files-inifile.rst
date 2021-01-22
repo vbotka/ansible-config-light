@@ -1,3 +1,5 @@
+.. _ug_variables_files-inifile:
+
 ini_file
 ^^^^^^^^
 

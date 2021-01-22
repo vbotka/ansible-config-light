@@ -1,5 +1,6 @@
+*************
 Best practice
-=============
+*************
 
 
 Create variables. Take a look at directory ``conf-light/assemble/``

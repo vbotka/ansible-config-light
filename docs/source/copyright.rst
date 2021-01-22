@@ -1,5 +1,6 @@
+#########
 Copyright
-*********
+#########
 
 Redistribution and use in source (RST DocUtils) and 'compiled' forms (XML, HTML, PDF, PostScript, RTF and so forth) with or without modification, are permitted provided that the following conditions are met:
 

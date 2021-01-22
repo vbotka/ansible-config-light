@@ -1,5 +1,6 @@
+*****
 Debug
-=====
+*****
 
 To see additional debug information enable debug output in the
 configuration ::

@@ -55,6 +55,9 @@
       cl_assemble_validate [{{ cl_assemble_validate|default('UNDEFINED') }}]
       cl_handlers_validate [{{ cl_handlers_validate|default('UNDEFINED') }}]
 
+      cl_files_order
+      {{ cl_files_order|to_yaml }}
+
       install_retries [{{ install_retries }}]
       install_delay [{{ install_delay }}]
 

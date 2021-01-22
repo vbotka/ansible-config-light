@@ -52,6 +52,11 @@ cl_handlers_dir_become: false
 # 205 Use ".yml" or ".yaml" playbook extension
 cl_handlers_validate: 'ansible-lint -x 205 %s'
 
+# Files
+cl_files_order: [copy, template, markers, create-backup,
+                 patch, lineinfile, blockinfile, inifile,
+                 delete-backup]
+
 # OS common
 install_retries: 10
 install_delay: 5

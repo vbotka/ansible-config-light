@@ -1,44 +1,14 @@
 ---
 
-- name: "files: Copy"
-  import_tasks: files-copy.yml
-  tags: cl_files_copy
-
-- name: "files: Template"
-  import_tasks: files-template.yml
-  tags: cl_files_template
-
-- name: "files: Mark blocks"
-  import_tasks: files-markers.yml
-  tags: cl_files_markers
-
-- name: "files: Create backup"
-  import_tasks: files-create-backup.yml
-  when: cl_backup|bool
-  tags: cl_files_create_backup
-
-- name: "files: Patch"
-  import_tasks: files-patch.yml
-  tags: cl_files_patch
-
-- name: "files: Lineinfile"
-  import_tasks: files-lineinfile.yml
-  tags: cl_files_lineinfile
-
-- name: "files: Blockinfile"
-  import_tasks: files-blockinfile.yml
-  tags: cl_files_blockinfile
-
-- name: "files: INI file"
-  import_tasks: files-inifile.yml
-  tags: cl_files_inifile
-
-- name: "files: Delete backup"
-  import_tasks: files-delete-backup.yml
-  when:
-    - cl_backup|bool
-    - not ansible_check_mode
-  tags: cl_files_delete_backup
+- name: "files: Manage files"
+  include_tasks:
+    file: "files-{{ fitem }}.yml"
+    apply:
+      tags:
+        - "cl_files_{{ fitem }}"
+  loop: "{{ cl_files_order }}"
+  loop_control:
+    loop_var: fitem
 
 # EOF
 ...

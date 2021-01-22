@@ -25,6 +25,198 @@ Import tasks if enabled.
 
 
 
+.. _as_setup.yml:
+
+setup.yml
+---------
+
+Synopsis: Configure setup.
+
+
+Description of the task.
+
+
+[`tasks/setup.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/setup.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/setup.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_vars-handlers.yml:
+
+vars-handlers.yml
+-----------------
+
+Synopsis: Configure vars-handlers.
+
+
+Description of the task.
+
+
+[`tasks/vars-handlers.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-handlers.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-handlers.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_vars.yml:
+
+vars.yml
+--------
+
+Synopsis: Configure vars.
+
+
+Description of the task.
+
+
+[`tasks/vars.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_vars-packages.yml:
+
+vars-packages.yml
+-----------------
+
+Synopsis: Configure vars-packages.
+
+
+Description of the task.
+
+
+[`tasks/vars-packages.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-packages.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-packages.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_vars-states.yml:
+
+vars-states.yml
+---------------
+
+Synopsis: Configure vars-states.
+
+
+Description of the task.
+
+
+[`tasks/vars-states.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-states.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-states.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_vars-services.yml:
+
+vars-services.yml
+-----------------
+
+Synopsis: Configure vars-services.
+
+
+Description of the task.
+
+
+[`tasks/vars-services.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-services.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-services.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_vars-files.yml:
+
+vars-files.yml
+--------------
+
+Synopsis: Configure vars-files.
+
+
+Description of the task.
+
+
+[`tasks/vars-files.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-files.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/vars-files.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_sanity.yml:
+
+sanity.yml
+----------
+
+Synopsis: Configure sanity.
+
+
+Description of the task.
+
+
+[`tasks/sanity.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/sanity.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/sanity.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
 .. _as_debug.yml:
 
 debug.yml
@@ -41,6 +233,78 @@ Description of the task.
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/debug.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_packages.yml:
+
+packages.yml
+------------
+
+Synopsis: Configure packages.
+
+
+Description of the task.
+
+
+[`tasks/packages.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/packages.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/packages.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_states.yml:
+
+states.yml
+----------
+
+Synopsis: Configure states.
+
+
+Description of the task.
+
+
+[`tasks/states.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/states.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/states.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
+.. _as_files.yml:
+
+files.yml
+---------
+
+Synopsis: Configure files.
+
+
+Description of the task.
+
+
+[`tasks/files.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/files.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/files.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:
@@ -217,6 +481,30 @@ Description of the task.
 
 
 
+.. _as_mark-block.yml:
+
+mark-block.yml
+--------------
+
+Synopsis: Configure mark-block.
+
+
+Description of the task.
+
+
+[`tasks/fn/mark-block.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/fn/mark-block.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/fn/mark-block.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
 .. _as_files-patch.yml:
 
 files-patch.yml
@@ -265,78 +553,6 @@ Description of the task.
 
 
 
-.. _as_files.yml:
-
-files.yml
----------
-
-Synopsis: Configure files.
-
-
-Description of the task.
-
-
-[`tasks/files.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/files.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/files.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_packages.yml:
-
-packages.yml
-------------
-
-Synopsis: Configure packages.
-
-
-Description of the task.
-
-
-[`tasks/packages.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/packages.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/packages.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_sanity.yml:
-
-sanity.yml
-----------
-
-Synopsis: Configure sanity.
-
-
-Description of the task.
-
-
-[`tasks/sanity.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/sanity.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/sanity.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
 .. _as_services.yml:
 
 services.yml
@@ -353,222 +569,6 @@ Description of the task.
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/services.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_setup.yml:
-
-setup.yml
----------
-
-Synopsis: Configure setup.
-
-
-Description of the task.
-
-
-[`tasks/setup.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/setup.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/setup.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_states.yml:
-
-states.yml
-----------
-
-Synopsis: Configure states.
-
-
-Description of the task.
-
-
-[`tasks/states.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/states.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/states.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_vars-files.yml:
-
-vars-files.yml
---------------
-
-Synopsis: Configure vars-files.
-
-
-Description of the task.
-
-
-[`tasks/vars-files.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-files.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-files.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_vars-handlers.yml:
-
-vars-handlers.yml
------------------
-
-Synopsis: Configure vars-handlers.
-
-
-Description of the task.
-
-
-[`tasks/vars-handlers.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-handlers.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-handlers.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_vars-packages.yml:
-
-vars-packages.yml
------------------
-
-Synopsis: Configure vars-packages.
-
-
-Description of the task.
-
-
-[`tasks/vars-packages.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-packages.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-packages.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_vars-services.yml:
-
-vars-services.yml
------------------
-
-Synopsis: Configure vars-services.
-
-
-Description of the task.
-
-
-[`tasks/vars-services.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-services.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-services.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_vars-states.yml:
-
-vars-states.yml
----------------
-
-Synopsis: Configure vars-states.
-
-
-Description of the task.
-
-
-[`tasks/vars-states.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars-states.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars-states.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_vars.yml:
-
-vars.yml
---------
-
-Synopsis: Configure vars.
-
-
-Description of the task.
-
-
-[`tasks/vars.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/vars.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/vars.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
-    :linenos:
-
-
-
-
-
-.. _as_mark-block.yml:
-
-mark-block.yml
---------------
-
-Synopsis: Configure mark-block.
-
-
-Description of the task.
-
-
-[`tasks/fn/mark-block.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/tasks/fn/mark-block.yml>`_]
-
-.. highlight:: yaml
-    :linenothreshold: 5
-.. literalinclude:: ../../tasks/fn/mark-block.yml
     :language: Yaml
     :emphasize-lines: 1,2
     :linenos:

@@ -12,11 +12,154 @@ mytasks:
     note: []
     warning: []
 
+  - file: setup.yml
+    link: setup.yml
+    path: tasks/setup.yml
+    synopsis: |
+      Configure setup.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: vars-handlers.yml
+    link: vars-handlers.yml
+    path: tasks/vars-handlers.yml
+    synopsis: |
+      Configure vars-handlers.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: vars.yml
+    link: vars.yml
+    path: tasks/vars.yml
+    synopsis: |
+      Configure vars.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: vars-packages.yml
+    link: vars-packages.yml
+    path: tasks/vars-packages.yml
+    synopsis: |
+      Configure vars-packages.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: vars-states.yml
+    link: vars-states.yml
+    path: tasks/vars-states.yml
+    synopsis: |
+      Configure vars-states.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: vars-services.yml
+    link: vars-services.yml
+    path: tasks/vars-services.yml
+    synopsis: |
+      Configure vars-services.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: vars-files.yml
+    link: vars-files.yml
+    path: tasks/vars-files.yml
+    synopsis: |
+      Configure vars-files.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: sanity.yml
+    link: sanity.yml
+    path: tasks/sanity.yml
+    synopsis: |
+      Configure sanity.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
   - file: debug.yml
     link: debug.yml
     path: tasks/debug.yml
     synopsis: |
       Configure debug.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: packages.yml
+    link: packages.yml
+    path: tasks/packages.yml
+    synopsis: |
+      Configure packages.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: states.yml
+    link: states.yml
+    path: tasks/states.yml
+    synopsis: |
+      Configure states.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
+  - file: files.yml
+    link: files.yml
+    path: tasks/files.yml
+    synopsis: |
+      Configure files.
     description: |
       Description of the task.
     lines: 1,2
@@ -116,6 +259,19 @@ mytasks:
     hints: []
     warnings: []
 
+  - file: mark-block.yml
+    link: mark-block.yml
+    path: tasks/fn/mark-block.yml
+    synopsis: |
+      Configure mark-block.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
   - file: files-patch.yml
     link: files-patch.yml
     path: tasks/files-patch.yml
@@ -142,167 +298,11 @@ mytasks:
     hints: []
     warnings: []
 
-  - file: files.yml
-    link: files.yml
-    path: tasks/files.yml
-    synopsis: |
-      Configure files.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: packages.yml
-    link: packages.yml
-    path: tasks/packages.yml
-    synopsis: |
-      Configure packages.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: sanity.yml
-    link: sanity.yml
-    path: tasks/sanity.yml
-    synopsis: |
-      Configure sanity.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
   - file: services.yml
     link: services.yml
     path: tasks/services.yml
     synopsis: |
       Configure services.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: setup.yml
-    link: setup.yml
-    path: tasks/setup.yml
-    synopsis: |
-      Configure setup.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: states.yml
-    link: states.yml
-    path: tasks/states.yml
-    synopsis: |
-      Configure states.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: vars-files.yml
-    link: vars-files.yml
-    path: tasks/vars-files.yml
-    synopsis: |
-      Configure vars-files.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: vars-handlers.yml
-    link: vars-handlers.yml
-    path: tasks/vars-handlers.yml
-    synopsis: |
-      Configure vars-handlers.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: vars-packages.yml
-    link: vars-packages.yml
-    path: tasks/vars-packages.yml
-    synopsis: |
-      Configure vars-packages.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: vars-services.yml
-    link: vars-services.yml
-    path: tasks/vars-services.yml
-    synopsis: |
-      Configure vars-services.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: vars-states.yml
-    link: vars-states.yml
-    path: tasks/vars-states.yml
-    synopsis: |
-      Configure vars-states.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: vars.yml
-    link: vars.yml
-    path: tasks/vars.yml
-    synopsis: |
-      Configure vars.
-    description: |
-      Description of the task.
-    lines: 1,2
-    seealso: []
-    notes: []
-    hints: []
-    warnings: []
-
-  - file: mark-block.yml
-    link: mark-block.yml
-    path: tasks/fn/mark-block.yml
-    synopsis: |
-      Configure mark-block.
     description: |
       Description of the task.
     lines: 1,2

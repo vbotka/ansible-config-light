@@ -61,7 +61,7 @@
       - 'loader_color="NO"'
       - 'legal.realtek.license_ack=1'
     bsd_cimage_loaderconf_sysctl: []
-      
+
     bsd_cimage_rcconf_data: '{{ wpacli_rcconf }}'
     #  - {key: wlans_rtwn0, value: '"wlan0"'}
     #  - {key: ifconfig_wlan0, value: '"WPA SYNCDHCP"'}
@@ -118,7 +118,7 @@
       - '-6 ::1'
       - '127.127.1.0'
     fp_ntp_config_leapfile: '/var/db/ntpd.leap-seconds.list'
-    
+
   roles:
     - vbotka.config_light
 

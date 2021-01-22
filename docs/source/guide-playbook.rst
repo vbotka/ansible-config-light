@@ -1,5 +1,6 @@
+********
 Playbook
-========
+********
 
 Below is a simple playbook that calls this role (10) at a single host srv.example.com (2)
 

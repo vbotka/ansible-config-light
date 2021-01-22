@@ -1,5 +1,6 @@
+************
 Introduction
-============
+************
 
 * Ansible role: `config_light <https://galaxy.ansible.com/vbotka/config_light/>`_
 * Supported systems: `FreeBSD <https://www.freebsd.org/releases/>`_, `Ubuntu <http://releases.ubuntu.com/>`_

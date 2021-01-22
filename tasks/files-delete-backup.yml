@@ -18,7 +18,9 @@
             difference(cl_results_patch.results|default([])|
                        json_query('[?changed].invocation.module_args.path'))|unique
             }}"
-  when: cl_backup|bool
+  when:
+    - cl_backup|bool
+    - not ansible_check_mode
   changed_when: false
 
 # EOF

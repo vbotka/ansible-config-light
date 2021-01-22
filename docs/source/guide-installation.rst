@@ -1,5 +1,6 @@
+************
 Installation
-============
+************
 
 The most convenient way how to install an Ansible role is to use
 Ansible Galaxy CLI ``ansible-galaxy``. The utility comes with the
