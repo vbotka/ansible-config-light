@@ -8,7 +8,22 @@ States
 Synopsis
 ^^^^^^^^
 
-The dictionary *cl_states* comprises states of the files.
+The dictionary *cl_states* comprises the states of the files. If mounted, the *path* is unmounted
+when *state* is in the list ``cl_states_unmount`` (default=absent) ::
+
+  cl_states_unmount: [absent, unmounted]
+
+Then, the module *file* is applied if *state* is in the list ``cl_states_file`` (default=file) ::
+
+  cl_states_file: [absent, directory, file, hard, link, touch]
+
+In the end, the *path* is mounted if *state* is in the list ``cl_states_mount`` (default=absent) ::
+
+  cl_states_mount: [present, mounted, remounted]
+
+The variables *cl_states_unmount, cl_states_mount, cl_states_file* are declared in
+``defaults/main.yml``. Details of the parameters are described in the modules ``mount`` and
+``file``.
 
 Parameters
 ^^^^^^^^^^
@@ -18,7 +33,7 @@ Parameters
 +=====================+=======================+=======================================+
 | path                | string ``required``   | Path to file                          |
 +---------------------+-----------------------+---------------------------------------+
-| state               | string                | State of the filename                 |
+| state               | string                | State of the file                     |
 +---------------------+-----------------------+---------------------------------------+
 | owner               | string                | Owner of the file                     |
 +---------------------+-----------------------+---------------------------------------+
@@ -30,12 +45,24 @@ Parameters
 +---------------------+-----------------------+---------------------------------------+
 
 
-Example
-^^^^^^^
+Examples
+^^^^^^^^
 
-Ownership and permissions of the document root for Lighttpd
+* Ownership and permissions of the document root for Lighttpd
 
 [`contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root
+    :language: yaml
+    :emphasize-lines: 2
+    :linenos:
+
+
+* Delete snap directories
+
+[`contrib/ubuntu-snap-disable/conf-light/states.d/ <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -48,9 +75,16 @@ See Also
 ^^^^^^^^
 .. seealso::
 
-   * See `vars-states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_ at GitHub how the variable *cl_states* is combined with the content of the directory *cl_statesd_dir*
+   * See `vars-states.yml
+     <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_ at GitHub
+     how the dictionary *cl_states* is combined from the content of the directory *cl_statesd_dir*
 
-   * See `states.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_ at GitHub how the file's states are set
+   * See `states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_
+     at GitHub how the file's states are set
+
+   * See ``shell> ansible-doc -t module mount``
+
+   * See ``shell> ansible-doc -t module file``
 
      **Anotated source code**
 

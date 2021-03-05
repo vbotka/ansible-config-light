@@ -5,7 +5,23 @@
     msg: "{{ cl_states }}"
   when: cl_debug|bool
 
-- name: "states: Apply states"
+- name: "states: Apply unmount states"
+  mount:
+    path: "{{ item.value.path }}"
+    state: "{{ item.value.state|default('absent') }}"
+    backup: "{{ item.value.backup|default(omit) }}"
+    boot: "{{ item.value.boot|default(omit) }}"
+    dump: "{{ item.value.dump|default(omit) }}"
+    fstab: "{{ item.value.fstab|default(omit) }}"
+    opts: "{{ item.value.opts|default(omit) }}"
+    passno: "{{ item.value.passno|default(omit) }}"
+    src: "{{ item.value.src|default(omit) }}"
+  loop: "{{ cl_states|dict2items }}"
+  loop_control:
+    label: "{{ item.value.path }}"
+  when: item.value.state|default('absent') in cl_states_unmount
+
+- name: "states: Apply file states"
   file:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state|default(omit) }}"
@@ -25,6 +41,23 @@
   loop: "{{ cl_states|dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
+  when: item.value.state|default('file') in cl_states_file
+
+- name: "states: Apply mount states"
+  mount:
+    path: "{{ item.value.path }}"
+    state: "{{ item.value.state }}"
+    backup: "{{ item.value.backup|default(omit) }}"
+    boot: "{{ item.value.boot|default(omit) }}"
+    dump: "{{ item.value.dump|default(omit) }}"
+    fstab: "{{ item.value.fstab|default(omit) }}"
+    opts: "{{ item.value.opts|default(omit) }}"
+    passno: "{{ item.value.passno|default(omit) }}"
+    src: "{{ item.value.src|default(omit) }}"
+  loop: "{{ cl_states|dict2items }}"
+  loop_control:
+    label: "{{ item.value.path }}"
+  when: item.value.state|default('absent') in cl_states_mount
 
 # EOF
 ...

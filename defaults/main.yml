@@ -47,10 +47,28 @@ cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated by ~
 # cl_handlers_dir_dmode: "0775"  # no default
 cl_handlers_dir_become: false
 
+# Snap
+cl_snap_missing_fatal: false
+cl_snap_paths:
+  - /usr/local/sbin
+  - /usr/local/bin
+  - /usr/sbin
+  - /usr/bin
+  - /sbin
+  - /bin
+  - /snap/bin
+cl_snap_patterns:
+  - snap
+
 # Handlers
 # Exclude rules:
 # 205 Use ".yml" or ".yaml" playbook extension
 cl_handlers_validate: 'ansible-lint -x 205 %s'
+
+# States
+cl_states_unmount: [absent, unmounted]
+cl_states_mount: [present, mounted, remounted]
+cl_states_file: [absent, directory, file, hard, link, touch]
 
 # Files
 cl_files_order: [copy, template, markers, create-backup,
