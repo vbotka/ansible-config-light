@@ -3,8 +3,7 @@
 blockinfile markers
 ^^^^^^^^^^^^^^^^^^^
 
-Create markers for Ansible module blockinfile. Mark existing blocks
-that you want to configure.
+Create markers for Ansible module blockinfile. Mark existing blocks that you want to configure.
 
 Parameters for blockinfile markers
 """"""""""""""""""""""""""""""""""
@@ -29,8 +28,8 @@ Parameters for blockinfile markers
 Example of blockinfile markers
 """"""""""""""""""""""""""""""
 
-For example, in file ``/usr/local/etc/lighttpd/modules.conf``, create
-blockinfile markers in the following block ::
+For example, in file ``/usr/local/etc/lighttpd/modules.conf``, create blockinfile markers in the
+following block ::
 
   ##
   
@@ -48,8 +47,7 @@ blockinfile markers in the following block ::
   
   ##
 
-Create the description of the file (2) and declare the variable for
-the list of the markers (8)
+Create the description of the file (2) and declare the variable for the list of the markers (8)
 
 [`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
 
@@ -77,8 +75,8 @@ Then, the command ::
 
   shell> ansible-playbook config-light.yml -t cl_files_copy,cl_files_markers
 
-will copy sample file ``modules.conf.sample`` to ``modules.conf`` and
-will create blockline markers ::
+will copy sample file ``modules.conf.sample`` to ``modules.conf`` and will create blockinfile markers
+::
 
   ##
 

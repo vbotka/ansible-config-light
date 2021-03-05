@@ -43,7 +43,9 @@ See Also
 """"""""
 .. seealso::
 
-   * See `files-patch.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-patch.yml>`_ how the files are modified by the Ansible module ``patch``
+   * See `files-patch.yml
+     <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-patch.yml>`_ how the
+     files are modified by the Ansible module ``patch``
 
    * See :ref:`as_files-patch.yml` annotated source code
 

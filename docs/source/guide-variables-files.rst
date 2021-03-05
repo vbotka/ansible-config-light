@@ -48,7 +48,7 @@ See Also
 
    * See `files-delete-backup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_ at GitHub how the backup files are deleted when the files haven't been modified
 
-     **Anotated source code**
+     **Annotated source code**
      
    * :ref:`as_vars-files.yml`
 

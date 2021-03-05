@@ -56,7 +56,7 @@ See Also
 
    * See `services.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/services.yml>`_ at GitHub how the services are configured
 
-     **Anotated source code**
+     **Annotated source code**
 
    * :ref:`as_vars-services.yml`
 

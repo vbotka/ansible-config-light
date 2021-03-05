@@ -54,7 +54,7 @@ See Also
 
    * See `setup.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_ at GitHub how the handlers are created
 
-     **Anotated source code**
+     **Annotated source code**
 
    * :ref:`as_vars-handlers.yml`
 

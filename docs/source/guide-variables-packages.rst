@@ -20,9 +20,8 @@ By default packages will be installed. If you want to install ports set ::
 snap
 """"
 
-By default snap packages won't be installed or deinstalled if *snap* binary can't be found in
-``cl_snap_paths``. If you want the role to fail when *snap* packages are configured in *cl_packages* set
-::
+By default snap packages won't be installed or uninstalled if *snap* binary can't be found in
+``cl_snap_paths``. If you want the role to fail when *snap* is missing set ::
 
   cl_snap_missing_fatal: true
 
@@ -104,7 +103,7 @@ See Also
 
    * See `packages.yml  <https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml>`_ at GitHub how the packages or BSD ports are installed
 
-     **Anotated source code**
+     **Annotated source code**
      
    * :ref:`as_vars-packages.yml`
 

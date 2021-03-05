@@ -16,12 +16,14 @@ is tested with supported releases of FreeBSD and Ubuntu. It can be expected that
 distributions, that support the Ansible modules mentioned below, should work with minimal
 changes. Red Hat and Debian *ansible_os_family* should work out of the box.
 
-Ansible module ``package`` is used to install Linux packages. In FreeBSD, modules ``pkgng`` and
-``portinstall`` are used to install FreeBSD packages and ports respectively.
+Ansible modules ``package``, ``apt``, ``yum``, and ``snap`` are used to install Linux packages. In
+FreeBSD, modules ``pkgng`` and ``portinstall`` are used to install FreeBSD packages and ports
+respectively.
 
 Ansible modules ``file``, ``template``, ``copy``, ``replace``, ``patch``, ``lineinfile``,
-``blockinfile``, and ``ini_file`` are used to configure files. Module ``service`` is used to manage
-both Linux and FreeBSD services.
+``blockinfile``, and ``ini_file`` are used to configure files. The module ``mount`` is used to mount
+and unmount paths, and to configure *fstab*. Module ``service`` is used to manage both Linux and
+FreeBSD services.
 
 The directory `contrib <https://github.com/vbotka/ansible-config-light/blob/master/contrib/>`_
 comprises examples on how to install and configure various applications and how to create the
@@ -33,4 +35,6 @@ The user of this role is expected to master at least the following Ansible topic
 * `Roles <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html>`_
 * `Working With Playbooks <https://docs.ansible.com/ansible/latest/user_guide/playbooks.html>`_
 
-Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-config-light/issues>`_. The contributions to the `project <https://github.com/vbotka/ansible-config-light/>`_ are welcome.
+Feel free to `share your feedback and report issues
+<https://github.com/vbotka/ansible-config-light/issues>`_. The contributions to the `project
+<https://github.com/vbotka/ansible-config-light/>`_ are welcome.

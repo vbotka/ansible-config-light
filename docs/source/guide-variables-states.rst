@@ -62,13 +62,13 @@ Examples
 
 * Delete snap directories
 
-[`contrib/ubuntu-snap-disable/conf-light/states.d/ <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root>`_]
+[`contrib/ubuntu-snap-disable/conf-light/states.d/snap.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ubuntu-snap-disable/conf-light/states.d/snap.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root
+.. literalinclude:: ../../contrib/ubuntu-snap-disable/conf-light/states.d/snap.yml
     :language: yaml
-    :emphasize-lines: 2
+    :emphasize-lines: 2,5,8
     :linenos:
 
 See Also
@@ -86,7 +86,7 @@ See Also
 
    * See ``shell> ansible-doc -t module file``
 
-     **Anotated source code**
+     **Annotated source code**
 
    * :ref:`as_vars-states.yml`
 
