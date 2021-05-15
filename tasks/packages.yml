@@ -1,7 +1,7 @@
 ---
 
 - name: "packages: Debug"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_packages.values()|list }}"
   when: cl_debug|bool
 
@@ -9,7 +9,7 @@
 - name: "packages: Manage FreeBSD packages"
   block:
     - name: "packages: Manage FreeBSD packages"
-      pkgng:
+      community.general.pkgng:
         name: "{{ item.name }}"  # list / elements=string / required
         state: "{{ item.state|default(omit) }}"
         annotation: "{{ item.annotation|default(omit) }}"
@@ -28,7 +28,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
     - name: "packages: Debug FreeBSD packages"
-      debug:
+      ansible.builtin.debug:
         var: result
       when: cl_debug|bool
   when:
@@ -39,7 +39,7 @@
 - name: "packages: Manage FreeBSD ports"
   block:
     - name: "packages: Manage FreeBSD ports"
-      portinstall:
+      community.general.portinstall:
         name: "{{ item.1 }}"  # string / required
         state: "{{ item.0.state|default(omit) }}"
         use_packages: "{{ item.0.use_packages|default(freebsd_use_packages) }}"
@@ -53,7 +53,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
     - name: "packages: Debug FreeBSD ports"
-      debug:
+      ansible.builtin.debug:
         var: result
       when: cl_debug|bool
   when:
@@ -64,16 +64,16 @@
 - name: "packages: Find snap"
   block:
     - name: "packages: Find snap"
-      find:
+      ansible.builtin.find:
         paths: "{{ cl_snap_paths }}"
         patterns: "{{ cl_snap_patterns }}"
       register: _find_snap
     - name: "packages: Debug find snap"
-      debug:
+      ansible.builtin.debug:
         var: _find_snap
       when: cl_debug|bool
     - name: "packages: Fail if snap is missing"
-      fail:
+      ansible.builtin.fail:
         msg: "[ERROR] snap not installed."
       when:
         - cl_snap_missing_fatal|bool
@@ -84,7 +84,7 @@
 - name: "packages: Manage Linux packages by snap module"
   block:
     - name: "packages: Manage Linux packages by snap module"
-      snap:
+      community.general.snap:
         name: "{{ item.name }}"  #  list / elements=string
         state: "{{ item.state|default(omit) }}"
       loop: "{{ cl_packages.values()|list|json_query('[?module == `snap`]') }}"
@@ -96,7 +96,7 @@
       delay: "{{ install_delay }}"
       when: item.module|default('package') == 'snap'
     - name: "packages: Debug Linux snap"
-      debug:
+      ansible.builtin.debug:
         var: result
       when: cl_debug|bool
   when:
@@ -108,7 +108,7 @@
 - name: "packages: Manage Linux packages by package module"
   block:
     - name: "packages: Manage Linux packages by package module"
-      package:
+      ansible.builtin.package:
         name: "{{ item.1 }}"  # string / required
         state: "{{ item.0.state|default('present') }}"
         use: "{{ item.0.use|default('auto') }}"
@@ -123,7 +123,7 @@
       delay: "{{ install_delay }}"
       when: item.0.module|default('package') == 'package'
     - name: "packages: Debug Linux package"
-      debug:
+      ansible.builtin.debug:
         var: result
       when: cl_debug|bool
   when: ansible_os_family == "RedHat" or
@@ -133,7 +133,7 @@
 - name: "packages: Manage Linux packages by yum module"
   block:
     - name: "packages: Manage Linux packages by yum module"
-      yum:
+      ansible.builtin.yum:
         name: "{{ item.name }}"  #  list / elements=string
         state: "{{ item.state|default(omit) }}"
         use_backend: "{{ item.use|default(omit) }}"
@@ -146,7 +146,7 @@
       delay: "{{ install_delay }}"
       when: item.module|default('package') == 'yum'
     - name: "packages: Debug Linux yum"
-      debug:
+      ansible.builtin.debug:
         var: result
       when: cl_debug|bool
   when: ansible_os_family == "RedHat" or
@@ -156,7 +156,7 @@
 - name: "packages: Manage Linux packages by apt module"
   block:
     - name: "packages: Manage Linux packages by apt module"
-      apt:
+      ansible.builtin.apt:
         name: "{{ item.name }}"  #  list / elements=string
         state: "{{ item.state|default(omit) }}"
         purge: "{{ item.purge|default(omit) }}"
@@ -169,7 +169,7 @@
       delay: "{{ install_delay }}"
       when: item.module|default('package') == 'apt'
     - name: "packages: Debug Linux apt"
-      debug:
+      ansible.builtin.debug:
         var: result
       when: cl_debug|bool
   when: ansible_os_family == "RedHat" or

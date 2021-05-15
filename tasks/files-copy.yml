@@ -1,12 +1,12 @@
 ---
 
 - name: "files-copy: Debug copyfile in cl_files.values()"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_files.values()|selectattr('copyfile', 'defined')|list }}"
   when: cl_debug|bool
 
 - name: "files-copy: Delete copyfile in cl_files.values()"
-  file:
+  ansible.builtin.file:
     state: absent
     path: "{{ item.path }}"
   loop: "{{ cl_files.values()|selectattr('copyfile', 'defined')|list }}"
@@ -15,7 +15,7 @@
   when: cl_copyfile_delete|bool
 
 - name: "files-copy: Copy copyfile in cl_files.values()"
-  copy:
+  ansible.builtin.copy:
     dest: "{{ item.path }}"
     src: "{{ item.copyfile.path }}"
     checksum: "{{ item.copyfile.checksum|default(omit) }}"
@@ -40,10 +40,10 @@
 
 - block:
     - name: "files-copy: Debug cl_results_copy"
-      debug:
+      ansible.builtin.debug:
         var: cl_results_copy
     - name: "files-copy: Debug changed copy path"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cl_results_copy|default([])|
                  json_query('[?changed].invocation.module_args.path')
                  }}"

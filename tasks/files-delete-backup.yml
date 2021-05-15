@@ -1,7 +1,7 @@
 ---
 
 - name: "files-delete-backup: Delete backup files that did not change"
-  file:
+  ansible.builtin.file:
     state: absent
     path: "{{ item }}_{{ cl_timestamp }}.bak"
   loop: "{{ cl_files.values()|list|json_query('[].path')|

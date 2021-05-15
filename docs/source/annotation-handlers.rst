@@ -1,7 +1,7 @@
 Handlers
 ========
 
-.. _as_handlers-main.yml:
+.. _as_handler_handlers-main.yml:
 
 main.yml
 --------
@@ -12,7 +12,7 @@ Synopsis: Main task.
 Import handlers.
 
 
-[`handlers/main.yml <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/handlers/main.yml>`_]
+[`handlers/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/handlers/main.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5

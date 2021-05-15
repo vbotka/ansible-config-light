@@ -29,7 +29,10 @@ IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
 
 ## Requirements
 
-None.
+### Collections
+
+* ansible.posix
+* community.general
 
 
 ## Role Variables

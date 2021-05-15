@@ -21,4 +21,7 @@ galaxy_info:
     - linux
     - configuration
 dependencies: []
+collections:
+  - ansible.posix
+  - community-general
 ...

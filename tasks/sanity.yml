@@ -3,10 +3,10 @@
 - name: "sanity: Directories to assemble data from must exist"
   block:
     - name: "sanity: Directories to assemble data from must exist"
-      debug:
-        msg: "{{ msg.split('\n')[:-1] }}"
+      ansible.builtin.debug:
+        msg: "{{ msg.split('\n') }}"
       vars:
-        msg: |
+        msg: |-
           Directories to assemble data from do not exist. End of host.
           Hint: Double check existence of the directories
           {{ cl_handlersd_dir }}
@@ -26,10 +26,10 @@
 - name: "sanity: Check mode not possible without assembled data"
   block:
     - name: "sanity: Check mode not possible without assembled data"
-      debug:
-        msg: "{{ msg.split('\n')[:-1] }}"
+      ansible.builtin.debug:
+        msg: "{{ msg.split('\n') }}"
       vars:
-        msg: |
+        msg: |-
           Check mode not possible without assembled data. End of host.
           Hint: Assemble the variables first.
           Run: ansible-playbook playbook.yml -t cl_vars

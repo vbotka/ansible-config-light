@@ -1,7 +1,7 @@
 ---
 
 - name: "vars-packages: Assemble packages to {{ cl_packagesd }}"
-  assemble:
+  ansible.builtin.assemble:
     regexp: "{{ cl_assemble_regexp }}"
     src: "{{ cl_packagesd_dir }}"
     dest: "{{ cl_packagesd }}"
@@ -17,11 +17,11 @@
     name: cl_packagesd_items
 
 - name: "vars-packages: Combine cl_packages with cl_packagesd_items"
-  set_fact:
+  ansible.builtin.set_fact:
     cl_packages: "{{ cl_packages|combine(cl_packagesd_items|default({})) }}"
 
 - name: "vars-packages: Debug"
-  debug:
+  ansible.builtin.debug:
     var: cl_packages
   when: cl_debug|bool
 

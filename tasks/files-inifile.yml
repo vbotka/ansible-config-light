@@ -1,12 +1,12 @@
 ---
 
 - name: "files-inifile: Debug ini in cl_files.values()"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_files.values()|selectattr('ini', 'defined')|list }}"
   when: cl_debug|bool
 
 - name: "files-inifile: INI files"
-  ini_file:
+  community.general.ini_file:
     path: "{{ item.0.path }}"
     section: "{{ item.1.section }}"
     option: "{{ item.1.option|default(omit) }}"
@@ -28,10 +28,10 @@
 
 - block:
     - name: "files-inifile: Debug cl_results_ini"
-      debug:
+      ansible.builtin.debug:
         var: cl_results_ini
     - name: "files-inifile: Debug changed ini paths"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cl_results_ini.results|default([])|
                  json_query('[?changed].invocation.module_args.path')
                  }}"

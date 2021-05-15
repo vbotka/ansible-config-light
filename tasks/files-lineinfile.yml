@@ -2,12 +2,12 @@
 
 # lines
 - name: "files-lineinfile: Debug lines in cl_files.values()"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_files.values()|selectattr('lines', 'defined')|list }}"
   when: cl_debug|bool
 
 - name: "files-lineinfile: Lineinfile lines"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ item.0.path }}"
     regexp: "{{ item.1.regexp|default(omit) }}"
     line: "{{ item.1.line|default(omit) }}"
@@ -32,10 +32,10 @@
 
 - block:
     - name: "files-lineinfile: Debug cl_results_lines"
-      debug:
+      ansible.builtin.debug:
         var: cl_results_lines
     - name: "files-lineinfile: Debug changed lines paths"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cl_results_lines.results|default([])|
                  json_query('[?changed].invocation.module_args.path')
                  }}"
@@ -43,12 +43,12 @@
 
 # dict
 - name: "files-lineinfile: Debug dict in cl_files.values()"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_files.values()|selectattr('dict', 'defined')|list }}"
   when: cl_debug|bool
 
 - name: "files-lineinfile: Lineinfile dict"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ item.0.path }}"
     regexp: '^\s*[#;]*\s*{{ item.1.key }}\s*{{ item.0.assignment|default("=")|trim }}\s*(.*)$'
     line: "{{ item.1.key }}{{ item.0.assignment|default('=') }}{{ item.1.value }}"
@@ -73,10 +73,10 @@
 
 - block:
     - name: "files-lineinfile: Debug cl_results_dict"
-      debug:
+      ansible.builtin.debug:
         var: cl_results_dict
     - name: "files-lineinfile: Debug changed dict paths"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cl_results_dict.results|default([])|
                  json_query('[?changed].invocation.module_args.path')
                  }}"
