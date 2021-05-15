@@ -1,7 +1,7 @@
 ---
 
 - name: "files-blockinfile: Debug blocks in cl_files.values()"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_files.values()|selectattr('blocks', 'defined')|list }}"
   when: cl_debug|bool
 
@@ -30,10 +30,10 @@
 
 - block:
     - name: "files-blockinfile: Debug cl_results_blocks"
-      debug:
+      ansible.builtin.debug:
         var: cl_results_blocks
     - name: "files-blockinfile: Debug changed blocks paths"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cl_results_blocks.results|default([])|
                  json_query('[?changed].invocation.module_args.path')
                  }}"

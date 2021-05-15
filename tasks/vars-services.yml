@@ -1,7 +1,7 @@
 ---
 
 - name: "vars-services: Assemble services to {{ cl_servicesd }}"
-  assemble:
+  ansible.builtin.assemble:
     regexp: "{{ cl_assemble_regexp }}"
     src: "{{ cl_servicesd_dir }}"
     dest: "{{ cl_servicesd }}"
@@ -17,11 +17,11 @@
     name: cl_servicesd_items
 
 - name: "vars-services: Combine cl_services with cl_servicesd_items"
-  set_fact:
+  ansible.builtin.set_fact:
     cl_services: "{{ cl_services|combine(cl_servicesd_items|default({})) }}"
 
 - name: "vars-services: Debug"
-  debug:
+  ansible.builtin.debug:
     var: cl_services
   when: cl_debug|bool
 

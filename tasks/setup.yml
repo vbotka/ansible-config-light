@@ -1,10 +1,8 @@
 ---
 
-# debug
 - name: "setup: Debug"
-  when: cl_debug|bool
   vars:
-    msg: |
+    msg: |-
       cl_dird [{{ cl_dird }}]
       cl_dird_owner [{{ cl_dira_owner|default('UNDEFINED') }}]
       cl_dird_group [{{ cl_dira_group|default('UNDEFINED') }}]
@@ -29,12 +27,13 @@
       cl_handlers_dir_owner [{{ cl_handlers_dir_owner|default('UNDEFINED') }}]
       cl_handlers_dir_group [{{ cl_handlers_dir_group|default('UNDEFINED') }}]
       cl_handlers_dir_dmode [{{ cl_handlers_dir_dmode|default('UNDEFINED') }}]
-  debug:
-    msg: "{{ msg.split('\n')[:-1] }}"
+  ansible.builtin.debug:
+    msg: "{{ msg.split('\n') }}"
+  when: cl_debug|bool
 
 # directories
 - name: "setup: Create directories in {{ cl_dird }}"
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ item }}"
     owner: "{{ cl_dird_owner|default(omit) }}"
@@ -49,7 +48,7 @@
     - "{{ cl_statesd_dir }}"
 
 - name: "setup: Create directory {{ cl_dira }}"
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ cl_dira }}"
     owner: "{{ cl_dira_owner|default(omit) }}"
@@ -59,7 +58,7 @@
 # handlers
 - name: "setup: Create dir {{ role_path }}/handlers"
   become: "{{ cl_handlers_dir_become }}"
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ role_path }}/handlers"
     owner: "{{ cl_handlers_dir_owner|default(omit) }}"
@@ -70,7 +69,7 @@
   import_tasks: vars-handlers.yml
 
 - name: "setup: Create handlers"
-  template:
+  ansible.builtin.template:
     dest: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
     src: "{{ item.value.template }}"
     validate: "{{ cl_handlers_validate|default(omit) }}"
@@ -80,7 +79,7 @@
     label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
 - name: "setup: Include handlers"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ role_path }}/handlers/main.yml"
     line: "- import_tasks: handlers-auto-{{ item.key }}.yml"
     validate: "{{ cl_handlers_validate|default(omit) }}"

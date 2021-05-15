@@ -1,12 +1,12 @@
 ---
 
 - name: "files-patch: Debug patch in cl_files.values()"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_files.values()|selectattr('patch', 'defined')|list }}"
   when: cl_debug|bool
 
 - name: "files-patch: Patch"
-  patch:
+  ansible.posix.patch:
     dest: "{{ item.path }}"
     src: "{{ item.patch.src }}"
     basedir: "{{ item.patch.basedir|default(omit) }}"
@@ -24,10 +24,10 @@
 
 - block:
     - name: "files-patch: Debug cl_results_patch"
-      debug:
+      ansible.builtin.debug:
         var: cl_results_patch
     - name: "files-patch: Debug changed patch patch"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cl_results_patch|default([])|
                  json_query('[?changed].invocation.module_args.path')
                  }}"

@@ -1,7 +1,7 @@
 ---
 
 - name: "services: Debug"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_services }}"
   when: cl_debug|bool
 
@@ -10,29 +10,29 @@
   block:
 
     - name: "services: Enable service in rc.conf FreeBSD"
-      lineinfile:
-        dest: "/etc/rc.conf"
-        regexp: "^\\s*{{ item.value.name }}_enable\\s*="
-        line: "{{ item.value.name }}_enable=\"YES\""
+      ansible.builtin.lineinfile:
+        dest: /etc/rc.conf
+        regexp: '^\s*{{ item.value.name }}_enable\s*=(.*)$'
+        line: '{{ item.value.name }}_enable="YES"'
         backup: "{{ cl_backup }}"
       loop: "{{ cl_services|dict2items }}"
       loop_control:
         label: "{{ item.key }}"
-      when: "item.value.enabled|default(true)|bool"
+      when: item.value.enabled|default(true)|bool
 
     - name: "services: Disable service in rc.conf FreeBSD"
-      lineinfile:
-        dest: "/etc/rc.conf"
-        regexp: "^\\s*{{ item.value.name }}_enable\\s*="
-        line: "{{ item.value.name }}_enable=\"NO\""
+      ansible.builtin.lineinfile:
+        dest: /etc/rc.conf
+        regexp: '^\s*{{ item.value.name }}_enable\s*=(.*)$'
+        line: '{{ item.value.name }}_enable="NO"'
         backup: "{{ cl_backup }}"
       loop: "{{ cl_services|dict2items }}"
       loop_control:
         label: "{{ item.key }}"
-      when: "not item.value.enabled|default(true)|bool"
+      when: not item.value.enabled|default(true)|bool
 
   when:
-    - "ansible_os_family == 'FreeBSD'"
+    - ansible_os_family == 'FreeBSD'
     - cl_services_freebsd_rcconf_auto|bool
 
 # All ---------------------------------------------------------------------
@@ -40,7 +40,7 @@
   block:
 
     - name: "services: Manage services"
-      service:
+      ansible.builtin.service:
         name: "{{ item.value.name }}"
         state: "{{ item.value.state|default('started') }}"
         enabled: "{{ item.value.enabled|default(true) }}"
@@ -48,9 +48,9 @@
       loop_control:
         label: "{{ item.key }}"
 
-  when: "ansible_os_family == 'RedHat' or
-         ansible_os_family == 'Debian' or
-         ansible_os_family == 'FreeBSD'"
+  when: ansible_os_family == 'RedHat' or
+        ansible_os_family == 'Debian' or
+        ansible_os_family == 'FreeBSD'
 
 # EOF
 ...

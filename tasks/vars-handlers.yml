@@ -1,7 +1,7 @@
 ---
 
 - name: "vars-handlers: Assemble handlers to {{ cl_handlersd }}"
-  assemble:
+  ansible.builtin.assemble:
     regexp: "{{ cl_assemble_regexp }}"
     src: "{{ cl_handlersd_dir }}"
     dest: "{{ cl_handlersd }}"
@@ -16,11 +16,11 @@
     name: cl_handlersd_items
 
 - name: "vars-handlers: Combine cl_handlers with cl_handlersd_items"
-  set_fact:
+  ansible.builtin.set_fact:
     cl_handlers: "{{ cl_handlers|combine(cl_handlersd_items|default({})) }}"
 
 - name: "vars-handlers: Debug"
-  debug:
+  ansible.builtin.debug:
     var: cl_handlers
   when: cl_debug|bool
 

@@ -12,7 +12,7 @@ Synopsis: Template 1.0.0-wpa_action.sh.
 Description of the template.
 
 
-[`templates/1.0.0-wpa_action.sh.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/1.0.0-wpa_action.sh.j2>`_]
+[`templates/1.0.0-wpa_action.sh.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/1.0.0-wpa_action.sh.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -32,7 +32,7 @@ Synopsis: Template 1.1.0-wpa_action.sh.
 Description of the template.
 
 
-[`templates/1.1.0-wpa_action.sh.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/1.1.0-wpa_action.sh.j2>`_]
+[`templates/1.1.0-wpa_action.sh.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/1.1.0-wpa_action.sh.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -52,7 +52,7 @@ Synopsis: Template dma-auth.conf.
 Description of the template.
 
 
-[`templates/dma-auth.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/dma-auth.conf.j2>`_]
+[`templates/dma-auth.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/dma-auth.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -72,7 +72,7 @@ Synopsis: Template handlers-auto1.yml.
 Description of the template.
 
 
-[`templates/handlers-auto1.yml.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/handlers-auto1.yml.j2>`_]
+[`templates/handlers-auto1.yml.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto1.yml.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -92,7 +92,7 @@ Synopsis: Template handlers-auto2.yml.
 Description of the template.
 
 
-[`templates/handlers-auto2.yml.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/handlers-auto2.yml.j2>`_]
+[`templates/handlers-auto2.yml.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto2.yml.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -112,7 +112,7 @@ Synopsis: Template hosts.
 Description of the template.
 
 
-[`templates/hosts.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/hosts.j2>`_]
+[`templates/hosts.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/hosts.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -132,7 +132,7 @@ Synopsis: Template loader.conf.
 Description of the template.
 
 
-[`templates/loader.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/loader.conf.j2>`_]
+[`templates/loader.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/loader.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -152,7 +152,7 @@ Synopsis: Template mailer.conf.
 Description of the template.
 
 
-[`templates/mailer.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/mailer.conf.j2>`_]
+[`templates/mailer.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/mailer.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -172,7 +172,7 @@ Synopsis: Template ntp.conf-minimal.
 Description of the template.
 
 
-[`templates/ntp.conf-minimal.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/ntp.conf-minimal.j2>`_]
+[`templates/ntp.conf-minimal.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ntp.conf-minimal.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -192,7 +192,7 @@ Synopsis: Template revaliases.
 Description of the template.
 
 
-[`templates/revaliases.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/revaliases.j2>`_]
+[`templates/revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -212,7 +212,7 @@ Synopsis: Template ssmtp.conf.
 Description of the template.
 
 
-[`templates/ssmtp.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/ssmtp.conf.j2>`_]
+[`templates/ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -232,7 +232,7 @@ Synopsis: Template wpa_cli.
 Description of the template.
 
 
-[`templates/wpa_cli.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/wpa_cli.j2>`_]
+[`templates/wpa_cli.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/wpa_cli.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -252,7 +252,7 @@ Synopsis: Template wpa_supplicant.conf.
 Description of the template.
 
 
-[`templates/wpa_supplicant.conf.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/wpa_supplicant.conf.j2>`_]
+[`templates/wpa_supplicant.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/wpa_supplicant.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -272,7 +272,7 @@ Synopsis: Template wpa_supplicant.conf.wlan0.
 Description of the template.
 
 
-[`templates/wpa_supplicant.conf.wlan0.j2 <https://github.com/__GITHUB_USERNAME__/ansible-__PROJECT__/blob/master/templates/wpa_supplicant.conf.wlan0.j2>`_]
+[`templates/wpa_supplicant.conf.wlan0.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/wpa_supplicant.conf.wlan0.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5

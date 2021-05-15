@@ -1,7 +1,7 @@
 ---
 
 - name: "vars-files: Assemble files to {{ cl_filesd }}"
-  assemble:
+  ansible.builtin.assemble:
     regexp: "{{ cl_assemble_regexp }}"
     src: "{{ cl_filesd_dir }}"
     dest: "{{ cl_filesd }}"
@@ -17,11 +17,11 @@
     name: cl_filesd_items
 
 - name: "vars-files: Combine cl_files with cl_filesd_items"
-  set_fact:
+  ansible.builtin.set_fact:
     cl_files: "{{ cl_files|combine(cl_filesd_items|default({})) }}"
 
 - name: "vars-files: Debug"
-  debug:
+  ansible.builtin.debug:
     var: cl_files
   when: cl_debug|bool
 

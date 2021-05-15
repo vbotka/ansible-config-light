@@ -6,7 +6,7 @@
   when: cl_debug|bool
 
 - name: "states: Apply unmount states"
-  mount:
+  ansible.posix.mount:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state|default('absent') }}"
     backup: "{{ item.value.backup|default(omit) }}"
@@ -22,7 +22,7 @@
   when: item.value.state|default('absent') in cl_states_unmount
 
 - name: "states: Apply file states"
-  file:
+  ansible.builtin.file:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state|default(omit) }}"
     src: "{{ item.value.src|default(omit) }}"
@@ -44,7 +44,7 @@
   when: item.value.state|default('file') in cl_states_file
 
 - name: "states: Apply mount states"
-  mount:
+  ansible.posix.mount:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state }}"
     backup: "{{ item.value.backup|default(omit) }}"

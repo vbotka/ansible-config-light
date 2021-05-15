@@ -1,7 +1,7 @@
 ---
 
 - name: "vars-states: Assemble states to {{ cl_states }}"
-  assemble:
+  ansible.builtin.assemble:
     regexp: "{{ cl_assemble_regexp }}"
     src: "{{ cl_statesd_dir }}"
     dest: "{{ cl_statesd }}"
@@ -17,11 +17,11 @@
     name: cl_statesd_items
 
 - name: "vars-states: Combine cl_statess with cl_statesd_items"
-  set_fact:
+  ansible.builtin.set_fact:
     cl_states: "{{ cl_states|combine(cl_statesd_items|default({})) }}"
 
 - name: "vars-states: Debug"
-  debug:
+  ansible.builtin.debug:
     var: cl_states
   when: cl_debug|bool
 
