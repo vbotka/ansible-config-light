@@ -6,7 +6,7 @@
   when: cl_debug|bool
 
 - name: "files-blockinfile: Blockinfile"
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: "{{ item.0.path }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.1.marker }}"
     block: "{{ item.1.block }}"
@@ -35,8 +35,7 @@
     - name: "files-blockinfile: Debug changed blocks paths"
       ansible.builtin.debug:
         msg: "{{ cl_results_blocks.results|default([])|
-                 json_query('[?changed].invocation.module_args.path')
-                 }}"
+                 json_query('[?changed].invocation.module_args.path') }}"
   when: cl_debug|bool
 
 # EOF

@@ -45,8 +45,7 @@
     - name: "files-copy: Debug changed copy path"
       ansible.builtin.debug:
         msg: "{{ cl_results_copy|default([])|
-                 json_query('[?changed].invocation.module_args.path')
-                 }}"
+                 json_query('[?changed].invocation.module_args.path') }}"
   when: cl_debug|bool
 
 # EOF

@@ -1,7 +1,7 @@
 ---
 
 - name: "mark-block: Check begin marker {{ item.1.marker }}"
-  command:
+  ansible.builtin.command:
     cmd: >
       grep -q '# BEGIN ANSIBLE MANAGED BLOCK {{ item.1.marker }}' {{ item.0.path }}
   register: checkmarker

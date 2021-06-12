@@ -37,8 +37,7 @@
     - name: "files-lineinfile: Debug changed lines paths"
       ansible.builtin.debug:
         msg: "{{ cl_results_lines.results|default([])|
-                 json_query('[?changed].invocation.module_args.path')
-                 }}"
+                 json_query('[?changed].invocation.module_args.path') }}"
   when: cl_debug|bool
 
 # dict
@@ -78,8 +77,7 @@
     - name: "files-lineinfile: Debug changed dict paths"
       ansible.builtin.debug:
         msg: "{{ cl_results_dict.results|default([])|
-                 json_query('[?changed].invocation.module_args.path')
-                 }}"
+                 json_query('[?changed].invocation.module_args.path') }}"
   when: cl_debug|bool
 
 # EOF

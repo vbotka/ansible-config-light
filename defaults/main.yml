@@ -27,6 +27,9 @@ cl_servicesd_dir: "{{ cl_dird }}/services.d"
 cl_filesd_dir: "{{ cl_dird }}/files.d"
 cl_statesd_dir: "{{ cl_dird }}/states.d"
 
+# Lint
+cl_ansible_lint_path: /usr/bin/ansible-lint
+
 # Assemble inventory_hostname data into these files
 # cl_dira_owner: root        # no default
 # cl_dira_group: adm         # no default
@@ -39,12 +42,13 @@ cl_servicesd: "{{ cl_dira }}/servicesd.{{ inventory_hostname }}"
 cl_filesd: "{{ cl_dira }}/filesd.{{ inventory_hostname }}"
 cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
 cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated by ~
-# cl_assemble_validate: 'ansible-lint -x 205 %s'  # no default
+# cl_assemble_validate: '{{ cl_ansible_lint_path }} %s'
 
 # Role handlers directory
 # cl_handlers_dir_owner: admin   # no default
 # cl_handlers_dir_group: admin   # no default
 # cl_handlers_dir_dmode: "0775"  # no default
+# cl_handlers_main_mode: "0644"  # no default
 cl_handlers_dir_become: false
 
 # Snap
@@ -61,9 +65,7 @@ cl_snap_patterns:
   - snap
 
 # Handlers
-# Exclude rules:
-# 205 Use ".yml" or ".yaml" playbook extension
-cl_handlers_validate: 'ansible-lint -x 205 %s'
+# cl_handlers_validate: '{{ cl_ansible_lint_path }} %s'
 
 # States
 cl_states_unmount: [absent, unmounted]

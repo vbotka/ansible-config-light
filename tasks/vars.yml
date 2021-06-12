@@ -19,16 +19,16 @@
   when: cl_debug|bool
 
 - name: "vars: Packages"
-  import_tasks: vars-packages.yml
+  ansible.builtin.import_tasks: vars-packages.yml
 
 - name: "vars: States"
-  import_tasks: vars-states.yml
+  ansible.builtin.import_tasks: vars-states.yml
 
 - name: "vars: Services"
-  import_tasks: vars-services.yml
+  ansible.builtin.import_tasks: vars-services.yml
 
 - name: "vars: Files"
-  import_tasks: vars-files.yml
+  ansible.builtin.import_tasks: vars-files.yml
 
 # EOF
 ...

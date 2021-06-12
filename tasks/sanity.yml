@@ -34,7 +34,7 @@
           Hint: Assemble the variables first.
           Run: ansible-playbook playbook.yml -t cl_vars
     - name: "sanity: End of host"
-      meta: end_host
+      ansible.builtin.meta: end_host
   when:
     - ansible_check_mode
     - cl_packagesd is not exists or

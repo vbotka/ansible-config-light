@@ -12,7 +12,7 @@
   delegate_to: localhost
 
 - name: "vars-packages: Include files from {{ cl_packagesd }} to cl_packagesd_items"
-  include_vars:
+  ansible.builtin.include_vars:
     file: "{{ cl_packagesd }}"
     name: cl_packagesd_items
 
