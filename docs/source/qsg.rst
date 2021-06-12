@@ -10,9 +10,11 @@ examples in the directory *contrib*. The control node of this example is Linux a
 member of the group *adm*.
 
 
-* Install the role ``vbotka.config_light`` ::
+* Install the role ``vbotka.config_light`` and the collections ::
 
-    shell> ansible-galaxy install vbotka.config_light
+    shell> ansible-galaxy role install vbotka.config_light
+    shell> ansible-galaxy collection install ansible.posix
+    shell> ansible-galaxy collection install community.general
 
 
 * Create the playbook ``config-light.yml`` for single host srv.example.com (2) and the role (10)
