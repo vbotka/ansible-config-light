@@ -29,8 +29,7 @@
     - name: "files-patch: Debug changed patch patch"
       ansible.builtin.debug:
         msg: "{{ cl_results_patch|default([])|
-                 json_query('[?changed].invocation.module_args.path')
-                 }}"
+                 json_query('[?changed].invocation.module_args.path') }}"
   when: cl_debug|bool
 
 # EOF

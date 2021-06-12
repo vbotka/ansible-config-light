@@ -6,7 +6,7 @@
   when: cl_debug|bool
 
 - name: "files-markers: Mark block {{ item.1.marker }}"
-  include_tasks: fn/mark-block.yml
+  ansible.builtin.include_tasks: fn/mark-block.yml
   loop: "{{ cl_files.values()|list|subelements('markers', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }}"

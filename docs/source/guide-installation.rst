@@ -20,6 +20,8 @@ and `ansible.posix <https://docs.ansible.com/ansible/latest/collections/ansible/
 
     shell> ansible-galaxy collection install ansible.posix
     shell> ansible-galaxy collection install community.general
+
+Optionally install package ``ansible-lint`` if you want to enable the validation of created handlers and assembled data.
     
 .. seealso:: * To install specific versions from various sources see `Installing content <https://galaxy.ansible.com/docs/using/installing.html>`_
 	     * Take a look at other roles ``shell> ansible-galaxy search --author=vbotka``

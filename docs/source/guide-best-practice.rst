@@ -6,9 +6,13 @@ Best practice
 Check syntax of setup
 =====================
 
+Check syntax of the playbook ::
+
+    shell> ansible-playbook pb.yml --syntax-check
+
 Check syntax of setup and display variables ::
 
-    shell> ansible-playbook pb.yml -t cl_setup -e cl_debug=true --check
+    shell> ansible-playbook pb.yml -t cl_setup -e cl_debug=true --check --diff
 
 If you want to see the values of the variables enable debug output ``cl_debug=true``.
 
@@ -42,12 +46,20 @@ be executed. All four commands below are equivalent to the command ::
     shell> ansible-playbook pb.yml -t cl_debug
 
 
+Validation
+==========
+
+Create the variables ``cl_assemble_validate`` and ``cl_handlers_validate``. If you want to enable
+validation of the created hadlers and assembled data. See ``defaults/main.yml``. You'll have to
+install the package ``ansible-lint``. See the role `vbotka.ansible_lint <https://galaxy.ansible.com/vbotka/ansible_lint>`_.
+    
+
 Check syntax
 ============
 
 Check syntax of the complete playbook ::
 
-    shell> ansible-playbook pb.yml --check
+    shell> ansible-playbook pb.yml --syntax-check
 
 
 Manage packages
@@ -57,9 +69,11 @@ Dry-run the management of packages ::
 
     shell> ansible-playbook pb.yml -t cl_packages -e cl_install=true -CD
 
-Manage packages. Then disable this task ``cl_install=false`` to speedup the playbook ::
+Manage packages ::
 
     shell> ansible-playbook pb.yml -t cl_packages -e cl_install=true
+
+Then disable the installation ``cl_install=false`` to speedup the playbook.
 
 
 Manage states of files

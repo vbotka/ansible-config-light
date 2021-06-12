@@ -52,6 +52,7 @@
       cl_filesd [{{ cl_filesd }}]
       cl_statesd [{{ cl_statesd }}]
 
+      cl_ansible_lint_path [{{ cl_ansible_lint_path }}]
       cl_assemble_validate [{{ cl_assemble_validate|default('UNDEFINED') }}]
       cl_handlers_validate [{{ cl_handlers_validate|default('UNDEFINED') }}]
 

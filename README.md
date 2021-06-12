@@ -27,12 +27,18 @@ IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
 ```
 
 
-## Requirements
+## Requirements and dependencies
 
 ### Collections
 
 * ansible.posix
 * community.general
+
+### Optional packages
+
+* ansible-lint
+
+Create the variables cl_assemble_validate and cl_handlers_validate to enable the validation. See defaults/main.yml.
 
 
 ## Role Variables
@@ -45,11 +51,6 @@ IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
 * See [Example. SSMTP](https://github.com/vbotka/ansible-config-light#example-ssmtp).
 
 
-## Dependencies
-
-None.
-
-
 ## Example. Playbook
 
 ```
@@ -59,9 +60,11 @@ None.
   roles:
     - vbotka.config_light
 ```
+
 ### Syntax check
 
 Run the syntax check
+
 ```
 shell> ansible-playbook conf_light.yml --syntax-check
 ```
@@ -69,9 +72,11 @@ shell> ansible-playbook conf_light.yml --syntax-check
 ### Assembly of variables
 
 Run the task *vars.yml* first to collect and assemble the variables
+
 ```
 shell> ansible-playbook conf_light.yml -t cl_vars
 ```
+
 Review the assembled variables in *cl_dira*
 
 ### Dry-run the playbook and display what will be changed
@@ -83,6 +88,7 @@ shell> ansible-playbook conf_light.yml --check --diff
 ### Run the playbook
 
 Run the playbook twice and make sure the result is idempotent
+
 ```
 shell> ansible-playbook conf_light.yml
 ```
@@ -166,7 +172,6 @@ cl_ssmtp_revaliases:
 ...
 ```
 
-
 ### Conf.d
 
 ```
@@ -191,7 +196,6 @@ revaliases:
 shell> cat conf-light/packages.d/ssmtp.json
 {'name': 'ssmtp'}
 ```
-
 
 ## License
 

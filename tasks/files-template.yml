@@ -47,8 +47,7 @@
     - name: "files-template: Debug changed template path"
       ansible.builtin.debug:
         msg: "{{ cl_results_template|default([])|
-                 json_query('[?changed].invocation.module_args.path')
-                 }}"
+                 json_query('[?changed].invocation.module_args.path') }}"
   when: cl_debug|bool
 
 # EOF
