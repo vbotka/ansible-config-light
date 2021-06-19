@@ -1,9 +1,15 @@
+.. _ex_freebsd_postfix:
+
 ***************
 FreeBSD Postfix
 ***************
 
+.. _ex_postfix_handlers:
+
 Handlers
 ========
+
+.. _ex_handlersd_postfix_freebsd:
 
 contrib/postfix/conf-light/handlers.d/postfix-freebsd
 -----------------------------------------------------
@@ -22,6 +28,7 @@ Use template (2) to create handlers.
     :linenos:
 
 .. seealso:: See :ref:`as_setup.yml` how the handlers are created.
+.. _ex_handlersd_sendmail_freebsd:
 
 contrib/postfix/conf-light/handlers.d/sendmail-freebsd
 ------------------------------------------------------
@@ -40,16 +47,19 @@ Use template (2) to create handlers.
     :linenos:
 
 .. seealso:: See :ref:`as_setup.yml` how the handlers are created.
+.. _ex_postfix_packages:
 
 Packages
 ========
+
+.. _ex_packagesd_postfix:
 
 contrib/postfix/conf-light/packages.d/postfix
 ---------------------------------------------
 
 Synopsis: Install Postfix.
 
-Use package or port (2) to install Postfix.
+Use package or port (3) to install Postfix.
 
 [`contrib/postfix/conf-light/packages.d/postfix <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfix>`_]
 
@@ -57,13 +67,16 @@ Use package or port (2) to install Postfix.
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/packages.d/postfix
     :language: Yaml
-    :emphasize-lines: 2
+    :emphasize-lines: 3
     :linenos:
 
 .. seealso:: See :ref:`as_packages.yml` how the FreeBSD packages or ports are installed.
+.. _ex_postfix_services:
 
 Services
 ========
+
+.. _ex_servicesd_postfix:
 
 contrib/postfix/conf-light/services.d/postfix
 ---------------------------------------------
@@ -81,7 +94,8 @@ Set service (2) state (3). Run the service on boot (4).
     :emphasize-lines: 2,3,4
     :linenos:
 
-.. seealso:: See custom Postfix variables. See :ref:`as_services.yml` how the services are configured.
+.. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`. See :ref:`as_services.yml` how the services are configured.
+.. _ex_servicesd_sendmail:
 
 contrib/postfix/conf-light/services.d/sendmail
 ----------------------------------------------
@@ -99,10 +113,13 @@ Set service (2) state (3). Do not run the service on boot (4).
     :emphasize-lines: 2,3,4
     :linenos:
 
-.. seealso:: See custom Postfix variables.
+.. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`.
+.. _ex_postfix_files:
 
 Files
 =====
+
+.. _ex_config_light_postfix_yml:
 
 contrib/postfix/config-light-postfix.yml
 ----------------------------------------
@@ -120,12 +137,14 @@ Put the host-specific variables (6) into the ``host_vars``. Optionally other var
     :emphasize-lines: 6
     :linenos:
 
+.. _ex_filesd_mailer_conf:
+
 contrib/postfix/conf-light/files.d/mailer-conf
 ----------------------------------------------
 
 Synopsis: Create file.
 
-Create file (2) from the template (7).
+Create file (2) from the template (4).
 
 [`contrib/postfix/conf-light/files.d/mailer-conf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf>`_]
 
@@ -133,8 +152,10 @@ Create file (2) from the template (7).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf
     :language: Yaml
-    :emphasize-lines: 2,7
+    :emphasize-lines: 2,4
     :linenos:
+
+.. _ex_filesd_periodic_conf:
 
 contrib/postfix/conf-light/files.d/periodic-conf
 ------------------------------------------------
@@ -152,6 +173,8 @@ Modify file (2) with the lines (7).
     :emphasize-lines: 2,7
     :linenos:
 
+.. _ex_filesd_main_cf:
+
 contrib/postfix/conf-light/files.d/postfix-main-cf
 --------------------------------------------------
 
@@ -168,6 +191,8 @@ Modify file (2) with the lines (9) and notify handlers (7).
     :emphasize-lines: 2,7,9
     :linenos:
 
+.. _ex_filesd_rc_conf:
+
 contrib/postfix/conf-light/files.d/rc-conf
 ------------------------------------------
 
@@ -183,3 +208,4 @@ Modify file (2) with the lines (7).
     :language: Yaml
     :emphasize-lines: 2,7
     :linenos:
+
