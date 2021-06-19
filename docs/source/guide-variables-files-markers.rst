@@ -1,4 +1,6 @@
 .. _ug_variables_files-markers:
+.. highlight:: yaml
+    :linenothreshold: 5
 
 blockinfile markers
 ^^^^^^^^^^^^^^^^^^^
@@ -51,8 +53,6 @@ Create the description of the file (2) and declare the variable for the list of 
 
 [`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
 
-.. highlight:: yaml
-    :linenothreshold: 5
 .. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf
     :language: yaml
     :emphasize-lines: 2,8
@@ -62,8 +62,6 @@ Create the list of the dictionaries ``cl_lighttpd_modulesconf_markers`` (73)
 
 [`contrib/lighttpd_nagios/cl-lighttpd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/cl-lighttpd.yml>`_]
 
-.. highlight:: yaml
-    :linenothreshold: 5
 .. literalinclude:: ../../contrib/lighttpd_nagios/cl-lighttpd.yml
     :language: yaml
     :lines: 68-78

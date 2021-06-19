@@ -9,10 +9,10 @@ ssmtp_packages:
     synopsis: |
       Install Simple SMTP.
     description: |
-      Use package (2) to install sSMTP.
-    lines: 2
+      Use package (3) to install sSMTP.
+    lines: 3
     seealso:
-      - "See :ref:`as_packages_yml` how the Linux packages are installed."
+      - "See :ref:`as_packages.yml` how the Linux packages are installed."
     note: []
     warning: []
 
@@ -34,11 +34,11 @@ ssmtp_files:
     synopsis: |
       Create file.
     description: |
-      Create file (2) from the template (7).
-    lines: 2,7
+      Create file (2) from the template (8).
+    lines: 2,8
     seealso:
       - "See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_."
-      - "See how files are created from template :ref:`as_files_template_yml`."
+      - "See how files are created from template :ref:`as_files-template.yml`."
     note: []
     warning: []
   - file: contrib/ssmtp/conf-light/files.d/ssmtp-conf
@@ -46,11 +46,11 @@ ssmtp_files:
     synopsis: |
       Create file.
     description: |
-      Create file (2) from the template (7).
-    lines: 2,7
+      Create file (2) from the template (8).
+    lines: 2,8
     seealso:
       - "See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_."
-      - "See how files are created from template :ref:`as_files_template_yml`."
+      - "See how files are created from template :ref:`as_files-template.yml`."
     note: []
     warning: []
 
@@ -69,7 +69,7 @@ postfix_handlers:
       Use template (2) to create handlers.
     lines: 2,5,12,19,27,35,40
     seealso:
-      - "See :ref:`as_setup_yml` how the handlers are created."
+      - "See :ref:`as_setup.yml` how the handlers are created."
     note: []
     warning: []
   - file: contrib/postfix/conf-light/handlers.d/sendmail-freebsd
@@ -80,7 +80,7 @@ postfix_handlers:
       Use template (2) to create handlers.
     lines: 2,5,12,19,27,35,41
     seealso:
-      - "See :ref:`as_setup_yml` how the handlers are created."
+      - "See :ref:`as_setup.yml` how the handlers are created."
     note: []
     warning: []
 
@@ -90,10 +90,10 @@ postfix_packages:
     synopsis: |
       Install Postfix.
     description: |
-      Use package or port (2) to install Postfix.
-    lines: 2
+      Use package or port (3) to install Postfix.
+    lines: 3
     seealso:
-      - "See :ref:`as_packages_yml` how the FreeBSD packages or ports are installed."
+      - "See :ref:`as_packages.yml` how the FreeBSD packages or ports are installed."
     note: []
     warning: []
 
@@ -107,7 +107,7 @@ postfix_services:
     lines: 2,3,4
     seealso:
       - "See custom Postfix variables :ref:`ex_config_light_postfix_yml`."
-      - "See :ref:`as_services_yml` how the services are configured."
+      - "See :ref:`as_services.yml` how the services are configured."
     note: []
     warning: []
   - file: contrib/postfix/conf-light/services.d/sendmail
@@ -140,8 +140,8 @@ postfix_files:
     synopsis: |
       Create file.
     description: |
-      Create file (2) from the template (7).
-    lines: 2,7
+      Create file (2) from the template (4).
+    lines: 2,4
     seealso: []
     note: []
     warning: []
