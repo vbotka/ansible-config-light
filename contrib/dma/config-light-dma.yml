@@ -12,11 +12,11 @@ cl_dma_aliases:
   - {regexp: '^admin:(.*)$', line: 'admin: admin@example.com'}
 
 # conf-light/files.d/dma-dmaconf
-cl_dma_SMARTHOST: 'mail.example.com'
-cl_dma_PORT: '587'
-cl_dma_AUTHPATH: '/usr/local/etc/dma/auth.conf'
-cl_dma_ALIASES: '/usr/local/etc/dma/aliases'
-cl_dma_MASQUERADE: 'admin@example.com'
+cl_dma_smarthost: 'mail.example.com'
+cl_dma_port: '587'
+cl_dma_authpath: '/usr/local/etc/dma/auth.conf'
+cl_dma_aliases: '/usr/local/etc/dma/aliases'
+cl_dma_masquerade: 'admin@example.com'
 
 # conf-light/files.d/dma-authconf
 cl_dma_authconf:

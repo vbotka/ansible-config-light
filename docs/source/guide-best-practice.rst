@@ -16,6 +16,7 @@ Check syntax of setup and display variables ::
 
 If you want to see the values of the variables enable debug output ``cl_debug=true``.
 
+
 Setup
 =====
 
@@ -49,8 +50,8 @@ be executed. All four commands below are equivalent to the command ::
 Validation
 ==========
 
-Create the variables ``cl_assemble_validate`` and ``cl_handlers_validate``. If you want to enable
-validation of the created hadlers and assembled data. See ``defaults/main.yml``. You'll have to
+Create the variables ``cl_assemble_validate`` and ``cl_handlers_validate`` if you want to enable
+validation of the created handlers and assembled data. See ``defaults/main.yml``. You'll have to
 install the package ``ansible-lint``. See the role `vbotka.ansible_lint <https://galaxy.ansible.com/vbotka/ansible_lint>`_.
     
 
@@ -112,13 +113,13 @@ Configure services ::
     shell> ansible-playbook pb.yml -t cl_services
 
 
-Idempotence
+Idempotency
 ===========
 
 The role and the configuration data in the examples are idempotent. When the application is
 installed and configured there should be no changes reported by *ansible-playbook* when running the
 playbook repeatedly. Disable setup, sanity, debug, and install to speedup the execution when running
-the playbook periodicaly to audit the configuration ::
+the playbook periodically to audit the configuration ::
 
     shell> ansible-playbook pb.yml -e cl_setup=false \
                                    -e cl_sanity=false \

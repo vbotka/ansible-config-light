@@ -41,9 +41,9 @@ Example of blockinfileinfile
 
 Create the description of the file (2) and declare the list of the blocks (10)
 
-[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
+[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf.yml>`_]
 
-.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf
+.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf.yml
     :language: yaml
     :emphasize-lines: 2,10
     :linenos:

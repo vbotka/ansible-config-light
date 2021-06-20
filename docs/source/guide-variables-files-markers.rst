@@ -51,9 +51,9 @@ following block ::
 
 Create the description of the file (2) and declare the variable for the list of the markers (8)
 
-[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf>`_]
+[`contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf.yml>`_]
 
-.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf
+.. literalinclude:: ../../contrib/lighttpd_nagios/conf-light/files.d/lighttpd-modulesconf.yml
     :language: yaml
     :emphasize-lines: 2,8
     :linenos:

@@ -74,11 +74,11 @@ Example of lineinfile with lines
 
 File ``/usr/local/etc/lighttpd/lighttpd.conf`` for lighttpd
 
-[`contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines>`_]
+[`contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines
+.. literalinclude:: ../../contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-lines.yml
     :language: yaml
     :emphasize-lines: 9
     :linenos:
@@ -88,11 +88,11 @@ Example of lineinfile with dict
 
 File ``/usr/local/etc/lighttpd/lighttpd.conf`` for lighttpd
 
-[`contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict>`_]
+[`contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict
+.. literalinclude:: ../../contrib/lighttpd/conf-light/files.d/lighttpd-lighttpdconf-dict.yml
     :language: yaml
     :emphasize-lines: 10
     :linenos:

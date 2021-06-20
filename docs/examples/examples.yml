@@ -4,7 +4,7 @@ ssmtp_content:
   - {name: Files, dict: ssmtp_files}
 
 ssmtp_packages:
-  - file: contrib/ssmtp/conf-light/packages.d/ssmtp
+  - file: contrib/ssmtp/conf-light/packages.d/ssmtp.yml
     link: packagesd_ssmtp
     synopsis: |
       Install Simple SMTP.
@@ -29,7 +29,7 @@ ssmtp_files:
     seealso: []
     note: []
     warning: []
-  - file: contrib/ssmtp/conf-light/files.d/revaliases
+  - file: contrib/ssmtp/conf-light/files.d/revaliases.yml
     link: filesd_revaliases
     synopsis: |
       Create file.
@@ -41,7 +41,7 @@ ssmtp_files:
       - "See how files are created from template :ref:`as_files-template.yml`."
     note: []
     warning: []
-  - file: contrib/ssmtp/conf-light/files.d/ssmtp-conf
+  - file: contrib/ssmtp/conf-light/files.d/ssmtp-conf.yml
     link: filesd_ssmtp_conf
     synopsis: |
       Create file.
@@ -61,7 +61,7 @@ postfix_content:
   - {name: Files, dict: postfix_files}
 
 postfix_handlers:
-  - file: contrib/postfix/conf-light/handlers.d/postfix-freebsd
+  - file: contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml
     link: handlersd_postfix_freebsd
     synopsis: |
       Create handlers for Postfix.
@@ -72,7 +72,7 @@ postfix_handlers:
       - "See :ref:`as_setup.yml` how the handlers are created."
     note: []
     warning: []
-  - file: contrib/postfix/conf-light/handlers.d/sendmail-freebsd
+  - file: contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml
     link: handlersd_sendmail_freebsd
     synopsis: |
       Create handlers for Sendmail.
@@ -85,7 +85,7 @@ postfix_handlers:
     warning: []
 
 postfix_packages:
-  - file: contrib/postfix/conf-light/packages.d/postfix
+  - file: contrib/postfix/conf-light/packages.d/postfix.yml
     link: packagesd_postfix
     synopsis: |
       Install Postfix.
@@ -98,7 +98,7 @@ postfix_packages:
     warning: []
 
 postfix_services:
-  - file: contrib/postfix/conf-light/services.d/postfix
+  - file: contrib/postfix/conf-light/services.d/postfix.yml
     link: servicesd_postfix
     synopsis: |
       Configure Postfix service.
@@ -110,7 +110,7 @@ postfix_services:
       - "See :ref:`as_services.yml` how the services are configured."
     note: []
     warning: []
-  - file: contrib/postfix/conf-light/services.d/sendmail
+  - file: contrib/postfix/conf-light/services.d/sendmail.yml
     link: servicesd_sendmail
     synopsis: |
       Configure Sendmail service.
@@ -135,7 +135,7 @@ postfix_files:
     seealso: []
     note: []
     warning: []
-  - file: contrib/postfix/conf-light/files.d/mailer-conf
+  - file: contrib/postfix/conf-light/files.d/mailer-conf.yml
     link: filesd_mailer_conf
     synopsis: |
       Create file.
@@ -145,7 +145,7 @@ postfix_files:
     seealso: []
     note: []
     warning: []
-  - file: contrib/postfix/conf-light/files.d/periodic-conf
+  - file: contrib/postfix/conf-light/files.d/periodic-conf.yml
     link: filesd_periodic_conf
     synopsis: |
       Modify file.
@@ -155,7 +155,7 @@ postfix_files:
     seealso: []
     note: []
     warning: []
-  - file: contrib/postfix/conf-light/files.d/postfix-main-cf
+  - file: contrib/postfix/conf-light/files.d/postfix-main-cf.yml
     link: filesd_main_cf
     synopsis: |
       Modify file and notify handlers.
@@ -165,7 +165,7 @@ postfix_files:
     seealso: []
     note: []
     warning: []
-  - file: contrib/postfix/conf-light/files.d/rc-conf
+  - file: contrib/postfix/conf-light/files.d/rc-conf.yml
     link: filesd_rc_conf
     synopsis: |
       Modify file.

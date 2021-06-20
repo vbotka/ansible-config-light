@@ -8,9 +8,9 @@ Handlers
 Synopsis
 ^^^^^^^^
 
-The dictionary *cl_handlers* comprises handlers. The structure of the dictionary depends on the
-template that is used to create the files with the handlers. For example, the structure below can be
-used together with the template *handlers-auto1.yml.j2*.
+The dictionary *cl_handlers* comprises data to create handlers. The structure of the dictionary
+depends on the template that is used to create the files with the handlers. For example, the
+structure below can be used together with the template *handlers-auto1.yml.j2*.
 
 Parameters
 ^^^^^^^^^^
@@ -35,11 +35,11 @@ Example
 ^^^^^^^
 FreeBSD handlers for Postfix
 
-[`contrib/postfix/conf-light/handlers.d/postfix-freebsd <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/postfix-freebsd>`_]
+[`contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/postfix/conf-light/handlers.d/postfix-freebsd
+.. literalinclude:: ../../contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml
     :language: yaml
     :emphasize-lines: 2,5,12,19,27,35,40
     :linenos:

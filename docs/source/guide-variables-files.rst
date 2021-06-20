@@ -10,11 +10,10 @@ Files
 Synopsis
 ^^^^^^^^
 
-The variable *cl_files* is a dictionary of the files that shall be created or modified by this
-role. It's optional which Ansible module will be used to create or modify a file. More options can
-be applied at the same file. For example, it is possible to create a file by the Ansible module
-*template* and modify it with the module *lineinfile* later. Several options, listed in the default
-order, are available
+The variable *cl_files* is a dictionary of the files that shall be managed by this role. It's
+optional which Ansible module will be used to manage a file. More options can be applied at the same
+file. For example, it is possible to create a file by the Ansible module *template* and modify it by
+the module *lineinfile* later. Several options, listed in the default order, are available
 
 #. copy: If the attribute *copyfile* is defined in the dictionary
 #. template: If the attribute *template* is defined in the dictionary

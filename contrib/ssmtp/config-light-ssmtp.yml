@@ -17,12 +17,12 @@ cl_ssmtp_postmaster_address: "postmaster@{{ lp_fqdn }}"
 cl_ssmtp_mailhub: "{{ cl_ssmtp_srv }}:587"
 cl_ssmtp_rewriteDomain: "{{ cl_ssmtp_srv_domain }}"
 
-cl_ssmtp_UseTLS: "Yes"
-cl_ssmtp_UseSTARTTLS: "Yes"
+cl_ssmtp_usetls: "Yes"
+cl_ssmtp_usestarttls: "Yes"
 
-cl_ssmtp_AuthUser: "smtp_client"
-cl_ssmtp_AuthPass: "{{ smtp_client_password_mail_example_com }}"
-cl_ssmtp_AuthMethod: "LOGIN"
+cl_ssmtp_authuser: "smtp_client"
+cl_ssmtp_authpass: "{{ smtp_client_password_mail_example_com }}"
+cl_ssmtp_authmethod: "LOGIN"
 
 cl_ssmtp_FromLineOverride: "yes"
 

@@ -3,7 +3,7 @@
 Quick start guide
 *****************
 
-For those users who want to quickly try the role this guide provides an example of how to install
+For users who want to quickly try the role this guide provides an example of how to install
 and configure `Lighttpd <https://www.lighttpd.net/>`_ on single FreeBSD host. The procedure is
 generic and can be easily modified to install and configure other applications on other systems. See
 examples in the directory *contrib*. The control node of this example is Linux and the user is a
@@ -35,7 +35,8 @@ member of the group *adm*.
        - vbotka.config_light
 
 
-* Create ``host_vars`` with customized variables of the role (2) and with the variables of the application (3).
+* Create files in ``host_vars`` with customized variables of the role (2) and with the variables of
+  the application (3).
 
 .. code-block:: bash
    :emphasize-lines: 2-3
@@ -46,12 +47,12 @@ member of the group *adm*.
    host_vars/srv.example.com/config-light-lighttpd.yml
 
 
-* Create *host_vars* with customized variables of the role. To speedup the execution let's set the
-  control-flow variables (2-5) to *false* and disable some steps. Enable these steps selectively
-  when needed. The configuration files of the role will be stored in the directory *conf-light* in
-  the current directory of the playbook (10). Set the ownership and permissions of the directories
-  on the control node so that the user who is running the playbook will be able both read and write
-  the files, and create the directories (7-9) (11-14).
+* Create files in *host_vars* with customized variables of the role. To speedup the execution let's
+  set the control-flow variables (2-5) to *false* and disable some steps. Enable these steps
+  selectively when needed. The configuration files of the role will be stored in the directory
+  *conf-light* in the current directory of the playbook (10). Set the ownership and permissions of
+  the directories on the control node so that the user who is running the playbook will be able both
+  read and write the files, and create the directories (7-9) (11-14).
 
 .. code-block:: bash
    :emphasize-lines: 2-5,10
@@ -73,7 +74,7 @@ member of the group *adm*.
    cl_dira_fmode: "0660"
 
 
-* Create *host_vars* files with the variables of the application. Start the server (2), run the
+* Create files in *host_vars* with the variables of the application. Start the server (2), run the
   server at boot (3), and configure two files (5,18).
 
 .. code-block:: bash
@@ -102,7 +103,7 @@ member of the group *adm*.
    cl_lighttpd_rcconf_dict:
      - {key: 'lighttpd_enable', value: '"{{ cl_lighttpd_rcconf_lighttpd_enable }}"'}
 
-* Create configuration files in the directory ``conf-light``.
+* Create configuration files in the directory ``conf-light``
 
 .. code-block:: bash
    :emphasize-lines: 3,6,8,10,12
