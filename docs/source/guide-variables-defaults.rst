@@ -16,10 +16,10 @@ and ``cl_filesd_dir`` (24-28). Both methods can be applied at the same time. The
 assembled and combined by the tasks ``vars_handlers.yml``, ``vars_packages.yml``,
 ``vars_states.yml``, ``vars_services.yml``, and ``vars_files.yml``. The assembled dictionaries,
 customized for each host in the play, will be stored in the host-specific files ``cl_packagesd``,
-``cl_statesd``, ``cl_servicesd``, and ``cl_filesd`` (37-40). The variable ``cl_handlers`` is not
+``cl_statesd``, ``cl_servicesd``, and ``cl_filesd`` (40-43). The variable ``cl_handlers`` is not
 host-specific, because the handlers will be created at the controller (localhost) only. Assembled
-dictionary ``cl_handlers`` will be stored in the file ``cl_handlersd`` (36). Take a look at the
-directory ``cl_dira`` (35) to see assembled data.
+dictionary ``cl_handlers`` will be stored in the file ``cl_handlersd`` (39). Take a look at the
+directory ``cl_dira`` (38) to see assembled data.
 
 By default, the base of the directories is ``role_path`` (23). The user is expected to put the
 configuration data to a more suitable directory, e.g., to ``playbook_dir`` directory.
@@ -30,11 +30,11 @@ configuration data to a more suitable directory, e.g., to ``playbook_dir`` direc
     :linenothreshold: 5
 .. literalinclude:: ../../defaults/main.yml
     :language: yaml
-    :emphasize-lines: 2, 13-17, 24-28, 36-40
+    :emphasize-lines: 2, 13-17, 24-28, 40-43
     :linenos:
 
-.. warning:: Defaults of the variables *cl_dird_dmode* (22), *cl_dira_dmode* (33) and
-             *cl_dira_fmode* (34) are very permissive. These are the permissions to access the
+.. warning:: Defaults of the variables *cl_dird_dmode* (22), *cl_dira_dmode* (36) and
+             *cl_dira_fmode* (37) are very permissive. These are the permissions to access the
              configuration data and the assembled dictionaries. Restrict the permissions if these
              dictionaries might comprise classified data.
 

@@ -4,7 +4,7 @@ Introduction
 
 * Ansible role: `config_light <https://galaxy.ansible.com/vbotka/config_light/>`_
 * Supported systems: `FreeBSD <https://www.freebsd.org/releases/>`_, `Ubuntu <http://releases.ubuntu.com/>`_
-* Requirements: None
+* Requirements: `ansible.posix <https://github.com/ansible-collections/ansible.posix/>`_ , `community.general <https://github.com/ansible-collections/community.general>`_
 
 The role installs packages, creates and configures files, services, and handlers. This provides a
 simple, but flexible framework to apply basic Ansible modules. A substantial part of the
@@ -17,8 +17,7 @@ distributions, that support the Ansible modules mentioned below, should work wit
 changes. Red Hat and Debian *ansible_os_family* should work out of the box.
 
 Ansible modules ``package``, ``apt``, ``yum``, and ``snap`` are used to install Linux packages. In
-FreeBSD, modules ``pkgng`` and ``portinstall`` are used to install FreeBSD packages and ports
-respectively.
+FreeBSD, modules ``pkgng`` and ``portinstall`` are used to install FreeBSD packages and ports.
 
 Ansible modules ``file``, ``template``, ``copy``, ``replace``, ``patch``, ``lineinfile``,
 ``blockinfile``, and ``ini_file`` are used to configure files. The module ``mount`` is used to mount

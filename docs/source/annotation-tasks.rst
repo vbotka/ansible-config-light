@@ -294,10 +294,10 @@ Description of the task.
 files.yml
 ---------
 
-Synopsis: Configure files.
+Synopsis: Manage files.
 
 
-Description of the task.
+Iterate ``cl_files_order`` (6) and include tasks with particular modules.
 
 
 [`tasks/files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_]
@@ -306,11 +306,15 @@ Description of the task.
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files.yml
     :language: Yaml
-    :emphasize-lines: 1,2
+    :emphasize-lines: 3,6
     :linenos:
 
+.. seealso::
+   * See :ref:`ug_variables_files` *Order of options*
 
 
+.. hint::
+   * Customize the list ``cl_files_order`` and fit the order of the options to your needs.
 
 
 .. _as_files-blockinfile.yml:

@@ -15,8 +15,8 @@ and install it ::
     shell> ansible-galaxy role install vbotka.config_light
 
 Install the collections
-`community.general <https://docs.ansible.com/ansible/latest/collections/community/general/>`_
-and `ansible.posix <https://docs.ansible.com/ansible/latest/collections/ansible/posix/index.html#plugins-in-ansible-posix/>`_  ::
+`community.general <https://docs.ansible.com/ansible/latest/collections/community/general/>`__
+and `ansible.posix <https://docs.ansible.com/ansible/latest/collections/ansible/posix/index.html#plugins-in-ansible-posix/>`__  ::
 
     shell> ansible-galaxy collection install ansible.posix
     shell> ansible-galaxy collection install community.general

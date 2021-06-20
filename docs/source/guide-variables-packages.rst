@@ -8,7 +8,7 @@ Packages
 Synopsis
 ^^^^^^^^
 
-The dictionary *cl_packages* comprises packages (Linux or BSD) or BSD ports.
+The dictionary *cl_packages* comprises managed packages (Linux or BSD) or BSD ports.
 
 FreeBSD
 """""""
@@ -52,33 +52,33 @@ Examples
 
 * FreeBSD install Postfix package or port
 
-[`contrib/postfix/conf-light/packages.d/postfix <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfix>`_]
+[`contrib/postfix/conf-light/packages.d/postfix.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfix.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/postfix/conf-light/packages.d/postfix
+.. literalinclude:: ../../contrib/postfix/conf-light/packages.d/postfix.yml
     :language: yaml
     :emphasize-lines: 2
     :linenos:
 
 * Armbian package for Simple SMTP
 
-[`contrib/ssmtp/conf-light/packages.d/ssmtp <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/packages.d/ssmtp>`_]
+[`contrib/ssmtp/conf-light/packages.d/ssmtp.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/packages.d/ssmtp.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/ssmtp/conf-light/packages.d/ssmtp
+.. literalinclude:: ../../contrib/ssmtp/conf-light/packages.d/ssmtp.yml
     :language: yaml
     :emphasize-lines: 2
     :linenos:
 
 * Ubuntu delete snap packages
 
-[`contrib/ubuntu-snap-disable/conf-light/packages.d/snap-deinstall <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ubuntu-snap-disable/conf-light/packages.d/snap-deinstall>`_]
+[`contrib/ubuntu-snap-disable/conf-light/packages.d/snap-deinstall.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ubuntu-snap-disable/conf-light/packages.d/snap-deinstall.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/ubuntu-snap-disable/conf-light/packages.d/snap-deinstall
+.. literalinclude:: ../../contrib/ubuntu-snap-disable/conf-light/packages.d/snap-deinstall.yml
     :language: yaml
     :emphasize-lines: 2
     :linenos:
@@ -86,11 +86,11 @@ Examples
 
 * Ubuntu purge snapd package
 
-[`contrib/ubuntu-snap-disable/conf-light/packages.d/snapd <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ubuntu-snap-disable/conf-light/packages.d/snapd>`_]
+[`contrib/ubuntu-snap-disable/conf-light/packages.d/snapd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ubuntu-snap-disable/conf-light/packages.d/snapd.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/ubuntu-snap-disable/conf-light/packages.d/snapd
+.. literalinclude:: ../../contrib/ubuntu-snap-disable/conf-light/packages.d/snapd.yml
     :language: yaml
     :emphasize-lines: 2
     :linenos:

@@ -41,11 +41,11 @@ Example of template
 
 File ``/etc/mail/mailer.conf`` for postfix
 
-[`contrib/postfix/conf-light/files.d/mailer-conf <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf>`_]
+[`contrib/postfix/conf-light/files.d/mailer-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf
+.. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf.yml
     :language: yaml
     :emphasize-lines: 2,4
     :linenos:

@@ -13,8 +13,8 @@ dovecot_freebsd:
       module: service
       params:
         - 'name: dovecot'
-	- 'state: stopped'
-	- 'enabled: false'
+        - 'state: stopped'
+        - 'enabled: false'
 
     - handler: 'reload dovecot'
       module: service
@@ -28,6 +28,6 @@ dovecot_freebsd:
       module: service
       params:
         - 'name: dovecot'
-	- 'state: restarted'
+        - 'state: restarted'
       conditions:
         - '- fm_dovecot_enable|bool'

@@ -1,7 +1,7 @@
 ---
 
 - name: "files: Manage files"
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: "files-{{ fitem }}.yml"
   loop: "{{ cl_files_order }}"
   loop_control:

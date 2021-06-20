@@ -8,8 +8,8 @@ States
 Synopsis
 ^^^^^^^^
 
-The dictionary *cl_states* comprises the states of the files. If mounted, the *path* is unmounted
-when *state* is in the list ``cl_states_unmount`` (default=absent) ::
+The dictionary *cl_states* comprises the states of the managed files. If mounted, the *path* is
+unmounted when *state* is in the list ``cl_states_unmount`` (default=absent) ::
 
   cl_states_unmount: [absent, unmounted]
 
@@ -50,11 +50,11 @@ Examples
 
 * Ownership and permissions of the document root for Lighttpd
 
-[`contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root>`_]
+[`contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
-.. literalinclude:: ../../contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root
+.. literalinclude:: ../../contrib/lighttpd/conf-light/states.d/lighttpd-server-document-root.yml
     :language: yaml
     :emphasize-lines: 2
     :linenos:
