@@ -3,5 +3,5 @@ dma_aliases:
   create: true
   owner: 'root'
   group: 'wheel'
-  mode: '644'
+  mode: '0644'
   lines: "{{ cl_dma_aliases }}"
