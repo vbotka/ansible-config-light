@@ -16,4 +16,4 @@ lighttpd-lighttpdconf:
     - regexp: '^\s*server.groupname\s*=\s*(.*)$'
       line: 'server.groupname = "www"'
     - regexp: '^\s*server.document-root\s*=\s*(.*)$'
-      line: 'server.document-root = "/usr/local/www/lighttpd"
+      line: 'server.document-root = "/usr/local/www/lighttpd"'

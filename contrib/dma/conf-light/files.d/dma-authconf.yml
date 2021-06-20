@@ -3,5 +3,5 @@ dma_authconf:
   force: true
   owner: 'root'
   group: 'mail'
-  mode: '640'
+  mode: '0640'
   template: 'dma-auth.conf.j2'

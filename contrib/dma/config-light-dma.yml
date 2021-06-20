@@ -15,7 +15,7 @@ cl_dma_aliases:
 cl_dma_smarthost: 'mail.example.com'
 cl_dma_port: '587'
 cl_dma_authpath: '/usr/local/etc/dma/auth.conf'
-cl_dma_aliases: '/usr/local/etc/dma/aliases'
+cl_dma_aliasespath: '/usr/local/etc/dma/aliases'
 cl_dma_masquerade: 'admin@example.com'
 
 # conf-light/files.d/dma-authconf

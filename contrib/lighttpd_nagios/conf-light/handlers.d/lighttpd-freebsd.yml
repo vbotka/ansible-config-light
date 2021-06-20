@@ -31,12 +31,12 @@ lighttpd_freebsd:
         - 'state: restarted'
       conditions:
         - '- cl_service_lighttpd_enable|bool'
- 
+
     - handler: 'configtest lighttpd'
       module: command
       params:
         - 'cmd: /usr/local/etc/rc.d/lighttpd configtest'
- 
+
     - handler: 'lighttpd check'
       module: command
       params:
