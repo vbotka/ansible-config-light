@@ -20,7 +20,7 @@
 - name: Import debug.yml
   ansible.builtin.import_tasks: debug.yml
   when: cl_debug|bool
-  tags: [cl_debug, always]
+  tags: cl_debug
 
 - name: Import packages.yml
   ansible.builtin.import_tasks: packages.yml

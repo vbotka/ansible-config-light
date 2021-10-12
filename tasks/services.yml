@@ -1,13 +1,17 @@
 ---
 
 - name: "services: Debug"
+  vars:
+    msg: |-
+      cl_services_freebsd_rcconf_auto [{{ cl_services_freebsd_rcconf_auto }}]
+      cl_services
+      {{ cl_services|to_nice_yaml }}
   ansible.builtin.debug:
-    msg: "{{ cl_services }}"
+    msg: "{{ '{}'.format(msg) }}"
   when: cl_debug|bool
 
-# FreeBSD -----------------------------------------------------------------
-- name: "services: FreeBSD"
-  block:
+# FreeBSD auto ------------------------------------------------------------
+- block:
 
     - name: "services: Enable service in rc.conf FreeBSD"
       ansible.builtin.lineinfile:
@@ -36,8 +40,7 @@
     - cl_services_freebsd_rcconf_auto|bool
 
 # All ---------------------------------------------------------------------
-- name: "services: Manage services"
-  block:
+- block:
 
     - name: "services: Manage services"
       ansible.builtin.service:

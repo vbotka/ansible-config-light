@@ -1,21 +1,20 @@
 ---
 
-- name: "sanity: Directories to assemble data from must exist"
-  block:
+- block:
     - name: "sanity: Directories to assemble data from must exist"
       ansible.builtin.debug:
-        msg: "{{ msg.split('\n') }}"
+        msg: "{{ '{}'.format(msg) }}"
       vars:
         msg: |-
-          Directories to assemble data from do not exist. End of host.
+          Directories to assemble data from do not exist. End of play.
           Hint: Double check existence of the directories
           {{ cl_handlersd_dir }}
           {{ cl_packagesd_dir }}
           {{ cl_statesd_dir }}
           {{ cl_servicesd_dir }}
           {{ cl_filesd_dir }}
-    - name: "sanity: End of host"
-      meta: end_host
+    - name: "sanity: End of play"
+      meta: end_play
   when:
     - cl_handlersd_dir is not exists or
       cl_packagesd_dir is not exists or
@@ -23,24 +22,45 @@
       cl_servicesd_dir is not exists or
       cl_filesd_dir is not exists
 
-- name: "sanity: Check mode not possible without assembled data"
-  block:
+- block:
     - name: "sanity: Check mode not possible without assembled data"
       ansible.builtin.debug:
-        msg: "{{ msg.split('\n') }}"
+        msg: "{{ '{}'.format(msg) }}"
       vars:
         msg: |-
-          Check mode not possible without assembled data. End of host.
+          Check mode not possible without assembled data. End of play.
           Hint: Assemble the variables first.
           Run: ansible-playbook playbook.yml -t cl_vars
-    - name: "sanity: End of host"
-      ansible.builtin.meta: end_host
+    - name: "sanity: End of play"
+      ansible.builtin.meta: end_play
   when:
     - ansible_check_mode
     - cl_packagesd is not exists or
       cl_statesd is not exists or
       cl_servicesd is not exists or
       cl_filesd is not exists
+
+- block:
+    - name: "sanity: yamllint must be installed"
+      ansible.builtin.assert:
+        that: _out is match(_regex)
+        fail_msg: |-
+          Failed. yamllint not installed on controller.
+        success_msg: |-
+          Passed. yamllint found on controller.
+      vars:
+        _regex: '^yamllint \d+\.\d+\.\d+$'
+        _out: "{{ lookup('pipe', cl_yamllint ~ ' --version') }}"
+  rescue:
+    - name: "sanity: Rescue: yamllint must be installed"
+      ansible.builtin.debug:
+        msg: "{{ '{}'.format(msg) }}"
+      vars:
+        msg: |-
+          Failed. yamllint must be installed on controller. {{ cl_yamllint }} does not exist. End of play.
+    - name: "sanity: Rescue: End of play"
+      ansible.builtin.meta: end_play
+  when: cl_yamllint_missing_fatal|bool
 
 # EOF
 ...

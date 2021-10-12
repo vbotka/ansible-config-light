@@ -52,7 +52,7 @@ Validation
 
 Create the variables ``cl_assemble_validate`` and ``cl_handlers_validate`` if you want to enable
 validation of the created handlers and assembled data. See ``defaults/main.yml``. You'll have to
-install the package ``ansible-lint``. See the role `vbotka.ansible_lint <https://galaxy.ansible.com/vbotka/ansible_lint>`_.
+install the package ``yamllint``.
     
 
 Check syntax

@@ -1,15 +1,24 @@
 ---
 
-- name: "vars-packages: Assemble packages to {{ cl_packagesd }}"
-  ansible.builtin.assemble:
-    regexp: "{{ cl_assemble_regexp }}"
-    src: "{{ cl_packagesd_dir }}"
-    dest: "{{ cl_packagesd }}"
-    owner: "{{ cl_dira_owner|default(omit) }}"
-    group: "{{ cl_dira_group|default(omit) }}"
-    mode: "{{ cl_dira_fmode }}"
-    validate: "{{ cl_assemble_validate|default(omit) }}"
-  delegate_to: localhost
+- block:
+    - name: "vars-packages: Assemble packages to {{ cl_packagesd }}"
+      ansible.builtin.assemble:
+        regexp: "{{ cl_assemble_regexp }}"
+        src: "{{ cl_packagesd_dir }}"
+        dest: "{{ cl_packagesd }}"
+        owner: "{{ cl_dira_owner|default(omit) }}"
+        group: "{{ cl_dira_group|default(omit) }}"
+        mode: "{{ cl_dira_fmode }}"
+        validate: "{{ cl_assemble_validate|default(omit) }}"
+      delegate_to: localhost
+  rescue:
+    - name: "vars-packages: Assemble packages to {{ cl_packagesd }} failed"
+      ansible.builtin.debug:
+        msg: |-
+          Can not assemble packages. End of play.
+          {{ ansible_failed_result }}
+    - name: "vars-packages: End of play"
+      meta: end_play
 
 - name: "vars-packages: Include files from {{ cl_packagesd }} to cl_packagesd_items"
   ansible.builtin.include_vars:

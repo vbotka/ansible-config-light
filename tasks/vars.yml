@@ -15,7 +15,7 @@
       cl_servicesd [{{ cl_servicesd }}]
       cl_filesd [{{ cl_filesd }}]
   ansible.builtin.debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ '{}'.format(msg) }}"
   when: cl_debug|bool
 
 - name: "vars: Packages"
