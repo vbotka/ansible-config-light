@@ -1,15 +1,24 @@
 ---
 
-- name: "vars-states: Assemble states to {{ cl_states }}"
-  ansible.builtin.assemble:
-    regexp: "{{ cl_assemble_regexp }}"
-    src: "{{ cl_statesd_dir }}"
-    dest: "{{ cl_statesd }}"
-    owner: "{{ cl_dira_owner|default(omit) }}"
-    group: "{{ cl_dira_group|default(omit) }}"
-    mode: "{{ cl_dira_fmode }}"
-    validate: "{{ cl_assemble_validate|default(omit) }}"
-  delegate_to: localhost
+- block:
+    - name: "vars-states: Assemble states to {{ cl_states }}"
+      ansible.builtin.assemble:
+        regexp: "{{ cl_assemble_regexp }}"
+        src: "{{ cl_statesd_dir }}"
+        dest: "{{ cl_statesd }}"
+        owner: "{{ cl_dira_owner|default(omit) }}"
+        group: "{{ cl_dira_group|default(omit) }}"
+        mode: "{{ cl_dira_fmode }}"
+        validate: "{{ cl_assemble_validate|default(omit) }}"
+      delegate_to: localhost
+  rescue:
+    - name: "vars-states: Assemble states to {{ cl_states }} failed"
+      ansible.builtin.debug:
+        msg: |-
+          Can not assemble states. End of play.
+          {{ ansible_failed_result }}
+    - name: "vars-states: End of play"
+      meta: end_play
 
 - name: "vars-states: Include files from {{ cl_statesd }} to cl_statessd_items"
   ansible.builtin.include_vars:

@@ -1,15 +1,24 @@
 ---
 
-- name: "vars-services: Assemble services to {{ cl_servicesd }}"
-  ansible.builtin.assemble:
-    regexp: "{{ cl_assemble_regexp }}"
-    src: "{{ cl_servicesd_dir }}"
-    dest: "{{ cl_servicesd }}"
-    owner: "{{ cl_dira_owner|default(omit) }}"
-    group: "{{ cl_dira_group|default(omit) }}"
-    mode: "{{ cl_dira_fmode }}"
-    validate: "{{ cl_assemble_validate|default(omit) }}"
-  delegate_to: localhost
+- block:
+    - name: "vars-services: Assemble services to {{ cl_servicesd }}"
+      ansible.builtin.assemble:
+        regexp: "{{ cl_assemble_regexp }}"
+        src: "{{ cl_servicesd_dir }}"
+        dest: "{{ cl_servicesd }}"
+        owner: "{{ cl_dira_owner|default(omit) }}"
+        group: "{{ cl_dira_group|default(omit) }}"
+        mode: "{{ cl_dira_fmode }}"
+        validate: "{{ cl_assemble_validate|default(omit) }}"
+      delegate_to: localhost
+  rescue:
+    - name: "vars-services: Assemble services to {{ cl_servicesd }} failed"
+      ansible.builtin.debug:
+        msg: |-
+          Can not assemble services. End of play.
+          {{ ansible_failed_result }}
+    - name: "vars-services: End of play"
+      meta: end_play
 
 - name: "vars-services: Include files from {{ cl_servicesd }} to cl_cervicesd_items"
   ansible.builtin.include_vars:

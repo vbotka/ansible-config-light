@@ -28,7 +28,15 @@ cl_filesd_dir: "{{ cl_dird }}/files.d"
 cl_statesd_dir: "{{ cl_dird }}/states.d"
 
 # Lint
-cl_ansible_lint_path: /usr/bin/ansible-lint
+cl_yamllint_missing_fatal: true
+cl_yamllint: yamllint
+cl_yamllint_rules:
+  extends: default
+  rules:
+    line-length:
+      level: warning
+cl_assemble_validate: "{{ cl_yamllint }} -d '{{ cl_yamllint_rules|to_json }}' %s"
+cl_handlers_validate: "{{ cl_yamllint }} -d '{{ cl_yamllint_rules|to_json }}' %s"
 
 # Assemble inventory_hostname data into these files
 # cl_dira_owner: root        # no default
@@ -42,17 +50,18 @@ cl_servicesd: "{{ cl_dira }}/servicesd.{{ inventory_hostname }}"
 cl_filesd: "{{ cl_dira }}/filesd.{{ inventory_hostname }}"
 cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
 cl_assemble_regexp: '^(.*)[^~]$'   # Any string but terminated by ~
-# cl_assemble_validate: '{{ cl_ansible_lint_path }} %s'
 
 # Role handlers directory
 # cl_handlers_dir_owner: admin   # no default
 # cl_handlers_dir_group: admin   # no default
 # cl_handlers_dir_dmode: "0775"  # no default
 # cl_handlers_main_mode: "0644"  # no default
+cl_handlers_clean_all: false
+cl_handlers_create: true
+cl_handlers_delete: false
 cl_handlers_dir_become: false
 
 # Snap
-cl_snap_missing_fatal: false
 cl_snap_paths:
   - /usr/local/sbin
   - /usr/local/bin
@@ -64,18 +73,13 @@ cl_snap_paths:
 cl_snap_patterns:
   - snap
 
-# Handlers
-# cl_handlers_validate: '{{ cl_ansible_lint_path }} %s'
-
 # States
 cl_states_unmount: [absent, unmounted]
 cl_states_mount: [present, mounted, remounted]
 cl_states_file: [absent, directory, file, hard, link, touch]
 
 # Files
-cl_files_order: [copy, template, markers, create-backup,
-                 patch, lineinfile, blockinfile, inifile,
-                 delete-backup]
+cl_files_order: [copy, template, markers, create-backup, patch, lineinfile, blockinfile, inifile, ucl, delete-backup]
 
 # OS common
 install_retries: 10
