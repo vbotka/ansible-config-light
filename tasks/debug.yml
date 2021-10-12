@@ -17,6 +17,9 @@
       cl_copyfile_delete [{{ cl_copyfile_delete }}]
       cl_template_delete [{{ cl_template_delete }}]
 
+      cl_handlers_clean_all [{{ cl_handlers_clean_all }}]
+      cl_handlers_delete [{{ cl_handlers_delete }}]
+      cl_handlers_create [{{ cl_handlers_create }}]
       cl_handlers
       {{ cl_handlers|to_nice_yaml }}
       cl_packages
@@ -52,7 +55,8 @@
       cl_filesd [{{ cl_filesd }}]
       cl_statesd [{{ cl_statesd }}]
 
-      cl_ansible_lint_path [{{ cl_ansible_lint_path }}]
+      cl_yamllint_missing_fatal [{{ cl_yamllint_missing_fatal }}]
+      cl_yamllint [{{ cl_yamllint }}]
       cl_assemble_validate [{{ cl_assemble_validate|default('UNDEFINED') }}]
       cl_handlers_validate [{{ cl_handlers_validate|default('UNDEFINED') }}]
 
@@ -67,7 +71,7 @@
       cl_services_freebsd_rcconf_auto [{{ cl_services_freebsd_rcconf_auto }}]
 
   ansible.builtin.debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ '{}'.format(msg) }}"
 
 # EOF
 ...

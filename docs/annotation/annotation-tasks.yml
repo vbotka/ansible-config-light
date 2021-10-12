@@ -300,6 +300,19 @@ mytasks:
     hints: []
     warnings: []
 
+  - file: files-ucl.yml
+    link: files-ucl.yml
+    path: tasks/files-ucl.yml
+    synopsis: |
+      Configure files-ucl.
+    description: |
+      Description of the task.
+    lines: 1,2
+    seealso: []
+    notes: []
+    hints: []
+    warnings: []
+
   - file: services.yml
     link: services.yml
     path: tasks/services.yml

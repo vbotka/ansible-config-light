@@ -1,7 +1,7 @@
 ---
 
 - name: "states: Debug"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ cl_states }}"
   when: cl_debug|bool
 

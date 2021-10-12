@@ -557,6 +557,30 @@ Description of the task.
 
 
 
+.. _as_files-ucl.yml:
+
+files-ucl.yml
+-------------
+
+Synopsis: Configure files-ucl.
+
+
+Description of the task.
+
+
+[`tasks/files-ucl.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-ucl.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/files-ucl.yml
+    :language: Yaml
+    :emphasize-lines: 1,2
+    :linenos:
+
+
+
+
+
 .. _as_services.yml:
 
 services.yml

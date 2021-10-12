@@ -1,14 +1,23 @@
 ---
 
-- name: "vars-handlers: Assemble handlers to {{ cl_handlersd }}"
-  ansible.builtin.assemble:
-    regexp: "{{ cl_assemble_regexp }}"
-    src: "{{ cl_handlersd_dir }}"
-    dest: "{{ cl_handlersd }}"
-    owner: "{{ cl_dira_owner|default(omit) }}"
-    group: "{{ cl_dira_group|default(omit) }}"
-    mode: "{{ cl_dira_fmode }}"
-    validate: "{{ cl_assemble_validate|default(omit) }}"
+- block:
+    - name: "vars-handlers: Assemble handlers to {{ cl_handlersd }}"
+      ansible.builtin.assemble:
+        regexp: "{{ cl_assemble_regexp }}"
+        src: "{{ cl_handlersd_dir }}"
+        dest: "{{ cl_handlersd }}"
+        owner: "{{ cl_dira_owner|default(omit) }}"
+        group: "{{ cl_dira_group|default(omit) }}"
+        mode: "{{ cl_dira_fmode }}"
+        validate: "{{ cl_assemble_validate|default(omit) }}"
+  rescue:
+    - name: "vars-handlers: Assemble handlers to {{ cl_handlersd }} failed"
+      ansible.builtin.debug:
+        msg: |-
+          Can not assemble handlers. End of play.
+          {{ ansible_failed_result }}
+    - name: "vars-handlers: End of play"
+      meta: end_play
 
 - name: "vars-handlers: Include files from {{ cl_handlersd }} to cl_handlersd_items"
   ansible.builtin.include_vars:

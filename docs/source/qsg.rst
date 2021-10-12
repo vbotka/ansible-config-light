@@ -1,7 +1,8 @@
 .. _qg:
 
+#################
 Quick start guide
-*****************
+#################
 
 For users who want to quickly try the role this guide provides an example of how to install
 and configure `Lighttpd <https://www.lighttpd.net/>`_ on single FreeBSD host. The procedure is

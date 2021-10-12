@@ -36,9 +36,9 @@ IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
 
 ### Optional packages
 
-* ansible-lint
+* yamllint
 
-Create the variables cl_assemble_validate and cl_handlers_validate to enable the validation. See defaults/main.yml.
+Create the variables cl_assemble_validate and cl_handlers_validate to enable the validation. See defaults/main.yml
 
 
 ## License
