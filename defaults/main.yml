@@ -9,6 +9,10 @@ cl_backup: false             # Backup files
 cl_copyfile_delete: false    # Delete dest then copy samples and defaults
 cl_template_delete: false    # Delete dest then create from templates
 
+# Collections
+cl_collections: [ansible.posix, community.general]
+cl_collections_sanity: false
+
 # Combine assembled data with these variables
 cl_handlers: {}
 cl_packages: {}
@@ -79,7 +83,20 @@ cl_states_mount: [present, mounted, remounted]
 cl_states_file: [absent, directory, file, hard, link, touch]
 
 # Files
-cl_files_order: [copy, template, markers, create-backup, patch, lineinfile, blockinfile, inifile, ucl, delete-backup]
+cl_files_collections:
+  copy: ansible.builtin
+  template: ansible.builtin
+  markers: ansible.builtin
+  create-backup: ansible.builtin
+  patch: ansible.posix
+  lineinfile: ansible.builtin
+  blockinfile: ansible.builtin
+  inifile: ansible.builtin
+  ucl: vbotka.freebsd
+  delete-backup: ansible.builtin
+cl_files_order: "{{ cl_files_collections|dict2items|
+                    selectattr('value', 'in', ['ansible.builtin'] + cl_collections)|
+                    map(attribute='key') }}"
 
 # OS common
 install_retries: 10

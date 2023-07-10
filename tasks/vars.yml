@@ -3,17 +3,17 @@
 - name: "vars: Debug"
   vars:
     msg: |-
-      cl_handlersd_dir [{{ cl_handlersd_dir }}]
-      cl_packagesd_dir [{{ cl_packagesd_dir }}]
-      cl_statesd_dir [{{ cl_statesd_dir }}]
-      cl_servicesd_dir [{{ cl_servicesd_dir }}]
-      cl_filesd_dir [{{ cl_filesd_dir }}]
-      cl_dira [{{ cl_dira }}]
-      cl_handlersd [{{ cl_handlersd }}]
-      cl_packagesd [{{ cl_packagesd }}]
-      cl_statesd [{{ cl_statesd }}]
-      cl_servicesd [{{ cl_servicesd }}]
-      cl_filesd [{{ cl_filesd }}]
+      cl_handlersd_dir: {{ cl_handlersd_dir }}
+      cl_packagesd_dir: {{ cl_packagesd_dir }}
+      cl_statesd_dir: {{ cl_statesd_dir }}
+      cl_servicesd_dir: {{ cl_servicesd_dir }}
+      cl_filesd_dir: {{ cl_filesd_dir }}
+      cl_dira: {{ cl_dira }}
+      cl_handlersd: {{ cl_handlersd }}
+      cl_packagesd: {{ cl_packagesd }}
+      cl_statesd: {{ cl_statesd }}
+      cl_servicesd: {{ cl_servicesd }}
+      cl_filesd: {{ cl_filesd }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
   when: cl_debug|bool
