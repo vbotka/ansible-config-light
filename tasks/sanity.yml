@@ -1,6 +1,21 @@
 ---
 
 - block:
+    - name: "sanity: Collections must be installed"
+      ansible.builtin.debug:
+        msg: "{{ '{}'.format(msg) }}"
+      vars:
+        msg: |-
+          Collections are not installed. End of play.
+          Hint: Double check the below collections are installed
+          {{ cl_collections }}
+    - name: "sanity: End of play"
+      meta: end_play
+  when:
+    - cl_collections_sanity
+    # TBD: Find installed collections and compare the list with cl_collections
+
+- block:
     - name: "sanity: Directories to assemble data from must exist"
       ansible.builtin.debug:
         msg: "{{ '{}'.format(msg) }}"
