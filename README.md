@@ -22,8 +22,8 @@ released versions in time and would report an error. For example:
 
 ```
 Warnings: 2
-IMPORTER101: Invalid platform: "FreeBSD-12.2", skipping.
-             Invalid platform: "FreeBSD-11.4", skipping.
+IMPORTER101: Invalid platform: "FreeBSD-12.4", skipping.
+             Invalid platform: "FreeBSD-13.2", skipping.
 ```
 
 
@@ -48,4 +48,4 @@ Create the variables cl_assemble_validate and cl_handlers_validate to enable the
 
 ## Author Information
 
-[Vladimir Botka](https://botka.link)
+[Vladimir Botka](https://botka.info)
