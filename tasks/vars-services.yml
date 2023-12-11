@@ -1,6 +1,14 @@
 ---
 
-- block:
+- name: Assemble services
+  block:
+
+    - name: "vars-services: Delete {{ cl_servicesd }}"
+      ansible.builtin.file:
+        state: absent
+        path: "{{ cl_servicesd }}"
+      when: cl_all_delete|bool or cl_servicesd_delete|bool
+
     - name: "vars-services: Assemble services to {{ cl_servicesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
@@ -9,16 +17,20 @@
         owner: "{{ cl_dira_owner|default(omit) }}"
         group: "{{ cl_dira_group|default(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate|default(omit) }}"
-      delegate_to: localhost
+        validate: "{{ cl_assemble_validate|default(omit, true) }}"
+
   rescue:
+
     - name: "vars-services: Assemble services to {{ cl_servicesd }} failed"
       ansible.builtin.debug:
         msg: |-
-          Can not assemble services. End of play.
+          [ERR] Can not assemble services. End of play.
           {{ ansible_failed_result }}
+
     - name: "vars-services: End of play"
       meta: end_play
+
+  delegate_to: localhost
 
 - name: "vars-services: Include files from {{ cl_servicesd }} to cl_cervicesd_items"
   ansible.builtin.include_vars:

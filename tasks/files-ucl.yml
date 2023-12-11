@@ -25,7 +25,7 @@
     create: "{{ item.0.create|default(omit) }}"
     validate: "{{ item.0.validate|default(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|list|subelements('ucl', {'skip_missing': True}) }}"
+  loop: "{{ cl_files.values()|list|subelements('ucl', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }}"
   notify: "{{ item.0.handlers|default(omit) }}"
