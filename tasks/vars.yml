@@ -27,19 +27,15 @@
 
 - name: "vars: Packages"
   ansible.builtin.import_tasks: vars-packages.yml
-  tags: cl_vars_packages
 
 - name: "vars: States"
   ansible.builtin.import_tasks: vars-states.yml
-  tags: cl_vars_states
 
 - name: "vars: Services"
   ansible.builtin.import_tasks: vars-services.yml
-  tags: cl_vars_services
 
 - name: "vars: Files"
   ansible.builtin.import_tasks: vars-files.yml
-  tags: cl_vars_files
 
 # EOF
 ...

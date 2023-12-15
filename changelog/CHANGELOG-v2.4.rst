@@ -25,6 +25,7 @@ Minor Changes
 * Add changelog.
 * Add docs/requirements.txt
 * Update subelements loops.
+* No tags inside task files. Tags in tasks/main.yml only.
 
 Bugfixes
 --------
