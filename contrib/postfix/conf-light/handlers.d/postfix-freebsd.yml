@@ -2,21 +2,21 @@ postfix_freebsd:
   template: handlers-auto1.yml.j2
   handlers:
 
-    - handler: 'enable and start postfix'
+    - handler: enable and start postfix
       module: service
       params:
         - 'name: postfix'
         - 'state: started'
         - 'enabled: true'
 
-    - handler: 'disable and stop postfix'
+    - handler: disable and stop postfix
       module: service
       params:
         - 'name: postfix'
         - 'state: stopped'
         - 'enabled: false'
 
-    - handler: 'reload postfix'
+    - handler: reload postfix
       module: service
       params:
         - 'name: postfix'
@@ -24,7 +24,7 @@ postfix_freebsd:
       conditions:
         - '- cl_service_postfix_enable|bool'
 
-    - handler: 'restart postfix'
+    - handler: restart postfix
       module: service
       params:
         - 'name: postfix'
@@ -32,12 +32,12 @@ postfix_freebsd:
       conditions:
         - '- cl_service_postfix_enable|bool'
 
-    - handler: 'postfix check'
+    - handler: postfix check
       module: command
       params:
         - 'cmd: /usr/local/sbin/postfix check'
 
-    - handler: 'newaliases'
+    - handler: newaliases
       module: command
       params:
         - 'cmd: /usr/bin/newaliases'

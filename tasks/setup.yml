@@ -4,33 +4,44 @@
   vars:
     msg: |-
       cl_dird: {{ cl_dird }}
-      cl_dird_owner: {{ cl_dira_owner|default('UNDEFINED') }}
-      cl_dird_group: {{ cl_dira_group|default('UNDEFINED') }}
-      cl_dird_dmode: {{ cl_dira_dmode }}
+      cl_dird_owner: {{ cl_dird_owner|default('UNDEFINED') }}
+      cl_dird_group: {{ cl_dird_group|default('UNDEFINED') }}
+      cl_dird_dmode: {{ cl_dird_dmode }}
+
       cl_handlersd_dir: {{ cl_handlersd_dir }}
       cl_packagesd_dir: {{ cl_packagesd_dir }}
       cl_servicesd_dir: {{ cl_servicesd_dir }}
       cl_filesd_dir: {{ cl_filesd_dir }}
       cl_statesd_dir: {{ cl_statesd_dir }}
+
       cl_dira: {{ cl_dira }}
       cl_dira_owner: {{ cl_dira_owner|default('UNDEFINED') }}
       cl_dira_group: {{ cl_dira_group|default('UNDEFINED') }}
       cl_dira_dmode: {{ cl_dira_dmode }}
       cl_dira_fmode: {{ cl_dira_fmode }}
       cl_assemble_regexp: {{ cl_assemble_regexp }}
+
       cl_handlersd: {{ cl_handlersd }}
       cl_packagesd: {{ cl_packagesd }}
       cl_servicesd: {{ cl_servicesd }}
       cl_filesd: {{ cl_filesd }}
       cl_statesd: {{ cl_statesd }}
-      cl_handlers_clean_all: {{ cl_handlers_clean_all }}
-      cl_handlers_create: {{ cl_handlers_create }}
+
+      cl_handlers_delete_all: {{ cl_handlers_delete_all }}
       cl_handlers_delete: {{ cl_handlers_delete }}
+      cl_handlers_create: {{ cl_handlers_create }}
       cl_handlers_dir_become: {{ cl_handlers_dir_become }}
       cl_handlers_dir_owner: {{ cl_handlers_dir_owner|default('UNDEFINED') }}
       cl_handlers_dir_group: {{ cl_handlers_dir_group|default('UNDEFINED') }}
       cl_handlers_dir_dmode: {{ cl_handlers_dir_dmode|default('UNDEFINED') }}
       cl_handlers_main_mode: {{ cl_handlers_main_mode|default('UNDEFINED') }}
+
+      cl_all_delete: {{ cl_all_delete }}
+      cl_packagesd_delete: {{ cl_packagesd_delete }}
+      cl_servicesd_delete: {{ cl_servicesd_delete }}
+      cl_filesd_delete: {{ cl_filesd_delete }}
+      cl_statesd_delete: {{ cl_statesd_delete }}
+
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
   when: cl_debug|bool
@@ -84,15 +95,18 @@
 
 - name: "setup: Delete all handlers"
   block:
+
     - name: "setup: Find all handlers"
       ansible.builtin.find:
         path: "{{ role_path }}/handlers"
         patterns: handlers-auto-*.yml
       register: result
+
     - name: "setup: Debug result"
       ansible.builtin.debug:
         var: result
       when: cl_debug|bool
+
     - name: "setup: Delete all handlers"
       ansible.builtin.file:
         state: absent
@@ -100,6 +114,7 @@
       loop: "{{ result.files }}"
       loop_control:
         label: "{{ item.path|basename }}"
+
     - name: "setup: Exclude all found handlers from handlers/main.yml"
       ansible.builtin.lineinfile:
         state: absent
@@ -109,10 +124,12 @@
       loop: "{{ result.files }}"
       loop_control:
         label: "{{ item.path|basename }}"
-  when: cl_handlers_clean_all|bool
+
+  when: cl_handlers_delete_all|bool
 
 - name: "setup: Delete handlers listed in cl_handlers"
   block:
+
     - name: "setup: Delete handlers listed in cl_handlers"
       ansible.builtin.file:
         state: absent
@@ -120,6 +137,7 @@
       loop: "{{ cl_handlers|dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
+
     - name: "setup: Exclude handlers from handlers/main.yml"
       ansible.builtin.lineinfile:
         state: absent
@@ -129,10 +147,12 @@
       loop: "{{ cl_handlers|dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
+
   when: cl_handlers_delete|bool
 
 - name: "setup: Create handlers listed in cl_handlers"
   block:
+
     - name: "setup: Create handlers listed in cl_handlers"
       ansible.builtin.template:
         dest: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
@@ -143,6 +163,7 @@
       loop: "{{ cl_handlers|dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
+
     - name: "setup: Include handlers in handlers/main.yml"
       ansible.builtin.lineinfile:
         path: "{{ role_path }}/handlers/main.yml"
@@ -152,6 +173,7 @@
       loop: "{{ cl_handlers|dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
+
   when: cl_handlers_create|bool
 
 # EOF

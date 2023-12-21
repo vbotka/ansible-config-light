@@ -1,8 +1,8 @@
 rcconf:
-  path: '/etc/rc.conf'
+  path: /etc/rc.conf
   create: true
-  owner: 'root'
-  group: 'wheel'
+  owner: root
+  group: wheel
   mode: '0644'
   lines:
     - regexp: '^sendmail_enable(.*)$'

@@ -4,17 +4,17 @@
 
 # Services
 cl_lighttpd_enable: 'YES'
-cl_service_lighttpd_enable: '{{ cl_lighttpd_enable|bool }}'
+cl_service_lighttpd_enable: "{{ cl_lighttpd_enable|bool }}"
 cl_service_lighttpd_state: started
 
 # /etc/rc.conf
 cl_lighttpd_rcconf_lines: []
 cl_lighttpd_rcconf_dict:
-  - {key: 'lighttpd_enable', value: '"{{ cl_lighttpd_enable }}"'}
+  - {key: lighttpd_enable, value: '"{{ cl_lighttpd_enable }}"'}
 
 # /usr/local/etc/lighttpd/lighttpd.conf
 cl_lighttpd_lighttpdconf_copy:
-  path: '/usr/local/etc/lighttpd/lighttpd.conf.sample'
+  path: /usr/local/etc/lighttpd/lighttpd.conf.sample
   remote_src: true
   force: false
 cl_lighttpd_server_bind: localhost
@@ -29,27 +29,27 @@ cl_lighttpd_lighttpdconf_lines:
     line: 'server.document-root = "{{ cl_lighttpd_server_document_root }}"'
   - line: 'include "nagios.conf"'
 cl_lighttpd_lighttpdconf_dicts:
-  - {key: 'server.bind', value: '"{{ cl_lighttpd_server_bind }}"'}
-  - {key: 'server.port', value: '{{ cl_lighttpd_server_port }}'}
-  - {key: 'server.use-ipv6', value: '"{{ cl_lighttpd_server_useipv6 }}"'}
-  - {key: 'server.username', value: '"{{ cl_lighttpd_server_username }}"'}
-  - {key: 'server.groupname', value: '"{{ cl_lighttpd_server_groupname }}"'}
-  - {key: 'static-file.exclude-extensions', value: '{{ cl_lighttpd_static_file_exclude_extensions }}'}
+  - {key: server.bind, value: '"{{ cl_lighttpd_server_bind }}"'}
+  - {key: server.port, value: '{{ cl_lighttpd_server_port }}'}
+  - {key: server.use-ipv6, value: '"{{ cl_lighttpd_server_useipv6 }}"'}
+  - {key: server.username, value: '"{{ cl_lighttpd_server_username }}"'}
+  - {key: server.groupname, value: '"{{ cl_lighttpd_server_groupname }}"'}
+  - {key: static-file.exclude-extensions, value: '{{ cl_lighttpd_static_file_exclude_extensions }}'}
 
 # /usr/local/etc/lighttpd/nagios.conf
 cl_lighttpd_nagiosconf_blocks:
-  - marker: 'alias.url'
+  - marker: alias.url
     block: |
       alias.url =(
           "/nagios/cgi-bin" => "/usr/local/www/nagios/cgi-bin",
           "/nagios" => "/usr/local/www/nagios"
           )
-  - marker: 'cgi.assign'
+  - marker: cgi.assign
     block: |
       $HTTP["url"] =~ "^/nagios/cgi-bin" {
           cgi.assign += ( "" => "" )
       }
-  - marker: 'auth'
+  - marker: auth
     block: |
       $HTTP["url"] =~ "nagios" {
           auth.backend = "plain"
@@ -67,11 +67,11 @@ cl_lighttpd_nagiosconf_blocks:
 
 # /usr/local/etc/lighttpd/modules.conf
 cl_lighttpd_modulesconf_copy:
-  path: '/usr/local/etc/lighttpd/modules.conf.sample'
+  path: /usr/local/etc/lighttpd/modules.conf.sample
   remote_src: true
   force: false
 cl_lighttpd_modulesconf_markers:
-  - marker: 'server.modules'
+  - marker: server.modules
     regex1: 'server.modules\s*=\s*\('
     replace1: 'server.modules = ('
     regex2: '\)'
@@ -87,7 +87,7 @@ cl_lighttpd_modulesconf_server_modules:
   - mod_auth
   - mod_setenv
 cl_lighttpd_modulesconf_blocks:
-  - marker: 'server.modules'
+  - marker: server.modules
     block: |
       server.modules = (
       {% for module in cl_lighttpd_modulesconf_server_modules %}
@@ -97,17 +97,17 @@ cl_lighttpd_modulesconf_blocks:
 
 # /usr/local/etc/lighttpd/conf.d/cgi.conf
 cl_lighttpd_cgiconf_copy:
-  path: '/usr/local/etc/lighttpd/conf.d/cgi.conf.sample'
+  path: /usr/local/etc/lighttpd/conf.d/cgi.conf.sample
   remote_src: true
   force: false
 cl_lighttpd_cgiconf_markers:
-  - marker: 'cgi.assign'
+  - marker: cgi.assign
     regex1: 'cgi.assign (.*?),'
     replace1: 'cgi.assign \g<1>,'
     regex2: '\)'
     replace2: ')'
 cl_lighttpd_cgiconf_blocks:
-  - marker: 'cgi.assign'
+  - marker: cgi.assign
     block: |
       {{ '#' }} cgi.assign = ( ".pl"  => "/usr/bin/perl",
       {{ '#' }}                ".cgi" => "/usr/bin/perl",
@@ -117,11 +117,11 @@ cl_lighttpd_cgiconf_blocks:
 
 # /usr/local/etc/lighttpd/conf.d/fastcgi.conf
 cl_lighttpd_fastcgiconf_copy:
-  path: '/usr/local/etc/lighttpd/conf.d/fastcgi.conf.sample'
+  path: /usr/local/etc/lighttpd/conf.d/fastcgi.conf.sample
   remote_src: true
   force: false
 cl_lighttpd_fastcgiconf_blocks:
-  - marker: 'fastcgi.server'
+  - marker: fastcgi.server
     block: |
       fastcgi.server += ( ".php" =>
               ("localhost" =>

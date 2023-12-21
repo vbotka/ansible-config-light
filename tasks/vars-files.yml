@@ -1,6 +1,14 @@
 ---
 
-- block:
+- name: Assemble files
+  block:
+
+    - name: "vars-files: Delete {{ cl_filesd }}"
+      ansible.builtin.file:
+        state: absent
+        path: "{{ cl_filesd }}"
+      when: cl_all_delete|bool or cl_filesd_delete|bool
+
     - name: "vars-files: Assemble files to {{ cl_filesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
@@ -9,16 +17,20 @@
         owner: "{{ cl_dira_owner|default(omit) }}"
         group: "{{ cl_dira_group|default(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate|default(omit) }}"
-      delegate_to: localhost
+        validate: "{{ cl_assemble_validate|default(omit, true) }}"
+
   rescue:
+
     - name: "vars-files: Assemble files to {{ cl_filesd }} failed"
       ansible.builtin.debug:
         msg: |-
-          Can not assemble files. End of play.
+          [ERR] Can not assemble files. End of play.
           {{ ansible_failed_result }}
+
     - name: "vars-files: End of play"
       meta: end_play
+
+  delegate_to: localhost
 
 - name: "vars-files: Include files from {{ cl_filesd }} to cl_filesd_items"
   ansible.builtin.include_vars:

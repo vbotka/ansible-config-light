@@ -1,8 +1,8 @@
 ssmtp_conf:
-  path: '/etc/ssmtp/ssmtp.conf'
+  path: /etc/ssmtp/ssmtp.conf
   force: true
-  owner: 'root'
-  group: 'mail'
+  owner: root
+  group: mail
   mode: 'u=rw,g=r'
   template:
-    path: 'ssmtp.conf.j2'
+    path: ssmtp.conf.j2
