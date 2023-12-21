@@ -1,11 +1,11 @@
 lighttpd-cgiconf:
-  path: '/usr/local/etc/lighttpd/conf.d/cgi.conf'
+  path: /usr/local/etc/lighttpd/conf.d/cgi.conf
   create: true
-  owner: 'root'
-  group: 'wheel'
+  owner: root
+  group: wheel
   mode: '0644'
-  copyfile: '{{ cl_lighttpd_cgiconf_copy }}'
-  blocks: '{{ cl_lighttpd_cgiconf_blocks }}'
+  copyfile: "{{ cl_lighttpd_cgiconf_copy }}"
+  blocks: "{{ cl_lighttpd_cgiconf_blocks }}"
   handlers:
-    - 'configtest lighttpd'
-    - 'reload lighttpd'
+    - configtest lighttpd
+    - reload lighttpd

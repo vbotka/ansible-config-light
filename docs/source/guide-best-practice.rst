@@ -1,66 +1,38 @@
-*************
 Best practice
 *************
 
 
-Check syntax of setup
-=====================
+Check syntax
+============
 
 Check syntax of the playbook ::
 
     shell> ansible-playbook pb.yml --syntax-check
 
-Check syntax of setup and display variables ::
 
-    shell> ansible-playbook pb.yml -t cl_setup -e cl_debug=true --check --diff
+Validation
+==========
 
-If you want to see the values of the variables enable debug output ``cl_debug=true``.
+Install ``yamllint`` to use the default validation of the created
+handlers and assembled data. See the variables *cl_assemble_validate*
+and *cl_handlers_validate* in *defaults/main.yml*. Optionally, use
+other linter, for example, *ansible-lint* and change the
+variables. You can disable the validation by clearing the variables ::
+
+    cl_assemble_validate: ''
+    cl_handlers_validate: ''
 
 
 Setup
 =====
 
-Collect variables, create handlers, check sanity, and display variables. When you take a look at
-``tasks/main.yml`` you'll see that the first four groups of the tasks (setup, vars, sanity, and
-debug) are tagged ``always``. As a result, when you apply any of the four tags (cl_setup, cl_vars,
-cl_sanity, and cl_debug) all four groups of the tasks, and only these four groups of the tasks, will
-be executed. All four commands below are equivalent to the command ::
+Assemble data, create handlers, check sanity, and display
+variables. When you take a look at ``tasks/main.yml`` you'll see that
+the first three groups of the tasks (setup, vars, and sanity) are
+tagged ``always``. As a result, when you apply the tag *cl_debug* all
+three groups of the tasks will be executed before *cl_debug* ::
 
-    shell> ansible-playbook pb.yml -t cl_setup,cl_vars,cl_sanity,cl_debug
-
-* Create variables. Take a look at directory ``conf-light/assemble/`` what files were created ::
-
-    shell> ansible-playbook pb.yml -t cl_vars
-
-* Test sanity. Then disable this task ``cl_sanity: false`` to speedup the playbook ::
-
-    shell> ansible-playbook pb.yml -t cl_sanity
-
-* Create handlers. Take a look at directory ``roles/vbotka.config_light/handlers`` what handlers
-  were created. Run this task once to create the handlers. Then disable this task ``cl_setup:
-  false`` to speedup the playbook ::
-
-    shell> ansible-playbook pb.yml -t cl_setup
-
-* Display variables. Then disable this task ``cl_debug: false`` to speedup the playbook ::
-
-    shell> ansible-playbook pb.yml -t cl_debug
-
-
-Validation
-==========
-
-Create the variables ``cl_assemble_validate`` and ``cl_handlers_validate`` if you want to enable
-validation of the created handlers and assembled data. See ``defaults/main.yml``. You'll have to
-install the package ``yamllint``.
-    
-
-Check syntax
-============
-
-Check syntax of the complete playbook ::
-
-    shell> ansible-playbook pb.yml --syntax-check
+    shell> ansible-playbook pb.yml -t cl_debug -e cl_setup=true -e cl_sanity=true -e cl_debug=true
 
 
 Manage packages
@@ -111,6 +83,13 @@ Dry-run the configuration of services ::
 Configure services ::
 
     shell> ansible-playbook pb.yml -t cl_services
+
+.. hint::
+
+   If you know what you are doing skip the above selection of
+   particular tags and run the complete role at once ::
+
+    shell> ansible-playbook pb.yml -e cl_setup=true -e cl_install=true
 
 
 Idempotency

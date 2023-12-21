@@ -11,7 +11,7 @@ vbotka.config_light 2.4 Release Notes
 Release Summary
 ---------------
 Update setup, sanity, and packages. Add changelog. Add
-docs/requirements.txt.
+docs/requirements.txt. Update docs.
 
 Major Changes
 -------------

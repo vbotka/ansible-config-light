@@ -2,21 +2,21 @@ cups_ubuntu:
   template: handlers-auto2.yml.j2
   handlers:
 
-    - handler: 'enable and start cups'
+    - handler: enable and start cups
       module: service
       params:
         - 'name: cups'
         - 'state: started'
         - 'enabled: true'
 
-    - handler: 'disable and stop cups'
+    - handler: disable and stop cups
       module: service
       params:
         - 'name: cups'
         - 'state: stopped'
         - 'enabled: false'
 
-    - handler: 'restart cups'
+    - handler: restart cups
       module: service
       params:
         - 'name: cups'

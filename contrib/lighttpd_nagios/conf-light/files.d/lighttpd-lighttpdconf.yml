@@ -1,13 +1,13 @@
 lighttpd-lighttpdconf:
-  path: '/usr/local/etc/lighttpd/lighttpd.conf'
+  path: /usr/local/etc/lighttpd/lighttpd.conf
   create: true
-  owner: 'root'
-  group: 'wheel'
+  owner: root
+  group: wheel
   mode: '0644'
-  copyfile: '{{ cl_lighttpd_lighttpdconf_copy }}'
-  lines: '{{ cl_lighttpd_lighttpdconf_lines }}'
-  dict: '{{ cl_lighttpd_lighttpdconf_dicts }}'
+  copyfile: "{{ cl_lighttpd_lighttpdconf_copy }}"
+  lines: "{{ cl_lighttpd_lighttpdconf_lines }}"
+  dict: "{{ cl_lighttpd_lighttpdconf_dicts }}"
   assignment: ' = '
   handlers:
-    - 'configtest lighttpd'
-    - 'reload lighttpd'
+    - configtest lighttpd
+    - reload lighttpd

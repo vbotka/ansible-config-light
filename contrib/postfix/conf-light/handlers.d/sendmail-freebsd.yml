@@ -2,21 +2,21 @@ sendmail_freebsd:
   template: handlers-auto1.yml.j2
   handlers:
 
-    - handler: 'enable and start sendmail'
+    - handler: enable and start sendmail
       module: service
       params:
         - 'name: sendmail'
         - 'state: started'
         - 'enabled: true'
 
-    - handler: 'disable and stop sendmail'
+    - handler: disable and stop sendmail
       module: service
       params:
         - 'name: sendmail'
         - 'state: stopped'
         - 'enabled: false'
 
-    - handler: 'reload sendmail'
+    - handler: reload sendmail
       module: service
       params:
         - 'name: sendmail'
@@ -24,7 +24,7 @@ sendmail_freebsd:
       conditions:
         - '- cl_service_sendmail_enable|bool'
 
-    - handler: 'restart sendmail'
+    - handler: restart sendmail
       module: service
       params:
         - 'name: sendmail'
@@ -32,13 +32,13 @@ sendmail_freebsd:
       conditions:
         - '- cl_service_sendmail_enable|bool'
 
-    - handler: 'start sendmail'
+    - handler: start sendmail
       module: service
       params:
         - 'name: sendmail'
         - 'state: started'
 
-    - handler: 'stop sendmail'
+    - handler: stop sendmail
       module: service
       params:
         - 'name: sendmail'

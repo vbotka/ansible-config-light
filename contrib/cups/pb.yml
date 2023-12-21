@@ -1,0 +1,10 @@
+- hosts: srv.example.com
+  gather_facts: true
+  connection: ssh
+  remote_user: admin
+  become: true
+  become_user: root
+  become_method: sudo
+
+  roles:
+    - vbotka.config_light

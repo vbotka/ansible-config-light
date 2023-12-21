@@ -17,15 +17,6 @@ This role has been developed and tested with
 * [Ubuntu Supported Releases](http://releases.ubuntu.com/)
 * [FreeBSD Supported Production Releases](https://www.freebsd.org/releases/)
 
-This may be different from the platforms in Ansible Galaxy which does not offer all
-released versions in time and would report an error. For example:
-
-```
-Warnings: 2
-IMPORTER101: Invalid platform: "FreeBSD-12.4", skipping.
-             Invalid platform: "FreeBSD-13.2", skipping.
-```
-
 
 ## Requirements and dependencies
 
@@ -38,7 +29,9 @@ IMPORTER101: Invalid platform: "FreeBSD-12.4", skipping.
 
 * yamllint
 
-Create the variables cl_assemble_validate and cl_handlers_validate to enable the validation. See defaults/main.yml
+The utility *yamllint* is used by default to validate assembled
+data. See the variables *cl_assemble_validate* and
+*cl_handlers_validate* in *defaults/main.yml*
 
 
 ## License

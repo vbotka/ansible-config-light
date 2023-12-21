@@ -1,3 +1,4 @@
 lighttpd:
+  module: pkgng
   name:
-    - 'www/lighttpd'
+    - www/lighttpd

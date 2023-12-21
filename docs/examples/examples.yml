@@ -123,7 +123,7 @@ postfix_services:
     warning: []
 
 postfix_files:
-  - file: contrib/postfix/config-light-postfix.yml
+  - file: contrib/postfix/host_vars/srv.example.com/config-light-postfix.yml
     link: config_light_postfix_yml
     synopsis: |
       Custom variables for Postfix.

@@ -1,33 +1,34 @@
 .. _ug:
 
-############
 User's guide
 ############
 
 .. contents:: Table of Contents
-   :depth: 3
+   :depth: 2
 
-.. _ug_introduction:
-.. include:: guide-introduction.rst
-.. _ug_installation:
-.. include:: guide-installation.rst
-.. _ug_playbook:
-.. include:: guide-playbook.rst
-.. _ug_debug:
-.. include:: guide-debug.rst
-.. _ug_tags:
-.. include:: guide-tags.rst
+.. include:: guide-introduction.inc.rst
+.. include:: guide-installation.inc.rst
+.. include:: guide-playbook.inc.rst
+.. include:: guide-debug.inc.rst
+.. include:: guide-tags.inc.rst
 
-.. _ug_variables:
-.. include:: guide-variables.rst
-.. toctree::
+.. include:: guide-variables.inc.rst
+.. include:: guide-variables-defaults.inc.rst
 
-   guide-variables-defaults
-   guide-variables-handlers
-   guide-variables-packages
-   guide-variables-states
-   guide-variables-services
-   guide-variables-files.rst
+.. include:: guide-variables-data.inc.rst
+.. include:: guide-variables-handlers.inc.rst
+.. include:: guide-variables-packages.inc.rst
+.. include:: guide-variables-states.inc.rst
+.. include:: guide-variables-services.inc.rst
+
+.. include:: guide-variables-files.inc.rst
+.. include:: guide-variables-files-copy.inc.rst
+.. include:: guide-variables-files-template.inc.rst
+.. include:: guide-variables-files-markers.inc.rst
+.. include:: guide-variables-files-patch.inc.rst
+.. include:: guide-variables-files-lineinfile.inc.rst
+.. include:: guide-variables-files-blockinfile.inc.rst
+.. include:: guide-variables-files-inifile.inc.rst
 
 .. _ug_bp:
 .. include:: guide-best-practice.rst
