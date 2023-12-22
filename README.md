@@ -14,6 +14,7 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 ## Supported platforms
 
 This role has been developed and tested with
+
 * [Ubuntu Supported Releases](http://releases.ubuntu.com/)
 * [FreeBSD Supported Production Releases](https://www.freebsd.org/releases/)
 
@@ -22,8 +23,8 @@ This role has been developed and tested with
 
 ### Collections
 
-* ansible.posix
-* community.general
+* [ansible.posix](https://galaxy.ansible.com/ui/repo/published/ansible/posix/)
+* [community.general](https://galaxy.ansible.com/ui/repo/published/community/general/)
 
 ### Optional packages
 
