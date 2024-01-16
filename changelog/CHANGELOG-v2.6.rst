@@ -10,7 +10,7 @@ vbotka.config_light 2.6 Release Notes
 
 Release Summary
 ---------------
-Update README.
+Update docs requirements readthedocs-sphinx-search==0.3.2
 
 Major Changes
 -------------
