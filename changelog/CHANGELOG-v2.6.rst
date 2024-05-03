@@ -17,6 +17,8 @@ Major Changes
 
 Minor Changes
 -------------
+* Bump docs version.
+* Remove obsolete comment from docs/source/conf.py
 
 
 2.6.2
