@@ -1,3 +1,5 @@
+.. _as_handlers:
+
 Handlers
 ========
 
@@ -9,7 +11,7 @@ main.yml
 Synopsis: Main task.
 
 
-Import handlers. Content of this file is created dynamically.
+Import handlers.
 
 
 [`handlers/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/handlers/main.yml>`_]
@@ -18,8 +20,9 @@ Import handlers. Content of this file is created dynamically.
     :linenothreshold: 5
 .. literalinclude:: ../../handlers/main.yml
     :language: Yaml
-    :emphasize-lines: 1
+    :emphasize-lines: 1,2
     :linenos:
 
-.. seealso::
-   * See :ref:`ug_bp`
+
+
+
