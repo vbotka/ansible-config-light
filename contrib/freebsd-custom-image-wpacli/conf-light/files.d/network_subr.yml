@@ -1,3 +1,4 @@
+---
 network_subr:
   path: "{{ bsd_cimage_mount_path }}/etc/network.subr"
   patch:

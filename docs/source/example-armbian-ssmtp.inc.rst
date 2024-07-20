@@ -57,7 +57,7 @@ contrib/ssmtp/conf-light/files.d/revaliases.yml
 
 Synopsis: Create file.
 
-Create file (2) from the template (8).
+Create file (3) from the template (9).
 
 [`contrib/ssmtp/conf-light/files.d/revaliases.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/files.d/revaliases.yml>`_]
 
@@ -65,7 +65,7 @@ Create file (2) from the template (8).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/ssmtp/conf-light/files.d/revaliases.yml
     :language: Yaml
-    :emphasize-lines: 2,8
+    :emphasize-lines: 3,9
     :linenos:
 
 .. seealso:: See template `revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_. See how files are created from template :ref:`as_files-template.yml`.
@@ -76,7 +76,7 @@ contrib/ssmtp/conf-light/files.d/ssmtp-conf.yml
 
 Synopsis: Create file.
 
-Create file (2) from the template (8).
+Create file (3) from the template (9).
 
 [`contrib/ssmtp/conf-light/files.d/ssmtp-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/ssmtp/conf-light/files.d/ssmtp-conf.yml>`_]
 
@@ -84,7 +84,7 @@ Create file (2) from the template (8).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/ssmtp/conf-light/files.d/ssmtp-conf.yml
     :language: Yaml
-    :emphasize-lines: 2,8
+    :emphasize-lines: 3,9
     :linenos:
 
 .. seealso:: See template `ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_. See how files are created from template :ref:`as_files-template.yml`.

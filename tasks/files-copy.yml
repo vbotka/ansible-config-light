@@ -1,52 +1,52 @@
 ---
-
-- name: "files-copy: Debug copyfile in cl_files.values()"
+- name: "Files-copy: Debug copyfile in cl_files.values()"
   ansible.builtin.debug:
-    msg: "{{ cl_files.values()|selectattr('copyfile', 'defined')|list }}"
-  when: cl_debug|bool
+    msg: "{{ cl_files.values() | selectattr('copyfile', 'defined') | list }}"
+  when: cl_debug | bool
 
-- name: "files-copy: Delete copyfile in cl_files.values()"
+- name: "Files-copy: Delete copyfile in cl_files.values()"
   ansible.builtin.file:
     state: absent
     path: "{{ item.path }}"
-  loop: "{{ cl_files.values()|selectattr('copyfile', 'defined')|list }}"
+  loop: "{{ cl_files.values() | selectattr('copyfile', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  when: cl_copyfile_delete|bool
+  when: cl_copyfile_delete | bool
 
-- name: "files-copy: Copy copyfile in cl_files.values()"
+- name: "Files-copy: Copy copyfile in cl_files.values()"
   ansible.builtin.copy:
     dest: "{{ item.path }}"
     src: "{{ item.copyfile.path }}"
-    checksum: "{{ item.copyfile.checksum|default(omit) }}"
-    content: "{{ item.copyfile.content|default(omit) }}"
-    decrypt: "{{ item.copyfile.decrypt|default(omit) }}"
-    directory_mode: "{{ item.copyfile.directory_mode|default(omit) }}"
-    follow: "{{ item.copyfile.follow|default(omit) }}"
-    force: "{{ item.copyfile.force|default(omit) }}"
-    local_follow: "{{ item.copyfile.local_follow|default(omit) }}"
-    remote_src: "{{ item.copyfile.remote_src|default(omit) }}"
-    owner: "{{ item.owner|default(omit) }}"
-    group: "{{ item.group|default(omit) }}"
-    mode: "{{ item.mode|default(omit) }}"
-    attributes: "{{ item.attributes|default(omit) }}"
-    validate: "{{ item.validate|default(omit) }}"
+    checksum: "{{ item.copyfile.checksum | d(omit) }}"
+    content: "{{ item.copyfile.content | d(omit) }}"
+    decrypt: "{{ item.copyfile.decrypt | d(omit) }}"
+    directory_mode: "{{ item.copyfile.directory_mode | d(omit) }}"
+    follow: "{{ item.copyfile.follow | d(omit) }}"
+    force: "{{ item.copyfile.force | d(omit) }}"
+    local_follow: "{{ item.copyfile.local_follow | d(omit) }}"
+    remote_src: "{{ item.copyfile.remote_src | d(omit) }}"
+    owner: "{{ item.owner | d(omit) }}"
+    group: "{{ item.group | d(omit) }}"
+    mode: "{{ item.mode | d(omit) }}"
+    attributes: "{{ item.attributes | d(omit) }}"
+    validate: "{{ item.validate | d(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|selectattr('copyfile', 'defined')|list }}"
+  loop: "{{ cl_files.values() | selectattr('copyfile', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  notify: "{{ item.handlers|default(omit) }}"
+  notify: "{{ item.handlers | d(omit) }}"
   register: cl_results_copy
 
-- block:
-    - name: "files-copy: Debug cl_results_copy"
+- name: Debug
+  when: cl_debug | bool
+  block:
+
+    - name: "Files-copy: Debug cl_results_copy"
       ansible.builtin.debug:
         var: cl_results_copy
-    - name: "files-copy: Debug changed copy path"
+
+    - name: "Files-copy: Debug changed copy path"
       ansible.builtin.debug:
-        msg: "{{ cl_results_copy|default([])|
-                 json_query('[?changed].invocation.module_args.path') }}"
-  when: cl_debug|bool
+        msg: "{{ cl_results_copy | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 
 # EOF
-...

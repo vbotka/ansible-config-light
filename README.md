@@ -1,6 +1,9 @@
 # config_light
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/config_light)[![Build Status](https://travis-ci.org/vbotka/ansible-config-light.svg?branch=master)](https://travis-ci.org/vbotka/ansible-config-light)[![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-config-light.readthedocs.io/en/latest/)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/config_light)
+[![Build Status](https://travis-ci.org/vbotka/ansible-config-light.svg?branch=master)](https://travis-ci.org/vbotka/ansible-config-light)
+[![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-config-light.readthedocs.io/en/latest/)
+[![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-config-light)](https://github.com/vbotka/ansible-config-light/tags)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/config_light/) Install packages, configure files, services, and handlers.
 
@@ -33,6 +36,17 @@ This role has been developed and tested with
 The utility *yamllint* is used by default to validate assembled
 data. See the variables *cl_assemble_validate* and
 *cl_handlers_validate* in *defaults/main.yml*
+
+
+## Ansible lint
+
+Use the configuration file *.ansible-lint.local* when running
+*ansible-lint*. Some rules might be disabled and some warnings might
+be ignored. See the notes in the configuration file.
+
+```bash
+shell> ansible-lint -c .ansible-lint.local
+```
 
 
 ## License

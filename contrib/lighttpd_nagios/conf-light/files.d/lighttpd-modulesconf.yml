@@ -1,9 +1,10 @@
+---
 lighttpd-modulesconf:
   path: /usr/local/etc/lighttpd/modules.conf
   create: true
   owner: root
   group: wheel
-  mode: '0644'
+  mode: "0644"
   copyfile: "{{ cl_lighttpd_modulesconf_copy }}"
   markers: "{{ cl_lighttpd_modulesconf_markers }}"
   lines: "{{ cl_lighttpd_modulesconf_lines }}"

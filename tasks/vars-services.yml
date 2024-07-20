@@ -1,50 +1,46 @@
 ---
-
 - name: Assemble services
-  block:
+  delegate_to: localhost
 
-    - name: "vars-services: Delete {{ cl_servicesd }}"
+  block:
+    - name: "Vars-services: Delete {{ cl_servicesd }}"
       ansible.builtin.file:
         state: absent
         path: "{{ cl_servicesd }}"
       when: cl_all_delete|bool or cl_servicesd_delete|bool
 
-    - name: "vars-services: Assemble services to {{ cl_servicesd }}"
+    - name: "Vars-services: Assemble services to {{ cl_servicesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
         src: "{{ cl_servicesd_dir }}"
         dest: "{{ cl_servicesd }}"
-        owner: "{{ cl_dira_owner|default(omit) }}"
-        group: "{{ cl_dira_group|default(omit) }}"
+        owner: "{{ cl_dira_owner | default(omit) }}"
+        group: "{{ cl_dira_group | default(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate|default(omit, true) }}"
+        validate: "{{ cl_assemble_validate | default(omit, true) }}"
 
   rescue:
 
-    - name: "vars-services: Assemble services to {{ cl_servicesd }} failed"
+    - name: "Vars-services: Failed assemble services to {{ cl_servicesd }}"
       ansible.builtin.debug:
         msg: |-
           [ERR] Can not assemble services. End of play.
           {{ ansible_failed_result }}
 
-    - name: "vars-services: End of play"
-      meta: end_play
-
-  delegate_to: localhost
-
-- name: "vars-services: Include files from {{ cl_servicesd }} to cl_cervicesd_items"
+    - name: "Vars-services: End of play"
+      ansible.builtin.meta: end_play
+- name: "Vars-services: Include files from {{ cl_servicesd ~ ' to cl_cervicesd_items' }}"
   ansible.builtin.include_vars:
     file: "{{ cl_servicesd }}"
     name: cl_servicesd_items
 
-- name: "vars-services: Combine cl_services with cl_servicesd_items"
+- name: "Vars-services: Combine cl_services with cl_servicesd_items"
   ansible.builtin.set_fact:
-    cl_services: "{{ cl_services|combine(cl_servicesd_items|default({})) }}"
+    cl_services: "{{ cl_services | combine(cl_servicesd_items | default({})) }}"
 
-- name: "vars-services: Debug"
+- name: "Vars-services: Debug"
   ansible.builtin.debug:
     var: cl_services
   when: cl_debug|bool
 
 # EOF
-...

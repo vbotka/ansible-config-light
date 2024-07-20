@@ -12,7 +12,6 @@ cl_packages: {}
 cl_services: {}
 cl_files: {}
 cl_states: {}
-
 # Assemble data from these directories
 cl_dird: "{{ playbook_dir }}/conf-light"
 cl_handlersd_dir: "{{ cl_dird }}/handlers.d"
@@ -37,4 +36,3 @@ cl_statesd: "{{ cl_dira }}/statesd.{{ inventory_hostname }}"
 # cl_services_freebsd_rcconf_auto: false
 
 # EOF
-...

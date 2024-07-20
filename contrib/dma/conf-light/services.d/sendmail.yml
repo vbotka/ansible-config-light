@@ -1,3 +1,4 @@
+---
 sendmail:
   name: sendmail
   state: "{{ cl_service_sendmail_state }}"

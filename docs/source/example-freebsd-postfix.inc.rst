@@ -15,7 +15,7 @@ contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml
 
 Synopsis: Create handlers for Postfix.
 
-Use template (2) to create handlers.
+Use template (3) to create handlers.
 
 [`contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml>`_]
 
@@ -23,7 +23,7 @@ Use template (2) to create handlers.
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml
     :language: Yaml
-    :emphasize-lines: 2,5,12,19,27,35,40
+    :emphasize-lines: 3,5,12,19,27,35,40
     :linenos:
 
 .. seealso:: See :ref:`as_setup.yml` how the handlers are created.
@@ -34,7 +34,7 @@ contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml
 
 Synopsis: Create handlers for Sendmail.
 
-Use template (2) to create handlers.
+Use template (3) to create handlers.
 
 [`contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml>`_]
 
@@ -42,7 +42,7 @@ Use template (2) to create handlers.
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml
     :language: Yaml
-    :emphasize-lines: 2,5,12,19,27,35,41
+    :emphasize-lines: 3,5,12,19,27,35,41
     :linenos:
 
 .. seealso:: See :ref:`as_setup.yml` how the handlers are created.
@@ -82,7 +82,7 @@ contrib/postfix/conf-light/services.d/postfix.yml
 
 Synopsis: Configure Postfix service.
 
-Set service (2) state (3). Run the service on boot (4).
+Set service (3) state (4). Run the service on boot (5).
 
 [`contrib/postfix/conf-light/services.d/postfix.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/postfix.yml>`_]
 
@@ -90,7 +90,7 @@ Set service (2) state (3). Run the service on boot (4).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/services.d/postfix.yml
     :language: Yaml
-    :emphasize-lines: 2,3,4
+    :emphasize-lines: 3,4,5
     :linenos:
 
 .. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`. See :ref:`as_services.yml` how the services are configured.
@@ -101,7 +101,7 @@ contrib/postfix/conf-light/services.d/sendmail.yml
 
 Synopsis: Configure Sendmail service.
 
-Set service (2) state (3). Do not run the service on boot (4).
+Set service (3) state (4). Do not run the service on boot (5).
 
 [`contrib/postfix/conf-light/services.d/sendmail.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/sendmail.yml>`_]
 
@@ -109,7 +109,7 @@ Set service (2) state (3). Do not run the service on boot (4).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/services.d/sendmail.yml
     :language: Yaml
-    :emphasize-lines: 2,3,4
+    :emphasize-lines: 3,4,5
     :linenos:
 
 .. seealso:: See custom Postfix variables :ref:`ex_config_light_postfix_yml`.
@@ -143,7 +143,7 @@ contrib/postfix/conf-light/files.d/mailer-conf.yml
 
 Synopsis: Create file.
 
-Create file (2) from the template (4).
+Create file (3) from the template (5).
 
 [`contrib/postfix/conf-light/files.d/mailer-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf.yml>`_]
 
@@ -151,7 +151,7 @@ Create file (2) from the template (4).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/mailer-conf.yml
     :language: Yaml
-    :emphasize-lines: 2,4
+    :emphasize-lines: 3,5
     :linenos:
 
 .. _ex_filesd_periodic_conf:
@@ -161,7 +161,7 @@ contrib/postfix/conf-light/files.d/periodic-conf.yml
 
 Synopsis: Modify file.
 
-Modify file (2) with the lines (7).
+Modify file (3) with the lines (8).
 
 [`contrib/postfix/conf-light/files.d/periodic-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/periodic-conf.yml>`_]
 
@@ -169,7 +169,7 @@ Modify file (2) with the lines (7).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/periodic-conf.yml
     :language: Yaml
-    :emphasize-lines: 2,7
+    :emphasize-lines: 3,8
     :linenos:
 
 .. _ex_filesd_main_cf:
@@ -179,7 +179,7 @@ contrib/postfix/conf-light/files.d/postfix-main-cf.yml
 
 Synopsis: Modify file and notify handlers.
 
-Modify file (2) with the lines (9) and notify handlers (7).
+Modify file (3) with the lines (10) and notify handlers (8).
 
 [`contrib/postfix/conf-light/files.d/postfix-main-cf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/postfix-main-cf.yml>`_]
 
@@ -187,7 +187,7 @@ Modify file (2) with the lines (9) and notify handlers (7).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/postfix-main-cf.yml
     :language: Yaml
-    :emphasize-lines: 2,7,9
+    :emphasize-lines: 3,8,10
     :linenos:
 
 .. _ex_filesd_rc_conf:
@@ -197,7 +197,7 @@ contrib/postfix/conf-light/files.d/rc-conf.yml
 
 Synopsis: Modify file.
 
-Modify file (2) with the lines (7).
+Modify file (3) with the lines (8).
 
 [`contrib/postfix/conf-light/files.d/rc-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/rc-conf.yml>`_]
 
@@ -205,6 +205,5 @@ Modify file (2) with the lines (7).
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/files.d/rc-conf.yml
     :language: Yaml
-    :emphasize-lines: 2,7
+    :emphasize-lines: 3,8
     :linenos:
-

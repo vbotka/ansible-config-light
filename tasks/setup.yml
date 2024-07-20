@@ -1,11 +1,10 @@
 ---
-
-- name: "setup: Debug"
+- name: "Setup: Debug"
   vars:
     msg: |-
       cl_dird: {{ cl_dird }}
-      cl_dird_owner: {{ cl_dird_owner|default('UNDEFINED') }}
-      cl_dird_group: {{ cl_dird_group|default('UNDEFINED') }}
+      cl_dird_owner: {{ cl_dird_owner | d('UNDEFINED') }}
+      cl_dird_group: {{ cl_dird_group | d('UNDEFINED') }}
       cl_dird_dmode: {{ cl_dird_dmode }}
 
       cl_handlersd_dir: {{ cl_handlersd_dir }}
@@ -15,8 +14,8 @@
       cl_statesd_dir: {{ cl_statesd_dir }}
 
       cl_dira: {{ cl_dira }}
-      cl_dira_owner: {{ cl_dira_owner|default('UNDEFINED') }}
-      cl_dira_group: {{ cl_dira_group|default('UNDEFINED') }}
+      cl_dira_owner: {{ cl_dira_owner | d('UNDEFINED') }}
+      cl_dira_group: {{ cl_dira_group | d('UNDEFINED') }}
       cl_dira_dmode: {{ cl_dira_dmode }}
       cl_dira_fmode: {{ cl_dira_fmode }}
       cl_assemble_regexp: {{ cl_assemble_regexp }}
@@ -31,10 +30,10 @@
       cl_handlers_delete: {{ cl_handlers_delete }}
       cl_handlers_create: {{ cl_handlers_create }}
       cl_handlers_dir_become: {{ cl_handlers_dir_become }}
-      cl_handlers_dir_owner: {{ cl_handlers_dir_owner|default('UNDEFINED') }}
-      cl_handlers_dir_group: {{ cl_handlers_dir_group|default('UNDEFINED') }}
-      cl_handlers_dir_dmode: {{ cl_handlers_dir_dmode|default('UNDEFINED') }}
-      cl_handlers_main_mode: {{ cl_handlers_main_mode|default('UNDEFINED') }}
+      cl_handlers_dir_owner: {{ cl_handlers_dir_owner | d('UNDEFINED') }}
+      cl_handlers_dir_group: {{ cl_handlers_dir_group | d('UNDEFINED') }}
+      cl_handlers_dir_dmode: {{ cl_handlers_dir_dmode | d('UNDEFINED') }}
+      cl_handlers_main_mode: {{ cl_handlers_main_mode | d('UNDEFINED') }}
 
       cl_all_delete: {{ cl_all_delete }}
       cl_packagesd_delete: {{ cl_packagesd_delete }}
@@ -44,15 +43,15 @@
 
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
-  when: cl_debug|bool
+  when: cl_debug | bool
 
-# directories
-- name: "setup: Create directories in {{ cl_dird }}"
+  # directories
+- name: "Setup: Create directories in {{ cl_dird }}"
   ansible.builtin.file:
     state: directory
     path: "{{ item }}"
-    owner: "{{ cl_dird_owner|default(omit) }}"
-    group: "{{ cl_dird_group|default(omit) }}"
+    owner: "{{ cl_dird_owner | d(omit) }}"
+    group: "{{ cl_dird_group | d(omit) }}"
     mode: "{{ cl_dird_dmode }}"
   loop:
     - "{{ cl_dird }}"
@@ -62,119 +61,115 @@
     - "{{ cl_filesd_dir }}"
     - "{{ cl_statesd_dir }}"
 
-- name: "setup: Create directory {{ cl_dira }}"
+- name: "Setup: Create directory {{ cl_dira }}"
   ansible.builtin.file:
     state: directory
     path: "{{ cl_dira }}"
-    owner: "{{ cl_dira_owner|default(omit) }}"
-    group: "{{ cl_dira_group|default(omit) }}"
+    owner: "{{ cl_dira_owner | d(omit) }}"
+    group: "{{ cl_dira_group | d(omit) }}"
     mode: "{{ cl_dira_dmode }}"
 
-# handlers
-- name: "setup: Create dir {{ role_path }}/handlers"
+  # handlers
+- name: "Setup: Create dir {{ role_path ~ '/handlers' }}"
   become: "{{ cl_handlers_dir_become }}"
   ansible.builtin.file:
     state: directory
     path: "{{ role_path }}/handlers"
-    owner: "{{ cl_handlers_dir_owner|default(omit) }}"
-    group: "{{ cl_handlers_dir_group|default(omit) }}"
-    mode: "{{ cl_handlers_dir_dmode|default(omit) }}"
+    owner: "{{ cl_handlers_dir_owner | d(omit) }}"
+    group: "{{ cl_handlers_dir_group | d(omit) }}"
+    mode: "{{ cl_handlers_dir_dmode | d(omit) }}"
 
-- name: "setup: Create handlers/main.yml"
+- name: "Setup: Create handlers/main.yml"
   ansible.builtin.lineinfile:
     path: "{{ role_path }}/handlers/main.yml"
     insertbefore: BOF
     line: "---"
-    validate: "{{ cl_handlers_validate|default(omit) }}"
+    validate: "{{ cl_handlers_validate | d(omit) }}"
     backup: "{{ cl_backup }}"
     create: true
-    mode: "{{ cl_handlers_main_mode|default(omit) }}"
+    mode: "{{ cl_handlers_main_mode | d(omit) }}"
 
-- name: "setup: Assemble handlers"
+- name: "Setup: Assemble handlers"
   ansible.builtin.import_tasks: vars-handlers.yml
 
-- name: "setup: Delete all handlers"
+- name: "Setup: Delete all handlers"
+  when: cl_handlers_delete_all | bool
   block:
 
-    - name: "setup: Find all handlers"
+    - name: "Setup: Find all handlers"
       ansible.builtin.find:
         path: "{{ role_path }}/handlers"
         patterns: handlers-auto-*.yml
       register: result
 
-    - name: "setup: Debug result"
+    - name: "Setup: Debug result"
       ansible.builtin.debug:
         var: result
-      when: cl_debug|bool
+      when: cl_debug | bool
 
-    - name: "setup: Delete all handlers"
+    - name: "Setup: Delete all handlers"
       ansible.builtin.file:
         state: absent
         path: "{{ item.path }}"
       loop: "{{ result.files }}"
       loop_control:
-        label: "{{ item.path|basename }}"
+        label: "{{ item.path | basename }}"
 
-    - name: "setup: Exclude all found handlers from handlers/main.yml"
+    - name: "Setup: Exclude all found handlers from handlers/main.yml"
       ansible.builtin.lineinfile:
         state: absent
         path: "{{ role_path }}/handlers/main.yml"
-        line: "- import_tasks: {{ item.path|basename }}"
+        line: "- import_tasks: {{ item.path | basename }}"
         backup: "{{ cl_backup }}"
       loop: "{{ result.files }}"
       loop_control:
-        label: "{{ item.path|basename }}"
+        label: "{{ item.path | basename }}"
 
-  when: cl_handlers_delete_all|bool
-
-- name: "setup: Delete handlers listed in cl_handlers"
+- name: "Setup: Delete handlers listed in cl_handlers"
+  when: cl_handlers_delete | bool
   block:
 
-    - name: "setup: Delete handlers listed in cl_handlers"
+    - name: "Setup: Delete handlers listed in cl_handlers"
       ansible.builtin.file:
         state: absent
         path: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
-      loop: "{{ cl_handlers|dict2items }}"
+      loop: "{{ cl_handlers | dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
-    - name: "setup: Exclude handlers from handlers/main.yml"
+    - name: "Setup: Exclude handlers from handlers/main.yml"
       ansible.builtin.lineinfile:
         state: absent
         path: "{{ role_path }}/handlers/main.yml"
         line: "- import_tasks: handlers-auto-{{ item.key }}.yml"
         backup: "{{ cl_backup }}"
-      loop: "{{ cl_handlers|dict2items }}"
+      loop: "{{ cl_handlers | dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
-  when: cl_handlers_delete|bool
-
-- name: "setup: Create handlers listed in cl_handlers"
+- name: "Setup: Create handlers listed in cl_handlers"
+  when: cl_handlers_create | bool
   block:
 
-    - name: "setup: Create handlers listed in cl_handlers"
+    - name: "Setup: Create handlers listed in cl_handlers"
       ansible.builtin.template:
         dest: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
         src: "{{ item.value.template }}"
-        mode: "{{ item.value.mode|default(omit) }}"
-        validate: "{{ cl_handlers_validate|default(omit) }}"
+        mode: "{{ item.value.mode | d(omit) }}"
+        validate: "{{ cl_handlers_validate | d(omit) }}"
         backup: "{{ cl_backup }}"
-      loop: "{{ cl_handlers|dict2items }}"
+      loop: "{{ cl_handlers | dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
-    - name: "setup: Include handlers in handlers/main.yml"
+    - name: "Setup: Include handlers in handlers/main.yml"
       ansible.builtin.lineinfile:
         path: "{{ role_path }}/handlers/main.yml"
         line: "- import_tasks: handlers-auto-{{ item.key }}.yml"
-        validate: "{{ cl_handlers_validate|default(omit) }}"
+        validate: "{{ cl_handlers_validate | d(omit) }}"
         backup: "{{ cl_backup }}"
-      loop: "{{ cl_handlers|dict2items }}"
+      loop: "{{ cl_handlers | dict2items }}"
       loop_control:
         label: "{{ role_path }}/handlers/handlers-auto-{{ item.key }}.yml"
 
-  when: cl_handlers_create|bool
-
 # EOF
-...

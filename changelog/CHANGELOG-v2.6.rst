@@ -5,28 +5,25 @@ vbotka.config_light 2.6 Release Notes
 .. contents:: Topics
 
 
-2.6.3
-=====
-
-Release Summary
----------------
-Bugfix release with update docs.
-
-Major Changes
--------------
-
-Minor Changes
--------------
-* Bump docs version.
-* Remove obsolete comment from docs/source/conf.py
-
-
 2.6.2
 =====
 
 Release Summary
 ---------------
-Update docs. Fix CLI examples ansible-galaxy.
+Ansible 2.17 upgrade. Maintenance and bugfix release with updated docs.
+
+Major Changes
+-------------
+* Add supported FreeBSD 13.3 and 14.1
+* Add supported Ubuntu 24.04 Nobel
+
+Minor Changes
+-------------
+* Bump docs version.
+* Remove obsolete comment from docs/source/conf.py
+* Update lint config
+* Update README
+
 
 
 2.6.1

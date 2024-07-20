@@ -1,63 +1,61 @@
 ---
-
-- name: "states: Debug"
+- name: "States: Debug"
   ansible.builtin.debug:
     msg: "{{ cl_states }}"
-  when: cl_debug|bool
+  when: cl_debug | bool
 
-- name: "states: Apply unmount states"
+- name: "States: Apply unmount states"
   ansible.posix.mount:
     path: "{{ item.value.path }}"
-    state: "{{ item.value.state|default('absent') }}"
-    backup: "{{ item.value.backup|default(omit) }}"
-    boot: "{{ item.value.boot|default(omit) }}"
-    dump: "{{ item.value.dump|default(omit) }}"
-    fstab: "{{ item.value.fstab|default(omit) }}"
-    opts: "{{ item.value.opts|default(omit) }}"
-    passno: "{{ item.value.passno|default(omit) }}"
-    src: "{{ item.value.src|default(omit) }}"
-  loop: "{{ cl_states|dict2items }}"
+    state: "{{ item.value.state | d('absent') }}"
+    backup: "{{ item.value.backup | d(omit) }}"
+    boot: "{{ item.value.boot | d(omit) }}"
+    dump: "{{ item.value.dump | d(omit) }}"
+    fstab: "{{ item.value.fstab | d(omit) }}"
+    opts: "{{ item.value.opts | d(omit) }}"
+    passno: "{{ item.value.passno | d(omit) }}"
+    src: "{{ item.value.src | d(omit) }}"
+  loop: "{{ cl_states | dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
-  when: item.value.state|default('absent') in cl_states_unmount
+  when: item.value.state | d('absent') in cl_states_unmount
 
-- name: "states: Apply file states"
+- name: "States: Apply file states"
   ansible.builtin.file:
     path: "{{ item.value.path }}"
-    state: "{{ item.value.state|default(omit) }}"
-    src: "{{ item.value.src|default(omit) }}"
-    owner: "{{ item.value.owner|default(omit) }}"
-    group: "{{ item.value.group|default(omit) }}"
-    mode: "{{ item.value.mode|default(omit) }}"
-    attributes: "{{ item.value.attributes|default(omit) }}"
-    recurse: "{{ item.value.recurse|default(omit) }}"
-    force: "{{ item.value.force|default(omit) }}"
-    follow: "{{ item.value.follow|default(omit) }}"
-    access_time: "{{ item.value.access_time|default(omit) }}"
-    access_time_format: "{{ item.value.access_time_format|default(omit) }}"
-    modification_time: "{{ item.value.modification_time|default(omit) }}"
-    modification_time_format: "{{ item.value.modification_time_format|default(omit) }}"
-    unsafe_writes: "{{ item.value.unsafe_writes|default(omit) }}"
-  loop: "{{ cl_states|dict2items }}"
+    state: "{{ item.value.state | d(omit) }}"
+    src: "{{ item.value.src | d(omit) }}"
+    owner: "{{ item.value.owner | d(omit) }}"
+    group: "{{ item.value.group | d(omit) }}"
+    mode: "{{ item.value.mode | d(omit) }}"
+    attributes: "{{ item.value.attributes | d(omit) }}"
+    recurse: "{{ item.value.recurse | d(omit) }}"
+    force: "{{ item.value.force | d(omit) }}"
+    follow: "{{ item.value.follow | d(omit) }}"
+    access_time: "{{ item.value.access_time | d(omit) }}"
+    access_time_format: "{{ item.value.access_time_format | d(omit) }}"
+    modification_time: "{{ item.value.modification_time | d(omit) }}"
+    modification_time_format: "{{ item.value.modification_time_format | d(omit) }}"
+    unsafe_writes: "{{ item.value.unsafe_writes | d(omit) }}"
+  loop: "{{ cl_states | dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
-  when: item.value.state|default('file') in cl_states_file
+  when: item.value.state | d('file') in cl_states_file
 
-- name: "states: Apply mount states"
+- name: "States: Apply mount states"
   ansible.posix.mount:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state }}"
-    backup: "{{ item.value.backup|default(omit) }}"
-    boot: "{{ item.value.boot|default(omit) }}"
-    dump: "{{ item.value.dump|default(omit) }}"
-    fstab: "{{ item.value.fstab|default(omit) }}"
-    opts: "{{ item.value.opts|default(omit) }}"
-    passno: "{{ item.value.passno|default(omit) }}"
-    src: "{{ item.value.src|default(omit) }}"
-  loop: "{{ cl_states|dict2items }}"
+    backup: "{{ item.value.backup | d(omit) }}"
+    boot: "{{ item.value.boot | d(omit) }}"
+    dump: "{{ item.value.dump | d(omit) }}"
+    fstab: "{{ item.value.fstab | d(omit) }}"
+    opts: "{{ item.value.opts | d(omit) }}"
+    passno: "{{ item.value.passno | d(omit) }}"
+    src: "{{ item.value.src | d(omit) }}"
+  loop: "{{ cl_states | dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
-  when: item.value.state|default('absent') in cl_states_mount
+  when: item.value.state | d('absent') in cl_states_mount
 
 # EOF
-...

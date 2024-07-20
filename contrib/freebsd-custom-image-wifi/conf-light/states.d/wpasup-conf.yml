@@ -1,3 +1,4 @@
+---
 wpasup_conf:
   state: link
   force: true

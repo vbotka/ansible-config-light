@@ -1,23 +1,22 @@
 ---
-
-- name: "file-create-backup: Create time-stamp"
+- name: "File-create-backup: Create time-stamp"
   ansible.builtin.set_fact:
-    cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S'|strftime }}"
+    cl_timestamp: "{{ '%Y-%m-%d_%H_%M_%S' | strftime }}"
 
-- name: "file-create-backup: Stat cl_files"
+- name: "File-create-backup: Stat cl_files"
   ansible.builtin.stat:
     path: "{{ item }}"
-  loop: "{{ cl_files.values()|map(attribute='path')|list|unique }}"
+  loop: "{{ cl_files.values() | map(attribute='path') | list | unique }}"
   loop_control:
     label: "{{ item }}"
   register: result
 
-- name: "file-create-backup: Debug result"
+- name: "File-create-backup: Debug result"
   ansible.builtin.debug:
     var: result
   when: cl_debug|bool
 
-- name: "file-create-backup: Create backup files"
+- name: "File-create-backup: Create backup files"
   ansible.builtin.copy:
     remote_src: true
     src: "{{ item.item }}"
@@ -30,4 +29,3 @@
   changed_when: false
 
 # EOF
-...

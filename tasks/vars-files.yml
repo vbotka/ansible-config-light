@@ -1,50 +1,47 @@
 ---
-
 - name: Assemble files
+  delegate_to: localhost
   block:
 
-    - name: "vars-files: Delete {{ cl_filesd }}"
+    - name: "Vars-files: Delete {{ cl_filesd }}"
       ansible.builtin.file:
         state: absent
         path: "{{ cl_filesd }}"
-      when: cl_all_delete|bool or cl_filesd_delete|bool
+      when: cl_all_delete | bool or cl_filesd_delete | bool
 
-    - name: "vars-files: Assemble files to {{ cl_filesd }}"
+    - name: "Vars-files: Assemble files to {{ cl_filesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
         src: "{{ cl_filesd_dir }}"
         dest: "{{ cl_filesd }}"
-        owner: "{{ cl_dira_owner|default(omit) }}"
-        group: "{{ cl_dira_group|default(omit) }}"
+        owner: "{{ cl_dira_owner | d(omit) }}"
+        group: "{{ cl_dira_group | d(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate|default(omit, true) }}"
+        validate: "{{ cl_assemble_validate | d(omit, true) }}"
 
   rescue:
 
-    - name: "vars-files: Assemble files to {{ cl_filesd }} failed"
+    - name: "Vars-files: Failed assemble files to {{ cl_filesd }}"
       ansible.builtin.debug:
         msg: |-
           [ERR] Can not assemble files. End of play.
           {{ ansible_failed_result }}
 
-    - name: "vars-files: End of play"
-      meta: end_play
+    - name: "Vars-files: End of play"
+      ansible.builtin.meta: end_play
 
-  delegate_to: localhost
-
-- name: "vars-files: Include files from {{ cl_filesd }} to cl_filesd_items"
+- name: "Vars-files: Include files from {{ cl_filesd ~ ' to cl_filesd_items' }}"
   ansible.builtin.include_vars:
     file: "{{ cl_filesd }}"
     name: cl_filesd_items
 
-- name: "vars-files: Combine cl_files with cl_filesd_items"
+- name: "Vars-files: Combine cl_files with cl_filesd_items"
   ansible.builtin.set_fact:
-    cl_files: "{{ cl_files|combine(cl_filesd_items|default({})) }}"
+    cl_files: "{{ cl_files | combine(cl_filesd_items | d({})) }}"
 
-- name: "vars-files: Debug"
+- name: "Vars-files: Debug"
   ansible.builtin.debug:
     var: cl_files
-  when: cl_debug|bool
+  when: cl_debug | bool
 
 # EOF
-...
