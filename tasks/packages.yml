@@ -6,13 +6,13 @@
     my_packages_yum: "{{ cl_packages.values() | list | json_query('[?module == `yum`]') }}"
     my_packages_pkgng: "{{ cl_packages.values() | list | json_query('[?module == `pkgng`]') }}"
     my_packages_package: "{{ cl_packages.values() | list | json_query('[?module == `package`]') }}"
-    my_packages_undef: "{{ cl_packages.values() | list | selectattr('module', 'undefined') }}"
+    my_packages_undef: "{{ cl_packages.values() | list | selectattr('module', 'undefined') | flatten }}"
 
 - name: "Packages: Create list defaulted to module package"
   ansible.builtin.set_fact:
     my_packages_default: "{{ my_packages_package + my_packages_undef }}"
 
-- name: "Packages: Debug"
+- name: "Packages: Debug cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: |
       cl_packages:
@@ -38,8 +38,8 @@
     - my_packages_pkgng | length > 0
     - ansible_os_family == 'FreeBSD'
     - freebsd_install_method | lower == 'packages'
-
   block:
+
     - name: "Packages: Manage FreeBSD packages"
       community.general.pkgng:
         name: "{{ item.name }}" # list / elements=string / required
@@ -60,7 +60,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
 
-    - name: "Packages: Debug FreeBSD packages"
+    - name: "Packages: Debug FreeBSD packages cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: result
       when: cl_debug | bool
@@ -70,8 +70,8 @@
     - my_packages_pkgng | length > 0
     - ansible_os_family == 'FreeBSD'
     - freebsd_install_method | lower == 'ports'
-
   block:
+
     - name: "Packages: Manage FreeBSD ports"
       community.general.portinstall:
         name: "{{ item.1 }}" # string / required
@@ -85,7 +85,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
 
-    - name: "Packages: Debug FreeBSD ports"
+    - name: "Packages: Debug FreeBSD ports cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: result
       when: cl_debug | bool
@@ -94,15 +94,15 @@
   when:
     - my_packages_snap | length > 0
     - ansible_os_family in cl_supported_linux_family
-
   block:
+
     - name: "Packages: Find snap"
       ansible.builtin.find:
         paths: "{{ cl_snap_paths }}"
         patterns: "{{ cl_snap_patterns }}"
       register: cl_find_snap
 
-    - name: "Packages: Debug find snap"
+    - name: "Packages: Debug find snap cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: cl_find_snap
       when: cl_debug | bool
@@ -124,7 +124,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
 
-    - name: "Packages: Debug Linux snap"
+    - name: "Packages: Debug Linux snap cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: result
       when: cl_debug | bool
@@ -133,8 +133,8 @@
   when:
     - my_packages_default | length > 0
     - ansible_os_family in cl_supported_linux_family
-
   block:
+
     - name: "Packages: Manage Linux packages by package module"
       ansible.builtin.package:
         name: "{{ item.1 }}" # string / required
@@ -148,7 +148,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
 
-    - name: "Packages: Debug Linux package"
+    - name: "Packages: Debug Linux package cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: result
       when: cl_debug | bool
@@ -157,8 +157,8 @@
   when:
     - my_packages_yum | length > 0
     - ansible_os_family == 'RedHat'
-
   block:
+
     - name: "Packages: Manage Linux packages by yum module"
       ansible.builtin.dnf:
         name: "{{ item.name }}" #  list / elements=string
@@ -172,7 +172,7 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
 
-    - name: "Packages: Debug Linux yum"
+    - name: "Packages: Debug Linux yum cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: result
       when: cl_debug | bool
@@ -181,11 +181,9 @@
   when:
     - my_packages_apt | length > 0
     - ansible_os_family == 'Debian'
-
-  # TODO: Complete parameters of modules
-
-  # EOF
   block:
+
+    # TODO: Complete parameters of modules
     - name: "Packages: Manage Linux packages by apt module"
       ansible.builtin.apt:
         name: "{{ item.name }}" #  list / elements=string
@@ -199,7 +197,9 @@
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
 
-    - name: "Packages: Debug Linux apt"
+    - name: "Packages: Debug Linux apt cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: result
       when: cl_debug | bool
+
+# EOF

@@ -24,6 +24,9 @@ Minor Changes
 * Update lint config
 * Update README
 
+Bugfixes
+--------
+* Fix my_packages_undef flatten
 
 
 2.6.1
