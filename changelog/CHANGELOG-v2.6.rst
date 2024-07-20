@@ -17,6 +17,7 @@ Major Changes
 
 Minor Changes
 -------------
+* Add var cl_role_version
 * Bump role and docs version.
 
 Bugfixes
