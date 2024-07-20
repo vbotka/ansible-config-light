@@ -1,84 +1,86 @@
 ---
-
-# lines
-- name: "files-lineinfile: Debug lines in cl_files.values()"
+  # lines
+- name: "Files-lineinfile: Debug lines in cl_files.values()"
   ansible.builtin.debug:
-    msg: "{{ cl_files.values()|selectattr('lines', 'defined')|list }}"
-  when: cl_debug|bool
+    msg: "{{ cl_files.values() | selectattr('lines', 'defined') | list }}"
+  when: cl_debug | bool
 
-- name: "files-lineinfile: Lineinfile lines"
+- name: "Files-lineinfile: Lineinfile lines"
   ansible.builtin.lineinfile:
     path: "{{ item.0.path }}"
-    regexp: "{{ item.1.regexp|default(omit) }}"
-    line: "{{ item.1.line|default(omit) }}"
-    backrefs: "{{ item.1.backrefs|default(omit) }}"
-    state: "{{ item.1.state|default(omit) }}"
-    firstmatch: "{{ item.1.firstmatch|default(omit) }}"
-    insertafter: "{{ item.1.insertafter|default(omit) }}"
-    insertbefore: "{{ item.1.insertbefore|default(omit) }}"
-    owner: "{{ item.0.owner|default(omit) }}"
-    group: "{{ item.0.group|default(omit) }}"
-    mode: "{{ item.0.mode|default(omit) }}"
-    attributes: "{{ item.0.attributes|default(omit) }}"
-    others: "{{ item.0.others|default(omit) }}"
-    create: "{{ item.0.create|default(omit) }}"
-    validate: "{{ item.0.validate|default(omit) }}"
+    regexp: "{{ item.1.regexp | d(omit) }}"
+    line: "{{ item.1.line | d(omit) }}"
+    backrefs: "{{ item.1.backrefs | d(omit) }}"
+    state: "{{ item.1.state | d(omit) }}"
+    firstmatch: "{{ item.1.firstmatch | d(omit) }}"
+    insertafter: "{{ item.1.insertafter | d(omit) }}"
+    insertbefore: "{{ item.1.insertbefore | d(omit) }}"
+    owner: "{{ item.0.owner | d(omit) }}"
+    group: "{{ item.0.group | d(omit) }}"
+    mode: "{{ item.0.mode | d(omit) }}"
+    attributes: "{{ item.0.attributes | d(omit) }}"
+    others: "{{ item.0.others | d(omit) }}"
+    create: "{{ item.0.create | d(omit) }}"
+    validate: "{{ item.0.validate | d(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|list|subelements('lines', skip_missing=true) }}"
+  loop: "{{ cl_files.values() | list | subelements('lines', skip_missing=true) }}"
   loop_control:
-    label: "{{ item.0.path }} {{ item.1.line|default('') }}"
-  notify: "{{ item.0.handlers|default(omit) }}"
+    label: "{{ item.0.path }} {{ item.1.line | d('') }}"
+  notify: "{{ item.0.handlers | d(omit) }}"
   register: cl_results_lines
 
-- block:
-    - name: "files-lineinfile: Debug cl_results_lines"
+- name: Debug
+  when: cl_debug | bool
+  block:
+
+    - name: "Files-lineinfile: Debug cl_results_lines"
       ansible.builtin.debug:
         var: cl_results_lines
-    - name: "files-lineinfile: Debug changed lines paths"
+
+    - name: "Files-lineinfile: Debug changed lines paths"
       ansible.builtin.debug:
-        msg: "{{ cl_results_lines.results|default([])|
-                 json_query('[?changed].invocation.module_args.path') }}"
-  when: cl_debug|bool
+        msg: "{{ cl_results_lines.results | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 
-# dict
-- name: "files-lineinfile: Debug dict in cl_files.values()"
+  # dict
+- name: "Files-lineinfile: Debug dict in cl_files.values()"
   ansible.builtin.debug:
-    msg: "{{ cl_files.values()|selectattr('dict', 'defined')|list }}"
-  when: cl_debug|bool
+    msg: "{{ cl_files.values() | selectattr('dict', 'defined') | list }}"
+  when: cl_debug | bool
 
-- name: "files-lineinfile: Lineinfile dict"
+- name: "Files-lineinfile: Lineinfile dict"
   ansible.builtin.lineinfile:
     path: "{{ item.0.path }}"
-    regexp: '^\s*[#;]*\s*{{ item.1.key }}\s*{{ item.0.assignment|default("=")|trim }}\s*(.*)$'
-    line: "{{ item.1.key }}{{ item.0.assignment|default('=') }}{{ item.1.value }}"
-    backrefs: "{{ item.1.backrefs|default(omit) }}"
-    state: "{{ item.1.state|default(omit) }}"
-    firstmatch: "{{ item.1.firstmatch|default(omit) }}"
-    insertafter: "{{ item.1.insertafter|default(omit) }}"
-    insertbefore: "{{ item.1.insertbefore|default(omit) }}"
-    owner: "{{ item.0.owner|default(omit) }}"
-    group: "{{ item.0.group|default(omit) }}"
-    mode: "{{ item.0.mode|default(omit) }}"
-    attributes: "{{ item.0.attributes|default(omit) }}"
-    others: "{{ item.0.others|default(omit) }}"
-    create: "{{ item.0.create|default(omit) }}"
-    validate: "{{ item.0.validate|default(omit) }}"
+    regexp: ^\s*[#;]*\s*{{ item.1.key }}\s*{{ item.0.assignment|d("=")|trim }}\s*(.*)$
+    line: "{{ item.1.key }}{{ item.0.assignment | d('=') }}{{ item.1.value }}"
+    backrefs: "{{ item.1.backrefs | d(omit) }}"
+    state: "{{ item.1.state | d(omit) }}"
+    firstmatch: "{{ item.1.firstmatch | d(omit) }}"
+    insertafter: "{{ item.1.insertafter | d(omit) }}"
+    insertbefore: "{{ item.1.insertbefore | d(omit) }}"
+    owner: "{{ item.0.owner | d(omit) }}"
+    group: "{{ item.0.group | d(omit) }}"
+    mode: "{{ item.0.mode | d(omit) }}"
+    attributes: "{{ item.0.attributes | d(omit) }}"
+    others: "{{ item.0.others | d(omit) }}"
+    create: "{{ item.0.create | d(omit) }}"
+    validate: "{{ item.0.validate | d(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|list|subelements('dict', skip_missing=true) }}"
+  loop: "{{ cl_files.values() | list | subelements('dict', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }} {{ item.1.key }}"
-  notify: "{{ item.0.handlers|default(omit) }}"
+  notify: "{{ item.0.handlers | d(omit) }}"
   register: cl_results_dict
 
-- block:
-    - name: "files-lineinfile: Debug cl_results_dict"
+- name: Debug
+  when: cl_debug | bool
+  block:
+
+    - name: "Files-lineinfile: Debug cl_results_dict"
       ansible.builtin.debug:
         var: cl_results_dict
-    - name: "files-lineinfile: Debug changed dict paths"
+
+    - name: "Files-lineinfile: Debug changed dict paths"
       ansible.builtin.debug:
-        msg: "{{ cl_results_dict.results|default([])|
-                 json_query('[?changed].invocation.module_args.path') }}"
-  when: cl_debug|bool
+        msg: "{{ cl_results_dict.results | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 
 # EOF
-...

@@ -1,9 +1,10 @@
+---
 lighttpd-fastcgiconf:
   path: /usr/local/etc/lighttpd/conf.d/fastcgi.conf
   create: true
   owner: root
   group: wheel
-  mode: '0644'
+  mode: "0644"
   copyfile: "{{ cl_lighttpd_fastcgiconf_copy }}"
   blocks: "{{ cl_lighttpd_fastcgiconf_blocks }}"
   handlers:

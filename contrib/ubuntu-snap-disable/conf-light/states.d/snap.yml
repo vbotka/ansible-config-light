@@ -1,3 +1,4 @@
+---
 snap_root:
   path: /snap
   state: absent

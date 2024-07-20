@@ -1,3 +1,4 @@
+---
 cupsd_conf:
   path: /etc/cups/cupsd.conf
   lines: "{{ cl_cupsd_conf_lines }}"

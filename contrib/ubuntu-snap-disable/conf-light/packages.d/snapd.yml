@@ -1,3 +1,4 @@
+---
 snap_deinstall_list2:
   module: apt
   state: absent

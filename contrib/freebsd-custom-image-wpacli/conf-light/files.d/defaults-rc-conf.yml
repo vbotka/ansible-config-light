@@ -1,3 +1,4 @@
+---
 defaults_rc_conf:
   path: "{{ bsd_cimage_mount_path }}/etc/defaults/rc.conf"
   patch:

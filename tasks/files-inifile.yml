@@ -1,40 +1,40 @@
 ---
-
-- name: "files-inifile: Debug ini in cl_files.values()"
+- name: "Files-inifile: Debug ini in cl_files.values()"
   ansible.builtin.debug:
-    msg: "{{ cl_files.values()|selectattr('ini', 'defined')|list }}"
-  when: cl_debug|bool
+    msg: "{{ cl_files.values() | selectattr('ini', 'defined') | list }}"
+  when: cl_debug | bool
 
-- name: "files-inifile: INI files"
+- name: "Files-inifile: INI files"
   community.general.ini_file:
     path: "{{ item.0.path }}"
     section: "{{ item.1.section }}"
-    option: "{{ item.1.option|default(omit) }}"
-    value: "{{ item.1.value|default(omit) }}"
-    state: "{{ item.1.state|default(omit) }}"
-    allow_no_value: "{{ item.1.allow_no_value|default(omit) }}"
-    no_extra_spaces: "{{ item.1.no_extra_spaces|default(omit) }}"
-    owner: "{{ item.0.owner|default(omit) }}"
-    group: "{{ item.0.group|default(omit) }}"
-    mode: "{{ item.0.mode|default(omit) }}"
-    attributes: "{{ item.0.attributes|default(omit) }}"
-    create: "{{ item.0.create|default(omit) }}"
+    option: "{{ item.1.option | d(omit) }}"
+    value: "{{ item.1.value | d(omit) }}"
+    state: "{{ item.1.state | d(omit) }}"
+    allow_no_value: "{{ item.1.allow_no_value | d(omit) }}"
+    no_extra_spaces: "{{ item.1.no_extra_spaces | d(omit) }}"
+    owner: "{{ item.0.owner | d(omit) }}"
+    group: "{{ item.0.group | d(omit) }}"
+    mode: "{{ item.0.mode | d(omit) }}"
+    attributes: "{{ item.0.attributes | d(omit) }}"
+    create: "{{ item.0.create | d(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|list|subelements('ini', {'skip_missing': True}) }}"
+  loop: "{{ cl_files.values() | list | subelements('ini', {'skip_missing': True}) }}"
   loop_control:
     label: "{{ item.0.path }}"
-  notify: "{{ item.0.handlers|default(omit) }}"
+  notify: "{{ item.0.handlers | d(omit) }}"
   register: cl_results_ini
 
-- block:
-    - name: "files-inifile: Debug cl_results_ini"
+- name: Debug
+  when: cl_debug | bool
+  block:
+
+    - name: "Files-inifile: Debug cl_results_ini"
       ansible.builtin.debug:
         var: cl_results_ini
-    - name: "files-inifile: Debug changed ini paths"
+
+    - name: "Files-inifile: Debug changed ini paths"
       ansible.builtin.debug:
-        msg: "{{ cl_results_ini.results|default([])|
-                 json_query('[?changed].invocation.module_args.path') }}"
-  when: cl_debug|bool
+        msg: "{{ cl_results_ini.results | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 
 # EOF
-...

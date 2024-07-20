@@ -1,3 +1,4 @@
+---
 ssmtp:
   module: pkgng
   name:

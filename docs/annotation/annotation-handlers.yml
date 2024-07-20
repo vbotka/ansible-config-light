@@ -6,11 +6,9 @@ myhandlers:
     synopsis: |
       Main task.
     description: |
-      Import handlers. Content of this file is created dynamically.
-    lines: 1
-    seealso:
-      others:
-        - See :ref:`ug_bp`
+      Import handlers.
+    lines: 1,2
+    seealso: []
     note: []
     warning: []
 

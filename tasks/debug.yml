@@ -1,6 +1,5 @@
 ---
-
-- name: "debug: Config Light"
+- name: "Debug: Config Light"
   vars:
     msg: |-
       ansible_os_family: {{ ansible_os_family }}
@@ -13,7 +12,7 @@
       cl_supported_linux_family: {{ cl_supported_linux_family }}
       cl_supported_modules_pkg: {{ cl_supported_modules_pkg }}
       cl_collections:
-        {{ cl_collections|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_collections | to_nice_yaml(indent=2) | indent(2) }}
 
       cl_sanity: {{ cl_sanity }}
       cl_sanity_quiet: {{ cl_sanity_quiet }}
@@ -28,19 +27,19 @@
       cl_template_delete: {{ cl_template_delete }}
 
       cl_handlers:
-        {{ cl_handlers|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_handlers | to_nice_yaml(indent=2) | indent(2) }}
       cl_packages:
-        {{ cl_packages|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_packages | to_nice_yaml(indent=2) | indent(2) }}
       cl_services:
-        {{ cl_services|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_services | to_nice_yaml(indent=2) | indent(2) }}
       cl_files:
-        {{ cl_files|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_files | to_nice_yaml(indent=2) | indent(2) }}
       cl_states:
-        {{ cl_states|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_states | to_nice_yaml(indent=2) | indent(2) }}
 
       cl_dird: {{ cl_dird }}
-      cl_dird_owner: {{ cl_dira_owner|default('UNDEFINED') }}
-      cl_dird_group: {{ cl_dira_group|default('UNDEFINED') }}
+      cl_dird_owner: {{ cl_dira_owner | default('UNDEFINED') }}
+      cl_dird_group: {{ cl_dira_group | default('UNDEFINED') }}
       cl_dird_dmode: {{ cl_dira_dmode }}
 
       cl_handlersd_dir: {{ cl_handlersd_dir }}
@@ -50,8 +49,8 @@
       cl_statesd_dir: {{ cl_statesd_dir }}
 
       cl_dira: {{ cl_dira }}
-      cl_dira_owner: {{ cl_dira_owner|default('UNDEFINED') }}
-      cl_dira_group: {{ cl_dira_group|default('UNDEFINED') }}
+      cl_dira_owner: {{ cl_dira_owner | default('UNDEFINED') }}
+      cl_dira_group: {{ cl_dira_group | default('UNDEFINED') }}
       cl_dira_dmode: {{ cl_dira_dmode }}
       cl_dira_fmode: {{ cl_dira_fmode }}
       cl_assemble_regexp: {{ cl_assemble_regexp }}
@@ -72,11 +71,11 @@
       cl_statesd_delete: {{ cl_statesd_delete }}
 
       cl_yamllint: {{ cl_yamllint }}
-      cl_assemble_validate: {{ cl_assemble_validate|default('UNDEFINED') }}
-      cl_handlers_validate: {{ cl_handlers_validate|default('UNDEFINED') }}
+      cl_assemble_validate: {{ cl_assemble_validate | default('UNDEFINED') }}
+      cl_handlers_validate: {{ cl_handlers_validate | default('UNDEFINED') }}
 
       cl_files_order:
-        {{ cl_files_order|to_nice_yaml(indent=2)|indent(2) }}
+        {{ cl_files_order | to_nice_yaml(indent=2) | indent(2) }}
 
       install_retries: {{ install_retries }}
       install_delay: {{ install_delay }}
@@ -89,4 +88,3 @@
     msg: "{{ '{}'.format(msg) }}"
 
 # EOF
-...

@@ -1,3 +1,5 @@
+.. _as_tamplates:
+
 Templates
 =========
 
@@ -21,6 +23,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_1.1.0-wpa_action.sh.j2:
 
 1.1.0-wpa_action.sh.j2
@@ -40,6 +45,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_dma-auth.conf.j2:
 
@@ -61,6 +69,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_handlers-auto1.yml.j2:
 
 handlers-auto1.yml.j2
@@ -80,6 +91,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_handlers-auto2.yml.j2:
 
@@ -101,6 +115,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_hosts.j2:
 
 hosts.j2
@@ -120,6 +137,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_loader.conf.j2:
 
@@ -141,6 +161,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_mailer.conf.j2:
 
 mailer.conf.j2
@@ -160,6 +183,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_ntp.conf-minimal.j2:
 
@@ -181,6 +207,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_revaliases.j2:
 
 revaliases.j2
@@ -200,6 +229,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_ssmtp.conf.j2:
 
@@ -221,6 +253,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_wpa_cli.j2:
 
 wpa_cli.j2
@@ -240,6 +275,9 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 
 .. _as_template_wpa_supplicant.conf.j2:
 
@@ -261,6 +299,9 @@ Description of the template.
     :emphasize-lines: 1
     :linenos:
 
+
+
+
 .. _as_template_wpa_supplicant.conf.wlan0.j2:
 
 wpa_supplicant.conf.wlan0.j2
@@ -280,4 +321,7 @@ Description of the template.
     :language: jinja
     :emphasize-lines: 1
     :linenos:
+
+
+
 

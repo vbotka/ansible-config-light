@@ -3,7 +3,7 @@
 
 - name: Import setup.yml
   ansible.builtin.import_tasks: setup.yml
-  when: cl_setup|bool
+  when: cl_setup | bool
   delegate_to: localhost
   run_once: true
   tags: [cl_setup, always]
@@ -14,19 +14,19 @@
 
 - name: Import sanity.yml
   ansible.builtin.import_tasks: sanity.yml
-  when: cl_sanity|bool
+  when: cl_sanity | bool
   delegate_to: localhost
   run_once: true
   tags: [cl_sanity, always]
 
 - name: Import debug.yml
   ansible.builtin.import_tasks: debug.yml
-  when: cl_debug|bool
+  when: cl_debug | bool
   tags: cl_debug
 
 - name: Import packages.yml
   ansible.builtin.import_tasks: packages.yml
-  when: cl_install|bool
+  when: cl_install | bool
   tags: cl_packages
 
 - name: Import states.yml
@@ -42,4 +42,3 @@
   tags: cl_services
 
 # EOF
-...

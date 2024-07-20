@@ -1,3 +1,4 @@
+---
 postfix:
   name: postfix
   state: "{{ cl_service_postfix_state }}"

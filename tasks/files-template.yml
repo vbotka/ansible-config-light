@@ -1,54 +1,54 @@
 ---
-
-- name: "files-template: Debug template in cl_files.values()"
+- name: "Files-template: Debug template in cl_files.values()"
   ansible.builtin.debug:
-    msg: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
+    msg: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
   when: cl_debug|bool
 
-- name: "files-template: Delete template in cl_files.values()"
+- name: "Files-template: Delete template in cl_files.values()"
   ansible.builtin.file:
     state: absent
     path: "{{ item.path }}"
-  loop: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
+  loop: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  when: cl_template_delete|bool
+  when: cl_template_delete | bool
 
-- name: "files-template: Template"
+- name: "Files-template: Template"
   ansible.builtin.template:
     dest: "{{ item.path }}"
     src: "{{ item.template.path }}"
-    follow: "{{ item.template.follow|default(omit) }}"
-    force: "{{ item.template.force|default(omit) }}"
-    block_start_string: "{{ item.template.block_start_string|default(omit) }}"
-    block_end_string: "{{ item.template.block_end_string|default(omit) }}"
-    lstrip_blocks: "{{ item.template.lstrip_blocks|default(omit) }}"
-    newline_sequence: "{{ item.template.newline_sequence|default(omit) }}"
-    output_encoding: "{{ item.template.output_encoding|default(omit) }}"
-    trim_blocks: "{{ item.template.trim_blocks|default(omit) }}"
-    variable_end_string: "{{ item.template.variable_end_string|default(omit) }}"
-    variable_start_string: "{{ item.template.variable_start_string|default(omit) }}"
-    owner: "{{ item.owner|default(omit) }}"
-    group: "{{ item.group|default(omit) }}"
-    mode: "{{ item.mode|default(omit) }}"
-    attributes: "{{ item.attributes|default(omit) }}"
-    validate: "{{ item.validate|default(omit) }}"
+    follow: "{{ item.template.follow | d(omit) }}"
+    force: "{{ item.template.force | d(omit) }}"
+    block_start_string: "{{ item.template.block_start_string | d(omit) }}"
+    block_end_string: "{{ item.template.block_end_string | d(omit) }}"
+    lstrip_blocks: "{{ item.template.lstrip_blocks | d(omit) }}"
+    newline_sequence: "{{ item.template.newline_sequence | d(omit) }}"
+    output_encoding: "{{ item.template.output_encoding | d(omit) }}"
+    trim_blocks: "{{ item.template.trim_blocks | d(omit) }}"
+    variable_end_string: "{{ item.template.variable_end_string | d(omit) }}"
+    variable_start_string: "{{ item.template.variable_start_string | d(omit) }}"
+    owner: "{{ item.owner | d(omit) }}"
+    group: "{{ item.group | d(omit) }}"
+    mode: "{{ item.mode | d(omit) }}"
+    attributes: "{{ item.attributes | d(omit) }}"
+    validate: "{{ item.validate | d(omit) }}"
     # backup: "{{ cl_backup }}"
-  loop: "{{ cl_files.values()|selectattr('template', 'defined')|list }}"
+  loop: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  notify: "{{ item.handlers|default(omit) }}"
+  notify: "{{ item.handlers | d(omit) }}"
   register: cl_results_template
 
-- block:
-    - name: "files-template: Debug cl_results_template"
+- name: Debug
+  when: cl_debug | bool
+  block:
+
+    - name: "Files-template: Debug cl_results_template"
       ansible.builtin.debug:
         var: cl_results_template
-    - name: "files-template: Debug changed template path"
+
+    - name: "Files-template: Debug changed template path"
       ansible.builtin.debug:
-        msg: "{{ cl_results_template|default([])|
-                 json_query('[?changed].invocation.module_args.path') }}"
-  when: cl_debug|bool
+        msg: "{{ cl_results_template | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 
 # EOF
-...

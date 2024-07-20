@@ -1,9 +1,10 @@
+---
 php-phpini:
   path: /usr/local/etc/php.ini
   create: true
   owner: root
   group: wheel
-  mode: '0644'
+  mode: "0644"
   copyfile: "{{ cl_php_phpini_copy }}"
   dict: "{{ cl_php_phpini_dict }}"
   handlers:

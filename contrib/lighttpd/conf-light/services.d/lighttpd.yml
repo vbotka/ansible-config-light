@@ -1,3 +1,4 @@
+---
 lighttpd:
   name: lighttpd
   state: "{{ cl_service_lighttpd_state }}"

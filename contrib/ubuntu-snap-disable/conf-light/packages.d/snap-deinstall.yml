@@ -1,3 +1,4 @@
+---
 snap_deinstall_list1:
   module: snap
   state: absent
