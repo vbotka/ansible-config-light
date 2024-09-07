@@ -19,6 +19,7 @@ Minor Changes
 -------------
 * Add var cl_role_version
 * Bump role and docs version.
+* Update tests/test.yml playbook
 
 Bugfixes
 --------
