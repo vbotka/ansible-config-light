@@ -7,17 +7,17 @@
       ansible.builtin.file:
         state: absent
         path: "{{ cl_statesd }}"
-      when: cl_all_delete|bool or cl_statesd_delete|bool
+      when: cl_all_delete | bool or cl_statesd_delete | bool
 
     - name: "Vars-states: Assemble states to {{ cl_statesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
         src: "{{ cl_statesd_dir }}"
         dest: "{{ cl_statesd }}"
-        owner: "{{ cl_dira_owner | default(omit) }}"
-        group: "{{ cl_dira_group | default(omit) }}"
+        owner: "{{ cl_dira_owner | d(omit) }}"
+        group: "{{ cl_dira_group | d(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate | default(omit, true) }}"
+        validate: "{{ cl_assemble_validate | d(omit, true) }}"
 
   rescue:
 
@@ -37,11 +37,11 @@
 
 - name: "Vars-states: Combine cl_statess with cl_statesd_items"
   ansible.builtin.set_fact:
-    cl_states: "{{ cl_states | combine(cl_statesd_items | default({})) }}"
+    cl_states: "{{ cl_states | combine(cl_statesd_items | d({})) }}"
 
-- name: "Vars-states: Debug"
+- name: "Vars-states: Debug cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     var: cl_states
-  when: cl_debug|bool
+  when: cl_debug | bool
 
 # EOF

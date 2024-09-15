@@ -4,6 +4,7 @@
 {% for iitem in item.value.handlers %}
 
 - name: {{ iitem.handler }}
+  listen: {{ iitem.listen | d(iitem.handler) }}
   {{ iitem.module }}:
 {% for param in iitem.params %}
     {{ param }}

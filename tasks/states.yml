@@ -1,5 +1,5 @@
 ---
-- name: "States: Debug"
+- name: "States: Debug cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_states }}"
   when: cl_debug | bool

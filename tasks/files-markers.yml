@@ -1,5 +1,5 @@
 ---
-- name: "Files-markers: Debug markers in cl_files.values()"
+- name: "Files-markers: Debug markers in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('markers', 'defined') | list }}"
   when: cl_debug | bool

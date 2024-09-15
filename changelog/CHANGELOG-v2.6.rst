@@ -17,12 +17,17 @@ Major Changes
 
 Minor Changes
 -------------
-* Add var cl_role_version
 * Bump role and docs version.
+* Add var cl_role_version
+* Update tasks/debug.yml
 * Update tests/test.yml playbook
+* Update setup.yml
+* Update formatting templates/handlers-auto2.yml.j2
+* Add templates/handlers-auto3.yml.j2; include param 'listen'
 
 Bugfixes
 --------
+* Handlers setup. Use search_string insteda of line in lineinfile.
 
 
 2.6.2

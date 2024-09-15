@@ -1,5 +1,5 @@
 ---
-- name: "Files-inifile: Debug ini in cl_files.values()"
+- name: "Files-inifile: Debug ini in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('ini', 'defined') | list }}"
   when: cl_debug | bool
@@ -29,11 +29,11 @@
   when: cl_debug | bool
   block:
 
-    - name: "Files-inifile: Debug cl_results_ini"
+    - name: "Files-inifile: Debug cl_results_ini cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: cl_results_ini
 
-    - name: "Files-inifile: Debug changed ini paths"
+    - name: "Files-inifile: Debug changed ini paths cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         msg: "{{ cl_results_ini.results | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 

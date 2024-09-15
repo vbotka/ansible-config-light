@@ -7,17 +7,17 @@
       ansible.builtin.file:
         state: absent
         path: "{{ cl_packagesd }}"
-      when: cl_all_delete|bool or cl_packagesd_delete|bool
+      when: cl_all_delete | bool or cl_packagesd_delete | bool
 
     - name: "Vars-packages: Assemble packages to {{ cl_packagesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
         src: "{{ cl_packagesd_dir }}"
         dest: "{{ cl_packagesd }}"
-        owner: "{{ cl_dira_owner | default(omit) }}"
-        group: "{{ cl_dira_group | default(omit) }}"
+        owner: "{{ cl_dira_owner | d(omit) }}"
+        group: "{{ cl_dira_group | d(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate | default(omit, true) }}"
+        validate: "{{ cl_assemble_validate | d(omit, true) }}"
 
   rescue:
 
@@ -29,6 +29,7 @@
 
     - name: "Vars-packages: End of play"
       ansible.builtin.meta: end_play
+
 - name: "Vars-packages: Include files from {{ cl_packagesd ~ ' to cl_packagesd_items' }}"
   ansible.builtin.include_vars:
     file: "{{ cl_packagesd }}"
@@ -36,12 +37,12 @@
 
 - name: "Vars-packages: Combine cl_packages with cl_packagesd_items"
   ansible.builtin.set_fact:
-    cl_packages: "{{ cl_packages | combine(cl_packagesd_items | default({})) }}"
+    cl_packages: "{{ cl_packages | combine(cl_packagesd_items | d({})) }}"
 
-- name: "Vars-packages: Debug"
+- name: "Vars-packages: Debug cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     var: cl_packages
-  when: cl_debug|bool
+  when: cl_debug | bool
 
 # TODO: sort|unique list of packages/ports
 

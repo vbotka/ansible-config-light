@@ -1,5 +1,5 @@
 ---
-- name: "Files-blockinfile: Debug blocks in cl_files.values()"
+- name: "Files-blockinfile: Debug blocks in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('blocks', 'defined') | list }}"
   when: cl_debug | bool

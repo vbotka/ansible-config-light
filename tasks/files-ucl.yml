@@ -1,5 +1,5 @@
 ---
-- name: "Files-ucl: Debug ucl in cl_files.values()"
+- name: "Files-ucl: Debug ucl in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('ucl', 'defined') | list }}"
   when: cl_debug|bool
@@ -34,11 +34,11 @@
   when: cl_debug | bool
   block:
 
-    - name: "Files-ucl: Debug cl_results_ucl"
+    - name: "Files-ucl: Debug cl_results_ucl cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: cl_results_ucl
 
-    - name: "Files-ucl: Debug changed ucl paths"
+    - name: "Files-ucl: Debug changed ucl paths cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         msg: "{{ cl_results_ucl.results | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 

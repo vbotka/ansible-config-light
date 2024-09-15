@@ -39,7 +39,7 @@
   ansible.builtin.set_fact:
     cl_files: "{{ cl_files | combine(cl_filesd_items | d({})) }}"
 
-- name: "Vars-files: Debug"
+- name: "Vars-files: Debug cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     var: cl_files
   when: cl_debug | bool
