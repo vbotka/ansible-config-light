@@ -11,7 +11,7 @@ modules will be used. This `data-driven programming
 provides a flexible and robust framework to apply basic Ansible
 modules:
 
-* apt, yum, snap, package, pkgng, portinstall
+* apt, dnf, snap, package, pkgng, portinstall
 * mount, file
 * template, copy, replace, patch, lineinfile, blockinfile, ini_file
 * service

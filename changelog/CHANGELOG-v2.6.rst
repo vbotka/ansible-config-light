@@ -24,6 +24,9 @@ Minor Changes
 * Update setup.yml
 * Update formatting templates/handlers-auto2.yml.j2
 * Add templates/handlers-auto3.yml.j2; include param 'listen'
+* Update docs:
+  - Add templates/handlers-auto2.yml.j2
+  - For backward compatibility use yum instead of dnf in configuration.
 
 Bugfixes
 --------

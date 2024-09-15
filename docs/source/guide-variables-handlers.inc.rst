@@ -43,6 +43,28 @@ Parameters
      - list
      - List of conditions
 
+Version control
+^^^^^^^^^^^^^^^
+
+The role is distributed with no handlers and empty file *main.yml*
+
+.. code-block:: yaml
+
+   shell> cat handlers/main.yml
+   ---
+   # handlers
+
+It's up to you whether you include the changed *main.yml* and created
+handlers in the version control. In git, run the below command to
+ignore changes in *main.yml* ::
+
+   shell> git update-index --assume-unchanged handlers/main.yml
+
+To ignore the created handlers put into the *.gitignore* ::
+
+   handlers/*.yml
+
+
 Examples
 ^^^^^^^^
 

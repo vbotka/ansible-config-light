@@ -118,6 +118,29 @@ Description of the template.
 
 
 
+.. _as_template_handlers-auto3.yml.j2:
+
+handlers-auto3.yml.j2
+---------------------
+
+Synopsis: Template handlers-auto3.yml.
+
+
+Description of the template.
+
+
+[`templates/handlers-auto3.yml.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto3.yml.j2>`_]
+
+.. highlight:: jinja
+    :linenothreshold: 5
+.. literalinclude:: ../../templates/handlers-auto3.yml.j2
+    :language: jinja
+    :emphasize-lines: 1
+    :linenos:
+
+
+
+
 .. _as_template_hosts.j2:
 
 hosts.j2
