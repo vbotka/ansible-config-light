@@ -5,6 +5,25 @@ vbotka.config_light 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.4
+=====
+
+Release Summary
+---------------
+Maintenance release with updated docs.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Update docs:
+  - Add parameter listen to handlers cl_handlers
+
+Bugfixes
+--------
+
+
 2.6.3
 =====
 

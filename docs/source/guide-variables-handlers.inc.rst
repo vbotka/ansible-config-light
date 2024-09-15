@@ -33,6 +33,9 @@ Parameters
    * - ``-`` handler
      - string ``required``
      - Name of the handler
+   * - ``-`` listen
+     - string
+     - Topic to listen to
    * - ``-`` module
      - string ``required``
      - Ansible module in handler
@@ -94,7 +97,10 @@ Take a look at the file with the handlers ::
 The file is imported into the *handlers/main.ym* ::
 
   shell> grep handlers-auto-postfix_freebsd.yml roles/vbotka.config_light/handlers/main.yml
-  - import_tasks: handlers-auto-postfix_freebsd.yml
+  - import_tasks: handlers-auto-postfix_freebsd.yml # noqa: name[missing]
+
+There is no *name* in this task. The comment ``# noqa: name[missing]``
+prevents *ansible-lint* from complaining about missing *name*.
 
 
 .. seealso::
