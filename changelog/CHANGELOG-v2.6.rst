@@ -5,6 +5,34 @@ vbotka.config_light 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.3
+=====
+
+Release Summary
+---------------
+Maintenance and bugfix release with updated docs.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Bump role and docs version.
+* Add var cl_role_version
+* Update tasks/debug.yml
+* Update tests/test.yml playbook
+* Update setup.yml
+* Update formatting templates/handlers-auto2.yml.j2
+* Add templates/handlers-auto3.yml.j2; include param 'listen'
+* Update docs:
+  - Add templates/handlers-auto2.yml.j2
+  - For backward compatibility use yum instead of dnf in configuration.
+
+Bugfixes
+--------
+* Handlers setup. Use search_string insteda of line in lineinfile.
+
+
 2.6.2
 =====
 

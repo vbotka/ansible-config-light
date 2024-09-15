@@ -1,5 +1,5 @@
 ---
-- name: "Files-copy: Debug copyfile in cl_files.values()"
+- name: "Files-copy: Debug copyfile in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('copyfile', 'defined') | list }}"
   when: cl_debug | bool
@@ -41,11 +41,11 @@
   when: cl_debug | bool
   block:
 
-    - name: "Files-copy: Debug cl_results_copy"
+    - name: "Files-copy: Debug cl_results_copy cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: cl_results_copy
 
-    - name: "Files-copy: Debug changed copy path"
+    - name: "Files-copy: Debug changed copy path cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         msg: "{{ cl_results_copy | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 

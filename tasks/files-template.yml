@@ -1,8 +1,8 @@
 ---
-- name: "Files-template: Debug template in cl_files.values()"
+- name: "Files-template: Debug template in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
-  when: cl_debug|bool
+  when: cl_debug | bool
 
 - name: "Files-template: Delete template in cl_files.values()"
   ansible.builtin.file:
@@ -43,11 +43,11 @@
   when: cl_debug | bool
   block:
 
-    - name: "Files-template: Debug cl_results_template"
+    - name: "Files-template: Debug cl_results_template cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: cl_results_template
 
-    - name: "Files-template: Debug changed template path"
+    - name: "Files-template: Debug changed template path cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         msg: "{{ cl_results_template | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 

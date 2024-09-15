@@ -11,10 +11,10 @@
     label: "{{ item }}"
   register: result
 
-- name: "File-create-backup: Debug result"
+- name: "File-create-backup: Debug result cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     var: result
-  when: cl_debug|bool
+  when: cl_debug | bool
 
 - name: "File-create-backup: Create backup files"
   ansible.builtin.copy:

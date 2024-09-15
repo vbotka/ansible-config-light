@@ -42,7 +42,7 @@
 
     - name: "Packages: Manage FreeBSD packages"
       community.general.pkgng:
-        name: "{{ item.name }}" # list / elements=string / required
+        name: "{{ item.name }}" # list/elements=string required
         state: "{{ item.state | d(omit) }}"
         annotation: "{{ item.annotation | d(omit) }}"
         autoremove: "{{ freebsd_pkgng_autoremove | d(omit) }}"
@@ -74,7 +74,7 @@
 
     - name: "Packages: Manage FreeBSD ports"
       community.general.portinstall:
-        name: "{{ item.1 }}" # string / required
+        name: "{{ item.1 }}" # string required
         state: "{{ item.0.state | d(omit) }}"
         use_packages: "{{ item.0.use_packages | d(freebsd_use_packages) }}"
       loop: "{{ my_packages_pkgng | d([]) | subelements('name') }}"
@@ -112,9 +112,10 @@
         msg: "[ERR] snap is missing."
       when: cl_find_snap.matched == 0
 
+      # TODO: Complete parameters of the modules
     - name: "Packages: Manage Linux packages by snap module"
       community.general.snap:
-        name: "{{ item.name }}" #  list / elements=string
+        name: "{{ item.name }}" # list/elements=string
         state: "{{ item.state | d(omit) }}"
       loop: "{{ my_packages_snap }}"
       loop_control:
@@ -153,15 +154,16 @@
         var: result
       when: cl_debug | bool
 
-- name: Linux yum
+- name: Linux yum/dnf
   when:
     - my_packages_yum | length > 0
     - ansible_os_family == 'RedHat'
   block:
 
-    - name: "Packages: Manage Linux packages by yum module"
+      # TODO: Complete parameters of the modules
+    - name: "Packages: Manage Linux packages by dnf module"
       ansible.builtin.dnf:
-        name: "{{ item.name }}" #  list / elements=string
+        name: "{{ item.name }}" # list/elements=string
         state: "{{ item.state | d(omit) }}"
         use_backend: "{{ item.use | d(omit) }}"
       loop: "{{ my_packages_yum }}"
@@ -183,10 +185,10 @@
     - ansible_os_family == 'Debian'
   block:
 
-    # TODO: Complete parameters of modules
+      # TODO: Complete parameters of the modules
     - name: "Packages: Manage Linux packages by apt module"
       ansible.builtin.apt:
-        name: "{{ item.name }}" #  list / elements=string
+        name: "{{ item.name }}" # list/elements=string
         state: "{{ item.state | d(omit) }}"
         purge: "{{ item.purge | d(omit) }}"
       loop: "{{ my_packages_apt }}"

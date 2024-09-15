@@ -1,5 +1,5 @@
 ---
-- name: "Services: Debug"
+- name: "Services: Debug cl_debug={{ cl_debug }}"
   vars:
     msg: |-
       cl_services_freebsd_rcconf_auto: {{ cl_services_freebsd_rcconf_auto }}

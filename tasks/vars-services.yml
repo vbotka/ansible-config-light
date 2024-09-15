@@ -7,17 +7,17 @@
       ansible.builtin.file:
         state: absent
         path: "{{ cl_servicesd }}"
-      when: cl_all_delete|bool or cl_servicesd_delete|bool
+      when: cl_all_delete | bool or cl_servicesd_delete | bool
 
     - name: "Vars-services: Assemble services to {{ cl_servicesd }}"
       ansible.builtin.assemble:
         regexp: "{{ cl_assemble_regexp }}"
         src: "{{ cl_servicesd_dir }}"
         dest: "{{ cl_servicesd }}"
-        owner: "{{ cl_dira_owner | default(omit) }}"
-        group: "{{ cl_dira_group | default(omit) }}"
+        owner: "{{ cl_dira_owner | d(omit) }}"
+        group: "{{ cl_dira_group | d(omit) }}"
         mode: "{{ cl_dira_fmode }}"
-        validate: "{{ cl_assemble_validate | default(omit, true) }}"
+        validate: "{{ cl_assemble_validate | d(omit, true) }}"
 
   rescue:
 
@@ -36,11 +36,11 @@
 
 - name: "Vars-services: Combine cl_services with cl_servicesd_items"
   ansible.builtin.set_fact:
-    cl_services: "{{ cl_services | combine(cl_servicesd_items | default({})) }}"
+    cl_services: "{{ cl_services | combine(cl_servicesd_items | d({})) }}"
 
-- name: "Vars-services: Debug"
+- name: "Vars-services: Debug cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     var: cl_services
-  when: cl_debug|bool
+  when: cl_debug | bool
 
 # EOF

@@ -1,5 +1,5 @@
 ---
-- name: "Files-patch: Debug patch in cl_files.values()"
+- name: "Files-patch: Debug patch in cl_files.values() cl_debug={{ cl_debug }}"
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('patch', 'defined') | list }}"
   when: cl_debug | bool
@@ -25,11 +25,11 @@
   when: cl_debug | bool
   block:
 
-    - name: "Files-patch: Debug cl_results_patch"
+    - name: "Files-patch: Debug cl_results_patch cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         var: cl_results_patch
 
-    - name: "Files-patch: Debug changed patch patch"
+    - name: "Files-patch: Debug changed patch patch cl_debug={{ cl_debug }}"
       ansible.builtin.debug:
         msg: "{{ cl_results_patch | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 

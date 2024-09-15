@@ -13,7 +13,7 @@ control-flow will be determined by the user provided configuration
 data. Some attributes of the dictionaries determine which Ansible
 module will be used. This `data-driven programming
 <https://en.wikipedia.org/wiki/Data-driven_programming>`_ paradigm
-provides a flexible, and robust framework to apply basic Ansible
+provides a flexible and robust framework to apply basic Ansible
 modules. In the code, each Ansible module is used only
 once. This makes the implementation, upgrading, and testing of the
 modules simple and easy.
@@ -52,7 +52,7 @@ Then, there are four imported tasks to manage the infrastructure: ::
   services  configure services           cl_services        always
 
 
-* packages: The Ansible modules ``package``, ``apt``, ``yum``, and
+* packages: The Ansible modules ``package``, ``apt``, ``dnf``, and
   ``snap`` are used to install Linux packages. In FreeBSD, modules
   ``pkgng`` and ``portinstall`` are used to install FreeBSD packages
   and ports.
@@ -68,6 +68,18 @@ Then, there are four imported tasks to manage the infrastructure: ::
 * services: The Ansible Module ``service`` is used to configure both Linux and
   BSD services.
 
+.. note::
+
+   For backward compatibility use ``yum`` instead of ``dnf`` in the
+   configuration. For example ::
+
+     shell: cat conf-light/packages.d/lighttpd.yml
+     lighttpd:
+       module: yum
+       name:
+         - lighttpd
+
+   The module *ansible.builtin.dnf* will be used. See :ref:`as_packages.yml`
 
 .. seealso::
 
