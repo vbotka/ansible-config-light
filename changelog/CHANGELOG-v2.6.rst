@@ -3,6 +3,23 @@ vbotka.config_light 2.6 Release Notes
 =====================================
 
 .. contents:: Topics
+# BEGIN Commits 2.6.4
+- Start devel 2.6.4
+# END Commits 2.6.4
+# BEGIN Release notes 2.6.4
+2.6.4
+=====
+Release Summary
+---------------
+Major Changes
+-------------
+Minor Changes
+-------------
+Bugfixes
+--------
+Breaking Changes / Porting Guide
+--------------------------------
+# END Release notes 2.6.4
 
 
 2.6.4
