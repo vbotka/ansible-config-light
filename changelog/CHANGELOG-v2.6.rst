@@ -3,23 +3,6 @@ vbotka.config_light 2.6 Release Notes
 =====================================
 
 .. contents:: Topics
-# BEGIN Release notes 2.6.4
-2.6.4
-=====
-Release Summary
----------------
-Major Changes
--------------
-Minor Changes
--------------
-- Update python 3.11 in .travis.yml
-- Start devel 2.6.4
-
-Bugfixes
---------
-Breaking Changes / Porting Guide
---------------------------------
-# END Release notes 2.6.4
 
 
 2.6.4
