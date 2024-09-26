@@ -5,6 +5,26 @@ vbotka.config_light 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.4
+=====
+
+Release Summary
+---------------
+Maintenance release with updated docs.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+- Update python 3.11 in .travis.yml
+- Update docs:
+  - Add parameter listen to handlers cl_handlers
+
+Bugfixes
+--------
+
+
 2.6.3
 =====
 
@@ -30,7 +50,7 @@ Minor Changes
 
 Bugfixes
 --------
-* Handlers setup. Use search_string insteda of line in lineinfile.
+* Handlers setup. Use search_string instead of line in lineinfile.
 
 
 2.6.2
