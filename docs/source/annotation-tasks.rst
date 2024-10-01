@@ -315,6 +315,8 @@ Iterate ``cl_files_order`` (6) and include tasks with particular modules.
    * See :ref:`ug_variables_files` *Order of options*
 
 
+.. hint::
+   * Customize the list ``cl_files_order`` and fit the order of the options to your needs.
 
 
 .. _as_files-blockinfile.yml:

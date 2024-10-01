@@ -167,7 +167,7 @@ mytasks:
     lines: 3,6
     seealso: {'handlers': [], 'templates': [], 'others': ['See :ref:`ug_variables_files` *Order of options*']}
     notes: []
-    hints: []
+    hints: ['Customize the list ``cl_files_order`` and fit the order of the options to your needs.']
     warnings: []
 
   - file: files-blockinfile.yml
