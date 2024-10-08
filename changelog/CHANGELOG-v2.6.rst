@@ -5,6 +5,21 @@ vbotka.config_light 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.6
+=====
+
+Release Summary
+---------------
+Maintenance update.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Exclude dynamically created hanlers from ansible-lint.
+
+
 2.6.5
 =====
 
