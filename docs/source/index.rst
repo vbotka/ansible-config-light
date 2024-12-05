@@ -2,6 +2,10 @@
 Ansible role Config Light
 #########################
 
+**vbotka.config_light**
+
+Role version 2.6.7
+
 The role installs packages, creates and configures files and
 services. The handlers are created from user provided configuration
 data. The control-flow will be determined by the configuration
@@ -16,12 +20,17 @@ modules:
 * template, copy, replace, patch, lineinfile, blockinfile, ini_file
 * service
 
-This `role <https://galaxy.ansible.com/vbotka/config_light/>`_ and the documentation is work in progress.
+| This `role <https://galaxy.ansible.com/vbotka/config_light/>`_ and the documentation is work in progress.
+| Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-config-light/issues>`_.
+| `Contributions are welcome <https://github.com/firstcontributions/first-contributions>`_.
 
-Feel free to `share your feedback and report issues
-<https://github.com/vbotka/ansible-config-light/issues>`_.
+| GitHub: `ansible-config-light  <https://github.com/vbotka/ansible-config-light/>`_
+| Ansible Galaxy: `vbotka.config_light <https://galaxy.ansible.com/vbotka/config_light/>`_
 
-`Contributions are welcome <https://github.com/firstcontributions/first-contributions>`_.
+| This role is licensed and distributed as a whole under
+| **BSD 2-Clause "Simplified" License**
+| SPDX-License-Identifier: `BSD-2-Clause <https://spdx.org/licenses/BSD-2-Clause.html>`_
+
 
 .. toctree::
    :maxdepth: 2

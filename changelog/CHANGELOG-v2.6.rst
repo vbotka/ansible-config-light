@@ -5,6 +5,21 @@ vbotka.config_light 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.7
+=====
+
+Release Summary
+---------------
+Maintenance update.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Update docs.
+
+
 2.6.6
 =====
 
