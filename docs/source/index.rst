@@ -4,7 +4,7 @@ Ansible role Config Light
 
 **vbotka.config_light**
 
-Role version 2.6.7
+Role version 2.7.0
 
 The role installs packages, creates and configures files and
 services. The handlers are created from user provided configuration
