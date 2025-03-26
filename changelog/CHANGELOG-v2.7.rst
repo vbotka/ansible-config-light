@@ -17,6 +17,7 @@ Major Changes
 
 Minor Changes
 -------------
+* Update docs TOC.
 
 Bugfixes
 --------

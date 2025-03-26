@@ -1,3 +1,5 @@
+.. _ug_bp:
+
 Best practice
 *************
 

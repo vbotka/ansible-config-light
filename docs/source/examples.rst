@@ -3,8 +3,9 @@
 Examples
 ########
 
-.. contents:: Table of Contents
-   :depth: 4
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents
 
-.. include:: example-freebsd-postfix.inc.rst
-.. include:: example-armbian-ssmtp.inc.rst
+   example-freebsd-postfix.rst
+   example-armbian-ssmtp.rst

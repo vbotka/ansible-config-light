@@ -36,7 +36,7 @@ running the playbook on the controller is a member of the group *adm*.
 * Create the playbook ``pb.yml`` for single host *srv.example.com* (2)
   and the role *vbotka.config_light* (11)
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 2,11
    :linenos:
 
@@ -73,7 +73,7 @@ running the playbook on the controller is a member of the group *adm*.
   that the user who is running the playbook will be able both read and
   write the files, and create the directories (7-9) (11-14).
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 2-5,10
    :linenos:
 
@@ -99,7 +99,7 @@ running the playbook on the controller is a member of the group *adm*.
 * Configure the application. Start the server (2), run the server at
   boot (3), and configure two files (5,18).
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 2,3,5,18
    :linenos:
 
@@ -149,7 +149,7 @@ running the playbook on the controller is a member of the group *adm*.
 
 * conf-light/files.d/*
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 3
    :linenos:
 
@@ -165,7 +165,7 @@ running the playbook on the controller is a member of the group *adm*.
      handlers:
        - reload lighttpd
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 3
    :linenos:
 
@@ -184,7 +184,7 @@ running the playbook on the controller is a member of the group *adm*.
 
 * conf-light/handlers.d/*
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 7,14,21,29,37
    :linenos:
 
@@ -232,7 +232,7 @@ running the playbook on the controller is a member of the group *adm*.
 
 * conf-light/packages.d/*
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 5
    :linenos:
 
@@ -245,7 +245,7 @@ running the playbook on the controller is a member of the group *adm*.
 
 * conf-light/services.d/*
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 3
    :linenos:
 
@@ -258,7 +258,7 @@ running the playbook on the controller is a member of the group *adm*.
 
 * conf-light/states.d/*
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 3
    :linenos:
 

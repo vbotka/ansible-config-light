@@ -20,3 +20,15 @@ configuration data stored in the directory ``cl_dird``
    ``cl_dird/*.d/*`` are not used by the role and can be any arbitrary
    strings that are valid names of Ansible variables. The names must
    be unique in the particular section (files.d, packages.d, ...).
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Table of Contents
+
+  guide-variables-defaults.rst
+  guide-variables-data.rst
+  guide-variables-handlers.rst
+  guide-variables-packages.rst
+  guide-variables-states.rst
+  guide-variables-services.rst
+  guide-variables-files.rst

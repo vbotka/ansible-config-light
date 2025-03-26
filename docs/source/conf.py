@@ -34,7 +34,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'ansible-role-config-light'
-copyright = '2020-2024, Vladimir Botka'
+copyright = '2020-2025, Vladimir Botka'
 author = 'Vladimir Botka'
 
 # The version info for the project you're documenting, acts as replacement for
