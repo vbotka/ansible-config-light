@@ -1,8 +1,8 @@
 ---
 - name: "Files-markers: Debug markers in cl_files.values() cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('markers', 'defined') | list }}"
-  when: cl_debug | bool
 
 - name: "Files-markers: Mark block {{ item.1.marker }}"
   ansible.builtin.include_tasks: fn/mark-block.yml

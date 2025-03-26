@@ -1,5 +1,6 @@
 ---
 - name: "Services: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   vars:
     msg: |-
       cl_services_freebsd_rcconf_auto: {{ cl_services_freebsd_rcconf_auto }}
@@ -7,15 +8,15 @@
         {{ cl_services | to_nice_yaml(indent=2) | indent(2) }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
-  when: cl_debug | bool
 
-- name: FreeBSD services auto
+- name: FreeBSD services auto.
   when:
     - ansible_os_family == 'FreeBSD'
     - cl_services_freebsd_rcconf_auto | bool
   block:
 
-    - name: "Services: Enable service in rc.conf FreeBSD"
+    - name: "Services: Enable service in rc.conf FreeBSD."
+      when: item.value.enabled | d(true) | bool
       ansible.builtin.lineinfile:
         dest: /etc/rc.conf
         regexp: ^\s*{{ item.value.name }}_enable\s*=(.*)$
@@ -24,9 +25,9 @@
       loop: "{{ cl_services | dict2items }}"
       loop_control:
         label: "{{ item.key }}"
-      when: item.value.enabled | d(true) | bool
 
-    - name: "Services: Disable service in rc.conf FreeBSD"
+    - name: "Services: Disable service in rc.conf FreeBSD."
+      when: not item.value.enabled | d(true) | bool
       ansible.builtin.lineinfile:
         dest: /etc/rc.conf
         regexp: ^\s*{{ item.value.name }}_enable\s*=(.*)$
@@ -35,13 +36,12 @@
       loop: "{{ cl_services | dict2items }}"
       loop_control:
         label: "{{ item.key }}"
-      when: not item.value.enabled | d(true) | bool
 
-- name: All services
-  when: ansible_os_family == 'RedHat' or ansible_os_family == 'Debian' or ansible_os_family == 'FreeBSD'
+- name: All services.
+  when: ansible_os_family in ['RedHat', 'Debian', 'FreeBSD']
   block:
 
-    - name: "Services: Manage services"
+    - name: "Services: Manage services."
       ansible.builtin.service:
         name: "{{ item.value.name }}"
         state: "{{ item.value.state | d('started') }}"

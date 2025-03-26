@@ -1,5 +1,9 @@
 ---
-- name: "Files-delete-backup: Delete backup files that did not change"
+- name: "Files-delete-backup: Delete backup files that did not change."
+  when:
+    - cl_backup | bool
+    - not ansible_check_mode
+  changed_when: false
   ansible.builtin.file:
     state: absent
     path: "{{ item }}_{{ cl_timestamp }}.bak"
@@ -19,9 +23,5 @@
             json_query('[?changed].invocation.module_args.path')) | unique |
             difference(cl_results_patch.results | d([]) |
             json_query('[?changed].invocation.module_args.path')) | unique }}"
-  when:
-    - cl_backup | bool
-    - not ansible_check_mode
-  changed_when: false
 
 # EOF

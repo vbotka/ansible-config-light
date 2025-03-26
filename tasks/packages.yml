@@ -1,5 +1,5 @@
 ---
-- name: "Packages: Select lists"
+- name: "Packages: Select lists."
   ansible.builtin.set_fact:
     my_packages_apt: "{{ cl_packages.values() | list | json_query('[?module == `apt`]') }}"
     my_packages_snap: "{{ cl_packages.values() | list | json_query('[?module == `snap`]') }}"
@@ -8,11 +8,12 @@
     my_packages_package: "{{ cl_packages.values() | list | json_query('[?module == `package`]') }}"
     my_packages_undef: "{{ cl_packages.values() | list | selectattr('module', 'undefined') | flatten }}"
 
-- name: "Packages: Create list defaulted to module package"
+- name: "Packages: Create list defaulted to module package."
   ansible.builtin.set_fact:
     my_packages_default: "{{ my_packages_package + my_packages_undef }}"
 
 - name: "Packages: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: |
       cl_packages:
@@ -31,16 +32,19 @@
         {{ my_packages_undef | to_yaml(indent=2) | indent(2) }}
       my_packages_default:
         {{ my_packages_default | to_yaml(indent=2) | indent(2) }}
-  when: cl_debug | bool
 
-- name: FreeBSD packages
+- name: FreeBSD packages.
   when:
     - my_packages_pkgng | length > 0
     - ansible_os_family == 'FreeBSD'
     - freebsd_install_method | lower == 'packages'
   block:
 
-    - name: "Packages: Manage FreeBSD packages"
+    - name: "Packages: Manage FreeBSD packages."
+      register: result
+      until: result is succeeded
+      retries: "{{ install_retries }}"
+      delay: "{{ install_delay }}"
       community.general.pkgng:
         name: "{{ item.name }}" # list/elements=string required
         state: "{{ item.state | d(omit) }}"
@@ -55,24 +59,24 @@
       loop: "{{ my_packages_pkgng }}"
       loop_control:
         label: "{{ item.name }}"
-      register: result
-      until: result is succeeded
-      retries: "{{ install_retries }}"
-      delay: "{{ install_delay }}"
 
     - name: "Packages: Debug FreeBSD packages cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
-- name: FreeBSD ports
+- name: FreeBSD ports.
   when:
     - my_packages_pkgng | length > 0
     - ansible_os_family == 'FreeBSD'
     - freebsd_install_method | lower == 'ports'
   block:
 
-    - name: "Packages: Manage FreeBSD ports"
+    - name: "Packages: Manage FreeBSD ports."
+      register: result
+      until: result is succeeded
+      retries: "{{ install_retries }}"
+      delay: "{{ install_delay }}"
       community.general.portinstall:
         name: "{{ item.1 }}" # string required
         state: "{{ item.0.state | d(omit) }}"
@@ -80,63 +84,63 @@
       loop: "{{ my_packages_pkgng | d([]) | subelements('name') }}"
       loop_control:
         label: "{{ item.1 }}"
-      register: result
-      until: result is succeeded
-      retries: "{{ install_retries }}"
-      delay: "{{ install_delay }}"
 
     - name: "Packages: Debug FreeBSD ports cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
-- name: Linux snap
+- name: Linux snap.
   when:
     - my_packages_snap | length > 0
     - ansible_os_family in cl_supported_linux_family
   block:
 
-    - name: "Packages: Find snap"
+    - name: "Packages: Find snap."
+      register: cl_find_snap
       ansible.builtin.find:
         paths: "{{ cl_snap_paths }}"
         patterns: "{{ cl_snap_patterns }}"
-      register: cl_find_snap
 
     - name: "Packages: Debug find snap cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: cl_find_snap
-      when: cl_debug | bool
 
-    - name: "Packages: Fail if snap is missing"
+    - name: "Packages: Fail if snap is missing."
+      when: cl_find_snap.matched == 0
       ansible.builtin.fail:
         msg: "[ERR] snap is missing."
-      when: cl_find_snap.matched == 0
 
       # TODO: Complete parameters of the modules
-    - name: "Packages: Manage Linux packages by snap module"
+    - name: "Packages: Manage Linux packages by snap module."
+      register: result
+      until: result is succeeded
+      retries: "{{ install_retries }}"
+      delay: "{{ install_delay }}"
       community.general.snap:
         name: "{{ item.name }}" # list/elements=string
         state: "{{ item.state | d(omit) }}"
       loop: "{{ my_packages_snap }}"
       loop_control:
         label: "{{ item.name }}"
-      register: result
-      until: result is succeeded
-      retries: "{{ install_retries }}"
-      delay: "{{ install_delay }}"
 
     - name: "Packages: Debug Linux snap cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
-- name: Linux package
+- name: Linux package.
   when:
     - my_packages_default | length > 0
     - ansible_os_family in cl_supported_linux_family
   block:
 
-    - name: "Packages: Manage Linux packages by package module"
+    - name: "Packages: Manage Linux packages by package module."
+      register: result
+      until: result is succeeded
+      retries: "{{ install_retries }}"
+      delay: "{{ install_delay }}"
       ansible.builtin.package:
         name: "{{ item.1 }}" # string / required
         state: "{{ item.0.state | d('present') }}"
@@ -144,24 +148,24 @@
       loop: "{{ my_packages_default | d([]) | subelements('name') }}"
       loop_control:
         label: "{{ item.1 }}"
-      register: result
-      until: result is succeeded
-      retries: "{{ install_retries }}"
-      delay: "{{ install_delay }}"
 
     - name: "Packages: Debug Linux package cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
-- name: Linux yum/dnf
+- name: Linux yum/dnf.
   when:
     - my_packages_yum | length > 0
     - ansible_os_family == 'RedHat'
   block:
 
       # TODO: Complete parameters of the modules
-    - name: "Packages: Manage Linux packages by dnf module"
+    - name: "Packages: Manage Linux packages by dnf module."
+      register: result
+      until: result is succeeded
+      retries: "{{ install_retries }}"
+      delay: "{{ install_delay }}"
       ansible.builtin.dnf:
         name: "{{ item.name }}" # list/elements=string
         state: "{{ item.state | d(omit) }}"
@@ -169,24 +173,24 @@
       loop: "{{ my_packages_yum }}"
       loop_control:
         label: "{{ item.name }}"
-      register: result
-      until: result is succeeded
-      retries: "{{ install_retries }}"
-      delay: "{{ install_delay }}"
 
     - name: "Packages: Debug Linux yum cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
-- name: Linux apt
+- name: Linux apt.
   when:
     - my_packages_apt | length > 0
     - ansible_os_family == 'Debian'
   block:
 
       # TODO: Complete parameters of the modules
-    - name: "Packages: Manage Linux packages by apt module"
+    - name: "Packages: Manage Linux packages by apt module."
+      register: result
+      until: result is succeeded
+      retries: "{{ install_retries }}"
+      delay: "{{ install_delay }}"
       ansible.builtin.apt:
         name: "{{ item.name }}" # list/elements=string
         state: "{{ item.state | d(omit) }}"
@@ -194,14 +198,10 @@
       loop: "{{ my_packages_apt }}"
       loop_control:
         label: "{{ item.name }}"
-      register: result
-      until: result is succeeded
-      retries: "{{ install_retries }}"
-      delay: "{{ install_delay }}"
 
     - name: "Packages: Debug Linux apt cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
 # EOF

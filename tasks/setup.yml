@@ -1,5 +1,6 @@
 ---
 - name: "Setup: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   vars:
     msg: |-
       cl_dird: {{ cl_dird }}
@@ -42,7 +43,6 @@
       cl_statesd_delete: {{ cl_statesd_delete }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
-  when: cl_debug | bool
 
   # directories
 - name: "Setup: Create directories in {{ cl_dird }}"
@@ -88,25 +88,25 @@
     create: true
     mode: "{{ cl_handlers_main_mode | d(omit) }}"
 
-- name: "Setup: Assemble handlers"
+- name: "Setup: Assemble handlers."
   ansible.builtin.import_tasks: vars-handlers.yml
 
-- name: "Setup: Delete all handlers"
+- name: "Setup: Delete all handlers."
   when: cl_handlers_delete_all | bool
   block:
 
-    - name: "Setup: Find all handlers"
+    - name: "Setup: Find all handlers."
+      register: result
       ansible.builtin.find:
         path: "{{ role_path }}/handlers"
         patterns: handlers-auto-*.yml
-      register: result
 
     - name: "Setup: Debug result cl_debug={{ cl_debug }}"
+      when: cl_debug | bool
       ansible.builtin.debug:
         var: result
-      when: cl_debug | bool
 
-    - name: "Setup: Delete all handlers"
+    - name: "Setup: Delete all handlers."
       ansible.builtin.file:
         state: absent
         path: "{{ item.path }}"
@@ -125,10 +125,10 @@
         label: "{{ item.path | basename }}"
 
 - name: "Setup: Delete handlers listed in cl_handlers"
+  when: cl_handlers_delete | bool
   vars:
     handler_file: "handlers-auto-{{ item.key }}.yml"
     handler_path: "{{ role_path }}/handlers/{{ handler_file }}"
-  when: cl_handlers_delete | bool
   block:
 
     - name: "Setup: Delete handlers listed in cl_handlers"
@@ -149,14 +149,14 @@
       loop_control:
         label: "{{ handler_file }}"
 
-- name: "Setup: Create handlers listed in cl_handlers"
+- name: "Setup: Create handlers listed in cl_handlers."
+  when: cl_handlers_create | bool
   vars:
     handler_file: "handlers-auto-{{ item.key }}.yml"
     handler_path: "{{ role_path }}/handlers/{{ handler_file }}"
-  when: cl_handlers_create | bool
   block:
 
-    - name: "Setup: Create handlers listed in cl_handlers"
+    - name: "Setup: Create handlers listed in cl_handlers."
       ansible.builtin.template:
         dest: "{{ handler_path }}"
         src: "{{ item.value.template }}"

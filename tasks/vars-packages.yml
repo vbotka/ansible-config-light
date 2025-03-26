@@ -1,13 +1,13 @@
 ---
-- name: Assemble packages
+- name: Assemble packages.
   delegate_to: localhost
 
   block:
     - name: "Vars-packages: Delete {{ cl_packagesd }}"
+      when: cl_all_delete | bool or cl_packagesd_delete | bool
       ansible.builtin.file:
         state: absent
         path: "{{ cl_packagesd }}"
-      when: cl_all_delete | bool or cl_packagesd_delete | bool
 
     - name: "Vars-packages: Assemble packages to {{ cl_packagesd }}"
       ansible.builtin.assemble:
@@ -27,7 +27,7 @@
           [ERR] Can not assemble packages. End of play.
           {{ ansible_failed_result }}
 
-    - name: "Vars-packages: End of play"
+    - name: "Vars-packages: End of play."
       ansible.builtin.meta: end_play
 
 - name: "Vars-packages: Include files from {{ cl_packagesd ~ ' to cl_packagesd_items' }}"
@@ -35,14 +35,14 @@
     file: "{{ cl_packagesd }}"
     name: cl_packagesd_items
 
-- name: "Vars-packages: Combine cl_packages with cl_packagesd_items"
+- name: "Vars-packages: Combine cl_packages with cl_packagesd_items."
   ansible.builtin.set_fact:
     cl_packages: "{{ cl_packages | combine(cl_packagesd_items | d({})) }}"
 
 - name: "Vars-packages: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     var: cl_packages
-  when: cl_debug | bool
 
 # TODO: sort|unique list of packages/ports
 

@@ -1,5 +1,5 @@
 ---
-- name: "Debug: Config Light"
+- name: "Debug: Config Light."
   vars:
     msg: |-
       cl_role_version: {{ cl_role_version }}

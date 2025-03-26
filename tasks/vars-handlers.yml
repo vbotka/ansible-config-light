@@ -1,5 +1,5 @@
 ---
-- name: Assemble handlers
+- name: Assemble handlers.
   block:
 
     - name: "Vars-handlers: Assemble handlers to {{ cl_handlersd }}"
@@ -20,7 +20,7 @@
           [ERR] Can not assemble handlers. End of play.
           {{ ansible_failed_result }}
 
-    - name: "Vars-handlers: End of play"
+    - name: "Vars-handlers: End of play."
       ansible.builtin.meta: end_play
 
 - name: "Vars-handlers: Include files from {{ cl_handlersd ~ ' to cl_handlersd_items' }}"
@@ -28,13 +28,13 @@
     file: "{{ cl_handlersd }}"
     name: cl_handlersd_items
 
-- name: "Vars-handlers: Combine cl_handlers with cl_handlersd_items"
+- name: "Vars-handlers: Combine cl_handlers with cl_handlersd_items."
   ansible.builtin.set_fact:
     cl_handlers: "{{ cl_handlers | combine(cl_handlersd_items | d({})) }}"
 
 - name: "Vars-handlers: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     var: cl_handlers
-  when: cl_debug | bool
 
 # EOF

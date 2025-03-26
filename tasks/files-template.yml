@@ -1,19 +1,21 @@
 ---
 - name: "Files-template: Debug template in cl_files.values() cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
-  when: cl_debug | bool
 
 - name: "Files-template: Delete template in cl_files.values()"
+  when: cl_template_delete | bool
   ansible.builtin.file:
     state: absent
     path: "{{ item.path }}"
   loop: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  when: cl_template_delete | bool
 
-- name: "Files-template: Template"
+- name: "Files-template: Template."
+  register: cl_results_template
+  notify: "{{ item.handlers | d(omit) }}"
   ansible.builtin.template:
     dest: "{{ item.path }}"
     src: "{{ item.template.path }}"
@@ -36,8 +38,6 @@
   loop: "{{ cl_files.values() | selectattr('template', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  notify: "{{ item.handlers | d(omit) }}"
-  register: cl_results_template
 
 - name: Debug
   when: cl_debug | bool
