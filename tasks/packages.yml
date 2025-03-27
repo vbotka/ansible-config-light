@@ -45,6 +45,7 @@
       until: result is succeeded
       retries: "{{ install_retries }}"
       delay: "{{ install_delay }}"
+      delegate_to: "{{ freebsd_pkgng_delegate | d(omit) }}"
       community.general.pkgng:
         name: "{{ item.name }}" # list/elements=string required
         state: "{{ item.state | d(omit) }}"
@@ -56,6 +57,7 @@
         jail: "{{ freebsd_pkgng_jail | d(omit) }}"
         pkgsite: "{{ freebsd_pkgng_pkgsite | d(omit) }}"
         rootdir: "{{ freebsd_pkgng_rootdir | d(omit) }}"
+        use_globs: "{{ freebsd_pkgng_use_globs | d(omit) }}"
       loop: "{{ my_packages_pkgng }}"
       loop_control:
         label: "{{ item.name }}"

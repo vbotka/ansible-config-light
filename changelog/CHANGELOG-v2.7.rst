@@ -24,6 +24,10 @@ Minor Changes
 -------------
 * Improved formatting.
 * Update docs TOC.
+* Update tasks/packages.yml
+  Add variables: freebsd_pkgng_delegate, freebsd_pkgng_use_globs (no defaults)
+  Add option use_globs
+  Add directive delegate_to (freebsd_pkgng_delegate | d(omit))
 
 Bugfixes
 --------
