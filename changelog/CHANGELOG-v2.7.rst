@@ -18,7 +18,15 @@ Major Changes
   Supported Ansible 2.18
   Freebsd 13.4, 13.5, 14.1, 14.2
   Ubuntu +oracular
-  collections +vbotka.freebsd
+* Require collection vbotka.freebsd
+* Update tasks/services.yml for FreeBSD
+  Use community.general.sysrc
+  Use vbotka.freebsd.service
+  Remove variable cl_services_freebsd_rcconf_auto
+* Enable configuration in rc.conf.d for FreeBSD
+  Add variable cl_rcconfd (default=false)
+  Add variable cl_rcconfd_dir (default=/etc/rc.conf.d)
+  Add dictionaries: cl_rcconfd_path, cl_rcconf_rcvar
 
 Minor Changes
 -------------

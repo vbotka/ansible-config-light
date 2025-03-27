@@ -1,44 +1,45 @@
 ---
 # tasks for config_light
 
-- name: Setup
-  ansible.builtin.import_tasks: setup.yml
-  when: cl_setup | bool
-  delegate_to: localhost
-  run_once: true
+- name: Setup, create vars, and test sanity.
   tags: [cl_setup, always]
+  block:
 
-- name: Vars
-  ansible.builtin.import_tasks: vars.yml
-  tags: [cl_vars, always]
+    - name: Setup
+      when: cl_setup | bool
+      delegate_to: localhost
+      run_once: true
+      ansible.builtin.import_tasks: setup.yml
 
-- name: Sanity
-  ansible.builtin.import_tasks: sanity.yml
-  when: cl_sanity | bool
-  delegate_to: localhost
-  run_once: true
-  tags: [cl_sanity, always]
+    - name: Vars
+      ansible.builtin.import_tasks: vars.yml
+
+    - name: Sanity
+      when: cl_sanity | bool
+      delegate_to: localhost
+      run_once: true
+      ansible.builtin.import_tasks: sanity.yml
 
 - name: Debug
-  ansible.builtin.import_tasks: debug.yml
   when: cl_debug | bool
   tags: cl_debug
+  ansible.builtin.import_tasks: debug.yml
 
 - name: Packages
-  ansible.builtin.import_tasks: packages.yml
   when: cl_install | bool
   tags: cl_packages
+  ansible.builtin.import_tasks: packages.yml
 
 - name: States
-  ansible.builtin.import_tasks: states.yml
   tags: cl_states
+  ansible.builtin.import_tasks: states.yml
 
 - name: Files
-  ansible.builtin.import_tasks: files.yml
   tags: cl_files
+  ansible.builtin.import_tasks: files.yml
 
 - name: Services
-  ansible.builtin.import_tasks: services.yml
   tags: cl_services
+  ansible.builtin.import_tasks: services.yml
 
 # EOF

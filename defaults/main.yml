@@ -21,7 +21,7 @@ cl_supported_linux_family: [Debian, RedHat]
 cl_supported_modules_pkg: [apt, package, pkgng, snap, yum]
 
 # Required collections
-cl_collections: [ansible.posix, community.general]
+cl_collections: [ansible.posix, community.general, vbotka.freebsd]
 
 # Combine assembled data with these variables
 cl_handlers: {}
@@ -96,6 +96,7 @@ cl_snap_patterns:
 cl_states_unmount: [absent, unmounted]
 cl_states_mount: [present, mounted, remounted]
 cl_states_file: [absent, directory, file, hard, link, touch]
+
 # Files
 cl_files_collections:
   copy: ansible.builtin
@@ -121,6 +122,14 @@ install_delay: 5
 freebsd_install_method: packages
 # freebsd_install_method: ports
 freebsd_use_packages: true
-cl_services_freebsd_rcconf_auto: false
+
+# rc.conf and rc.conf.d
+cl_rcconfd: false
+cl_rcconfd_dir: /etc/rc.conf.d
+cl_rcconfd_path:
+  default: "{{ cl_rcconfd_dir }}/{{ _service }}"
+cl_rcconf_rcvar:
+  default: "{{ _service }}_enable"
+  devfs: devfs_load_rulesets
 
 # EOF
