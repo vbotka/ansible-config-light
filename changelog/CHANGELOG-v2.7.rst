@@ -19,6 +19,10 @@ Major Changes
   Freebsd 13.4, 13.5, 14.1, 14.2
   Ubuntu +oracular
 * Require collection vbotka.freebsd
+* Update tasks/main.yml
+  Remove block.
+  Execute setup and sanity conditionally.
+  Execute vars always.
 * Update tasks/services.yml for FreeBSD
   Use community.general.sysrc
   Use vbotka.freebsd.service

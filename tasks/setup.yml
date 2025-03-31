@@ -69,7 +69,7 @@
     mode: "{{ cl_dira_dmode }}"
 
   # handlers
-- name: "Setup: Create dir {{ role_path ~ '/handlers' }}"
+- name: "Setup: Create directory {{ role_path ~ '/handlers' }}"
   become: "{{ cl_handlers_dir_become }}"
   ansible.builtin.file:
     state: directory

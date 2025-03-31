@@ -1,24 +1,23 @@
 ---
 # tasks for config_light
 
-- name: Setup, create vars, and test sanity.
-  tags: [cl_setup, always]
-  block:
+- name: Setup
+  when: cl_setup | bool
+  delegate_to: localhost
+  run_once: true
+  tags: cl_setup
+  ansible.builtin.import_tasks: setup.yml
 
-    - name: Setup
-      when: cl_setup | bool
-      delegate_to: localhost
-      run_once: true
-      ansible.builtin.import_tasks: setup.yml
+- name: Vars
+  tags: always
+  ansible.builtin.import_tasks: vars.yml
 
-    - name: Vars
-      ansible.builtin.import_tasks: vars.yml
-
-    - name: Sanity
-      when: cl_sanity | bool
-      delegate_to: localhost
-      run_once: true
-      ansible.builtin.import_tasks: sanity.yml
+- name: Sanity
+  when: cl_sanity | bool
+  delegate_to: localhost
+  run_once: true
+  tags: cl_sanity
+  ansible.builtin.import_tasks: sanity.yml
 
 - name: Debug
   when: cl_debug | bool
