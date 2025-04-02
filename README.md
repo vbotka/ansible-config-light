@@ -28,6 +28,7 @@ This role has been developed and tested with
 
 * [ansible.posix](https://galaxy.ansible.com/ui/repo/published/ansible/posix/)
 * [community.general](https://galaxy.ansible.com/ui/repo/published/community/general/)
+* [vbotka.freebsd](https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/)
 
 ### Optional packages
 

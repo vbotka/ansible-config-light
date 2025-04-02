@@ -3,53 +3,49 @@
 Introduction
 ************
 
-* Ansible role: `config_light <https://galaxy.ansible.com/vbotka/config_light/>`_
-* Supported systems: `FreeBSD <https://www.freebsd.org/releases/>`_, `Ubuntu <http://releases.ubuntu.com/>`_
-* Requirements: `ansible.posix <https://github.com/ansible-collections/ansible.posix/>`_ , `community.general <https://github.com/ansible-collections/community.general>`_
+* Ansible role: `config_light`_
+* Supported systems: `FreeBSD`_, `Ubuntu`_
+* Requirements: `ansible.posix`_, `community.general`_, `vbotka.freebsd`_
 
-The role installs packages, creates and configures files and
-services. The handlers are created from user provided data. The
-control-flow will be determined by the user provided configuration
-data. Some attributes of the dictionaries determine which Ansible
-module will be used. This `data-driven programming
-<https://en.wikipedia.org/wiki/Data-driven_programming>`_ paradigm
-provides a flexible and robust framework to apply basic Ansible
-modules. In the code, each Ansible module is used only
-once. This makes the implementation, upgrading, and testing of the
-modules simple and easy.
+The role installs packages, creates and configures files and services. The
+handlers are created from user provided data. The control flow will be
+determined by the user-provided configuration data. Some attributes of the
+dictionaries determine which Ansible module will be used. This `data-driven
+programming`_ paradigm provides a flexible and robust framework to apply basic
+Ansible modules. Each Ansible module is used only once in the code. This makes
+the modules' implementation, upgrading, and testing simple and easy.
 
-The user of this role is expected to master at least the following
-Ansible topics:
+The user of this role is expected to master at least the following Ansible
+topics:
 
-* `Basic Concepts <https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html>`_
-* `Roles <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html>`_
-* `Working With Playbooks <https://docs.ansible.com/ansible/latest/user_guide/playbooks.html>`_
+* `Basic Concepts`_
+* `Roles`_
+* `Working With Playbooks`_
 
-The supported OS (FreeBSD and Ubuntu) can use the role to install and
-configure arbitrary applications. Other Linux distributions, that
-support the used Ansible modules, should work with minimal
-changes. BSD*, Debian, and Red Hat *ansible_os_family* should work out
-of the box.
+The supported OS (FreeBSD and Ubuntu) can use the role to install and configure
+arbitrary applications. Other Linux distributions, that support the used Ansible
+modules, should work with minimal changes. BSD*, Debian, and Red Hat
+*ansible_os_family* should work out of the box.
 
-There are four imported tasks in the first part of the role to setup
-handlers, assemble, and check the configuration data: ::
+There are four imported tasks in the first part of the role to setup handlers,
+assemble, test, and display the configuration data: ::
 
   tasks     description                  tags               enabled (default)
   ___________________________________________________________________________
-  setup     create handlers              cl_setup, always   cl_setup=true
-  vars      assemble configuration data  cl_vars, always    always
-  sanity    check sanity                 cl_sanity, always  cl_sanity=true
-  debug     help debugging data          cl_debug           cl_debug=false
+  setup     create handlers              cl_setup           cl_setup=true
+  vars      assemble configuration data  cl_vars, always
+  sanity    test sanity                  cl_sanity          cl_sanity=true
+  debug     display configuration data   cl_debug           cl_debug=false
 
 
-Then, there are four imported tasks to manage the infrastructure: ::
+Next, there are four imported tasks to manage the systems: ::
 
   tasks     description                  tags               enabled (default)
   ___________________________________________________________________________
   packages  install packages             cl_packages        cl_install=true
-  states    modify states of files       cl_states          always
-  files     configure files              cl_files           always
-  services  configure services           cl_services        always
+  states    modify states of files       cl_states
+  files     configure files              cl_files
+  services  configure services           cl_services
 
 
 * packages: The Ansible modules ``package``, ``apt``, ``dnf``, and
@@ -57,39 +53,59 @@ Then, there are four imported tasks to manage the infrastructure: ::
   ``pkgng`` and ``portinstall`` are used to install FreeBSD packages
   and ports.
 
-* states: The Ansible module ``mount`` is used to mount and unmount paths,
-  and to configure *fstab*. The module ``file`` is used to modify
-  `states <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html#parameter-state>`_ of files.
+* states: The Ansible module ``mount`` is used to mount and unmount paths, and
+  to configure *fstab*. The module ``file`` is used to modify `states`_ of
+  files.
 
-* files: The Ansible modules ``template``, ``copy``, ``replace``,
-  ``patch``, ``lineinfile``, ``blockinfile``, and ``ini_file`` are
-  used to configure files.
+* files: The Ansible modules ``template``, ``copy``, ``replace``, ``patch``,
+  ``lineinfile``, ``blockinfile``, ``ini_file``, and ``ucl`` are used to
+  configure files.
 
-* services: The Ansible Module ``service`` is used to configure both Linux and
-  BSD services.
+* services:
+
+  * The module `ansible.builtin.service`_ is used to control Linux services.
+  * The module `vbotka.freebsd.service`_ is used to control BSD services.
 
 .. note::
 
    For backward compatibility use ``yum`` instead of ``dnf`` in the
-   configuration. For example ::
+   configuration. For example
 
-     shell: cat conf-light/packages.d/lighttpd.yml
-     lighttpd:
-       module: yum
-       name:
-         - lighttpd
+   .. code:: yaml
+
+      shell> cat conf-light/packages.d/lighttpd.yml
+      lighttpd:
+        module: yum
+        name:
+          - lighttpd
 
    The module *ansible.builtin.dnf* will be used. See :ref:`as_packages.yml`
 
 .. seealso::
 
-   The directory `contrib
-   <https://github.com/vbotka/ansible-config-light/blob/master/contrib/>`_
-   comprises examples on how to install and configure various
-   applications and how to create handlers and templates. Some of them
-   are commented :ref:`ex`.
-
+   The directory `contrib`_ comprises examples of how to install and configure
+   various applications and create handlers and templates. Some of them are
+   commented :ref:`ex`.
 
 .. hint::
 
-   Feel free to `share your feedback and report issues <https://github.com/vbotka/ansible-config-light/issues>`_. The contributions to the `project <https://github.com/vbotka/ansible-config-light/>`_ are welcome.
+   Feel free to `share your feedback and report issues`_. The contributions to
+   the `project`_ are welcome.
+
+
+.. _config_light: https://galaxy.ansible.com/vbotka/config_light/
+.. _FreeBSD: https://www.freebsd.org/releases/
+.. _Ubuntu: http://releases.ubuntu.com/
+.. _ansible.posix: https://github.com/ansible-collections/ansible.posix/
+.. _community.general: https://github.com/ansible-collections/community.general
+.. _vbotka.freebsd: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/
+.. _data-driven programming: https://en.wikipedia.org/wiki/Data-driven_programming
+.. _Basic Concepts: https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
+.. _Roles: https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+.. _Working With Playbooks: https://docs.ansible.com/ansible/latest/user_guide/playbooks.html
+.. _states: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html#parameter-state
+.. _ansible.builtin.service: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+.. _vbotka.freebsd.service: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/content/module/service/
+.. _share your feedback and report issues: https://github.com/vbotka/ansible-config-light/issues/
+.. _project: https://github.com/vbotka/ansible-config-light/
+.. _contrib: https://github.com/vbotka/ansible-config-light/blob/master/contrib/

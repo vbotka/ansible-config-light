@@ -6,7 +6,7 @@ Playbook
 Below is a simple playbook that calls this role (11) at a single host
 *srv.example.com* (2)
 
-.. code-block:: bash
+.. code-block:: yaml
    :emphasize-lines: 2,11
    :linenos:
 
@@ -24,11 +24,16 @@ Below is a simple playbook that calls this role (11) at a single host
 
 .. note::
 
-   * ``gather_facts: true`` (3) must be set to gather facts needed to
-     evaluate OS-specific options of the role. For example, the
-     variable *ansible_os_family* is needed to select the Ansible
-     module to install packages.
+   ``gather_facts: true`` (3) must be set to gather facts needed to evaluate
+   OS-specific options of the role. For example, the variable
+   *ansible_os_family* is needed to select the Ansible module to install
+   packages.
 
-   * For details see `Connection Plugins <https://docs.ansible.com/ansible/latest/plugins/connection.html>`__ (4-5)
+.. seealso::
 
-   * and `Understanding Privilege Escalation <https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation>`__ (6-8)
+   * `Connection Plugins`_ (4-5)
+   * `Understanding Privilege Escalation`_ (6-8)
+
+
+.. _Connection Plugins: https://docs.ansible.com/ansible/latest/plugins/connection.html
+.. _Understanding Privilege Escalation: https://docs.ansible.com/ansible/latest/user_guide/become.html#understanding-privilege-escalation

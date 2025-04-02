@@ -4,7 +4,7 @@ cl_role_version: 2.7.0
 
 cl_setup: true # Import tasks/setup.yml
 cl_install: true # Install packages or ports
-cl_debug: false # Print debug output
+cl_debug: false # Display debug output
 cl_backup: false # Backup files
 cl_copyfile_delete: false # Delete dest then copy samples and defaults
 cl_template_delete: false # Delete dest then create from templates

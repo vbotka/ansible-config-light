@@ -19,10 +19,11 @@ to create a file by the Ansible module *template* and modify it by the module
 :lineinfile: If the attribute *dict* or *lines* is defined in the dictionary.
 :blockinfile: If the attribute *blocks* is defined in the dictionary.
 :ini_file: If the attribute *ini* is defined in the dictionary.
+:ucl:  If the attribute *ucl* is defined in the dictionary.
 
 The variable ``cl_files_order`` controls the order of the execution. Multiple
 options will be applied in this order when present in the dictionary of a file
-definition,. In addition to the options, listed above, there are
+definition. In addition to the options, listed above, there are
 ``create-backup`` and ``delete-backup`` tasks to backup files that was changed
 if enabled by ``cl_backup`` (default: false). By default, the backup files are
 created after *copy, template, and markers*. Fit the order of the execution to
@@ -46,3 +47,4 @@ your needs.
   guide-variables-files-lineinfile.rst
   guide-variables-files-blockinfile.rst
   guide-variables-files-inifile.rst
+  guide-variables-files-ucl.rst

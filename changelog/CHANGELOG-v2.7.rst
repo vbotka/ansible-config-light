@@ -10,7 +10,7 @@ vbotka.config_light 2.7 Release Notes
 
 Release Summary
 ---------------
-Major release.
+Major release. Use collection vbotka.freebsd
 
 Major Changes
 -------------
@@ -35,7 +35,7 @@ Major Changes
 Minor Changes
 -------------
 * Improved formatting.
-* Update docs TOC.
+* Update docs TOC. Update Users Guide. Add UCL, rc.conf.d, ansd vbotka.freebsd.*
 * Update tasks/packages.yml
   Add variables: freebsd_pkgng_delegate, freebsd_pkgng_use_globs (no defaults)
   Add option use_globs
