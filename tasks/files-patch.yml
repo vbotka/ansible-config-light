@@ -1,10 +1,12 @@
 ---
 - name: "Files-patch: Debug patch in cl_files.values() cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('patch', 'defined') | list }}"
-  when: cl_debug | bool
 
-- name: "Files-patch: Patch"
+- name: "Files-patch: Patch."
+  register: cl_results_patch
+  notify: "{{ item.handlers | d(omit) }}"
   ansible.posix.patch:
     dest: "{{ item.path }}"
     src: "{{ item.patch.src }}"
@@ -18,8 +20,6 @@
   loop: "{{ cl_files.values() | selectattr('patch', 'defined') | list }}"
   loop_control:
     label: "{{ item.path }}"
-  notify: "{{ item.handlers | d(omit) }}"
-  register: cl_results_patch
 
 - name: Debug
   when: cl_debug | bool

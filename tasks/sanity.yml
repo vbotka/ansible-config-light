@@ -1,9 +1,11 @@
 ---
-- name: Collections installed
+- name: Collections installed.
   when: cl_sanity_collections | bool
   block:
 
-    - name: "Sanity: Collections must be installed"
+    # TODO: Find installed collections and compare the list with cl_collections
+
+    - name: "Sanity: Collections must be installed."
       ansible.builtin.debug:
         msg: |-
           [ERR] Collections are not installed. End of play.
@@ -13,9 +15,7 @@
     - name: "Sanity: End of play"
       ansible.builtin.meta: end_play
 
-  # TODO: Find installed collections and compare the list with cl_collections
-
-- name: "Sanity: Data directories must exist"
+- name: "Sanity: Data directories must exist."
   ansible.builtin.assert:
     quiet: "{{ cl_sanity_quiet }}"
     that:
@@ -33,7 +33,8 @@
       {{ cl_servicesd_dir }}
       {{ cl_filesd_dir }}
 
-- name: "Sanity: Assembled data must exist in ansible_check_mode"
+- name: "Sanity: Assembled data must exist in ansible_check_mode."
+  when: ansible_check_mode
   ansible.builtin.assert:
     quiet: "{{ cl_sanity_quiet }}"
     that:
@@ -45,21 +46,24 @@
       [ERR] Assembled data do not exist in ansible_check_mode.
       Hint: Assemble variables first.
       Run: ansible-playbook playbook.yml -t cl_vars
-  when: ansible_check_mode
 
-- name: "Sanity: Supported modules for packages"
+- name: "Sanity: Supported modules for packages."
+  when: cl_sanity_modules_pkg | bool
+  vars:
+    unsupported: "{{ cl_packages.values() | list |
+                     json_query('[].module') | unique |
+                     difference(cl_supported_modules_pkg) }}"
   ansible.builtin.assert:
     quiet: "{{ cl_sanity_quiet }}"
     that: unsupported | length == 0
     fail_msg: |-
       [ERR] Unsupported module(s) {{ unsupported }} in assembled packages.
-  vars:
-    unsupported: "{{ cl_packages.values() | list |
-                     json_query('[].module') | unique |
-                     difference(cl_supported_modules_pkg) }}"
-  when: cl_sanity_modules_pkg | bool
 
-- name: "Sanity: yamllint must be installed"
+- name: "Sanity: yamllint must be installed."
+  when: cl_sanity_yamllint | bool
+  vars:
+    regex: ^yamllint \d+\.\d+\.\d+$
+    out: "{{ lookup('pipe', cl_yamllint ~ ' --version') }}"
   ansible.builtin.assert:
     quiet: "{{ cl_sanity_quiet }}"
     that: out is match(regex)
@@ -67,9 +71,5 @@
       [ERR] yamllint not installed on controller.
     success_msg: |-
       [OK]  yamllint found on controller.
-  vars:
-    regex: ^yamllint \d+\.\d+\.\d+$
-    out: "{{ lookup('pipe', cl_yamllint ~ ' --version') }}"
-  when: cl_sanity_yamllint | bool
 
 # EOF

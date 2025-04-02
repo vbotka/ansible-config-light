@@ -1,13 +1,13 @@
 ---
-- name: Assemble states
+- name: Assemble states.
   delegate_to: localhost
 
   block:
     - name: "Vars-states: Delete {{ cl_statesd }}"
+      when: cl_all_delete | bool or cl_statesd_delete | bool
       ansible.builtin.file:
         state: absent
         path: "{{ cl_statesd }}"
-      when: cl_all_delete | bool or cl_statesd_delete | bool
 
     - name: "Vars-states: Assemble states to {{ cl_statesd }}"
       ansible.builtin.assemble:
@@ -27,7 +27,7 @@
           [ERR] Can not assemble states. End of play.
           {{ ansible_failed_result }}
 
-    - name: "Vars-states: End of play"
+    - name: "Vars-states: End of play."
       ansible.builtin.meta: end_play
 
 - name: "Vars-states: Include files from {{ cl_statesd ~ ' to cl_statessd_items' }}"
@@ -35,13 +35,13 @@
     file: "{{ cl_statesd }}"
     name: cl_statesd_items
 
-- name: "Vars-states: Combine cl_statess with cl_statesd_items"
+- name: "Vars-states: Combine cl_statess with cl_statesd_items."
   ansible.builtin.set_fact:
     cl_states: "{{ cl_states | combine(cl_statesd_items | d({})) }}"
 
 - name: "Vars-states: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     var: cl_states
-  when: cl_debug | bool
 
 # EOF

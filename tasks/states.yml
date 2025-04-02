@@ -1,10 +1,11 @@
 ---
 - name: "States: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_states }}"
-  when: cl_debug | bool
 
-- name: "States: Apply unmount states"
+- name: "States: Apply unmount states."
+  when: item.value.state | d('absent') in cl_states_unmount
   ansible.posix.mount:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state | d('absent') }}"
@@ -18,9 +19,9 @@
   loop: "{{ cl_states | dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
-  when: item.value.state | d('absent') in cl_states_unmount
 
-- name: "States: Apply file states"
+- name: "States: Apply file states."
+  when: item.value.state | d('file') in cl_states_file
   ansible.builtin.file:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state | d(omit) }}"
@@ -40,9 +41,9 @@
   loop: "{{ cl_states | dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
-  when: item.value.state | d('file') in cl_states_file
 
-- name: "States: Apply mount states"
+- name: "States: Apply mount states."
+  when: item.value.state | d('absent') in cl_states_mount
   ansible.posix.mount:
     path: "{{ item.value.path }}"
     state: "{{ item.value.state }}"
@@ -56,6 +57,5 @@
   loop: "{{ cl_states | dict2items }}"
   loop_control:
     label: "{{ item.value.path }}"
-  when: item.value.state | d('absent') in cl_states_mount
 
 # EOF

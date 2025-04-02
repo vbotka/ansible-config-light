@@ -1,5 +1,5 @@
 ---
-- name: "Files: Manage files"
+- name: "Files: Manage files."
   ansible.builtin.include_tasks:
     file: files-{{ fitem }}.yml
   loop: "{{ cl_files_order }}"

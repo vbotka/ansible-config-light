@@ -3,8 +3,8 @@
 Tags
 ****
 
-The tags provide a handy tool to run selected tasks of the
-role. The below command lists the available tags:
+The tags provide a handy tool to run selected tasks of the role. The
+below command lists the available tags
 
 .. code-block:: bash
    :emphasize-lines: 1
@@ -18,11 +18,10 @@ role. The below command lists the available tags:
       TASK TAGS: [always, cl_debug, cl_files, cl_packages, cl_sanity,
       cl_services, cl_setup, cl_states, cl_vars]
 
-For example, by using the tag *cl_debug* display the variables and
-their values (when enabled *cl_debug: true*). With this tag specified
-'*-t cl_debug*' all tasks imported before the task *debug.yml*
-(*setup.yml*, *vars.yml*, and *sanity.yml*) will also run because of
-the tag *always* (when enabled *cl_sanity: true* and *cl_setup: true*) ::
+For example, using the tag *cl_debug* displays the variables and
+their values when ``cl_debug=true``. With this tag specified ``-t
+cl_debug`` the tasks *vars.yml* will also run because of the tag
+*always* ::
 
     shell> ansible-playbook pb.yml -t cl_debug -e cl_debug=true
 

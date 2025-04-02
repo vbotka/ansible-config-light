@@ -1,5 +1,6 @@
 ---
 - name: "Vars: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   vars:
     msg: |-
       cl_packagesd_dir: {{ cl_packagesd_dir }}
@@ -22,18 +23,17 @@
       cl_assemble_validate: {{ cl_assemble_validate | d(omit, true) }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
-  when: cl_debug | bool
 
-- name: "Vars: Packages"
+- name: "Vars: Packages."
   ansible.builtin.import_tasks: vars-packages.yml
 
-- name: "Vars: States"
+- name: "Vars: States."
   ansible.builtin.import_tasks: vars-states.yml
 
-- name: "Vars: Services"
+- name: "Vars: Services."
   ansible.builtin.import_tasks: vars-services.yml
 
-- name: "Vars: Files"
+- name: "Vars: Files."
   ansible.builtin.import_tasks: vars-files.yml
 
 # EOF

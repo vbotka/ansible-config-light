@@ -1,10 +1,12 @@
 ---
 - name: "Files-blockinfile: Debug blocks in cl_files.values() cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('blocks', 'defined') | list }}"
-  when: cl_debug | bool
 
-- name: "Files-blockinfile: Blockinfile"
+- name: "Files-blockinfile: Blockinfile."
+  register: cl_results_blocks
+  notify: "{{ item.0.handlers | d(omit) }}"
   ansible.builtin.blockinfile:
     path: "{{ item.0.path }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.1.marker }}"
@@ -24,18 +26,16 @@
   loop: "{{ cl_files.values() | list | subelements('blocks', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }} {{ item.1.marker }}"
-  notify: "{{ item.0.handlers | d(omit) }}"
-  register: cl_results_blocks
 
 - name: Debug
   when: cl_debug | bool
   block:
 
-    - name: "Files-blockinfile: Debug cl_results_blocks"
+    - name: "Files-blockinfile: Debug cl_results_blocks."
       ansible.builtin.debug:
         var: cl_results_blocks
 
-    - name: "Files-blockinfile: Debug changed blocks paths"
+    - name: "Files-blockinfile: Debug changed blocks paths."
       ansible.builtin.debug:
         msg: "{{ cl_results_blocks.results | d([]) | json_query('[?changed].invocation.module_args.path') }}"
 

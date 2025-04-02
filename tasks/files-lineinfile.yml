@@ -1,11 +1,13 @@
 ---
   # lines
 - name: "Files-lineinfile: Debug lines in cl_files.values() cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('lines', 'defined') | list }}"
-  when: cl_debug | bool
 
-- name: "Files-lineinfile: Lineinfile lines"
+- name: "Files-lineinfile: Lineinfile lines."
+  register: cl_results_lines
+  notify: "{{ item.0.handlers | d(omit) }}"
   ansible.builtin.lineinfile:
     path: "{{ item.0.path }}"
     regexp: "{{ item.1.regexp | d(omit) }}"
@@ -26,8 +28,6 @@
   loop: "{{ cl_files.values() | list | subelements('lines', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }} {{ item.1.line | d('') }}"
-  notify: "{{ item.0.handlers | d(omit) }}"
-  register: cl_results_lines
 
 - name: Debug
   when: cl_debug | bool
@@ -43,11 +43,13 @@
 
   # dict
 - name: "Files-lineinfile: Debug dict in cl_files.values() cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   ansible.builtin.debug:
     msg: "{{ cl_files.values() | selectattr('dict', 'defined') | list }}"
-  when: cl_debug | bool
 
-- name: "Files-lineinfile: Lineinfile dict"
+- name: "Files-lineinfile: Lineinfile dict."
+  register: cl_results_dict
+  notify: "{{ item.0.handlers | d(omit) }}"
   ansible.builtin.lineinfile:
     path: "{{ item.0.path }}"
     regexp: ^\s*[#;]*\s*{{ item.1.key }}\s*{{ item.0.assignment|d("=")|trim }}\s*(.*)$
@@ -68,8 +70,6 @@
   loop: "{{ cl_files.values() | list | subelements('dict', skip_missing=true) }}"
   loop_control:
     label: "{{ item.0.path }} {{ item.1.key }}"
-  notify: "{{ item.0.handlers | d(omit) }}"
-  register: cl_results_dict
 
 - name: Debug
   when: cl_debug | bool

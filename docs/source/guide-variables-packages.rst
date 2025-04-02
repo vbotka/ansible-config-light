@@ -14,10 +14,46 @@ The dictionary *cl_packages* comprises managed packages (Linux or BSD) or BSD po
 FreeBSD
 """""""
 
-By default packages will be installed. If you want to install ports set ::
+By default, packages will be installed. If you want to install ports set ::
 
   freebsd_install_method: ports
 
+In this case, the default is to use packages ::
+
+  freebsd_use_packages: true
+
+See the variables *freebsd_pkgng_\** in :ref:`as_packages.yml`. There are no
+defaults. If these variables are not defined the options are omitted. See the
+module `community.general.pkgng`_. For example, disable *use_globs*
+(*default=true*) if you want to use the packages in the form <pkg-origin> ::
+
+  freebsd_pkgng_use_globs: false
+
+.. seealso::
+
+   `FreeBSD. Add option use_globs to the module pkgng. #8632`_
+
+
+Enable *cached* packages (*default=false*) ::
+
+  freebsd_pkgng_cached: true
+
+This is especially useful when you install packages in jails from a host. For
+example, ::
+
+  freebsd_pkgng_delegate: iocage_host.example.com
+
+In this case, you have to provide also *freebsd_pkgng_jail*.
+
+.. hint::
+
+   See the `examples in vbotka.freebsd`_
+
+  
+.. seealso::
+
+   The defaults of the Ansible module `community.general.pkgng`_
+  
 snap
 """"
 
@@ -111,3 +147,8 @@ Ubuntu purge snapd package
 
    * :ref:`as_vars-packages.yml`
    * :ref:`as_packages.yml`
+
+
+.. _community.general.pkgng: https://docs.ansible.com/ansible/latest/collections/community/general/pkgng_module.html
+.. _examples in vbotka.freebsd: https://ansible-collection-freebsd.readthedocs.io/en/stable/ug_examples.html
+.. _FreeBSD. Add option use_globs to the module pkgng. #8632: https://github.com/ansible-collections/community.general/issues/8632

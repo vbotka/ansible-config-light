@@ -1,5 +1,5 @@
 ---
-- name: "Debug: Config Light"
+- name: "Debug: Config Light."
   vars:
     msg: |-
       cl_role_version: {{ cl_role_version }}
@@ -83,7 +83,8 @@
 
       freebsd_install_method: {{ freebsd_install_method }}
       freebsd_use_packages: {{ freebsd_use_packages }}
-      cl_services_freebsd_rcconf_auto: {{ cl_services_freebsd_rcconf_auto }}
+      cl_rcconfd: {{ cl_rcconfd }}
+      cl_rcconfd_dir: {{ cl_rcconfd_dir }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 

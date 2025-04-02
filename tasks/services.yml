@@ -1,47 +1,56 @@
 ---
 - name: "Services: Debug cl_debug={{ cl_debug }}"
+  when: cl_debug | bool
   vars:
     msg: |-
-      cl_services_freebsd_rcconf_auto: {{ cl_services_freebsd_rcconf_auto }}
+      cl_rcconfd: "{{ cl_rcconfd }}"
       cl_services:
         {{ cl_services | to_nice_yaml(indent=2) | indent(2) }}
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
-  when: cl_debug | bool
 
-- name: FreeBSD services auto
-  when:
-    - ansible_os_family == 'FreeBSD'
-    - cl_services_freebsd_rcconf_auto | bool
+- name: FreeBSD services.
+  when: ansible_os_family == 'FreeBSD'
+  vars:
+    _service: "{{ item.value.name }}"
+    _rcconfd_path: "{{ cl_rcconfd_path[_service] | d(cl_rcconfd_path.default) }}"
+    _path: "{{ cl_rcconfd | bool | ternary(_rcconfd_path, '/etc/rc.conf') }}"
+    _name: "{{ cl_rcconf_rcvar[_service] | d(cl_rcconf_rcvar.default) }}"
   block:
 
-    - name: "Services: Enable service in rc.conf FreeBSD"
-      ansible.builtin.lineinfile:
-        dest: /etc/rc.conf
-        regexp: ^\s*{{ item.value.name }}_enable\s*=(.*)$
-        line: '{{ item.value.name }}_enable="YES"'
-        backup: "{{ cl_backup }}"
-      loop: "{{ cl_services | dict2items }}"
-      loop_control:
-        label: "{{ item.key }}"
+    - name: "Services: Enable FreeBSD services."
       when: item.value.enabled | d(true) | bool
-
-    - name: "Services: Disable service in rc.conf FreeBSD"
-      ansible.builtin.lineinfile:
-        dest: /etc/rc.conf
-        regexp: ^\s*{{ item.value.name }}_enable\s*=(.*)$
-        line: '{{ item.value.name }}_enable="NO"'
-        backup: "{{ cl_backup }}"
+      community.general.sysrc:
+        path: "{{ _path }}"
+        name: "{{ _name }}"
+        value: "YES"
       loop: "{{ cl_services | dict2items }}"
       loop_control:
         label: "{{ item.key }}"
-      when: not item.value.enabled | d(true) | bool
 
-- name: All services
-  when: ansible_os_family == 'RedHat' or ansible_os_family == 'Debian' or ansible_os_family == 'FreeBSD'
+    - name: "Services: Disable FreeBSD services."
+      when: not item.value.enabled | d(true) | bool
+      community.general.sysrc:
+        path: "{{ _path }}"
+        name: "{{ _name }}"
+        value: "NO"
+      loop: "{{ cl_services | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
+
+    - name: "Services: Manage FreeBSD service."
+      vbotka.freebsd.service:
+        script: "{{ item.value.name }}"
+        command: "{{ item.value.state | d('start') }}"
+      loop: "{{ cl_services | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
+
+- name: Linux services.
+  when: ansible_os_family in cl_supported_linux_family
   block:
 
-    - name: "Services: Manage services"
+    - name: "Services: Manage services."
       ansible.builtin.service:
         name: "{{ item.value.name }}"
         state: "{{ item.value.state | d('started') }}"
