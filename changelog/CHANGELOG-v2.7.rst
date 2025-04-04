@@ -5,6 +5,21 @@ vbotka.config_light 2.7 Release Notes
 .. contents:: Topics
 
 
+2.7.1
+=====
+
+Release Summary
+---------------
+Update docs.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Update docs.
+  Update Quick start guide.
+
 2.7.0
 =====
 

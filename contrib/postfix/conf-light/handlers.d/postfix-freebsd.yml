@@ -2,42 +2,46 @@
 postfix_freebsd:
   template: handlers-auto1.yml.j2
   handlers:
-    - handler: enable and start postfix
-      module: service
+    - handler: Start postfix
+      listen: start postfix
+      module: vbotka.freebsd.service
       params:
-        - "name: postfix"
-        - "state: started"
-        - "enabled: true"
+        - "script: postfix"
+        - "command: start"
 
-    - handler: disable and stop postfix
-      module: service
+    - handler: Stop postfix
+      listen: stop postfix
+      module: vbotka.freebsd.service
       params:
-        - "name: postfix"
-        - "state: stopped"
-        - "enabled: false"
+        - "script: postfix"
+        - "command: stop"
 
-    - handler: reload postfix
-      module: service
+    - handler: Reload postfix
+      listen: reload postfix
+      module: vbotka.freebsd.service
       params:
-        - "name: postfix"
-        - "state: reloaded"
+        - "script: postfix"
+        - "command: reload"
       conditions:
-        - "- cl_service_postfix_enable|bool"
+        - "- cl_service_postfix_enable | bool"
 
-    - handler: restart postfix
-      module: service
+    - handler: Restart postfix
+      listen: restart postfix
+      module: vbotka.freebsd.service
       params:
-        - "name: postfix"
-        - "state: restarted"
+        - "script: postfix"
+        - "command: restart"
       conditions:
-        - "- cl_service_postfix_enable|bool"
+        - "- cl_service_postfix_enable | bool"
 
-    - handler: postfix check
+    - handler: Postfix check
+      listen: postfix check
       module: command
       params:
         - "cmd: /usr/local/sbin/postfix check"
 
-    - handler: newaliases
+    - handler: Newaliases
+      listen: newaliases
       module: command
       params:
         - "cmd: /usr/bin/newaliases"

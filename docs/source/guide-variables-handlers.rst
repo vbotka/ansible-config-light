@@ -10,9 +10,9 @@ Synopsis
 ^^^^^^^^
 
 The dictionary *cl_handlers* comprises data to create handlers. The
-structure of the dictionary depends on the template that is used to
-create the files with the handlers. For example, the structure below
-can be used together with the template *handlers-auto1.yml.j2*.
+structure of the dictionary depends on the template that creates the
+files with the handlers. For example, the structure below can be used
+together with the template *handlers-auto1.yml.j2*.
 
 Parameters
 ^^^^^^^^^^

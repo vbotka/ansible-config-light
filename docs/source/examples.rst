@@ -7,5 +7,5 @@ Examples
    :maxdepth: 2
    :caption: Table of Contents
 
-   example-freebsd-postfix.rst
-   example-armbian-ssmtp.rst
+   example-freebsd-postfix
+   example-armbian-ssmtp

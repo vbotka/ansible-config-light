@@ -28,9 +28,9 @@ cl_periodicconf_daily_submit_queuerun: "NO"
 
 # Services
 cl_service_sendmail_enable: false
-cl_service_sendmail_state: stopped
+cl_service_sendmail_state: stop
 cl_service_postfix_enable: true
-cl_service_postfix_state: started
+cl_service_postfix_state: start
 
 # If you are using SASL, you need to make sure that postfix has access
 # to read the sasldb file.  This is accomplished by adding postfix to

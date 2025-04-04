@@ -2,44 +2,34 @@
 sendmail_freebsd:
   template: handlers-auto1.yml.j2
   handlers:
-    - handler: enable and start sendmail
-      module: service
+    - handler: Start sendmail
+      listen: start sendmail
+      module: vbotka.freebsd.service
       params:
-        - "name: sendmail"
-        - "state: started"
-        - "enabled: true"
+        - 'script: sendmail'
+        - 'command: start'
 
-    - handler: disable and stop sendmail
-      module: service
+    - handler: Stop sendmail
+      listen: stop sendmail
+      module: vbotka.freebsd.service
       params:
-        - "name: sendmail"
-        - "state: stopped"
-        - "enabled: false"
+        - 'script: sendmail'
+        - 'command: stop'
 
-    - handler: reload sendmail
-      module: service
+    - handler: Reload sendmail
+      listen: reload sendmail
+      module: vbotka.freebsd.service
       params:
-        - "name: sendmail"
-        - "state: reloaded"
+        - 'script: sendmail'
+        - 'command: reload'
       conditions:
-        - "- cl_service_sendmail_enable|bool"
+        - "- cl_service_sendmail_enable | bool"
 
-    - handler: restart sendmail
-      module: service
+    - handler: Restart sendmail
+      listen: restart sendmail
+      module: vbotka.freebsd.service
       params:
-        - "name: sendmail"
-        - "state: restarted"
+        - 'script: sendmail'
+        - 'command: restart'
       conditions:
-        - "- cl_service_sendmail_enable|bool"
-
-    - handler: start sendmail
-      module: service
-      params:
-        - "name: sendmail"
-        - "state: started"
-
-    - handler: stop sendmail
-      module: service
-      params:
-        - "name: sendmail"
-        - "state: stopped"
+        - "- cl_service_sendmail_enable | bool"

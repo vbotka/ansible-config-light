@@ -8,12 +8,12 @@ Introduction
 * Requirements: `ansible.posix`_, `community.general`_, `vbotka.freebsd`_
 
 The role installs packages, creates and configures files and services. The
-handlers are created from user provided data. The control flow will be
-determined by the user-provided configuration data. Some attributes of the
-dictionaries determine which Ansible module will be used. This `data-driven
-programming`_ paradigm provides a flexible and robust framework to apply basic
-Ansible modules. Each Ansible module is used only once in the code. This makes
-the modules' implementation, upgrading, and testing simple and easy.
+handlers are created from user-provided data. The user-provided configuration
+data determines the control flow. Some attributes of the dictionaries determine
+which Ansible module will be used. This `data-driven programming`_ paradigm
+provides a flexible and robust framework to apply basic Ansible modules. Each
+Ansible module is used only once in the code. This makes the modules'
+implementation, upgrading, and testing simple and easy.
 
 The user of this role is expected to master at least the following Ansible
 topics:
@@ -23,8 +23,8 @@ topics:
 * `Working With Playbooks`_
 
 The supported OS (FreeBSD and Ubuntu) can use the role to install and configure
-arbitrary applications. Other Linux distributions, that support the used Ansible
-modules, should work with minimal changes. BSD*, Debian, and Red Hat
+arbitrary applications. The other Linux distributions that support the used
+Ansible modules should work with minimal changes. BSD*, Debian, and Red Hat
 *ansible_os_family* should work out of the box.
 
 There are four imported tasks in the first part of the role to setup handlers,
@@ -83,9 +83,8 @@ Next, there are four imported tasks to manage the systems: ::
 
 .. seealso::
 
-   The directory `contrib`_ comprises examples of how to install and configure
-   various applications and create handlers and templates. Some of them are
-   commented :ref:`ex`.
+   The directory `contrib`_ comprises examples of installation and configuration
+   of various applications. Some of them are commented :ref:`ex`.
 
 .. hint::
 

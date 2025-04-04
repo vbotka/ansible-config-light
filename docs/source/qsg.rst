@@ -4,12 +4,17 @@ Quick start guide
 #################
 
 For users who want to try the role quickly, this guide provides an example of
-how to install and configure `lighttpd <https://www.lighttpd.net/>`_ on single
-FreeBSD host. The procedure is generic and can be easily modified to install and
-configure other applications on other systems. See examples in the directory
-*contrib*. The control node of this example is Linux and the user running the
-playbook on the controller is a member of the group *adm*.
+how to install and configure `lighttpd`_ on a single FreeBSD host. The procedure
+is generic and can be easily modified to install and configure other
+applications on other systems. See examples in the directory *contrib*. The
+control node of this example is Linux, and the user running the playbook on the
+controller is a member of the group *adm*.
 
+.. contents:: Table of Contents
+   :local:
+
+Install the role, collections, and linter
+*****************************************
 
 * Install the role ``vbotka.config_light`` ::
 
@@ -31,13 +36,40 @@ playbook on the controller is a member of the group *adm*.
     cl_assemble_validate: ''
     cl_handlers_validate: ''
 
+Create project
+**************
+
+* Create a project
+
+.. code-block:: bash
+
+    shell> tree .
+    .
+    ├── conf-light
+    │   ├── files.d
+    │   │   ├── lighttpd-index.yml
+    │   │   ├── lighttpd-lighttpdconf.yml
+    │   │   └── lighttpd-rcconf.yml
+    │   ├── handlers.d
+    │   │   └── lighttpd-freebsd.yml
+    │   ├── packages.d
+    │   │   └── lighttpd.yml
+    │   ├── services.d
+    │   │   └── lighttpd.yml
+    │   └── states.d
+    │       └── lighttpd-server-document-root.yml
+    ├── group_vars
+    │   └── all
+    │       ├── cl-common.yml
+    │       ├── cl-lighttpd.yml
+    │       └── common.yml
+    └── pb.yml
 
 * Create the playbook ``pb.yml`` for single host *srv.example.com* (**1**) and
-  the role *vbotka.config_light* (**10**) ::
-
-   shell> cat pb.yml
+  the role *vbotka.config_light* (**10**)
 
 .. code-block:: yaml
+   :caption: pb.yml
    :linenos:
    :emphasize-lines: 1,10
 
@@ -52,42 +84,30 @@ playbook on the controller is a member of the group *adm*.
      roles:
        - vbotka.config_light
 
+Configure role
+**************
 
-* Create common variables ::
-
-    shell> cat group_vars/all/common.yml
+* Create common variables
 
 .. code-block:: yaml
+   :caption: group_vars/all/common.yml
    :linenos:
 
    freebsd_install_method: packages
    freebsd_pkgng_use_globs: false
 
 
-* Create files in ``host_vars`` with the customized role variables (**1**) and
-  application variables (**2**) ::
-
-   shell> ls -1 host_vars/srv.example.com/cl-*
-
-.. code-block:: bash
-   :linenos:
-
-   host_vars/srv.example.com/cl-common.yml
-   host_vars/srv.example.com/cl-lighttpd.yml
-
-
-* Configure the role. To speedup the execution set the control-flow variables
+* Configure the role. To speed up the execution, set the control-flow variables
   (**1-3**) to *false* and disable some steps. Enable these steps selectively
   when needed. The configuration data will be stored in the directory
   *conf-light* (**8**) in the current directory of the playbook. Set the
   ownership and permissions of the directories on the control node so that the
-  user who is running the playbook will be able both read and write the files,
-  and create the directories *cl_dird*, *cl_dira*, and *"{{ role_path
-  }}/handlers"* ::
-
-   shell> cat host_vars/srv.example.com/cl-common.yml
+  user who is running the playbook will be able to both read and write the
+  files, and create the directories *cl_dird*, *cl_dira*, and *"{{ role_path
+  }}/handlers"*
 
 .. code-block:: yaml
+   :caption: host_vars/srv.example.com/cl-common.yml
    :emphasize-lines: 1-3,8
    :linenos:
 
@@ -111,13 +131,14 @@ playbook on the controller is a member of the group *adm*.
    * The configuration data will be assembled into the directory ``cl_dira``
    * The default value of ``cl_dira`` is ``"{{ cl_dird }}/assemble"``
 
+Configure lighttpd
+******************
 
-* Configure the application. Start the server (**1**), run the server at
-  boot (**2**), and configure two files (**4,17**) ::
-
-   shell> cat host_vars/srv.example.com/cl-lighttpd.yml
+* Configure the application. Start the server (**1**), run the server at boot
+  (**2**), and configure two files (**4,17**)
 
 .. code-block:: yaml
+   :caption: host_vars/srv.example.com/cl-lighttpd.yml
    :emphasize-lines: 1,2,4,17
    :linenos:
 
@@ -142,36 +163,12 @@ playbook on the controller is a member of the group *adm*.
    cl_lighttpd_rcconf_dict:
      - {key: lighttpd_enable, value: '"{{ cl_lighttpd_rcconf_lighttpd_enable }}"'}
 
-
-* Create configuration data in the directory ``conf-light`` ::
-
-   shell> tree conf-light
-
-.. code-block:: bash
-   :emphasize-lines: 2,6,8,10,12
-   :linenos:
-
-   conf-light/
-   ├── files.d
-   │   ├── lighttpd-index.yml
-   │   ├── lighttpd-lighttpdconf.yml
-   │   └── lighttpd-rcconf.yml
-   ├── handlers.d
-   │   └── lighttpd-freebsd.yml
-   ├── packages.d
-   │   └── lighttpd.yml
-   ├── services.d
-   │   └── lighttpd.yml
-   └── states.d
-       └── lighttpd-server-document-root.yml
-
-
-* conf-light/files.d/*
+* Create configuration data in the directory ``conf-light/``
 
 .. code-block:: yaml
+   :caption: conf-light/files.d/lighttpd-index.yml
+   :emphasize-lines: 7
 
-   shell> cat conf-light/files.d/lighttpd-index.yml
-   ---
    lighttpd-index:
      path: "{{ cl_lighttpd_server_document_root }}/index.html"
      owner: "{{ cl_lighttpd_server_username }}"
@@ -182,9 +179,9 @@ playbook on the controller is a member of the group *adm*.
        - line: Lighttpd works !
 
 .. code-block:: yaml
+   :caption: conf-light/files.d/lighttpd-lighttpdconf.yml
+   :emphasize-lines: 8
 
-   shell> cat conf-light/files.d/lighttpd-lighttpdconf.yml
-   ---
    lighttpd-lighttpdconf:
      path: /usr/local/etc/lighttpd/lighttpd.conf
      create: true
@@ -197,9 +194,9 @@ playbook on the controller is a member of the group *adm*.
        - reload lighttpd
 
 .. code-block:: yaml
+   :caption: conf-light/files.d/lighttpd-rcconf.yml
+   :emphasize-lines: 8
 
-   shell> cat conf-light/files.d/lighttpd-rcconf.yml
-   ---
    lighttpd_rcconf:
      path: /etc/rc.conf
      create: true
@@ -211,12 +208,8 @@ playbook on the controller is a member of the group *adm*.
      handlers:
        - reload lighttpd
 
-
-* conf-light/handlers.d/* ::
-
-   shell> cat conf-light/handlers.d/lighttpd-freebsd.yml
-
 .. code-block:: yaml
+   :caption: conf-light/handlers.d/lighttpd-freebsd.yml
    :emphasize-lines: 6,13,20,29,38
    :linenos:
 
@@ -263,37 +256,28 @@ playbook on the controller is a member of the group *adm*.
          params:
            - 'cmd: /usr/local/sbin/lighttpd -t'
 
-
-* conf-light/packages.d/*
-
 .. code-block:: yaml
+   :caption: conf-light/packages.d/lighttpd.yml
+   :emphasize-lines: 2
 
-   shell> cat conf-light/packages.d/lighttpd.yml
-   ---
    lighttpd:
      module: pkgng
      name:
        - www/lighttpd
 
-
-* conf-light/services.d/*
-
 .. code-block:: yaml
+   :caption: conf-light/services.d/lighttpd.yml
+   :emphasize-lines: 2
 
-   shell> cat conf-light/services.d/lighttpd.yml
-   ---
    lighttpd:
      name: lighttpd
      state: "{{ cl_service_lighttpd_state }}"
      enabled: "{{ cl_service_lighttpd_enable }}"
 
-
-* conf-light/states.d/*
-
 .. code-block:: yaml
+   :caption: conf-light/states.d/lighttpd-server-document-root.yml
+   :emphasize-lines: 2
 
-   shell> cat conf-light/states.d/lighttpd-server-document-root.yml
-   ---
    lighttpd_server_document_root:
      state: directory
      path: "{{ cl_lighttpd_server_document_root }}"
@@ -301,21 +285,22 @@ playbook on the controller is a member of the group *adm*.
      group: "{{ cl_lighttpd_server_groupname }}"
      mode: '0750'
 
+Setup
+*****
 
 * Select and enable setup. This command will assemble the configuration data and
   create handlers on the control node. Take a look at the directory
-  ``conf-light/assemble/`` what files were created. Also take a look at the
-  directory ``roles/vbotka.config_light/handlers`` what handlers were
-  created. ::
+  ``conf-light/assemble/`` what files were created. Also, look at the directory
+  ``roles/vbotka.config_light/handlers``, what handlers were created ::
 
    shell> ansible-playbook pb.yml -t cl_setup -e cl_setup=true
 
   .. note::
 
-   * The tasks *vars* are tagged ``always``
+   * The tasks *vars* are tagged ``always``.
 
-   * The tasks *setup* and *sanity* are enabled by default
-     ``cl_setup=true, cl_sanity=true``
+   * The tasks *setup* and *sanity* are enabled by default ``cl_setup=true,
+     cl_sanity=true``.
 
 
 * Enable and test sanity ::
@@ -327,13 +312,15 @@ playbook on the controller is a member of the group *adm*.
 
     shell> ansible-playbook pb.yml -t cl_debug -e cl_debug=true
 
+Run the play
+************
 
 * Install packages ::
 
     shell> ansible-playbook pb.yml -t cl_packages -e cl_install=true
 
 
-* Set states of the files ::
+* Set files `state`_ ::
 
     shell> ansible-playbook pb.yml -t cl_states
 
@@ -348,29 +335,39 @@ playbook on the controller is a member of the group *adm*.
     shell> ansible-playbook pb.yml -t cl_services
 
 
-  .. hint::
+.. hint::
 
-     If you know what you are doing skip the above selection of particular tags
-     and run the complete role at once ::
+   If you know what you are doing skip the above selection of particular
+   tags and run the complete role at once ::
 
-       shell> ansible-playbook pb.yml -e cl_setup=true -e cl_sanity=true -e cl_install=true
+     shell> ansible-playbook pb.yml -e cl_setup=true -e cl_sanity=true -e cl_install=true
 
+.. seealso::
 
-  .. note::
+   The collection `vbotka.freebsd examples`_.
 
-     The role and the configuration data in the examples are idempotent. Once
-     the application is installed and configured *ansible-playbook* shouldn't
-     report any changes. To speedup the playbook disable setup, sanity, debug,
-     and install. This way, the role will audit the required infrastructure ::
+.. note::
 
-       shell> ansible-playbook pb.yml
+   The role and the configuration data in the examples are idempotent. Once
+   the application is installed and configured *ansible-playbook* shouldn't
+   report any changes. To speedup the playbook disable setup, sanity, debug,
+   and install. This way, the role will audit the required infrastructure ::
 
-       [...]
+     shell> ansible-playbook pb.yml
 
-       PLAY RECAP ***************************************************************************
-       srv.example.com: ok=32 changed=0 unreachable=0 failed=0 skipped=91 rescued=0 ignored=0
+     [...]
 
+     PLAY RECAP ***************************************************************************
+     srv.example.com: ok=32 changed=0 unreachable=0 failed=0 skipped=91 rescued=0 ignored=0
+
+Results
+*******
 
 * Open the page in a browser ``http://srv.example.com/``. The content should be ::
 
    Lighttpd works!
+
+
+.. _lighttpd: https://www.lighttpd.net/
+.. _vbotka.freebsd examples: file:///scratch/collections/ansible_collections/vbotka/freebsd/docs/build/html/ug_examples.html
+.. _state: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html#parameter-state
