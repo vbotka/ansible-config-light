@@ -6,12 +6,11 @@ Ansible role Config Light
 
 Role version 2.7.1
 
-The role installs packages, creates and configures files and services. The
-handlers are created from user provided configuration data. The control-flow
-will be determined by the configuration data. The configuration data also
-determine which Ansible modules will be used. This `data-driven programming`_
-paradigm provides a flexible and robust framework to apply basic Ansible
-modules:
+The role installs packages, creates and configures files, and services. The
+handlers are created from user-provided configuration data. The configuration
+data determines the control flow. The configuration data also determines which
+Ansible modules will be used. This `data-driven programming`_ paradigm provides
+a flexible and robust framework to apply basic Ansible modules:
 
 * apt, dnf, snap, package, pkgng, portinstall
 * mount, file

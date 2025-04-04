@@ -3,10 +3,10 @@
 Installation
 ************
 
-The most convenient way to install an Ansible role is to use `Ansible Galaxy`_ CLI
-``ansible-galaxy``. The utility comes with the standard Ansible package and
-provides the user with a simple interface to the Ansible Galaxy's services. For
-example, take a look at the current status of the role ::
+The most convenient way to install an Ansible role is to use `Ansible Galaxy`_
+CLI ``ansible-galaxy``. The utility comes with the standard Ansible package and
+provides a simple interface to the Ansible Galaxy's services. For example, take
+a look at the current status of the role ::
 
     shell> ansible-galaxy role info vbotka.config_light
 
@@ -27,13 +27,13 @@ configure ``ansible-lint``.
 
 .. note::
 
-   * By default sanity checking of ``yamllint`` is disabled ``cl_sanity_yamllint=false``
+   * By default, sanity checking of ``yamllint`` is disabled ``cl_sanity_yamllint=false``
 
 .. hint::
 
    * To install specific versions from various sources see `Ansible Galaxy`_.
 
-   * Take a look at other roles ::
+   * Look at other roles ::
 
        shell> ansible-galaxy search --author=vbotka
 

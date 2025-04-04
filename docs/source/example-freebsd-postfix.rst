@@ -15,7 +15,7 @@ contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml
 
 Synopsis: Create handlers for Postfix.
 
-Use template (3) to create handlers.
+Use template (**3**) to create handlers.
 
 [`contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml>`_]
 
@@ -34,7 +34,7 @@ contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml
 
 Synopsis: Create handlers for Sendmail.
 
-Use template (3) to create handlers.
+Use template (**3**) to create handlers.
 
 [`contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml>`_]
 
@@ -42,7 +42,7 @@ Use template (3) to create handlers.
     :linenothreshold: 5
 .. literalinclude:: ../../contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml
     :language: Yaml
-    :emphasize-lines: 3,5,12,19,27,35,41
+    :emphasize-lines: 3,5,12,19,28
     :linenos:
 
 .. seealso:: See :ref:`as_setup.yml` how the handlers are created.
@@ -58,7 +58,7 @@ contrib/postfix/conf-light/packages.d/postfix.yml
 
 Synopsis: Install Postfix.
 
-Use package or port (3) to install Postfix.
+Use package or port (**3**) to install Postfix.
 
 [`contrib/postfix/conf-light/packages.d/postfix.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfix.yml>`_]
 
@@ -82,7 +82,7 @@ contrib/postfix/conf-light/services.d/postfix.yml
 
 Synopsis: Configure Postfix service.
 
-Set service (3) state (4). Run the service on boot (5).
+Set service (**3**) state (**4**). Run the service on boot (**5**).
 
 [`contrib/postfix/conf-light/services.d/postfix.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/postfix.yml>`_]
 
@@ -101,7 +101,7 @@ contrib/postfix/conf-light/services.d/sendmail.yml
 
 Synopsis: Configure Sendmail service.
 
-Set service (3) state (4). Do not run the service on boot (5).
+Set service (**3**) state (**4**). Do not run the service on boot (**5**).
 
 [`contrib/postfix/conf-light/services.d/sendmail.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/sendmail.yml>`_]
 
@@ -125,7 +125,7 @@ contrib/postfix/host_vars/srv.example.com/config-light-postfix.yml
 
 Synopsis: Custom variables for Postfix.
 
-Put the host-specific variables (6) into the ``host_vars``. Optionally other variables might be put into the ``group_vars``.
+Put the host-specific variables (**6**) into the ``host_vars``. Optionally other variables might be put into the ``group_vars``.
 
 [`contrib/postfix/host_vars/srv.example.com/config-light-postfix.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/host_vars/srv.example.com/config-light-postfix.yml>`_]
 
@@ -143,7 +143,7 @@ contrib/postfix/conf-light/files.d/mailer-conf.yml
 
 Synopsis: Create file.
 
-Create file (3) from the template (5).
+Create file (**3**) from the template (**5**).
 
 [`contrib/postfix/conf-light/files.d/mailer-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf.yml>`_]
 
@@ -161,7 +161,7 @@ contrib/postfix/conf-light/files.d/periodic-conf.yml
 
 Synopsis: Modify file.
 
-Modify file (3) with the lines (8).
+Modify file (**3**) with the lines (**8**).
 
 [`contrib/postfix/conf-light/files.d/periodic-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/periodic-conf.yml>`_]
 
@@ -179,7 +179,7 @@ contrib/postfix/conf-light/files.d/postfix-main-cf.yml
 
 Synopsis: Modify file and notify handlers.
 
-Modify file (3) with the lines (10) and notify handlers (8).
+Modify file (**3**) with the lines (**10**) and notify handlers (**8**).
 
 [`contrib/postfix/conf-light/files.d/postfix-main-cf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/postfix-main-cf.yml>`_]
 
@@ -197,9 +197,9 @@ contrib/postfix/conf-light/files.d/rc-conf.yml
 
 Synopsis: Modify file.
 
-Modify file (3) with the lines (8).
+Modify file (**3**) with the lines (**8**).
 
-[`contrib/postfix/conf-light/files.d/rc-conf.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/rc-conf.yml>`_]
+[`contrib/postfix/conf-light/files.d/rc-conf.yml`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -207,3 +207,15 @@ Modify file (3) with the lines (8).
     :language: Yaml
     :emphasize-lines: 3,8
     :linenos:
+
+
+.. _contrib/postfix/conf-light/files.d/postfix-main-cf.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/postfix-main-cf.yml
+.. _contrib/postfix/conf-light/files.d/periodic-conf.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/periodic-conf.yml
+.. _contrib/postfix/conf-light/files.d/mailer-conf.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/mailer-conf.yml
+.. _contrib/postfix/host_vars/srv.example.com/config-light-postfix.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/host_vars/srv.example.com/config-light-postfix.yml
+.. _contrib/postfix/conf-light/services.d/sendmail.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/sendmail.yml
+.. _contrib/postfix/conf-light/services.d/postfix.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/services.d/postfix.yml
+.. _contrib/postfix/conf-light/packages.d/postfix.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/packages.d/postfix.yml
+.. _contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/sendmail-freebsd.yml
+.. _contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/handlers.d/postfix-freebsd.yml
+.. _contrib/postfix/conf-light/files.d/rc-conf.yml: https://github.com/vbotka/ansible-config-light/blob/master/contrib/postfix/conf-light/files.d/rc-conf.yml

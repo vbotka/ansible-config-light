@@ -10,6 +10,7 @@ vbotka.config_light 2.7 Release Notes
 
 Release Summary
 ---------------
+Update docs.
 
 Major Changes
 -------------
