@@ -16,7 +16,8 @@ Major Changes
 
 Minor Changes
 -------------
-
+* Update docs.
+  Update Quick start guide.
 
 2.7.0
 =====
