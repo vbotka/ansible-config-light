@@ -14,12 +14,12 @@ Synopsis: Main task.
 Import tasks if enabled.
 
 
-[`tasks/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_]
+[`tasks/main.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/main.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/main.yml
-    :language: Yaml
+    :language: yaml
     :emphasize-lines: 1,2
     :linenos:
 
@@ -32,19 +32,19 @@ Import tasks if enabled.
 setup.yml
 ---------
 
-Synopsis: Configure setup.
+Synopsis: Configure setup
 
 
 Description of the task.
 
 
-[`tasks/setup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_]
+[`tasks/setup.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/setup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/setup.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -56,19 +56,19 @@ Description of the task.
 vars-handlers.yml
 -----------------
 
-Synopsis: Configure vars-handlers.
+Synopsis: Configure vars-handlers
 
 
 Description of the task.
 
 
-[`tasks/vars-handlers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml>`_]
+[`tasks/vars-handlers.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-handlers.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars-handlers.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -80,19 +80,19 @@ Description of the task.
 vars.yml
 --------
 
-Synopsis: Configure vars.
+Synopsis: Configure vars
 
 
 Description of the task.
 
 
-[`tasks/vars.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars.yml>`_]
+[`tasks/vars.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -104,19 +104,19 @@ Description of the task.
 vars-packages.yml
 -----------------
 
-Synopsis: Configure vars-packages.
+Synopsis: Configure vars-packages
 
 
 Description of the task.
 
 
-[`tasks/vars-packages.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-packages.yml>`_]
+[`tasks/vars-packages.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-packages.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars-packages.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -128,19 +128,19 @@ Description of the task.
 vars-states.yml
 ---------------
 
-Synopsis: Configure vars-states.
+Synopsis: Configure vars-states
 
 
 Description of the task.
 
 
-[`tasks/vars-states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_]
+[`tasks/vars-states.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-states.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars-states.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -152,19 +152,19 @@ Description of the task.
 vars-services.yml
 -----------------
 
-Synopsis: Configure vars-services.
+Synopsis: Configure vars-services
 
 
 Description of the task.
 
 
-[`tasks/vars-services.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-services.yml>`_]
+[`tasks/vars-services.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-services.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars-services.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -176,19 +176,19 @@ Description of the task.
 vars-files.yml
 --------------
 
-Synopsis: Configure vars-files.
+Synopsis: Configure vars-files
 
 
 Description of the task.
 
 
-[`tasks/vars-files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-files.yml>`_]
+[`tasks/vars-files.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-files.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/vars-files.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -200,19 +200,19 @@ Description of the task.
 sanity.yml
 ----------
 
-Synopsis: Configure sanity.
+Synopsis: Configure sanity
 
 
 Description of the task.
 
 
-[`tasks/sanity.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/sanity.yml>`_]
+[`tasks/sanity.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/sanity.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/sanity.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -224,19 +224,19 @@ Description of the task.
 debug.yml
 ---------
 
-Synopsis: Configure debug.
+Synopsis: Configure debug
 
 
 Description of the task.
 
 
-[`tasks/debug.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/debug.yml>`_]
+[`tasks/debug.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/debug.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/debug.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -248,19 +248,19 @@ Description of the task.
 packages.yml
 ------------
 
-Synopsis: Configure packages.
+Synopsis: Configure packages
 
 
 Description of the task.
 
 
-[`tasks/packages.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml>`_]
+[`tasks/packages.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/packages.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/packages.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -272,19 +272,19 @@ Description of the task.
 states.yml
 ----------
 
-Synopsis: Configure states.
+Synopsis: Configure states
 
 
 Description of the task.
 
 
-[`tasks/states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_]
+[`tasks/states.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/states.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/states.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -302,12 +302,12 @@ Synopsis: Manage files.
 Iterate ``cl_files_order`` (6) and include tasks with particular modules.
 
 
-[`tasks/files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_]
+[`tasks/files.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files.yml
-    :language: Yaml
+    :language: yaml
     :emphasize-lines: 3,6
     :linenos:
 
@@ -324,19 +324,19 @@ Iterate ``cl_files_order`` (6) and include tasks with particular modules.
 files-blockinfile.yml
 ---------------------
 
-Synopsis: Configure files-blockinfile.
+Synopsis: Configure files-blockinfile
 
 
 Description of the task.
 
 
-[`tasks/files-blockinfile.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_]
+[`tasks/files-blockinfile.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-blockinfile.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-blockinfile.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -348,19 +348,19 @@ Description of the task.
 files-copy.yml
 --------------
 
-Synopsis: Configure files-copy.
+Synopsis: Configure files-copy
 
 
 Description of the task.
 
 
-[`tasks/files-copy.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_]
+[`tasks/files-copy.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-copy.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-copy.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -372,19 +372,19 @@ Description of the task.
 files-create-backup.yml
 -----------------------
 
-Synopsis: Configure files-create-backup.
+Synopsis: Configure files-create-backup
 
 
 Description of the task.
 
 
-[`tasks/files-create-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_]
+[`tasks/files-create-backup.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-create-backup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-create-backup.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -396,19 +396,19 @@ Description of the task.
 files-delete-backup.yml
 -----------------------
 
-Synopsis: Configure files-delete-backup.
+Synopsis: Configure files-delete-backup
 
 
 Description of the task.
 
 
-[`tasks/files-delete-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_]
+[`tasks/files-delete-backup.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-delete-backup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-delete-backup.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -420,19 +420,19 @@ Description of the task.
 files-inifile.yml
 -----------------
 
-Synopsis: Configure files-inifile.
+Synopsis: Configure files-inifile
 
 
 Description of the task.
 
 
-[`tasks/files-inifile.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-inifile.yml>`_]
+[`tasks/files-inifile.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-inifile.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-inifile.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -444,19 +444,19 @@ Description of the task.
 files-lineinfile.yml
 --------------------
 
-Synopsis: Configure files-lineinfile.
+Synopsis: Configure files-lineinfile
 
 
 Description of the task.
 
 
-[`tasks/files-lineinfile.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-lineinfile.yml>`_]
+[`tasks/files-lineinfile.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-lineinfile.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-lineinfile.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -468,19 +468,19 @@ Description of the task.
 files-markers.yml
 -----------------
 
-Synopsis: Configure files-markers.
+Synopsis: Configure files-markers
 
 
 Description of the task.
 
 
-[`tasks/files-markers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_]
+[`tasks/files-markers.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-markers.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-markers.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -492,19 +492,19 @@ Description of the task.
 mark-block.yml
 --------------
 
-Synopsis: Configure mark-block.
+Synopsis: Configure mark-block
 
 
 Description of the task.
 
 
-[`tasks/fn/mark-block.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_]
+[`tasks/fn/mark-block.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/fn/mark-block.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/fn/mark-block.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -516,19 +516,19 @@ Description of the task.
 files-patch.yml
 ---------------
 
-Synopsis: Configure files-patch.
+Synopsis: Configure files-patch
 
 
 Description of the task.
 
 
-[`tasks/files-patch.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-patch.yml>`_]
+[`tasks/files-patch.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-patch.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-patch.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -540,19 +540,19 @@ Description of the task.
 files-template.yml
 ------------------
 
-Synopsis: Configure files-template.
+Synopsis: Configure files-template
 
 
 Description of the task.
 
 
-[`tasks/files-template.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml>`_]
+[`tasks/files-template.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-template.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-template.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -564,19 +564,19 @@ Description of the task.
 files-ucl.yml
 -------------
 
-Synopsis: Configure files-ucl.
+Synopsis: Configure files-ucl
 
 
 Description of the task.
 
 
-[`tasks/files-ucl.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-ucl.yml>`_]
+[`tasks/files-ucl.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-ucl.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/files-ucl.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 
@@ -588,19 +588,19 @@ Description of the task.
 services.yml
 ------------
 
-Synopsis: Configure services.
+Synopsis: Configure services
 
 
 Description of the task.
 
 
-[`tasks/services.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/services.yml>`_]
+[`tasks/services.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/services.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
 .. literalinclude:: ../../tasks/services.yml
-    :language: Yaml
-    :emphasize-lines: 1,2
+    :language: yaml
+    :emphasize-lines: 1
     :linenos:
 
 

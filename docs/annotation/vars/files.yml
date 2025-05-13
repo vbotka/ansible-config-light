@@ -12,7 +12,7 @@ task_files_seealso:
   handlers: []
   templates: []
   others:
-    - See :ref:`ug_variables_files` *Order of options*
+    - "See :ref:`ug_variables_files` *Order of options*"
 
 task_files_note: []
 
