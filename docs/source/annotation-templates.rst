@@ -14,7 +14,7 @@ Synopsis: Configure 1.0.0-wpa_action.sh
 Description of the task.
 
 
-[`templates/1.0.0-wpa_action.sh.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/1.0.0-wpa_action.sh.j2>`_]
+[`templates/1.0.0-wpa_action.sh.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/1.0.0-wpa_action.sh.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -38,7 +38,7 @@ Synopsis: Configure 1.1.0-wpa_action.sh
 Description of the task.
 
 
-[`templates/1.1.0-wpa_action.sh.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/1.1.0-wpa_action.sh.j2>`_]
+[`templates/1.1.0-wpa_action.sh.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/1.1.0-wpa_action.sh.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -62,7 +62,7 @@ Synopsis: Configure dma-auth.conf
 Description of the task.
 
 
-[`templates/dma-auth.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/dma-auth.conf.j2>`_]
+[`templates/dma-auth.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/dma-auth.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -86,7 +86,7 @@ Synopsis: Configure handlers-auto1.yml
 Description of the task.
 
 
-[`templates/handlers-auto1.yml.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/handlers-auto1.yml.j2>`_]
+[`templates/handlers-auto1.yml.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto1.yml.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -110,7 +110,7 @@ Synopsis: Configure handlers-auto2.yml
 Description of the task.
 
 
-[`templates/handlers-auto2.yml.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/handlers-auto2.yml.j2>`_]
+[`templates/handlers-auto2.yml.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto2.yml.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -134,7 +134,7 @@ Synopsis: Configure handlers-auto3.yml
 Description of the task.
 
 
-[`templates/handlers-auto3.yml.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/handlers-auto3.yml.j2>`_]
+[`templates/handlers-auto3.yml.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/handlers-auto3.yml.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -158,7 +158,7 @@ Synopsis: Configure hosts
 Description of the task.
 
 
-[`templates/hosts.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/hosts.j2>`_]
+[`templates/hosts.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/hosts.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -182,7 +182,7 @@ Synopsis: Configure loader.conf
 Description of the task.
 
 
-[`templates/loader.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/loader.conf.j2>`_]
+[`templates/loader.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/loader.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -206,7 +206,7 @@ Synopsis: Configure mailer.conf
 Description of the task.
 
 
-[`templates/mailer.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/mailer.conf.j2>`_]
+[`templates/mailer.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/mailer.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -230,7 +230,7 @@ Synopsis: Configure ntp.conf-minimal
 Description of the task.
 
 
-[`templates/ntp.conf-minimal.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/ntp.conf-minimal.j2>`_]
+[`templates/ntp.conf-minimal.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ntp.conf-minimal.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -254,7 +254,7 @@ Synopsis: Configure revaliases
 Description of the task.
 
 
-[`templates/revaliases.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/revaliases.j2>`_]
+[`templates/revaliases.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/revaliases.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -278,7 +278,7 @@ Synopsis: Configure ssmtp.conf
 Description of the task.
 
 
-[`templates/ssmtp.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/ssmtp.conf.j2>`_]
+[`templates/ssmtp.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/ssmtp.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -302,7 +302,7 @@ Synopsis: Configure wpa_cli
 Description of the task.
 
 
-[`templates/wpa_cli.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/wpa_cli.j2>`_]
+[`templates/wpa_cli.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/wpa_cli.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -326,7 +326,7 @@ Synopsis: Configure wpa_supplicant.conf
 Description of the task.
 
 
-[`templates/wpa_supplicant.conf.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/wpa_supplicant.conf.j2>`_]
+[`templates/wpa_supplicant.conf.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/wpa_supplicant.conf.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
@@ -350,7 +350,7 @@ Synopsis: Configure wpa_supplicant.conf.wlan0
 Description of the task.
 
 
-[`templates/wpa_supplicant.conf.wlan0.j2 <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/templates/wpa_supplicant.conf.wlan0.j2>`_]
+[`templates/wpa_supplicant.conf.wlan0.j2 <https://github.com/vbotka/ansible-config-light/blob/master/templates/wpa_supplicant.conf.wlan0.j2>`_]
 
 .. highlight:: jinja
     :linenothreshold: 5
