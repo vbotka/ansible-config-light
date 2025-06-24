@@ -5,6 +5,14 @@ vbotka.config_light 2.7 Release Notes
 .. contents:: Topics
 
 
+2.7.3
+=====
+
+Release Summary
+---------------
+Updated documentation. Updated annotation templates.
+
+
 2.7.2
 =====
 
