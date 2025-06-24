@@ -14,7 +14,7 @@ Synopsis: Main task.
 Import tasks if enabled.
 
 
-[`tasks/main.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/main.yml>`_]
+[`tasks/main.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/main.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -38,7 +38,7 @@ Synopsis: Configure setup
 Description of the task.
 
 
-[`tasks/setup.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/setup.yml>`_]
+[`tasks/setup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/setup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -62,7 +62,7 @@ Synopsis: Configure vars-handlers
 Description of the task.
 
 
-[`tasks/vars-handlers.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-handlers.yml>`_]
+[`tasks/vars-handlers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-handlers.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -86,7 +86,7 @@ Synopsis: Configure vars
 Description of the task.
 
 
-[`tasks/vars.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars.yml>`_]
+[`tasks/vars.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -110,7 +110,7 @@ Synopsis: Configure vars-packages
 Description of the task.
 
 
-[`tasks/vars-packages.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-packages.yml>`_]
+[`tasks/vars-packages.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-packages.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -134,7 +134,7 @@ Synopsis: Configure vars-states
 Description of the task.
 
 
-[`tasks/vars-states.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-states.yml>`_]
+[`tasks/vars-states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-states.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -158,7 +158,7 @@ Synopsis: Configure vars-services
 Description of the task.
 
 
-[`tasks/vars-services.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-services.yml>`_]
+[`tasks/vars-services.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-services.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -182,7 +182,7 @@ Synopsis: Configure vars-files
 Description of the task.
 
 
-[`tasks/vars-files.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/vars-files.yml>`_]
+[`tasks/vars-files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/vars-files.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -206,7 +206,7 @@ Synopsis: Configure sanity
 Description of the task.
 
 
-[`tasks/sanity.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/sanity.yml>`_]
+[`tasks/sanity.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/sanity.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -230,7 +230,7 @@ Synopsis: Configure debug
 Description of the task.
 
 
-[`tasks/debug.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/debug.yml>`_]
+[`tasks/debug.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/debug.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -254,7 +254,7 @@ Synopsis: Configure packages
 Description of the task.
 
 
-[`tasks/packages.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/packages.yml>`_]
+[`tasks/packages.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/packages.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -278,7 +278,7 @@ Synopsis: Configure states
 Description of the task.
 
 
-[`tasks/states.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/states.yml>`_]
+[`tasks/states.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/states.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -302,7 +302,7 @@ Synopsis: Manage files.
 Iterate ``cl_files_order`` (6) and include tasks with particular modules.
 
 
-[`tasks/files.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files.yml>`_]
+[`tasks/files.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -330,7 +330,7 @@ Synopsis: Configure files-blockinfile
 Description of the task.
 
 
-[`tasks/files-blockinfile.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-blockinfile.yml>`_]
+[`tasks/files-blockinfile.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-blockinfile.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -354,7 +354,7 @@ Synopsis: Configure files-copy
 Description of the task.
 
 
-[`tasks/files-copy.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-copy.yml>`_]
+[`tasks/files-copy.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-copy.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -378,7 +378,7 @@ Synopsis: Configure files-create-backup
 Description of the task.
 
 
-[`tasks/files-create-backup.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-create-backup.yml>`_]
+[`tasks/files-create-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-create-backup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -402,7 +402,7 @@ Synopsis: Configure files-delete-backup
 Description of the task.
 
 
-[`tasks/files-delete-backup.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-delete-backup.yml>`_]
+[`tasks/files-delete-backup.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-delete-backup.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -426,7 +426,7 @@ Synopsis: Configure files-inifile
 Description of the task.
 
 
-[`tasks/files-inifile.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-inifile.yml>`_]
+[`tasks/files-inifile.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-inifile.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -450,7 +450,7 @@ Synopsis: Configure files-lineinfile
 Description of the task.
 
 
-[`tasks/files-lineinfile.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-lineinfile.yml>`_]
+[`tasks/files-lineinfile.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-lineinfile.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -474,7 +474,7 @@ Synopsis: Configure files-markers
 Description of the task.
 
 
-[`tasks/files-markers.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-markers.yml>`_]
+[`tasks/files-markers.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-markers.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -498,7 +498,7 @@ Synopsis: Configure mark-block
 Description of the task.
 
 
-[`tasks/fn/mark-block.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/fn/mark-block.yml>`_]
+[`tasks/fn/mark-block.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/fn/mark-block.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -522,7 +522,7 @@ Synopsis: Configure files-patch
 Description of the task.
 
 
-[`tasks/files-patch.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-patch.yml>`_]
+[`tasks/files-patch.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-patch.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -546,7 +546,7 @@ Synopsis: Configure files-template
 Description of the task.
 
 
-[`tasks/files-template.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-template.yml>`_]
+[`tasks/files-template.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-template.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -570,7 +570,7 @@ Synopsis: Configure files-ucl
 Description of the task.
 
 
-[`tasks/files-ucl.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/files-ucl.yml>`_]
+[`tasks/files-ucl.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-ucl.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
@@ -594,7 +594,7 @@ Synopsis: Configure services
 Description of the task.
 
 
-[`tasks/services.yml <https://github.com/__GITHUB_USERNAME__/__PROJECT__/blob/__BRANCH__/tasks/services.yml>`_]
+[`tasks/services.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/services.yml>`_]
 
 .. highlight:: yaml
     :linenothreshold: 5
