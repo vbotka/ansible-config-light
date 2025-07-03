@@ -5,6 +5,8 @@
 [![Documentation Status](https://readthedocs.org/projects/docs/badge/?version=latest)](https://ansible-config-light.readthedocs.io/en/latest/)
 [![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-config-light)](https://github.com/vbotka/ansible-config-light/tags)
 
+This role is included in the collection [vbotka.freebsd](https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/) as [vbotka.freebsd.config_light](https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/content/role/config_light)
+
 [Ansible role.](https://galaxy.ansible.com/vbotka/config_light/) Install packages, configure files, services, and handlers.
 
 [Documentation at readthedocs.io](https://ansible-config-light.readthedocs.io).
