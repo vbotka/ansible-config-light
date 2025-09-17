@@ -20,6 +20,7 @@ Minor Changes
 
 Bugfixes
 --------
+* Fix task name. Remove the Jinja expression.
 
 Breaking Changes / Porting Guide
 --------------------------------
