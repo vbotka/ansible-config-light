@@ -23,6 +23,7 @@ a flexible and robust framework to apply basic Ansible modules:
 
 | GitHub: `ansible-config-light`_
 | Ansible Galaxy: `vbotka.config_light`_
+| Ansible collection: `vbotka.freebsd.config_light`_
 
 | This role is licensed and distributed as a whole under
 | **BSD 2-Clause "Simplified" License**
@@ -49,10 +50,12 @@ Indices and tables
 * :ref:`search`
 
 
-.. _data-driven programming: https://en.wikipedia.org/wiki/Data-driven_programming
 .. _role: https://galaxy.ansible.com/vbotka/config_light
-.. _share your feedback and report issues: https://github.com/vbotka/ansible-config-light/issues
-.. _Contributions are welcome: https://github.com/firstcontributions/first-contributions
 .. _ansible-config-light: https://github.com/vbotka/ansible-config-light
 .. _vbotka.config_light: https://galaxy.ansible.com/vbotka/config_light
+.. _vbotka.freebsd.config_light: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/content/role/config_light/
+
+.. _data-driven programming: https://en.wikipedia.org/wiki/Data-driven_programming
+.. _share your feedback and report issues: https://github.com/vbotka/ansible-config-light/issues
+.. _Contributions are welcome: https://github.com/firstcontributions/first-contributions
 .. _BSD-2-Clause: https://spdx.org/licenses/BSD-2-Clause.html
