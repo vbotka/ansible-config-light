@@ -5,11 +5,31 @@ vbotka.config_light 2.8 Release Notes
 .. contents:: Topics
 
 
+2.8.1
+=====
+
+Release Summary
+---------------
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+
+Bugfixes
+--------
+
+Breaking Changes / Porting Guide
+--------------------------------
+
+
 2.8.0
 =====
 
 Release Summary
 ---------------
+Ansible 2.19 upgrade.
 
 Major Changes
 -------------
