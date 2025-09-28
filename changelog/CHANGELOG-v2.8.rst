@@ -19,6 +19,7 @@ Minor Changes
 
 Bugfixes
 --------
+* Fix task name.
 
 Breaking Changes / Porting Guide
 --------------------------------
