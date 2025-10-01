@@ -2,19 +2,19 @@
 # defaults for config_light
 cl_role_version: 2.8.1
 
-cl_setup: true # Import tasks/setup.yml
-cl_install: true # Install packages or ports
-cl_debug: false # Display debug output
-cl_backup: false # Backup files
-cl_copyfile_delete: false # Delete dest then copy samples and defaults
-cl_template_delete: false # Delete dest then create from templates
+cl_setup: true                # Import tasks/setup.yml
+cl_install: true              # Install packages or ports
+cl_debug: false               # Display debug output
+cl_backup: false              # Backup files
+cl_copyfile_delete: false     # Delete dest then copy samples and defaults
+cl_template_delete: false     # Delete dest then create from templates
 
 # Sanity
-cl_sanity: true # Import tasks/sanity.yml
-cl_sanity_quiet: true # Module assert, parameter quiet
-cl_sanity_collections: false # Test required collections
-cl_sanity_modules_pkg: true # Test modules in cl_packages are supported
-cl_sanity_yamllint: false # Test yamllint is installed
+cl_sanity: true               # Import tasks/sanity.yml
+cl_sanity_quiet: true         # Module assert, parameter quiet
+cl_sanity_collections: false  # Test required collections
+cl_sanity_modules_pkg: true   # Test modules in cl_packages are supported
+cl_sanity_yamllint: false     # Test yamllint is installed
 
 # Supported
 cl_supported_linux_family: [Debian, RedHat]
@@ -108,6 +108,7 @@ cl_files_collections:
   blockinfile: ansible.builtin
   inifile: ansible.builtin
   ucl: vbotka.freebsd
+  sysrc: community.general
   delete-backup: ansible.builtin
 cl_files_order: "{{ cl_files_collections |
                     dict2items |
