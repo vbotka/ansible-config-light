@@ -10,6 +10,7 @@ vbotka.config_light 2.8 Release Notes
 
 Release Summary
 ---------------
+Add the module community.general.sysrc to the file's options.
 
 Major Changes
 -------------
