@@ -28,7 +28,7 @@
     # backup: "{{ cl_backup }}"
   loop: "{{ cl_files.values() | list | subelements('ucl', skip_missing=true) }}"
   loop_control:
-    label: "{{ item.0.path }}"
+    label: "{{ item.0.path }} {{ item.1.upath | d('UNDEFINED') }}"
 
 - name: Debug
   when: cl_debug | bool

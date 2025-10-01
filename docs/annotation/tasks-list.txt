@@ -19,6 +19,7 @@ files-lineinfile.yml
 files-markers.yml
 fn/mark-block.yml
 files-patch.yml
+files-sysrc.yml
 files-template.yml
 files-ucl.yml
 services.yml

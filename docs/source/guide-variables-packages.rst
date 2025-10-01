@@ -9,12 +9,13 @@ Packages
 Synopsis
 ^^^^^^^^
 
-The dictionary *cl_packages* comprises managed packages (Linux or BSD) or BSD ports.
+The dictionary ``cl_packages`` comprises managed packages (Linux or BSD) or BSD
+ports.
 
 FreeBSD
 """""""
 
-By default, packages will be installed. If you want to install ports set ::
+Packages will be installed by default. If you want to install ports set ::
 
   freebsd_install_method: ports
 
@@ -22,10 +23,10 @@ In this case, the default is to use packages ::
 
   freebsd_use_packages: true
 
-See the variables *freebsd_pkgng_\** in :ref:`as_packages.yml`. There are no
-defaults. If these variables are not defined the options are omitted. See the
-module `community.general.pkgng`_. For example, disable *use_globs*
-(*default=true*) if you want to use the packages in the form <pkg-origin> ::
+See the variables ``freebsd_pkgng_*`` in :ref:`as_packages.yml`. There are no
+defaults. If these variables are not defined, the options are omitted. See the
+module `community.general.pkgng`_. For example, disable ``use_globs``
+(*default=true*) if you want to use the packages in the form ``<pkg-origin>`` ::
 
   freebsd_pkgng_use_globs: false
 
@@ -34,16 +35,16 @@ module `community.general.pkgng`_. For example, disable *use_globs*
    `FreeBSD. Add option use_globs to the module pkgng. #8632`_
 
 
-Enable *cached* packages (*default=false*) ::
+Enable ``cached`` packages (*default=false*) ::
 
   freebsd_pkgng_cached: true
 
-This is especially useful when you install packages in jails from a host. For
+This is especially useful when you install packages from a host in jails. For
 example, ::
 
   freebsd_pkgng_delegate: iocage_host.example.com
 
-In this case, you have to provide also *freebsd_pkgng_jail*.
+In this case, you have to provide also ``freebsd_pkgng_jail``.
 
 .. hint::
 
@@ -57,12 +58,12 @@ In this case, you have to provide also *freebsd_pkgng_jail*.
 snap
 """"
 
-By default snap packages won't be installed or uninstalled if *snap* binary can't be found in
-``cl_snap_paths``. If you want the role to fail when *snap* is missing set ::
+By default, snap packages won't be installed or uninstalled if ``snap`` binary can't be found in
+``cl_snap_paths``. If you want the role to fail when ``snap`` is missing set ::
 
   cl_snap_missing_fatal: true
 
-The variables *cl_snap_missing_fatal, cl_snap_paths, cl_snap_patterns* are declared in
+The variables ``cl_snap_missing_fatal, cl_snap_paths, cl_snap_patterns`` are declared in
 ``defaults/main.yml``.
 
 Parameters

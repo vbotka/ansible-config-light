@@ -14,7 +14,7 @@ a flexible and robust framework to apply basic Ansible modules:
 
 * apt, dnf, snap, package, pkgng, portinstall
 * mount, file
-* template, copy, replace, patch, lineinfile, blockinfile, ini_file, ucl
+* copy, template, replace, patch, lineinfile, blockinfile, ini_file, ucl, sysrc
 * service
 
 | This `role`_ and the documentation is work in progress.

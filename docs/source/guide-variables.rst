@@ -3,14 +3,14 @@
 Variables
 *********
 
-The :ref:`ug_variables_defaults` control the options of the role.
+The :ref:`ug_variables_defaults` control the role's options.
 
 The most important are the variables that control the collection of the
 configuration data. Customize the configuration data stored in the directory
 ``cl_dird`` in each project.
 
 The names of the dictionaries in the configuration files ``cl_dird/*.d/*`` are
-not used by the role and must be:
+not used by the role, but must be:
 
 * valid Ansible variables name
 * unique in the particular section (files.d, packages.d, ...).

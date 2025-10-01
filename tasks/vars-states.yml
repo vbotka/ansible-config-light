@@ -30,7 +30,7 @@
     - name: "Vars-states: End of play."
       ansible.builtin.meta: end_play
 
-- name: "Vars-states: Include files from {{ cl_statesd ~ ' to cl_statessd_items' }}"
+- name: "Vars-states: Include files from {{ cl_statesd ~ ' to cl_statesd_items' }}"
   ansible.builtin.include_vars:
     file: "{{ cl_statesd }}"
     name: cl_statesd_items

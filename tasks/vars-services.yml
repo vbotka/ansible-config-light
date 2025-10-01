@@ -1,8 +1,8 @@
 ---
 - name: Assemble services.
   delegate_to: localhost
-
   block:
+
     - name: "Vars-services: Delete {{ cl_servicesd }}"
       when: cl_all_delete | bool or cl_servicesd_delete | bool
       ansible.builtin.file:

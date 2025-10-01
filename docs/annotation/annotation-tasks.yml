@@ -459,6 +459,27 @@ mytasks:
       []
 
 
+  - file: files-sysrc.yml
+    link: files-sysrc.yml
+    path: tasks/files-sysrc.yml
+    synopsis: |
+      Configure files-sysrc
+    description: |
+      Description of the task.
+    lines: 1
+    seealso:
+      {}
+
+    notes:
+      []
+
+    hints:
+      []
+
+    warnings:
+      []
+
+
   - file: files-template.yml
     link: files-template.yml
     path: tasks/files-template.yml

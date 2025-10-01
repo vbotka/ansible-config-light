@@ -5,11 +5,36 @@ vbotka.config_light 2.8 Release Notes
 .. contents:: Topics
 
 
+2.8.1
+=====
+
+Release Summary
+---------------
+Add the module community.general.sysrc to the file's options.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Add tasks/files-sysrc.yml
+* Update the loop's labels.
+* Update docs guide with the sysrc options.
+
+Bugfixes
+--------
+* Fix task name.
+
+Breaking Changes / Porting Guide
+--------------------------------
+
+
 2.8.0
 =====
 
 Release Summary
 ---------------
+Ansible 2.19 upgrade.
 
 Major Changes
 -------------
