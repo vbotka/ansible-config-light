@@ -11,7 +11,7 @@ variables ``cl_handlers``, ``cl_packages``, ``cl_states``, ``cl_services``, and
 of handlers, packages, services, and files, will be explained in details. By
 default, these dictionaries are empty.
 
-The best practice is to provide the data either in *host_vars* and *group_vars*
+The best practice is to provide the data either in *host_vars* and *group_vars*,
 or as a files in the directories ``cl_handlersd_dir``, ``cl_packagesd_dir``,
 ``cl_statesd_dir``, ``cl_servicesd_dir``, and ``cl_filesd_dir`` (38-42). Both
 methods can be applied at the same time. The variables will be assembled and
@@ -39,8 +39,8 @@ example, to ``playbook_dir`` directory.
 
 .. warning::
 
-   The defaults of the variables *cl_dird_dmode* (36), *cl_dira_dmode* (57) and
-   *cl_dira_fmode* (58) to access the configuration data and the assembled
+   The defaults of the variables ``cl_dird_dmode`` (36), ``cl_dira_dmode`` (57)
+   and ``cl_dira_fmode`` (58) to access the configuration data and the assembled
    dictionaries are very permissive. Restrict the permissions if these
    dictionaries might comprise classified data.
 

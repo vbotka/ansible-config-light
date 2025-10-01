@@ -57,9 +57,9 @@ Next, there are four imported tasks to manage the systems: ::
   to configure *fstab*. The module ``file`` is used to modify `states`_ of
   files.
 
-* files: The Ansible modules ``template``, ``copy``, ``replace``, ``patch``,
-  ``lineinfile``, ``blockinfile``, ``ini_file``, and ``ucl`` are used to
-  configure files.
+* files: The Ansible modules ``blockinfile``, ``copy``, ``ini_file``,
+  ``lineinfile``, ``patch``, ``replace``, ``sysrc``, ``template``, and ``ucl``
+  are used to configure files.
 
 * services:
 
@@ -79,12 +79,16 @@ Next, there are four imported tasks to manage the systems: ::
         name:
           - lighttpd
 
-   The module *ansible.builtin.dnf* will be used. See :ref:`as_packages.yml`
+   The module ``ansible.builtin.dnf`` will be used. See :ref:`as_packages.yml`
 
 .. seealso::
 
-   The directory `contrib`_ comprises examples of installation and configuration
-   of various applications. Some of them are commented :ref:`ex`.
+   * The directory `contrib`_ comprises examples of installation and configuration of various
+     applications. Some of them are commented :ref:`ex`.
+
+   * The ``User's Guide -> Examples`` in the `documentation vbotka.freebsd`_. Search
+     ``vbotka.freebsd.config_light``, ``vbotka.freebsd.service``, and ``vbotka.freebsd.ucl`` in the
+     ``Index``.
 
 .. hint::
 
@@ -92,19 +96,26 @@ Next, there are four imported tasks to manage the systems: ::
    the `project`_ are welcome.
 
 
+.. _project: https://github.com/vbotka/ansible-config-light/
 .. _config_light: https://galaxy.ansible.com/vbotka/config_light/
+.. _vbotka.freebsd: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/
+.. _documentation vbotka.freebsd: https://ansible-collection-freebsd.readthedocs.io/en/latest/
+
 .. _FreeBSD: https://www.freebsd.org/releases/
 .. _Ubuntu: http://releases.ubuntu.com/
+
 .. _ansible.posix: https://github.com/ansible-collections/ansible.posix/
 .. _community.general: https://github.com/ansible-collections/community.general
-.. _vbotka.freebsd: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/
+
 .. _data-driven programming: https://en.wikipedia.org/wiki/Data-driven_programming
+
 .. _Basic Concepts: https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
 .. _Roles: https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
 .. _Working With Playbooks: https://docs.ansible.com/ansible/latest/user_guide/playbooks.html
+
 .. _states: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html#parameter-state
 .. _ansible.builtin.service: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
 .. _vbotka.freebsd.service: https://galaxy.ansible.com/ui/repo/published/vbotka/freebsd/content/module/service/
+
 .. _share your feedback and report issues: https://github.com/vbotka/ansible-config-light/issues/
-.. _project: https://github.com/vbotka/ansible-config-light/
 .. _contrib: https://github.com/vbotka/ansible-config-light/blob/master/contrib/

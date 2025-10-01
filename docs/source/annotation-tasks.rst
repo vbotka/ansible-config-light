@@ -535,6 +535,30 @@ Description of the task.
 
 
 
+.. _as_files-sysrc.yml:
+
+files-sysrc.yml
+---------------
+
+Synopsis: Configure files-sysrc
+
+
+Description of the task.
+
+
+[`tasks/files-sysrc.yml <https://github.com/vbotka/ansible-config-light/blob/master/tasks/files-sysrc.yml>`_]
+
+.. highlight:: yaml
+    :linenothreshold: 5
+.. literalinclude:: ../../tasks/files-sysrc.yml
+    :language: yaml
+    :emphasize-lines: 1
+    :linenos:
+
+
+
+
+
 .. _as_files-template.yml:
 
 files-template.yml

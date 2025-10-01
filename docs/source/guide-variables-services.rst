@@ -9,7 +9,7 @@ Services
 Synopsis
 ^^^^^^^^
 
-The dictionary *cl_services* comprises managed services.
+The dictionary ``cl_services`` comprises managed services.
 
 Parameters
 ^^^^^^^^^^
@@ -36,8 +36,7 @@ Parameters
 
 .. note::
 
-   Depending on the OS see the Ansible modules ``*.service`` what
-   values are allowed.
+   Depending on the OS, see the Ansible modules ``*.service`` what values are allowed.
 
 FreeBSD
 ^^^^^^^
@@ -53,7 +52,7 @@ If you want to use ``/etc/rc.conf.d`` set ::
 
   cl_rcconfd: true
 
-By default, the parameter *name* is used as the filename ::
+By default, the parameter ``name`` is used as the filename ::
 
   cl_rcconfd_path:
     default: "{{ cl_rcconfd_dir }}/{{ _service }}"
@@ -66,7 +65,7 @@ where ::
 rcvar
 """""
 
-By default, the parameter *name* is used to create a ``rcvar`` ::
+By default, the parameter ``name`` is used to create a ``rcvar`` ::
 
   cl_rcconf_rcvar:
     default: "{{ _service }}_enable"

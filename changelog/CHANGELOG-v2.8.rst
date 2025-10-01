@@ -18,6 +18,7 @@ Minor Changes
 -------------
 * Add tasks/files-sysrc.yml
 * Update the loop's labels.
+* Update docs guide with the sysrc options.
 
 Bugfixes
 --------
