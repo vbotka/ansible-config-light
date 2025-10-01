@@ -8,19 +8,18 @@ lineinfile
 
 Create or configure lines in a file.
 
-
-Parameters for lineinfile
-"""""""""""""""""""""""""
+Parameters
+""""""""""
 
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
+| path                | string ``required``   | Path to file.               |
 +---------------------+-----------------------+-----------------------------+
 | lines               | list ``required``     | lineinfile params. Either   |
 |                     |                       | dict or lines is required.  |
 +--+------------------+-----------------------+-----------------------------+
-|  | regexp           | string ``required``   | Regular expression          |
+|  | regexp           | string ``required``   | Regular expression.         |
 |  +------------------+-----------------------+-----------------------------+
 |  | line             | string ``required``   | Line                        |
 |  +------------------+-----------------------+-----------------------------+
@@ -37,15 +36,15 @@ Parameters for lineinfile
 |  | ...              | ...                   | <TBD>                       |
 +--+------------------+-----------------------+-----------------------------+
 | assignment          | string                | Assignment of key and value |
-|                     |                       | in dict                     |
+|                     |                       | in dict.                    |
 +---------------------+-----------------------+-----------------------------+
 | dict                | list ``required``     | lineinfile params. Either   |
 |                     |                       | dict or lines is required.  |
 |                     |                       | (see files-lineinfile.yml)  |
 +--+------------------+-----------------------+-----------------------------+
-|  | key              | string ``required``   | Key value for regexp        |
+|  | key              | string ``required``   | Key value for regexp.       |
 |  +------------------+-----------------------+-----------------------------+
-|  | value            | string ``required``   | Value for line              |
+|  | value            | string ``required``   | Value for line.             |
 |  +------------------+-----------------------+-----------------------------+
 |  | firstmatch       |                       |                             |
 |  +------------------+-----------------------+-----------------------------+
@@ -55,25 +54,25 @@ Parameters for lineinfile
 |  +------------------+-----------------------+-----------------------------+
 |  | ...              | ...                   | <TBD>                       |
 +--+------------------+-----------------------+-----------------------------+
-| owner               | string                | Owner of the file           |
+| owner               | string                | Owner of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| group               | string                | Group of the file           |
+| group               | string                | Group of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| mode                | string                | Mode of the file            |
+| mode                | string                | Mode of the file.           |
 +---------------------+-----------------------+-----------------------------+
-| attributes          | string                | Attributes of the file      |
+| attributes          | string                | Attributes of the file.     |
 +---------------------+-----------------------+-----------------------------+
-| other               | string                | Attributes of module file   |
+| other               | string                | Attributes of module file.  |
 +---------------------+-----------------------+-----------------------------+
-| create              | boolean               | Create file                 |
+| create              | boolean               | Create file.                |
 +---------------------+-----------------------+-----------------------------+
-| validate            | string                | Command to validate file    |
+| validate            | string                | Command to validate file.   |
 +---------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
+| handlers            | list                  | List of handlers.           |
 +---------------------+-----------------------+-----------------------------+
 
-Example of lineinfile with lines
-""""""""""""""""""""""""""""""""
+Example
+"""""""
 
 File ``/usr/local/etc/dma/dma.conf`` for `DragonFly Mail Agent <https://www.dragonflybsd.org/handbook/mta/>`_
 

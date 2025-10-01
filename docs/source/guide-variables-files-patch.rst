@@ -8,30 +8,30 @@ patch
 
 Patch files.
 
-Parameters for patch
-""""""""""""""""""""
+Parameters
+""""""""""
 
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file to be patched  |
+| path                | string ``required``   | Path to file to be patched. |
 +---------------------+-----------------------+-----------------------------+
 | patch               | dict ``required``     | Parameters of patch module  |
 |                     |                       | (see files-patch.yml)       |
 +--+------------------+-----------------------+-----------------------------+
-|  | src              | string ``required``   | Path of the patch file      |
+|  | src              | string ``required``   | Path of the patch file.     |
 |  +------------------+-----------------------+-----------------------------+
-|  | basedir          | path                  | Apply patch in this dir     |
+|  | basedir          | path                  | Apply patch in this dir.    |
 |  +------------------+-----------------------+-----------------------------+
 |  | ...              | ...                   | <TBD>                       |
 +--+------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
+| handlers            | list                  | List of handlers.           |
 +---------------------+-----------------------+-----------------------------+
 
-Example of patch
-""""""""""""""""
+Example
+"""""""
 
-File ``/etc/network.subr`` for */etc/rc.d/wpa_cli*
+File ``/etc/network.subr`` for ``/etc/rc.d/wpa_cli``
 
 [`contrib/freebsd-custom-image-wpacli/conf-light/files.d/network_subr.yml <https://github.com/vbotka/ansible-config-light/blob/master/contrib/freebsd-custom-image-wpacli/conf-light/files.d/network_subr.yml>`_]
 

@@ -17,16 +17,15 @@ Parameters
 +---------------------+-----------------------+---------------------------------------+
 | Parameter           | Type                  | Comments                              |
 +=====================+=======================+=======================================+
-| name                | string ``required``   | Name of the service                   |
+| name                | string ``required``   | Name of the service.                  |
 +---------------------+-----------------------+---------------------------------------+
-| state               | string                | State of the service                  |
+| state               | string                | State of the service.                 |
 |                     |                       | default: started (Linux)              |
 |                     |                       | default: start   (FreeBSD)            |
 +---------------------+-----------------------+---------------------------------------+
-| enabled             | boolean               | Start on boot                         |
+| enabled             | boolean               | Start on boot.                        |
 |                     |                       | default: true                         |
 +---------------------+-----------------------+---------------------------------------+
-
 
 .. seealso::
 

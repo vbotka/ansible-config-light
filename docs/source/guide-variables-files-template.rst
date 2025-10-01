@@ -14,29 +14,29 @@ Parameters for template
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
+| path                | string ``required``   | Path to file.               |
 +---------------------+-----------------------+-----------------------------+
 | template            | dict ``required``     | Template parameters         |
 |                     |                       | (see files-templates.yml)   |
 +--+------------------+-----------------------+-----------------------------+
-|  | path             | string ``required``   | Path of the source file     |
+|  | path             | string ``required``   | Path of the source file.    |
 |  +------------------+-----------------------+-----------------------------+
 |  | force            | boolean               | If *no*, transfer if dest   |
-|  |                  |                       | does not exist              |
+|  |                  |                       | does not exist.             |
 |  +------------------+-----------------------+-----------------------------+
 |  | ...              | ...                   | <TBD>                       |
 +--+------------------+-----------------------+-----------------------------+
-| owner               | string                | Owner of the file           |
+| owner               | string                | Owner of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| group               | string                | Group of the file           |
+| group               | string                | Group of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| mode                | string                | Mode of the file            |
+| mode                | string                | Mode of the file.           |
 +---------------------+-----------------------+-----------------------------+
-| attributes          | string                | Attributes of the file      |
+| attributes          | string                | Attributes of the file.     |
 +---------------------+-----------------------+-----------------------------+
-| validate            | string                | Command to validate file    |
+| validate            | string                | Command to validate file.   |
 +---------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
+| handlers            | list                  | List of handlers.           |
 +---------------------+-----------------------+-----------------------------+
 
 Example of template

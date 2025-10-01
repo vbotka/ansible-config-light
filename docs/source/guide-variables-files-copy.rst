@@ -8,42 +8,41 @@ copy
 
 Copy files.
 
-
-Parameters for copyfile
-"""""""""""""""""""""""
+Parameters
+""""""""""
 
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
+| path                | string ``required``   | Path to file.               |
 +---------------------+-----------------------+-----------------------------+
 | copyfile            | dict ``required``     | copyfile parameters         |
 |                     |                       | (see tasks/files-copy.yml)  |
 +--+------------------+-----------------------+-----------------------------+
-|  | path             | string ``required``   | Path of the source file     |
+|  | path             | string ``required``   | Path of the source file.    |
 |  +------------------+-----------------------+-----------------------------+
-|  | remote_src       | string                | Source file from remote     |
+|  | remote_src       | string                | Source file from remote.    |
 |  +------------------+-----------------------+-----------------------------+
 |  | force            | boolean               | If *no*, transfer if dest   |
-|  |                  |                       | does not exist              |
+|  |                  |                       | does not exist.             |
 |  +------------------+-----------------------+-----------------------------+
 |  | ...              | ...                   | <TBD>                       |
 +--+------------------+-----------------------+-----------------------------+
-| owner               | string                | Owner of the file           |
+| owner               | string                | Owner of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| group               | string                | Group of the file           |
+| group               | string                | Group of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| mode                | string                | Mode of the file            |
+| mode                | string                | Mode of the file.           |
 +---------------------+-----------------------+-----------------------------+
-| attributes          | string                | Attributes of the file      |
+| attributes          | string                | Attributes of the file.     |
 +---------------------+-----------------------+-----------------------------+
-| validate            | string                | Command to validate file    |
+| validate            | string                | Command to validate file.   |
 +---------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
+| handlers            | list                  | List of handlers.           |
 +---------------------+-----------------------+-----------------------------+
 
-Example of copyfile
-"""""""""""""""""""
+Example
+"""""""
 
 Create the description of the file (2) and declare the variable for the dictionary (7)
 

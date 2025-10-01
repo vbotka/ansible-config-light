@@ -17,6 +17,7 @@ Major Changes
 Minor Changes
 -------------
 * Update docs guide variables file sysrc.
+* Update docs guide variables files.
 
 2.8.1
 =====
