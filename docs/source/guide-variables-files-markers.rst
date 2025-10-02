@@ -9,29 +9,28 @@ blockinfile markers
 Create markers for Ansible module blockinfile. Mark existing blocks
 that you want to configure.
 
-
-Parameters for blockinfile markers
-""""""""""""""""""""""""""""""""""
+Parameters
+""""""""""
 
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
+| path                | string ``required``   | Path to file.               |
 +---------------------+-----------------------+-----------------------------+
 | markers             | list ``required``     | List of dictionaries        |
 |                     |                       | (see fn/mark-block.yml)     |
 +--+------------------+-----------------------+-----------------------------+
-|  | regex1           | string ``required``   | Regex of block's beginning  |
+|  | regex1           | string ``required``   | Regex of block's beginning. |
 |  +------------------+-----------------------+-----------------------------+
-|  | replace1         | string ``required``   | Block's beginning           |
+|  | replace1         | string ``required``   | Block's beginning.          |
 |  +------------------+-----------------------+-----------------------------+
-|  | regex2           | string ``required``   | Regex of block's ending     |
+|  | regex2           | string ``required``   | Regex of block's ending.    |
 |  +------------------+-----------------------+-----------------------------+
-|  | replace2         | string ``required``   | Block's ending              |
+|  | replace2         | string ``required``   | Block's ending.             |
 +--+------------------+-----------------------+-----------------------------+
 
-Example of blockinfile markers
-""""""""""""""""""""""""""""""
+Example
+"""""""
 
 For example, in file ``/usr/local/etc/lighttpd/modules.conf``, create blockinfile markers in the
 following block ::

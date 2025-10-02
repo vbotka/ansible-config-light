@@ -5,6 +5,20 @@ vbotka.config_light 2.8 Release Notes
 .. contents:: Topics
 
 
+2.8.2
+=====
+
+Release Summary
+---------------
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Update docs guide variables file sysrc.
+* Update docs guide variables files.
+
 2.8.1
 =====
 

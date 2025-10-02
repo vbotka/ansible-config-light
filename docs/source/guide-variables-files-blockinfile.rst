@@ -8,38 +8,37 @@ blockinfile
 
 Create or configure blocks in files.
 
-
-Parameters for blockinfile
-""""""""""""""""""""""""""
+Parameters
+""""""""""
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
+| path                | string ``required``   | Path to file.               |
 +---------------------+-----------------------+-----------------------------+
 | blocks              | list ``required``     | List of dictionaries        |
 |                     |                       | (see files-blockinfile.yml) |
 +--+------------------+-----------------------+-----------------------------+
-|  | marker           | string ``required``   | Label of the marker         |
+|  | marker           | string ``required``   | Label of the marker.        |
 |  +------------------+-----------------------+-----------------------------+
-|  | block            | string ``required``   | Text between markers        |
+|  | block            | string ``required``   | Text between markers.       |
 |  +------------------+-----------------------+-----------------------------+
 |  | ...              | ...                   | <TBD>                       |
 +--+------------------+-----------------------+-----------------------------+
-| owner               | string                | Owner of the file           |
+| owner               | string                | Owner of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| group               | string                | Group of the file           |
+| group               | string                | Group of the file.          |
 +---------------------+-----------------------+-----------------------------+
-| mode                | string                | Mode of the file            |
+| mode                | string                | Mode of the file.           |
 +---------------------+-----------------------+-----------------------------+
-| create              | boolean               | Create if does not exist    |
+| create              | boolean               | Create if does not exist.   |
 +---------------------+-----------------------+-----------------------------+
-| validate            | string                | Command to validate file    |
+| validate            | string                | Command to validate file.   |
 +---------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
+| handlers            | list                  | List of handlers.           |
 +---------------------+-----------------------+-----------------------------+
 
-Example of blockinfileinfile
-""""""""""""""""""""""""""""
+Example
+"""""""
 
 Create the description of the file (2) and declare the list of the blocks (10)
 
@@ -65,7 +64,7 @@ Then, the command ::
 
   shell> ansible-playbook config-light.yml -t cl_files_blockinfile
 
-will create this block in ``modules.conf`` ::
+creates this block in ``modules.conf`` ::
 
   ##
 

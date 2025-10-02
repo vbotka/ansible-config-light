@@ -14,11 +14,11 @@ Parameters
 +---------------------+-----------------------+-----------------------------+
 | Parameter           | Type                  | Comments                    |
 +=====================+=======================+=============================+
-| path                | string ``required``   | Path to file                |
+| path                | string ``required``   | Path to file.               |
 +---------------------+-----------------------+-----------------------------+
-| jail                | string                | Jail name/ID to operate on  |
+| jail                | string                | Jail name/ID to operate on. |
 +---------------------+-----------------------+-----------------------------+
-| delim               | string                | Delimeter instead od splace |
+| delim               | string                | Delimiter instead of space. |
 +---------------------+-----------------------+-----------------------------+
 | sysrc               | list ``required``     |                             |
 +--+------------------+-----------------------+-----------------------------+
@@ -28,7 +28,7 @@ Parameters
 |  +------------------+-----------------------+-----------------------------+
 |  | state            | string                | see community.general.sysrc |
 +--+------------------+-----------------------+-----------------------------+
-| handlers            | list                  | List of handlers            |
+| handlers            | list                  | List of handlers.           |
 +---------------------+-----------------------+-----------------------------+
 
 Example
@@ -37,7 +37,7 @@ Example
 Configure ``git_daemon``
 
 .. code-block:: yaml
-   :caption: conf-light/handlers.d/git.yml
+   :caption: conf-light/files.d/git.yml
 
    git:
      path: /etc/rc.conf
@@ -59,6 +59,16 @@ Configure ``git_daemon``
      git_daemon_group: "{{ cl_git_daemon_group }}"
      git_daemon_directory: "{{ cl_git_daemon_directory }}"
      git_daemon_flags: "{{ cl_git_daemon_flags }}"
+
+creates the below lines in ``/etc/rc.conf``
+
+.. code-block:: yaml
+   :caption: /etc/rc.onf
+
+   git_daemon_user=git_daemon
+   git_daemon_group=git_daemon
+   git_daemon_directory=/usr/local/var/db/git
+   git_daemon_flags="--syslog --reuseaddr --detach --base-path=/usr/local/var/db/git"
 
 .. seealso::
 
