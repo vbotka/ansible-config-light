@@ -5,6 +5,21 @@ vbotka.config_light 2.8 Release Notes
 .. contents:: Topics
 
 
+2.8.3
+=====
+
+Release Summary
+---------------
+Ansible 2.20 upgrade.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+* Supported versions FreeBSD 13.5, 14.3, and 15.0
+
+
 2.8.2
 =====
 
@@ -18,6 +33,7 @@ Minor Changes
 -------------
 * Update docs guide variables file sysrc.
 * Update docs guide variables files.
+
 
 2.8.1
 =====
